@@ -1,3 +1,5 @@
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -31,9 +33,13 @@ export PATH="$PNPM_HOME:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # For compilers to find openjdk you may need to set:
 # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+export PATH="$PATH:/Users/lcarv/flutter/bin/cache/dart-sdk/bin"
+
 # FNM node version manager-------------------------------------------------------------
 export PATH=/home/$USER/.fnm:$PATH
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+
 # SDK man for managing java version mannager
 export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
