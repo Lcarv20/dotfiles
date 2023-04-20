@@ -1,5 +1,4 @@
 tap "buildpacks/tap"
-tap "dart-lang/dart"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
@@ -98,8 +97,6 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # A CLI for building apps using Cloud Native Buildpacks
 brew "buildpacks/tap/pack"
-# SDK
-brew "dart-lang/dart/dart"
 # Sdkman - The Software Development Kit Manager
 brew "sdkman/tap/sdkman-cli"
 brew "spring-io/tap/spring-boot"
