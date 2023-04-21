@@ -1,5 +1,3 @@
-
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -20,6 +18,8 @@ export PATH=/opt/homebrew/bin:$PATH
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #LunarVim-------------------------------------------------------------
 export PATH=/Users/lcarv/.local/bin:$PATH
+# Dart-------------------------------------------------------------
+export PATH="$PATH:/Users/lcarv/flutter/bin/cache/dart-sdk/bin"
 # Flutter-------------------------------------------------------------
 export PATH="$PATH:/Users/lcarv/flutter/bin"
 # goimports-------------------------------------------------------------
@@ -34,7 +34,8 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # For compilers to find openjdk you may need to set:
 # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
-export PATH="$PATH:/Users/lcarv/flutter/bin/cache/dart-sdk/bin"
+# Lazygit Config-------------------------------------------------------------
+export XDG_CONFIG_HOME="$HOME/.dotfiles"
 
 # FNM node version manager-------------------------------------------------------------
 export PATH=/home/$USER/.fnm:$PATH
