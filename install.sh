@@ -25,5 +25,8 @@ brew install kitty
 # configure zsh
 ln -s ~/.dotfiles/zsh/.zshrc ~
 
+# configure lazygit
+ln -s ~/.dotfiles/lazygit ~/.config/lazygit
+
 # configure lsd
 ln -s ~/.dotfiles/lsd ~/.config/lsd

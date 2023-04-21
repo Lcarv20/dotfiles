@@ -34,8 +34,8 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # For compilers to find openjdk you may need to set:
 # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
-# Lazygit Config-------------------------------------------------------------
-export XDG_CONFIG_HOME="$HOME/.dotfiles"
+# Lazygit, Neovim and etc------------------------------------------------
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # FNM node version manager-------------------------------------------------------------
 export PATH=/home/$USER/.fnm:$PATH
