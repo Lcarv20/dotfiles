@@ -2,8 +2,13 @@
 
 # install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
 # install casks and packages from bundle
+# learn more about Brewfile: https://gist.github.com/ChristopherA/a579274536aab36ea9966f301ff14f3f
 brew bundle --file ./Brewfile
+
+# install rosetta for flutter
+sudo softwareupdate --install-rosetta --agree-to-license
 
 # install git if it doesn't exist
 if ! command -v git &> /dev/null; then
