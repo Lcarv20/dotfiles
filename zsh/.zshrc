@@ -76,6 +76,11 @@ alias lla="ls -la"
 # Lunarvim & Neovide PDE
 alias lv="/Users/lcarv/.config/lvim/neolvim"
 
+if command -v bat &> /dev/null; then
+  alias cat="bat -pp --theme \"base16-256\"" 
+  alias catt="bat --theme \"base16-256\"" 
+fi
+
 
 # Zsh syntax highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
