@@ -66,7 +66,12 @@ alias gin="/Users/lcarv/go/bin/gin"
 alias wails="/Users/lcarv/go/bin/wails"
 alias pnx="pnpm nx"
 # Better ls
+alias l="ls -l"
 alias ls="lsd"
+alias lt="ls --tree"
+alias la="ls -a"
+alias ll="ls -l"
+alias lla="ls -la"
 # Lunarvim & Neovide PDE
 alias lv="/Users/lcarv/.config/lvim/neolvim"
 
