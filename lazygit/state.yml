@@ -1,7 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
-- /Users/lcarv/dev/web/hackrnews
 - /Users/lcarv/.dotfiles
+- /Users/lcarv/dev/web/hackrnews
 - /Users/lcarv/.config/nvim
 startuppopupversion: 5
 customcommandshistory: []
