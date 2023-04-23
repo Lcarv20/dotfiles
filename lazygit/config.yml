@@ -47,6 +47,9 @@ git:
   paging:
     colorArg: always
     useConfig: false
+    # pager: bat -pp --theme \"base16-256\"
+    pager: 'bat'
+    # pager: "bat --theme \"base16-256\""
   commit:
     signOff: false
     verbose: default # one of 'default' | 'always' | 'never'
@@ -107,6 +110,7 @@ keybinding:
     gotoBottom: '>' # go to bottom of list
     scrollLeft: 'H' # scroll left within list view
     scrollRight: 'L' # scroll right within list view
+
     prevBlock: '<left>' # goto the previous block / panel
     nextBlock: '<right>' # goto the next block / panel
     prevBlock-alt: 'h' # goto the previous block / panel
@@ -167,6 +171,7 @@ keybinding:
     toggleStagedAll: 'a' # stage/unstage all
     viewResetOptions: 'D'
     fetch: 'f'
+
     toggleTreeView: '`'
     openMergeTool: 'M'
     openStatusFilter: '<c-b>'
