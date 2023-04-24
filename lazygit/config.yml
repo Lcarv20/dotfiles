@@ -48,7 +48,7 @@ git:
     colorArg: always
     useConfig: false
     # pager: bat -pp --theme \"base16-256\"
-    pager: 'bat'
+    # pager: 'bat --theme \"TwoDark\"'
     # pager: "bat --theme \"base16-256\""
   commit:
     signOff: false

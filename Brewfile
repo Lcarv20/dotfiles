@@ -8,6 +8,10 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "sdkman/tap"
 tap "spring-io/tap"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Bash scripts that integrate bat with various command-line tools
+brew "bat-extras"
 # XML-based font configuration API for X Windows
 brew "fontconfig"
 # OpenType text shaping engine
@@ -22,6 +26,8 @@ brew "php"
 brew "composer"
 # Reimplementation of ctags(1)
 brew "ctags"
+# Programmatically minimize files to isolate features of interest
+brew "delta"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
 # Simple, fast and user-friendly alternative to find
@@ -215,6 +221,8 @@ cask "neovide"
 cask "pgadmin4"
 # Video game digital distribution service
 cask "steam"
+# File system and storage management software
+cask "tuxera-ntfs"
 # Keyboard configurator
 cask "via"
 # Binary releases of VS Code without MS branding/telemetry/licensing
