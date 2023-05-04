@@ -12,6 +12,7 @@ plug "zap-zsh/supercharge"
 # plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "romkatv/powerlevel10k"
+plug "paulirish/git-open"
 
 #HomeBrew-------------------------------------------------------------
 export PATH=/opt/homebrew/bin:$PATH
@@ -75,6 +76,7 @@ alias ll="ls -l"
 alias lla="ls -la"
 # Lunarvim & Neovide PDE
 alias lv="/Users/lcarv/.config/lvim/neolvim"
+alias "git open"="git-open"
 
 if command -v bat &> /dev/null; then
   alias cat="bat -pp --theme \"base16-256\"" 
