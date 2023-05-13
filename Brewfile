@@ -107,6 +107,8 @@ brew "buildpacks/tap/pack"
 # Sdkman - The Software Development Kit Manager
 brew "sdkman/tap/sdkman-cli"
 brew "spring-io/tap/spring-boot"
+# Chromium based browser
+cask "arc"
 # Text editor
 cask "emacs"
 # Developer targeted fonts with a high number of glyphs
@@ -211,6 +213,8 @@ cask "font-ubuntu-mono-nerd-font"
 cask "font-ubuntu-nerd-font"
 # Developer targeted fonts with a high number of glyphs
 cask "font-victor-mono-nerd-font"
+# Git client focusing on productivity
+cask "gitkraken"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
 # GPU-based terminal emulator
@@ -221,8 +225,6 @@ cask "neovide"
 cask "pgadmin4"
 # Video game digital distribution service
 cask "steam"
-# File system and storage management software
-cask "tuxera-ntfs"
 # Keyboard configurator
 cask "via"
 # Binary releases of VS Code without MS branding/telemetry/licensing

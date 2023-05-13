@@ -46,6 +46,11 @@ eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 
+# Rust toolchain----------------------------------------------------------
+export CARGO_HOME=$HOME/.cargo
+export RUSTUP_HOME=$HOME/.rustup
+export PATH=$PATH:$HOME/.cargo/bin
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/lcarv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lcarv/google-cloud-sdk/path.zsh.inc'; fi
 
