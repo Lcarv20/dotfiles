@@ -42,6 +42,9 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH=/home/$USER/.fnm:$PATH
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
+# Default Editor -------------------------------------------------------------
+export EDITOR='lvim'
+
 # SDK man for managing java version mannager
 export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
 [[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
