@@ -1,0 +1,38 @@
+[init]
+	defaultBranch = main
+[user]
+	name = Luís Carvalho
+	email = 42584819+Lcarv20@users.noreply.github.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	editor = nvim
+	excludesfile = /Users/lcarv/.gitignore_global
+  pager = delta
+  trustctime = false
+[diff]
+  tool = vimdiff
+  colorMoved = default
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/lcarv/.stCommitMsg
+[interactive]
+    diffFilter = delta --color-only
+[include]
+    path = ~/.dotfiles/git/themes.gitconfig
+[delta]
+    features = calochortus-lyallii
+    navigate = true  # use n and N to move between diff sections
+    side-by-side = true
+    line-numbers = true
