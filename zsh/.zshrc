@@ -1,6 +1,7 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+$HOME/.dotfiles/zsh/poke-colorscript
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -13,6 +14,8 @@ plug "zap-zsh/supercharge"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "romkatv/powerlevel10k"
 plug "paulirish/git-open"
+plug "Aloxaf/fzf-tab"
+plug "Freed-Wu/fzf-tab-source"
 
 #HomeBrew-------------------------------------------------------------
 export PATH=/opt/homebrew/bin:$PATH
@@ -100,4 +103,11 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # not sure if this works
 # HYPHEN_INSENSITIVE="true"
+
+# fzf catppuccin_mocha
+export FZF_DEFAULT_OPTS=" \
+--border=rounded --margin=1% --no-info --prompt=' ' --no-mouse \
+--color=bg+:cyan,bg:#1a1b26,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
