@@ -37,6 +37,9 @@ export PATH="$PNPM_HOME:$PATH"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 # For compilers to find openjdk you may need to set:
 # export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+#
+# GOLANG CI LINTER-------------------------------------------------------------
+export PATH=$PATH:$GOLANGCI_LINT_INSTALL_DIR
 
 # Lazygit, Neovim and etc------------------------------------------------
 export XDG_CONFIG_HOME="$HOME/.config"
