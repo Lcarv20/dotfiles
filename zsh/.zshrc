@@ -17,8 +17,10 @@ plug "paulirish/git-open"
 plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
 
+#BOB (nvim v-manager)-------------------------------------------------------
+export PATH=/Users/lcarv/.local/share/bob/nvim-bin:$PATH
 #HomeBrew-------------------------------------------------------------
-export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/sbin:$PATH
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #LunarVim-------------------------------------------------------------
 export PATH=/Users/lcarv/.local/bin:$PATH
@@ -67,8 +69,11 @@ if [ -f '/Users/lcarv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lcarv/goo
 if [ -f '/Users/lcarv/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lcarv/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Buildpacks autocompletion
-. $(pack completion --shell zsh)
+# . $(pack completion --shell zsh)
 
+# Dotnet------------------------------------------------------------- 
+export PATH="/opt/homebrew/opt/dotnet@6/bin:$PATH"
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet@6/libexec"
 
 
 

@@ -1,0 +1,3 @@
+to install
+- undotree
+- autobrackets

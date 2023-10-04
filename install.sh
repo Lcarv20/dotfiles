@@ -30,3 +30,6 @@ ln -s ~/.dotfiles/lazygit ~/.config/lazygit
 
 # configure lsd
 ln -s ~/.dotfiles/lsd ~/.config/lsd
+
+# configure nvim
+ln -s ~/.dotfiles/nvim ~/.config
