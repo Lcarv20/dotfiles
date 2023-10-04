@@ -48,5 +48,6 @@ return {
             }
         end,
     },
-    "mbbill/undotree",
+    {"mbbill/undotree"},
+    {"nvim-lua/plenary.nvim"}
 }

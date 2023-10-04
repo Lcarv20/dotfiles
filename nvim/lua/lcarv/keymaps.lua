@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local fns = require("lcarv.fns")
 
 local function map(mode, mapping, cmd, opts)
 	opts = opts or {}
@@ -66,7 +67,11 @@ map("n", " u", ":UndotreeToggle<cr>", { desc = "[u]ndotree" })
 
 -- Editor
 wk.register({ e = { name = "Editor" } }, { prefix = "<leader>" })
-map("n", " Eh", function() vim.lsp.inlay_hint(0) end, { desc = "[H]ints" })
+map("n", " Eh", function()
+	fns.toggleInlayHints()
+	vim.lsp.inlay_hint(0, nil)
+end
+, { desc = "[H]ints" })
 map("n", " EL", ":Lazy<cr>", { desc = "[L]azy" })
 map("n", " Ei", ":LspInfo<cr>", { desc = "[i]nfo" })
 map("n", " Em", ":Mason<cr>", { desc = "[m]ason" })

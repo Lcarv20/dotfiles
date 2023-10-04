@@ -1,3 +1,5 @@
+local fns = require("lcarv.fns")
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
@@ -79,11 +81,16 @@ vim.api.nvim_create_autocmd('ColorScheme', {
 
 
 -- Only uncoment when version 0.10 of neovim
-vim.api.nvim_create_autocmd('BufWinEnter', {
-  pattern = {'*.lua', '*.ts', '*.js', '*.go', '*.tsx', '*.jsx'},
+vim.api.nvim_create_autocmd('BufEnter', {
+  pattern = { '*.lua', '*.ts', '*.js', '*.go', '*.tsx', '*.jsx' },
   callback = function()
-    if vim.lsp.inlay_hint then
-      vim.lsp.inlay_hint(0, true)
+    local isInlayActive = fns.getConfig()
+
+    if isInlayActive["inlayHints"] ~= nil then
+      -- checks if inlay hints are supported by the client
+      if vim.lsp.inlay_hint then
+        vim.lsp.inlay_hint(0, isInlayActive["inlayHints"])
+      end
     end
   end,
 })
