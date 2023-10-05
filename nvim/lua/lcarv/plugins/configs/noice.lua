@@ -1,9 +1,3 @@
--- integrate notify with telescope
--- local telescope_status_ok, telescope = pcall(require, "telescope")
--- if telescope_status_ok then
---   telescope.load_extension("notify")
--- end
-
 return {
   "folke/noice.nvim",
   dependencies = {

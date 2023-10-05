@@ -40,7 +40,7 @@ return {
             scope = {
                 enabled = true,
                 highlight = highlight,
-                char = '⎸',
+                char = '┃',
             },
         })
     end
