@@ -4,12 +4,12 @@ local r = function(path)
 end
 
 require("lazy").setup({
+		r("colorschemes"),
 		r("telescope"),
 		r("whichkey"),
 		r("misc"),
 		r("cmp"),
 		r("lsp"),
-		r("colorschemes"),
 		r("git-plugins"),
 		r("treesitter"),
 		r("comment"),

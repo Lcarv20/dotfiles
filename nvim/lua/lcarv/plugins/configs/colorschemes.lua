@@ -101,6 +101,27 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		lazy = false,
+		opts = {
+			transparent_background = true,
+			custom_highlights = function(colors)
+				return {
+					-- Comment = { fg = colors.flamingo },
+					TabLineSel = { bg = colors.pink },
+					CmpBorder = { fg = colors.surface2 },
+					Pmenu = { bg = colors.none },
+					-- comment
+				}
+			end,
+		},
+		integrations = {
+			fidgets = true,
+			cmp = true,
+			gitsigns = true,
+			nvimtree = true,
+			treesitter = true,
+			notify = true,
+			noice = true,
+		},
 		priority = 1000,
 	},
 	{

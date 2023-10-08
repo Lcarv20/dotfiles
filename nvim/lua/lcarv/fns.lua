@@ -22,7 +22,7 @@ M.getConfig = function()
 	local config = Path:new(editorState)
 
 	if not config:exists() then
-	    Path:new(editorState):write(vim.fn.json_encode(defaultConfig), "w")
+		Path:new(editorState):write(vim.fn.json_encode(defaultConfig), "w")
 	end
 
 	return vim.json.decode(Path:new(editorState):read())
@@ -37,6 +37,16 @@ M.toggleInlayHints = function()
 	}
 
 	Path:new(editorState):write(vim.json.encode(newConfig), "w")
+end
+
+M.cursorStyle = function()
+	-- create highlights for the different modes
+	local mocha = require("catppuccin.palettes").get_palette "mocha"
+	vim.api.nvim_set_hl(0, "ICursor", { bg = mocha.green })
+	vim.api.nvim_set_hl(0, "VCursor", { bg = mocha.mauve })
+	vim.api.nvim_set_hl(0, "RCursor", { bg = mocha.red })
+	vim.api.nvim_set_hl(0, "NoiceCursor", { bg = mocha.peach })
+	vim.opt.guicursor = 'n:block,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor'
 end
 
 return M

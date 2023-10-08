@@ -40,34 +40,34 @@ local servers = {
   cssls = {},
   pyright = {},
   rust_analyzer = {},
-  tsserver = {
-    settings = {
-      typescript = {
-        inlayHints = {
-          includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
-        }
-      },
-      javascript = {
-        inlayHints = {
-          includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayFunctionParameterTypeHints = true,
-          includeInlayVariableTypeHints = true,
-          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-          includeInlayPropertyDeclarationTypeHints = true,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
-        }
-      }
-    }
-  },
+  -- tsserver = {
+  --   settings = {
+  --     typescript = {
+  --       inlayHints = {
+  --         includeInlayParameterNameHints = 'all',
+  --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+  --         includeInlayFunctionParameterTypeHints = true,
+  --         includeInlayVariableTypeHints = true,
+  --         includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+  --         includeInlayPropertyDeclarationTypeHints = true,
+  --         includeInlayFunctionLikeReturnTypeHints = true,
+  --         includeInlayEnumMemberValueHints = true,
+  --       }
+  --     },
+  --     javascript = {
+  --       inlayHints = {
+  --         includeInlayParameterNameHints = 'all',
+  --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+  --         includeInlayFunctionParameterTypeHints = true,
+  --         includeInlayVariableTypeHints = true,
+  --         includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+  --         includeInlayPropertyDeclarationTypeHints = true,
+  --         includeInlayFunctionLikeReturnTypeHints = true,
+  --         includeInlayEnumMemberValueHints = true,
+  --       }
+  --     }
+  --   }
+  -- },
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },

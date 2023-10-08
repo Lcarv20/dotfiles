@@ -20,6 +20,16 @@ return {
             end,
 
             settings = {
+                default_preferences = {
+                    includeInlayParameterNameHints = 'all',
+                    includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                    includeInlayFunctionParameterTypeHints = true,
+                    includeInlayVariableTypeHints = true,
+                    includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+                    includeInlayPropertyDeclarationTypeHints = true,
+                    includeInlayFunctionLikeReturnTypeHints = true,
+                    includeInlayEnumMemberValueHints = true,
+                },
                 -- spawn additional tsserver instance to calculate diagnostics on it
                 separate_diagnostic_server = true,
                 -- "change"|"insert_leave" determine when the client asks the server about diagnostic

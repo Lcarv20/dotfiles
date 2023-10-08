@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd('BufLeave', {
 })
 
 
-vim.api.nvim_create_autocmd('ColorScheme', {
+vim.api.nvim_create_autocmd('VimEnter', {
   pattern = '*',
   callback = function()
     vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#000000', bold = true, underline = true })
@@ -93,6 +93,12 @@ vim.api.nvim_create_autocmd('BufEnter', {
       end
     end
   end,
+})
+
+-- Cursor style
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = fns.cursorStyle,
 })
 
 -- Inlay Hints: plugin delete this and remove plugin when on verion 0.10 of neovim
