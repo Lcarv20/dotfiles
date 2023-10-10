@@ -129,7 +129,7 @@ return {
                 win_options = {
                     -- Window transparency (0-100)
                     winblend = 10,
-                    cursorline = true,
+                    cursorline = false,
                     cursorlineopt = "both",
                 },
 

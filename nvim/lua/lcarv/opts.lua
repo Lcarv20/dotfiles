@@ -34,7 +34,9 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.completeopt = "menu,menuone,noselect"
+-- vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.fileencoding  = "utf-8"
 
 --NETRW DISABLED
 vim.g.loaded_netrwPlugin = 1
@@ -66,3 +68,7 @@ vim.opt.spell = false
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set formatoptions-=cro]]
+
+vim.opt.showmode = false
+vim.opt.spelllang = { 'en_us' }
+vim.opt.listchars = { trail = "·", eol = "$", extends = ">", precedes = "<", tab = "→ ", nbsp = "␣" }

@@ -34,18 +34,27 @@ local TelescopePrompt = {
 
   -- Results whi
   TelescopeResultsTitle = {
-    fg = '#1F1F23',
-    bg = '#1F1F23',
+    fg = '#161617',
+    bg = '#161617',
   },
   TelescopeResultsNormal = {
     -- fg = '#1F1F23',
-    bg = '#1F1F23',
+    bg = '#161617',
   },
   TelescopeResultsBorder = {
-    fg = '#1F1F23',
-    bg = '#1F1F23',
+    fg = '#161617',
+    bg = '#161617',
   },
+  NormalFloat = {
+    bg = '#161617',
+    fg = '#cdd6f5',
+  },
+  Pmenu = {
+    bg = '#161617',
+    fg = '#cdd6f5',
+  }
 }
 for hl, col in pairs(TelescopePrompt) do
   vim.api.nvim_set_hl(0, hl, col)
 end
+

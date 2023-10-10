@@ -100,7 +100,7 @@ return {
             height = 10,
           },
           border = {
-            style = "rounded",
+            -- style = "rounded",
             padding = { 0, 1 },
           },
           win_options = {

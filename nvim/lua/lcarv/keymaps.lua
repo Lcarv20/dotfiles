@@ -65,11 +65,13 @@ map("n", "<C-4>", function() ui.nav_file(4) end)
 -- wk.register({ u = { name = "Undotree" } }, { prefix = "<leader>" })
 map("n", " u", ":UndotreeToggle<cr>", { desc = "[u]ndotree" })
 
+-- Refactor
+wk.register({ R = { name = "Refactor" } }, { prefix = "<leader>" })
+
 -- Editor
-wk.register({ e = { name = "Editor" } }, { prefix = "<leader>" })
+wk.register({ E = { name = "Editor" } }, { prefix = "<leader>" })
 map("n", " Eh", function()
 	fns.toggleInlayHints()
-	vim.lsp.inlay_hint()
 end
 , { desc = "[H]ints" })
 map("n", " EL", ":Lazy<cr>", { desc = "[L]azy" })

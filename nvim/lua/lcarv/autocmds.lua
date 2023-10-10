@@ -42,11 +42,11 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Autocmd for eyeliner
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "*",
+vim.api.nvim_create_autocmd('VimEnter', {
+  pattern = '*',
   callback = function()
-    vim.api.nvim_set_hl(0, "EyelinerPrimary", { fg = "#ff00ff", bold = true, underline = false })
-    vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = "#00ffff", underline = false })
+    vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#000000', bold = true, underline = true })
+    vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#ffffff', underline = true })
   end,
 })
 
@@ -69,16 +69,6 @@ vim.api.nvim_create_autocmd('BufLeave', {
     end
   end
 })
-
-
-vim.api.nvim_create_autocmd('VimEnter', {
-  pattern = '*',
-  callback = function()
-    vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#000000', bold = true, underline = true })
-    vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#ffffff', underline = true })
-  end,
-})
-
 
 -- Only uncoment when version 0.10 of neovim
 vim.api.nvim_create_autocmd('BufEnter', {

@@ -69,7 +69,7 @@ require("neodev").setup()
 --   },
 --
 -- }
--- 
+
 vim.diagnostic.config({
   -- virtual_text = true,
   virtual_text = {
@@ -90,7 +90,7 @@ vim.diagnostic.config({
   float = {
     focusable = false,
     style = "minimal",
-    border = "rounded",
+    border = "none",
     source = "always",
     header = "",
     prefix = "",

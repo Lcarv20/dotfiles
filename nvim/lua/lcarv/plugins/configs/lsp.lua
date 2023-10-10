@@ -25,7 +25,7 @@ return {
         event = "VeryLazy",
         opts = {
             handler_opts = {
-                border = "rounded"
+                -- border = "rounded"
             },
             floating_window = false,
             hint_enable = true,

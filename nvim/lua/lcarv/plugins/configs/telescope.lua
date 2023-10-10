@@ -25,7 +25,7 @@ return {
                 defaults = {
                     prompt_prefix = " " .. icons.ui.Search .. " ",
                     borderchars = {
-                        prompt = { ' ', ' ', '―', ' ', ' ', ' ', ' ', ' ' },
+                        prompt = { ' ', ' ', '⎯', ' ', ' ', ' ', ' ', ' ' },
                         results = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
                         preview = { ' ', ' ', ' ', '▏', '▏', ' ', ' ', '▏' },
                     },
@@ -45,7 +45,7 @@ return {
             -- Enable telescope fzf native, if installed
             telescope.load_extension('fzf')
             -- Enable notify.nvim
-            telescope.load_extension("notify")
+            -- telescope.load_extension("notify")
         end
     },
 }

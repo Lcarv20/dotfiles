@@ -37,6 +37,8 @@ M.toggleInlayHints = function()
 	}
 
 	Path:new(editorState):write(vim.json.encode(newConfig), "w")
+
+	vim.lsp.inlay_hint(0)
 end
 
 M.cursorStyle = function()
@@ -47,6 +49,16 @@ M.cursorStyle = function()
 	vim.api.nvim_set_hl(0, "RCursor", { bg = mocha.red })
 	vim.api.nvim_set_hl(0, "NoiceCursor", { bg = mocha.peach })
 	vim.opt.guicursor = 'n:block,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor'
+end
+
+M.colors = function()
+	local mocha = require("catppuccin.palettes").get_palette "mocha"
+	return {
+		latte = require("catppuccin.palettes").get_palette "latte",
+		frappe = require("catppuccin.palettes").get_palette "frappe",
+		macchiato = require("catppuccin.palettes").get_palette "macchiato",
+		mocha = require("catppuccin.palettes").get_palette "mocha",
+	}
 end
 
 return M
