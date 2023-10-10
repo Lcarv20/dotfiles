@@ -24,6 +24,7 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
 
 vim.opt.termguicolors = true
 
@@ -33,7 +34,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.o.completeopt = 'menuone,noselect'
+vim.opt.completeopt = "menu,menuone,noselect"
 
 --NETRW DISABLED
 vim.g.loaded_netrwPlugin = 1
@@ -45,3 +46,23 @@ vim.g.loaded_netrw = 1
 -- vim.g.netrw_winsize = 25
 -- vim.g.netrw_liststyle = 3
 -- vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+
+vim.opt.confirm = true
+
+vim.opt.pumblend = 10  -- Popup blend
+vim.opt.pumheight = 10 -- Maximum number of entries in a popup
+
+vim.opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  -- fold = "⸱",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = " ",
+}
+
+vim.opt.spell = false
+
+vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd [[set formatoptions-=cro]]

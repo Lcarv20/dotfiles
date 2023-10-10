@@ -69,7 +69,7 @@ map("n", " u", ":UndotreeToggle<cr>", { desc = "[u]ndotree" })
 wk.register({ e = { name = "Editor" } }, { prefix = "<leader>" })
 map("n", " Eh", function()
 	fns.toggleInlayHints()
-	vim.lsp.inlay_hint(0, nil)
+	vim.lsp.inlay_hint()
 end
 , { desc = "[H]ints" })
 map("n", " EL", ":Lazy<cr>", { desc = "[L]azy" })

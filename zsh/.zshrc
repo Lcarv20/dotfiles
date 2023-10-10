@@ -51,7 +51,7 @@ export PATH=/home/$USER/.fnm:$PATH
 eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # Default Editor -------------------------------------------------------------
-export EDITOR='lvim'
+export EDITOR='nvim'
 
 # SDK man for managing java version mannager
 export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec

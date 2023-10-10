@@ -2,8 +2,10 @@ return {
   {
     "rcarriga/nvim-notify",
     opts = {
-      render = "wrapped-compact",
+      render = "compact",
       background_colour = "#11111b",
+      top_down = false,
+      level = 2,
     }
   },
   {
@@ -18,10 +20,26 @@ return {
         override = {
           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
           ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
+          ["cmp.entry.get_documentation"] = false,
         },
         signature = {
           enabled = false,
+        },
+        progress = {
+          enabled = true,
+          format = {
+            { "({data.progress.percentage}%) ", hl_group = "NoiceLspProgressSpinner" },
+            { " {spinner} ",                    hl_group = "NoiceLspProgressSpinner" },
+            { "{data.progress.title} ",         hl_group = "NoiceLspProgressTitle" },
+            { "{data.progress.client} ",        hl_group = "NoiceLspProgressClient" },
+          },
+
+          format_done = {
+            { " ✔ ", hl_group = "NoiceLspProgressSuccess" },
+            { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
+            { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
+          },
+          view = "mini",
         }
       },                              -- you can enable a preset for easier configuration
       presets = {
@@ -31,15 +49,29 @@ return {
         inc_rename = false,           -- enables an input dialog for inc-rename.nvim
         lsp_doc_border = false,       -- add a border to hover docs and signature help
       },
+      -- messages = {
+      --   enabled = true,
+      --   view = "notify",
+      --   view_error = "mini",
+      --   view_warn = "mini",
+      --   view_history = "messages",
+      --   view_search = "virtualtext",
+      -- },
       routes = {
-        {
-          filter = {
-            event = "msg_show",
-            kind = "",
-            find = "written",
-          },
-          opts = { skip = true },
-        },
+        -- {
+        --   filter = {
+        --     event = "msg_show",
+        --     kind = { "wmsg", "emsg" },
+        --   },
+        --   opts = { skip = true },
+        -- },
+        -- {
+        --   filter = {
+        --     event = "msg_show",
+        --     kind = "",
+        --   },
+        --   opts = { skip = true },
+        -- },
       },
       cmdline = {
         format = {

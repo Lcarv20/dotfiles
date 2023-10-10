@@ -14,7 +14,7 @@ return {
 
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-            { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
+            -- { 'j-hui/fidget.nvim',       tag = 'legacy', opts = {} },
 
             -- Additional lua configuration, makes nvim stuff amazing!
             'folke/neodev.nvim',
@@ -27,7 +27,8 @@ return {
             handler_opts = {
                 border = "rounded"
             },
-            hint_enable = false,
+            floating_window = false,
+            hint_enable = true,
         },
         config = function(_, opts) require 'lsp_signature'.setup(opts) end
     },

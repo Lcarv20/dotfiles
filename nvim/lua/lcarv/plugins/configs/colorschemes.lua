@@ -104,12 +104,21 @@ return {
 		opts = {
 			transparent_background = true,
 			custom_highlights = function(colors)
+				local color = "#18181b"
 				return {
 					-- Comment = { fg = colors.flamingo },
 					TabLineSel = { bg = colors.pink },
 					CmpBorder = { fg = colors.surface2 },
 					Pmenu = { bg = colors.none },
-					-- comment
+					NeotreeNormal = { bg = color },
+					NeotreeFloatBorder = { fg = color, bg = color },
+					VertSplit = { bg = color, fg = color },
+					WhichKeyFloat = { bg = color },
+					-- noice
+					-- NoiceCmdlinePopupBorder = { fg = colors.blue },
+					NoiceVirtualText = { fg = colors.yellow },
+					NoiceLspProgressSuccess = { fg = colors.green },
+					NoiceLspProgressSpinner = { fg = colors.yellow },
 				}
 			end,
 		},

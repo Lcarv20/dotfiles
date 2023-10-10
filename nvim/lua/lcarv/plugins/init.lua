@@ -25,6 +25,8 @@ require("lazy").setup({
 		r("dressing"),
 		r("refactoring"),
 		r("barbecue"),
+		r("illuminate"),
+		r("lualine"),
 	},
 	{}
 )

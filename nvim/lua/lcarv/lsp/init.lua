@@ -1,3 +1,4 @@
+local icons = require("lcarv.icons")
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -32,6 +33,10 @@ local on_attach = function(_, bufnr)
   nmap(']d', vim.diagnostic.goto_next, "Go to next diagnostic message")
 
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
+  -- See sig help insert mode
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
+    { remap = false, desc = "Signature Help", buffer = bufnr })
+
   nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
   vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help", buffer = bufnr })
 
@@ -57,13 +62,49 @@ end
 -- Setup neovim lua configuration
 require("neodev").setup()
 
-vim.diagnostic.config {
-  float = { border = "single" },
+-- vim.diagnostic.config {
+--   float = { border = "single" },
+--   virtual_text = {
+--     prefix = "⏺"
+--   },
+--
+-- }
+-- 
+vim.diagnostic.config({
+  -- virtual_text = true,
   virtual_text = {
     prefix = "⏺"
   },
+  signs = {
+    active = true,
+    values = {
+      { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+      { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
+      { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+      { name = "DiagnosticSignInfo",  text = icons.diagnostics.Info },
+    }
+  },
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
+  float = {
+    focusable = false,
+    style = "minimal",
+    border = "rounded",
+    source = "always",
+    header = "",
+    prefix = "",
+    format = function(d)
+      local code = d.code or (d.user_data and d.user_data.lsp.code)
+      if code then
+        print("settings.lua: " .. vim.inspect(d))
+        return string.format("%s [%s]", d.message, code):gsub("1. ", "")
+      end
+      return d.message
+    end,
+  },
+})
 
-}
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -87,4 +128,3 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-
