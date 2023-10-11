@@ -15,11 +15,11 @@ return {
 		lazy = false,
 		priority = 1000
 	},
-	-- {
-	-- 	"https://github.com/RRethy/nvim-base16",
-	-- 	lazy = false,
-	-- 	priority = 1000
-	-- },
+	{
+		"https://github.com/RRethy/nvim-base16",
+		lazy = false,
+		priority = 1000
+	},
 	{
 		"wadackel/vim-dogrun",
 		lazy = false,
@@ -111,8 +111,8 @@ return {
 				local comment = "#6A9955"
 				return {
 					TabLineSel = { bg = colors.pink },
-					String = { fg = string },
-					Comment = { fg = comment },
+					-- String = { fg = string },
+					-- Comment = { fg = comment },
 					NeotreeNormal = { bg = float },
 					NeotreeFloatBorder = { fg = float, bg = float },
 					VertSplit = { bg = float, fg = float },
@@ -241,5 +241,20 @@ return {
 		lazy = false,
 		priority = 1000
 	},
+	{
+		'Mofiqul/dracula.nvim',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("dracula").setup({ overrides = {} }
+			)
+			require('lualine').setup {
+				options = {
+					theme = 'dracula-nvim'
+				}
+			}
+		end
+		,
+	}
 
 }

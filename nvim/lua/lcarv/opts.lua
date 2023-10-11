@@ -6,7 +6,7 @@ vim.opt.relativenumber = true
 
 vim.opt.ignorecase = true
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
-vim.opt.mouse = "a" -- allow the mouse to be used in neovim
+vim.opt.mouse = "a"     -- allow the mouse to be used in neovim
 
 vim.o.helpheight = 20
 
@@ -46,7 +46,7 @@ vim.opt.fileencoding     = "utf-8"
 
 --NETRW DISABLED
 vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw       = 1
+
 
 --NETRW ENABLED
 -- vim.g.netrw_browse_split = 0
@@ -71,13 +71,10 @@ vim.opt.fillchars        = {
 }
 
 vim.opt.spell            = false
-vim.opt.cmdheight   = 2
+vim.opt.cmdheight        = 2
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set formatoptions-=cro]]
 
 vim.opt.showmode = false
-vim.opt.spelllang = { 'en_us' }
-vim.opt.spelllang = {}
 vim.opt.listchars = { trail = "·", eol = "$", extends = ">", precedes = "<", tab = "→ ", nbsp = "␣" }
-vim.opt.paste = false

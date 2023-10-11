@@ -1,11 +1,9 @@
+tap "austinliuigi/brew-neovim-nightly", "https://github.com/austinliuigi/brew-neovim-nightly.git"
 tap "buildpacks/tap"
 tap "dart-lang/dart"
 tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
 tap "sdkman/tap"
 tap "spring-io/tap"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -14,12 +12,18 @@ brew "bat"
 brew "bat-extras"
 # XML-based font configuration API for X Windows
 brew "fontconfig"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
 # OpenType text shaping engine
 brew "harfbuzz"
 # Google's own build tool
 brew "bazel"
 # Format bazel BUILD files with a standard convention
 brew "buildifier"
+# Cross-platform make
+brew "cmake"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # General-purpose scripting language
 brew "php"
 # Dependency Manager for PHP
@@ -28,6 +32,8 @@ brew "composer"
 brew "ctags"
 # Secure runtime for JavaScript and TypeScript
 brew "deno"
+# .NET Core
+brew "dotnet@6"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # Validating, recursive, caching DNS resolver
@@ -52,6 +58,8 @@ brew "gnu-sed"
 brew "go"
 # Generate introspection data for GObject libraries
 brew "gobject-introspection"
+# Fast linters runner for Go
+brew "golangci-lint"
 # Reformats Java source code to comply with Google Java Style
 brew "google-java-format"
 # Post-modern modal text editor
@@ -78,18 +86,26 @@ brew "lua-language-server"
 brew "luarocks"
 # Java-based project management
 brew "maven"
+# Scalable distributed version control system
+brew "mercurial"
 # NCurses Disk Usage
 brew "ncdu"
-# Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
-# 📦🚀 Fast, disk space efficient package manager
+# Small build system for use with gyp or CMake
+brew "ninja"
+# Fast, disk space efficient package manager
 brew "pnpm"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
+# Emulator for x86 and PowerPC
+brew "qemu"
+# Persistent key-value database, with built-in net interface
+brew "redis"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Autoformat shell script source code
 brew "shfmt"
+# Organize software neatly under a single directory tree (e.g. /usr/local)
+brew "stow"
 # Opinionated Lua code formatter
 brew "stylua"
 # Terminal multiplexer
@@ -111,10 +127,18 @@ brew "buildpacks/tap/pack"
 # Sdkman - The Software Development Kit Manager
 brew "sdkman/tap/sdkman-cli"
 brew "spring-io/tap/spring-boot"
+# VPN for privacy and security
+cask "adguard-vpn"
 # Chromium based browser
 cask "arc"
+# Voice and text chat software
+cask "discord"
 # Text editor
 cask "emacs"
+# Launcher for *Epic Games* games
+cask "epic-games"
+# Web browser
+cask "firefox"
 # Developer targeted fonts with a high number of glyphs
 cask "font-3270-nerd-font"
 # Developer targeted fonts with a high number of glyphs
@@ -223,12 +247,16 @@ cask "gitkraken"
 cask "iterm2"
 # GPU-based terminal emulator
 cask "kitty"
-# Neovim Client
-cask "neovide"
+# Open source code editor written in Rust
+cask "lapce"
 # Administration and development platform for PostgreSQL
 cask "pgadmin4"
+# Toolbox companion for QMK Firmware
+cask "qmk-toolbox"
 # Video game digital distribution service
 cask "steam"
+# Synchronises media players
+cask "syncplay"
 # Keyboard configurator
 cask "via"
 # Binary releases of VS Code without MS branding/telemetry/licensing
@@ -240,11 +268,11 @@ cask "webtorrent"
 vscode "ahmadawais.shades-of-purple"
 vscode "akamud.vscode-theme-onelight"
 vscode "alekangelov.alek-kai-theme"
-vscode "AndenetAlexander.vim-cheatsheet"
 vscode "astro-build.astro-vscode"
 vscode "azemoh.one-monokai"
 vscode "be5invis.toml"
 vscode "bradlc.vscode-tailwindcss"
+vscode "Catppuccin.catppuccin-vsc"
 vscode "Codeium.codeium"
 vscode "csstools.postcss"
 vscode "Dart-Code.dart-code"
@@ -252,6 +280,8 @@ vscode "Dart-Code.flutter"
 vscode "dbaeumer.vscode-eslint"
 vscode "denoland.vscode-deno"
 vscode "doggy8088.quicktype-refresh"
+vscode "dracula-theme.theme-dracula"
+vscode "dsznajder.es7-react-js-snippets"
 vscode "eamodio.gitlens"
 vscode "ElAnandKumar.el-vsc-product-icon-theme"
 vscode "EliverLara.sweet-vscode-icons"
@@ -260,20 +290,20 @@ vscode "esbenp.prettier-vscode"
 vscode "firsttris.vscode-jest-runner"
 vscode "formulahendry.auto-rename-tag"
 vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
 vscode "GitHub.github-vscode-theme"
-vscode "GitHub.remotehub"
-vscode "GitHub.vscode-pull-request-github"
 vscode "golang.go"
 vscode "googlecloudtools.cloudcode"
 vscode "Gruntfuggly.todo-tree"
 vscode "HarryHopkinson.vim-theme"
 vscode "jdinhlife.gruvbox"
 vscode "jsayol.firebase-explorer"
+vscode "JSONHero.jsonhero-vscode"
+vscode "mathstylish.tokyo-dark-themes"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-playwright.playwright"
-vscode "ms-vscode.azure-repos"
-vscode "ms-vscode.remote-repositories"
 vscode "nrwl.angular-console"
+vscode "piousdeer.adwaita-theme"
 vscode "PKief.material-icon-theme"
 vscode "Prisma.prisma"
 vscode "redhat.java"
@@ -284,6 +314,7 @@ vscode "runem.lit-plugin"
 vscode "rust-lang.rust-analyzer"
 vscode "scrimba.vsimba"
 vscode "SolarLiner.linux-themes"
+vscode "sourcegraph.cody-ai"
 vscode "stevencl.addDocComments"
 vscode "styled-components.vscode-styled-components"
 vscode "svelte.svelte-vscode"
@@ -291,7 +322,6 @@ vscode "Tobermory.es6-string-html"
 vscode "usernamehw.errorlens"
 vscode "VisualStudioExptTeam.intellicode-api-usage-examples"
 vscode "VisualStudioExptTeam.vscodeintellicode"
-vscode "vlanguage.vscode-vlang"
 vscode "vscjava.vscode-java-debug"
 vscode "vscjava.vscode-java-dependency"
 vscode "vscjava.vscode-java-pack"

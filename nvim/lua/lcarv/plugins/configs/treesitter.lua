@@ -13,8 +13,9 @@ return {
             -- See `:help nvim-treesitter`
             require("nvim-treesitter.configs").setup {
                 -- Add languages to be installed here that you want installed for treesitter
-                ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "typescript", "javascript",
-                    "vimdoc", "vim", "regex", "bash", "markdown", "markdown_inline" },
+                -- ensure_installed = { "c", "cpp", "go", "lua", "python", "rust", "typescript", "javascript",
+                --     "vimdoc", "vim", "regex", "bash", "markdown", "markdown_inline" },
+                ensure_installed = "all",
 
                 modules = {},
 
@@ -25,7 +26,7 @@ return {
                 ignore_install = {},
 
                 -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
-                auto_install = false,
+                auto_install = true,
                 context_commentstring = {
                     enable = true,
                 },
@@ -84,6 +85,11 @@ return {
                             ["<leader>lpp"] = "@parameter.inner",
                         },
                     },
+                },
+                rainbow = {
+                    enable = true,
+                    extended_mode = false, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+                    max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
                 },
             }
 

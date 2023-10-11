@@ -43,7 +43,7 @@ end
 
 M.cursorStyle = function()
 	-- create highlights for the different modes
-	local mocha = require("catppuccin.palettes").get_palette "mocha"
+	local mocha = M.colors().mocha
 	vim.api.nvim_set_hl(0, "ICursor", { bg = mocha.green })
 	vim.api.nvim_set_hl(0, "VCursor", { bg = mocha.mauve })
 	vim.api.nvim_set_hl(0, "RCursor", { bg = mocha.red })
@@ -52,7 +52,6 @@ M.cursorStyle = function()
 end
 
 M.colors = function()
-	local mocha = require("catppuccin.palettes").get_palette "mocha"
 	return {
 		latte = require("catppuccin.palettes").get_palette "latte",
 		frappe = require("catppuccin.palettes").get_palette "frappe",
