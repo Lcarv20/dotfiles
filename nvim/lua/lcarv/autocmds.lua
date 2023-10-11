@@ -41,15 +41,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   end,
 })
 
--- Autocmd for eyeliner
-vim.api.nvim_create_autocmd('VimEnter', {
-  pattern = '*',
-  callback = function()
-    vim.api.nvim_set_hl(0, 'EyelinerPrimary', { fg = '#000000', bold = true, underline = true })
-    vim.api.nvim_set_hl(0, 'EyelinerSecondary', { fg = '#ffffff', underline = true })
-  end,
-})
-
 -- Neotree
 vim.api.nvim_create_autocmd('BufEnter', {
   pattern = '*',
@@ -89,6 +80,26 @@ vim.api.nvim_create_autocmd('BufEnter', {
 vim.api.nvim_create_autocmd("VimEnter", {
   pattern = "*",
   callback = fns.cursorStyle,
+})
+
+-- Telescope conditional look for catppuccin
+vim.api.nvim_create_autocmd("ColorScheme", {
+  pattern = "*",
+  callback = function()
+    local colors_name = vim.trim(vim.g.colors_name)
+    if colors_name == "catppuccin-mocha" then
+      print("inner")
+      require('telescope').setup {
+        defaults = {
+          borderchars = {
+            prompt = { ' ', ' ', '⎯', ' ', ' ', ' ', ' ', ' ' },
+            results = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+            preview = { ' ', ' ', ' ', '▏', '▏', ' ', ' ', '▏' },
+          },
+        }
+      }
+    end
+  end
 })
 
 -- Inlay Hints: plugin delete this and remove plugin when on verion 0.10 of neovim

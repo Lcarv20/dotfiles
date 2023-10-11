@@ -21,14 +21,15 @@ return {
             -- [[ Configure Telescope ]]
             -- See `:help telescope` and `:help telescope.setup()`
             local telescope = require('telescope')
+
             telescope.setup {
                 defaults = {
                     prompt_prefix = " " .. icons.ui.Search .. " ",
-                    borderchars = {
-                        prompt = { ' ', ' ', '⎯', ' ', ' ', ' ', ' ', ' ' },
-                        results = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
-                        preview = { ' ', ' ', ' ', '▏', '▏', ' ', ' ', '▏' },
-                    },
+                    -- borderchars = {
+                    --     prompt = { ' ', ' ', '⎯', ' ', ' ', ' ', ' ', ' ' },
+                    --     results = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
+                    --     preview = { ' ', ' ', ' ', '▏', '▏', ' ', ' ', '▏' },
+                    -- },
                     sorting_strategy = "ascending", -- display results top->bottom
                     layout_config = {
                         prompt_position = "top"     -- search bar at the top

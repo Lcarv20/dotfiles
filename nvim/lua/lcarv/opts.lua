@@ -5,6 +5,8 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.ignorecase = true
+vim.opt.hlsearch = true -- highlight all matches on previous search pattern
+vim.opt.mouse = "a" -- allow the mouse to be used in neovim
 
 vim.o.helpheight = 20
 
@@ -24,7 +26,11 @@ vim.opt.undofile = true
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
-vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
+-- vim.opt.shortmess:append({ W = true, I = true, c = true, C = true, o = true, s = true })
+vim.opt.shortmess:append("C")
+vim.opt.shortmess:append("S") -- We have our own search counter
+vim.opt.shortmess:append("c")
+vim.opt.shortmess:append("s")
 
 vim.opt.termguicolors = true
 
@@ -32,15 +38,15 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.opt.updatetime       = 50
 
 -- vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.fileencoding  = "utf-8"
+vim.opt.completeopt      = { "menuone", "noselect" }
+vim.opt.fileencoding     = "utf-8"
 
 --NETRW DISABLED
 vim.g.loaded_netrwPlugin = 1
-vim.g.loaded_netrw = 1
+vim.g.loaded_netrw       = 1
 
 --NETRW ENABLED
 -- vim.g.netrw_browse_split = 0
@@ -49,12 +55,12 @@ vim.g.loaded_netrw = 1
 -- vim.g.netrw_liststyle = 3
 -- vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
-vim.opt.confirm = true
+vim.opt.confirm          = true
 
-vim.opt.pumblend = 10  -- Popup blend
-vim.opt.pumheight = 10 -- Maximum number of entries in a popup
+vim.opt.pumblend         = 10 -- Popup blend
+vim.opt.pumheight        = 10 -- Maximum number of entries in a popup
 
-vim.opt.fillchars = {
+vim.opt.fillchars        = {
   foldopen = "",
   foldclose = "",
   -- fold = "⸱",
@@ -64,11 +70,14 @@ vim.opt.fillchars = {
   eob = " ",
 }
 
-vim.opt.spell = false
+vim.opt.spell            = false
+vim.opt.cmdheight   = 2
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set formatoptions-=cro]]
 
 vim.opt.showmode = false
 vim.opt.spelllang = { 'en_us' }
+vim.opt.spelllang = {}
 vim.opt.listchars = { trail = "·", eol = "$", extends = ">", precedes = "<", tab = "→ ", nbsp = "␣" }
+vim.opt.paste = false

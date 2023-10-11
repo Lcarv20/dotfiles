@@ -55,9 +55,9 @@ return {
 	{
 		"folke/tokyonight.nvim",
 		config = function()
-			require("tokyonight").setup({
-				transparent = true
-			})
+			-- require("tokyonight").setup({
+			-- 	transparent = true
+			-- })
 		end
 	},
 	{
@@ -66,10 +66,10 @@ return {
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("rose-pine").setup({
-				dim_nc_background = false,
-				disable_background = true,
-			})
+			-- require("rose-pine").setup({
+			-- 	dim_nc_background = false,
+			-- 	disable_background = true,
+			-- })
 		end
 	},
 	{
@@ -82,10 +82,10 @@ return {
 		"projekt0n/github-nvim-theme",
 		tag = "v0.0.7",
 		config = function()
-			require("github-theme").setup({
-				theme_style = "dark_default",
-				transparent = true
-			})
+			-- require("github-theme").setup({
+			-- 	theme_style = "dark_default",
+			-- 	transparent = true
+			-- })
 		end
 	},
 	{
@@ -102,6 +102,7 @@ return {
 		"catppuccin/nvim",
 		name = "catppuccin",
 		lazy = false,
+		priority = 1000,
 		opts = {
 			transparent_background = true,
 			custom_highlights = function(colors)
@@ -109,21 +110,70 @@ return {
 				local string = "#CE9178"
 				local comment = "#6A9955"
 				return {
-					-- Comment = { fg = colors.flamingo },
 					TabLineSel = { bg = colors.pink },
-					-- CmpBorder = { fg = colors.surface2 },
-					-- Pmenu = { bg = colors.none },
 					String = { fg = string },
 					Comment = { fg = comment },
 					NeotreeNormal = { bg = float },
 					NeotreeFloatBorder = { fg = float, bg = float },
 					VertSplit = { bg = float, fg = float },
 					WhichKeyFloat = { bg = float },
-					-- noice
 					NoiceCmdlinePopupBorder = { fg = colors.blue },
 					NoiceVirtualText = { fg = colors.yellow },
 					NoiceLspProgressSuccess = { fg = colors.green },
 					NoiceLspProgressSpinner = { fg = colors.yellow },
+					TelescopePromptNormal = {
+						bg = '#18181b',
+						fg = '#d6d3d1'
+					},
+					TelescopePromptBorder = {
+						bg = '#18181b',
+						fg = '#18181b',
+					},
+					TelescopePromptTitle = {
+						-- bg = '#18181b',
+						fg = '#57534e',
+					},
+
+					-- Preview
+					TelescopePreviewTitle = {
+						fg = '#18181b',
+						bg = '#18181b',
+					},
+					TelescopePreviewNormal = {
+						-- fg = '#18181b',
+						bg = '#18181b',
+					},
+					TelescopePreviewBorder = {
+						-- NO BORDER
+						-- fg = '#1F1F23',
+						-- bg = '#18181b',
+						--
+						-- SPECIFIC FOR BORDERLINE
+						fg = '#334155',
+						bg = '#18181b',
+					},
+
+					-- Results whi
+					TelescopeResultsTitle = {
+						fg = '#161617',
+						bg = '#161617',
+					},
+					TelescopeResultsNormal = {
+						-- fg = '#1F1F23',
+						bg = '#161617',
+					},
+					TelescopeResultsBorder = {
+						fg = '#161617',
+						bg = '#161617',
+					},
+					NormalFloat = {
+						bg = '#161617',
+						fg = '#cdd6f5',
+					},
+					Pmenu = {
+						bg = '#161617',
+						fg = '#cdd6f5',
+					}
 				}
 			end,
 			integrations = {
@@ -136,7 +186,6 @@ return {
 				noice = true,
 			},
 		},
-		priority = 1000,
 	},
 	{
 		"nyoom-engineering/nyoom.nvim",
@@ -172,15 +221,15 @@ return {
 		lazy = false,
 		priority = 1000,
 		dependencies = { "rktjmp/lush.nvim" },
-		config = function()
-			require("bluloco").setup({
-				style       = "auto", -- "auto" | "dark" | "light"
-				transparent = false,
-				italics     = false,
-				terminal    = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
-				guicursor   = true,
-			})
-		end,
+		-- config = function()
+		-- 	require("bluloco").setup({
+		-- 		style       = "auto", -- "auto" | "dark" | "light"
+		-- 		transparent = false,
+		-- 		italics     = false,
+		-- 		terminal    = vim.fn.has("gui_running") == 1, -- bluoco colors are enabled in gui terminals per default.
+		-- 		guicursor   = true,
+		-- 	})
+		-- end,
 	},
 	{
 		"JoosepAlviste/palenightfall.nvim",
