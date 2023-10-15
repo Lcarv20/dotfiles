@@ -16,11 +16,6 @@ return {
 		priority = 1000
 	},
 	{
-		"https://github.com/RRethy/nvim-base16",
-		lazy = false,
-		priority = 1000
-	},
-	{
 		"wadackel/vim-dogrun",
 		lazy = false,
 		priority = 1000,

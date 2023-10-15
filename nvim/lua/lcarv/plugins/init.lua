@@ -27,7 +27,7 @@ require("lazy").setup({
 		r("barbecue"),
 		r("illuminate"),
 		r("lualine"),
-		-- r("yolotheme"),
+		-- r("roll"),
 	},
 	{}
 )

@@ -1,10 +1,14 @@
 local M = {}
+-- local status_ok, plenary = pcall(require, "plenary")
+-- if not status_ok then
+--return
+--end
 -- local status_ok, Path = pcall(require, "plenary.path")
 -- if not status_ok then
 -- 	return
 -- end
 
-local editorState = "state.json"
+local editorState = vim.fn.expand('$HOME') .. '/.config/nvim/state.json'
 local defaultConfig = {
 	["inlayHints"] = false
 }
@@ -42,13 +46,22 @@ M.toggleInlayHints = function()
 end
 
 M.cursorStyle = function()
-	-- create highlights for the different modes
-	local mocha = M.colors().mocha
-	vim.api.nvim_set_hl(0, "ICursor", { bg = mocha.green })
-	vim.api.nvim_set_hl(0, "VCursor", { bg = mocha.mauve })
-	vim.api.nvim_set_hl(0, "RCursor", { bg = mocha.red })
-	vim.api.nvim_set_hl(0, "NoiceCursor", { bg = mocha.peach })
-	vim.opt.guicursor = 'n:block,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor'
+	-- This only works with catppuccin on
+	-- local mocha = M.colors().mocha
+	-- vim.api.nvim_set_hl(0, "NorCursor", { bg = mocha.teal })
+	-- vim.api.nvim_set_hl(0, "ICursor", { bg = mocha.green })
+	-- vim.api.nvim_set_hl(0, "VCursor", { bg = mocha.mauve })
+	-- vim.api.nvim_set_hl(0, "RCursor", { bg = mocha.red })
+	-- vim.api.nvim_set_hl(0, "NoiceCursor", { bg = mocha.peach })
+	-- vim.opt.guicursor = 'n:block-NorCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor'
+
+	vim.api.nvim_set_hl(0, "NorCursor", { bg = "teal" })
+	vim.api.nvim_set_hl(0, "ICursor", { bg = "green" })
+	vim.api.nvim_set_hl(0, "VCursor", { bg = "purple" })
+	vim.api.nvim_set_hl(0, "RCursor", { bg = "red" })
+	vim.api.nvim_set_hl(0, "NoiceCursor", { bg = "orange" })
+	vim.opt.guicursor = 'n:block-NorCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor'
+
 end
 
 M.colors = function()

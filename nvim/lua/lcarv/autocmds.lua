@@ -77,10 +77,10 @@ vim.api.nvim_create_autocmd('BufEnter', {
 })
 
 -- Cursor style
--- vim.api.nvim_create_autocmd("VimEnter", {
---   pattern = "*",
---   callback = fns.cursorStyle,
--- })
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = fns.cursorStyle,
+})
 
 -- Telescope conditional look for catppuccin
 vim.api.nvim_create_autocmd("ColorScheme", {
