@@ -1,0 +1,12 @@
+include ./config/keymaps.conf
+include ./config/fonts.conf
+include ./config/cursor.conf
+include ./config/tabs.conf
+include ./config/windows.conf
+include ./config/macos.conf 
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Mocha
+include current-theme.conf
+# END_KITTY_THEME
+

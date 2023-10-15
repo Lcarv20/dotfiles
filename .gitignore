@@ -1,4 +1,4 @@
+tests/
 .DS_Store
-example.conf
-kitty.conf.bak
-state.yml
+lazy-lock.json
+state.json
