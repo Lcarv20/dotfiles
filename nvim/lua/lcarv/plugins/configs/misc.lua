@@ -37,6 +37,6 @@ return {
     { "mbbill/undotree" },
     { "nvim-lua/plenary.nvim", lazy = false, priority = 1000},
     -- Changes bg of kitty to match nvim
-    { "typicode/bg.nvim",     lazy = true },
+    { "typicode/bg.nvim",     lazy = false, priority = 1000},
     "LunarVim/Colorschemes"
 }

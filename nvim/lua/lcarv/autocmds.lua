@@ -88,7 +88,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
     local colors_name = vim.trim(vim.g.colors_name)
     if colors_name == "catppuccin-mocha" then
-      print("inner")
       require('telescope').setup {
         defaults = {
           borderchars = {

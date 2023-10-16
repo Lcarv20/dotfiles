@@ -16,7 +16,7 @@ local file_browser_opts = function(fb_actions)
     select_buffer = false,
     hidden = { file_browser = false, folder_browser = false },
     respect_gitignore = vim.fn.executable "fd" == 1,
-    follow_symlinks = true,
+    follow_symlinks = false,
     browse_files = require("telescope._extensions.file_browser.finders").browse_files,
     browse_folders = require("telescope._extensions.file_browser.finders").browse_folders,
     hide_parent_dir = true,
