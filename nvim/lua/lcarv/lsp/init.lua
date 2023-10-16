@@ -1,7 +1,7 @@
 local icons = require("lcarv.icons")
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
   -- many times.
@@ -50,6 +50,9 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.format()
   end, { desc = "Format current buffer with LSP" })
 
+  if client.name ~= "typescript-tools" and client.server_capabilities["documentSymbolProvider"] then
+    require("nvim-navic").attach(client, bufnr)
+  end
   -- -- lsp_signature
   -- require "lsp_signature".on_attach({
   --   bind = true,   -- This is mandatory, otherwise border config won't get registered.
@@ -97,7 +100,7 @@ vim.diagnostic.config({
     format = function(d)
       local code = d.code or (d.user_data and d.user_data.lsp.code)
       if code then
-        print("settings.lua: " .. vim.inspect(d))
+        -- print("settings.lua: " .. vim.inspect(d))
         return string.format("%s [%s]", d.message, code):gsub("1. ", "")
       end
       return d.message
