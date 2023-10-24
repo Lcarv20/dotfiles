@@ -36,6 +36,8 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "110"
+vim.opt.textwidth = 110
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime       = 50
@@ -55,23 +57,23 @@ vim.g.loaded_netrwPlugin = 1
 -- vim.g.netrw_liststyle = 3
 -- vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
-vim.opt.confirm          = true
+vim.opt.confirm   = true
 
-vim.opt.pumblend         = 10 -- Popup blend
-vim.opt.pumheight        = 10 -- Maximum number of entries in a popup
+vim.opt.pumblend  = 10        -- Popup blend
+vim.opt.pumheight = 10        -- Maximum number of entries in a popup
 
-vim.opt.fillchars        = {
-  foldopen = "",
-  foldclose = "",
-  -- fold = "⸱",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
+vim.opt.fillchars = {
+    foldopen = "",
+    foldclose = "",
+    -- fold = "⸱",
+    fold = " ",
+    foldsep = " ",
+    diff = "╱",
+    eob = " ",
 }
 
-vim.opt.spell            = false
-vim.opt.cmdheight        = 2
+vim.opt.spell     = false
+vim.opt.cmdheight = 2
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set formatoptions-=cro]]

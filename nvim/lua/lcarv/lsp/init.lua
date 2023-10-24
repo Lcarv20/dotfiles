@@ -64,7 +64,19 @@ end
 
 -- Setup neovim lua configuration
 require("neodev").setup()
+require("lcarv.lsp.settings").style()
 
+-- local border = {
+--   { " ", "FLoatBorder" },
+--   { " ", "FLoatBorder" },
+--   { " ", "FLoatBorder" },
+--   { " ", "FLoatBorder" },
+--   { " ", "FLoatBorder" },
+--   { " ", "FLoatBorder" },
+--   { " ", "FLoatBorder" },
+--   { " ", "FLoatBorder" },
+-- }
+--
 -- vim.diagnostic.config {
 --   float = { border = "single" },
 --   virtual_text = {
@@ -73,40 +85,40 @@ require("neodev").setup()
 --
 -- }
 
-vim.diagnostic.config({
-  -- virtual_text = true,
-  virtual_text = {
-    prefix = "⏺"
-  },
-  signs = {
-    active = true,
-    values = {
-      { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-      { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
-      { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
-      { name = "DiagnosticSignInfo",  text = icons.diagnostics.Info },
-    }
-  },
-  underline = true,
-  update_in_insert = false,
-  severity_sort = true,
-  float = {
-    focusable = false,
-    style = "minimal",
-    border = "none",
-    source = "always",
-    header = "",
-    prefix = "",
-    format = function(d)
-      local code = d.code or (d.user_data and d.user_data.lsp.code)
-      if code then
-        -- print("settings.lua: " .. vim.inspect(d))
-        return string.format("%s [%s]", d.message, code):gsub("1. ", "")
-      end
-      return d.message
-    end,
-  },
-})
+-- vim.diagnostic.config({
+--   -- virtual_text = true,
+--   virtual_text = {
+--     prefix = "⏺"
+--   },
+--   signs = {
+--     active = true,
+--     values = {
+--       { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+--       { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
+--       { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
+--       { name = "DiagnosticSignInfo",  text = icons.diagnostics.Info },
+--     }
+--   },
+--   underline = true,
+--   update_in_insert = false,
+--   severity_sort = true,
+--   float = {
+--     focusable = true,
+--     style = "minimal",
+--     border = "none",
+--     source = "always",
+--     header = "",
+--     prefix = "",
+--     format = function(d)
+--       local code = d.code or (d.user_data and d.user_data.lsp.code)
+--       if code then
+--         -- print("settings.lua: " .. vim.inspect(d))
+--         return string.format("%s [%s]", d.message, code):gsub("1. ", "")
+--       end
+--       return d.message
+--     end,
+--   },
+-- })
 
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers

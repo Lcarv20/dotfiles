@@ -99,13 +99,13 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = {
-			transparent_background = true,
+			transparent_background = false,
 			custom_highlights = function(colors)
 				local float = "#161617"
 				local string = "#CE9178"
 				local comment = "#6A9955"
 				return {
-					TabLineSel = { bg = colors.pink },
+					-- TabLineSel = { bg = colors.pink },
 					-- String = { fg = string },
 					-- Comment = { fg = comment },
 					NeotreeNormal = { bg = float },
@@ -172,13 +172,51 @@ return {
 				}
 			end,
 			integrations = {
-				-- fidgets = false,
 				cmp = false,
 				gitsigns = true,
 				neotree = false,
 				treesitter = true,
 				notify = true,
 				noice = true,
+				harpoon = true,
+				illuminate = true,
+				mason = true,
+				neogit = true,
+				symbols_outline = true,
+				lsp_trouble = true,
+				which_key = true,
+				barbecue = {
+					dim_dirname = true,
+					bold_basename = true,
+					dim_context = false,
+					alt_background = false,
+				},
+				telescope = true,
+				indent_blankline = {
+					enabled = true,
+					colored_indent_levels = false,
+				},
+				navic = {
+					enabled = true,
+				},
+				native_lsp = {
+					enabled = true,
+					virtual_text = {
+						errors = { "italic" },
+						hints = { "italic" },
+						warnings = { "italic" },
+						information = { "italic" },
+					},
+					underlines = {
+						errors = { "underline" },
+						hints = { "underline" },
+						warnings = { "underline" },
+						information = { "underline" },
+					},
+					inlay_hints = {
+						background = true,
+					},
+				},
 			},
 		},
 	},

@@ -52,10 +52,18 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
-      -- window = {
-      --   completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
-      -- },
+      window = {
+        completion = {
+          border = "none",
+          winhighlight = cmp.config.window.highlight,
+          scrollbar = true
+        },
+        documentation = {
+          border = require("lcarv.lsp.settings").Border,
+          winhighlight = cmp.config.window.highlight,
+          scrollbar = true
+        },
+      },
       mapping = cmp.mapping.preset.insert {
         -- ['<C-n>'] = cmp.mapping.select_next_item(),
         -- ['<C-p>'] = cmp.mapping.select_prev_item(),
@@ -92,12 +100,9 @@ return {
         { name = 'buffer' },
       }),
       formatting = {
+        expandable_indicator = true,
+        fields = { "abbr", "kind", "menu" },
         format = function(entry, vim_item)
-          -- Kind icons
-          -- if vim_item.kind == 'Color' then
-          --   return require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
-          -- end
-
           vim_item.kind = string.format('%s %s', icons.kind[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
 
           -- Source
@@ -110,32 +115,7 @@ return {
           })[entry.source.name]
 
           return require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
-          -- return vim_item
         end
-        -- format = function(entry, vim_item)
-        --   local lspkind_ok, lspkind = pcall(require, "lspkind")
-        --   if not lspkind_ok then
-        --     -- From kind_icons array
-        --     vim_item.kind = string.format('%s %s', icons.kind[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-        --     -- Source
-        --     vim_item.menu = ({
-        --       buffer = "[Buffer]",
-        --       nvim_lsp = "[LSP]",
-        --       luasnip = "[LuaSnip]",
-        --       nvim_lua = "[Lua]",
-        --       latex_symbols = "[LaTeX]",
-        --     })[entry.source.name]
-        --     return vim_item
-        --   else
-        --     -- From lspkind
-        --     return lspkind.cmp_format({
-        --       before = function(entry, vim_item)
-        --         vim_item = require('tailwindcss-colorizer-cmp').formatter(entry, vim_item)
-        --         return vim_item
-        --       end
-        --     })(entry, vim_item)
-        --   end
-        -- end
       }, }
   end
 }

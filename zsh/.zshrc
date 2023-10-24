@@ -62,6 +62,7 @@ export CARGO_HOME=$HOME/.cargo
 export RUSTUP_HOME=$HOME/.rustup
 export PATH=$PATH:$HOME/.cargo/bin
 
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/lcarv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lcarv/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -95,6 +96,9 @@ alias ll="ls -l"
 alias lla="ls -la"
 # Lunarvim & Neovide PDE
 alias lv="/Users/lcarv/.config/lvim/neolvim"
+# Nyoom nvim Editor
+export PATH=$PATH:$HOME/.config/nvim-nyoom/bin
+alias nyoom="NVIM_APPNAME=nvim-nyoom nvim "
 alias "git open"="git-open"
 
 if command -v bat &> /dev/null; then

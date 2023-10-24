@@ -27,6 +27,7 @@ require("lazy").setup({
 		r("barbecue"),
 		r("illuminate"),
 		r("lualine"),
+		r("rainbow-delimiters"),
 		-- r("roll"),
 	},
 	{}
