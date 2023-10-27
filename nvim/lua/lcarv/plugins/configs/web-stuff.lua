@@ -58,6 +58,9 @@ return {
           includeInlayFunctionLikeReturnTypeHints = true,
           includeInlayEnumMemberValueHints = true,
         },
+        filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
+          "typescript.tsx", "markdown.mdx" },
+
         -- spawn additional tsserver instance to calculate diagnostics on it
         separate_diagnostic_server = true,
         -- "change"|"insert_leave" determine when the client asks the server about diagnostic

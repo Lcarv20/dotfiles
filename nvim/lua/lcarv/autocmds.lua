@@ -101,6 +101,18 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end
 })
 
+-- Syntax Highlight for mdx
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = {
+    "*.mdx"
+  },
+  callback = function()
+    vim.cmd [[
+    :set ft=markdown.mdx
+    ]]
+  end,
+})
+
 -- Inlay Hints: plugin delete this and remove plugin when on verion 0.10 of neovim
 -- vim.api.nvim_create_augroup("LspAttach_inlayhints", {})
 -- vim.api.nvim_create_autocmd("LspAttach", {

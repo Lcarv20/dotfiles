@@ -20,6 +20,12 @@ local servers = {
       },
     },
   },
+  marksman = {
+    -- cmd = { "marksman", "server" },
+    -- filetypes = { "markdown", "markdown.mdx" },
+    -- root_dir = require("lspconfig.util").root_pattern("marksman.json", ".git", ".marksman.toml"),
+    -- single_file_support = true
+  },
   -- html
   html = {
     filetypes = { "html", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
@@ -28,7 +34,7 @@ local servers = {
   -- Emmet
   emmet_ls = {
     init_options = {
-      filetypes = { "html", "css", "typescriptreact", "javascriptreact", "php" },
+      filetypes = { "html", "css", "typescriptreact", "javascriptreact", "php", "mdx" },
       html = {
         options = {
           -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267

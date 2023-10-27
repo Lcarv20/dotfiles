@@ -1,6 +1,9 @@
 local icons = require("lcarv.icons")
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
+
+require("lcarv.lsp.settings").style()
+
 local on_attach = function(client, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
   -- to define small helper and utility functions so you don't have to repeat yourself
@@ -64,7 +67,6 @@ end
 
 -- Setup neovim lua configuration
 require("neodev").setup()
-require("lcarv.lsp.settings").style()
 
 -- local border = {
 --   { " ", "FLoatBorder" },
@@ -140,6 +142,7 @@ mason_lspconfig.setup_handlers {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
+      handlers = require("lcarv.lsp.settings").Hover
     }
   end,
 }

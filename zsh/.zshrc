@@ -96,6 +96,7 @@ alias ll="ls -l"
 alias lla="ls -la"
 # Lunarvim & Neovide PDE
 alias lv="/Users/lcarv/.config/lvim/neolvim"
+alias nvl="XDG_CONFIG_HOME=/Users/lcarv/.config/nvl XDG_DATA_HOME=/Users/lcarv/.config/nvl nvim"
 # Nyoom nvim Editor
 export PATH=$PATH:$HOME/.config/nvim-nyoom/bin
 alias nyoom="NVIM_APPNAME=nvim-nyoom nvim "

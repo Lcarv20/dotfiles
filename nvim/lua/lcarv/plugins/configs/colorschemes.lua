@@ -99,7 +99,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = {
-			transparent_background = false,
+			transparent_background = true,
 			custom_highlights = function(colors)
 				local float = "#161617"
 				local string = "#CE9178"
