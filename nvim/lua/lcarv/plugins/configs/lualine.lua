@@ -31,7 +31,7 @@ return {
 
       lualine.setup({
         options = {
-          theme = 'catppuccin',
+          theme = 'catppuccin-mocha',
           globalstatus = true,
           component_separators = '|',
           section_separators = '',

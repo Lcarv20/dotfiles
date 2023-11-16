@@ -42,8 +42,8 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime       = 50
 
--- vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.completeopt      = { "menuone", "noselect" }
+vim.opt.completeopt = "menu,menuone,noselect"
+-- vim.opt.completeopt      = { "menuone", "noselect" }
 vim.opt.fileencoding     = "utf-8"
 
 --NETRW DISABLED
