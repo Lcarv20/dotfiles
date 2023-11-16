@@ -1,3 +1,6 @@
+# FNM node version manager - this eval changes node version and prints
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -48,7 +51,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 # FNM node version manager-------------------------------------------------------------
 export PATH=/home/$USER/.fnm:$PATH
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
 
 # Default Editor -------------------------------------------------------------
 export EDITOR='nvim'
