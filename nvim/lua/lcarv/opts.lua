@@ -5,7 +5,7 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 vim.opt.ignorecase = true
-vim.opt.hlsearch = true -- highlight all matches on previous search pattern
+vim.opt.hlsearch = true -- ghlight all matches on previous search pattern
 vim.opt.mouse = "a"     -- allow the mouse to be used in neovim
 
 vim.o.helpheight = 20
@@ -24,8 +24,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+vim.optncsearch = true
 -- vim.opt.shortmess:append({ W = true, I = true, c = true, C = true, o = true, s = true })
 vim.opt.shortmess:append("C")
 vim.opt.shortmess:append("S") -- We have our own search counter
@@ -42,7 +41,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime       = 50
 
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt      = "menu,menuone,noselect"
 -- vim.opt.completeopt      = { "menuone", "noselect" }
 vim.opt.fileencoding     = "utf-8"
 
@@ -59,8 +58,8 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.confirm   = true
 
-vim.opt.pumblend  = 10        -- Popup blend
-vim.opt.pumheight = 10        -- Maximum number of entries in a popup
+vim.opt.pumblend  = 10 -- Popup blend
+vim.opt.pumheight = 10 -- Maximum number of entries in a popup
 
 vim.opt.fillchars = {
     foldopen = "",

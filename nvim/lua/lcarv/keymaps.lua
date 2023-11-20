@@ -77,6 +77,7 @@ end
 map("n", " EL", ":Lazy<cr>", { desc = "[L]azy" })
 map("n", " Ei", ":LspInfo<cr>", { desc = "[i]nfo" })
 map("n", " Em", ":Mason<cr>", { desc = "[m]ason" })
+map("n", " h", ":nohl<cr>", { desc = "hide [h]ighlight" })
 
 
 -- Movement

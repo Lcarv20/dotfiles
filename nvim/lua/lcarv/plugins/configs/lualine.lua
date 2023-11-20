@@ -2,7 +2,7 @@ return {
 
   -- LUALINE
   {
-    -- Set lualine as statusline
+    -- Set lualine  statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     dependencies = {
@@ -46,25 +46,24 @@ return {
             -- TODO: not working, ask Mah
             lualine_x = {
               {
-                noice.api.status.message.get_hl,
-                cond = noice.api.status.message.has,
+                require("noice").api.status.message.get_hl,
+                cond = require("noice").api.status.message.has,
               },
               {
-                noice.api.status.command.get,
-                cond = noice.api.status.command.has,
+                require("noice").api.status.command.get,
+                cond = require("noice").api.status.command.has,
                 color = { fg = "#ff9e64" },
               },
               {
-                noice.api.status.mode.get,
-                cond = noice.api.status.mode.has,
+                require("noice").api.status.mode.get,
+                cond = require("noice").api.status.mode.has,
                 color = { fg = "#ff9e64" },
               },
               {
-                noice.api.status.search.get,
-                cond = noice.api.status.search.has,
+                require("noice").api.status.search.get,
+                cond = require("noice").api.status.search.has,
                 color = { fg = "#ff9e64" },
               },
-              -- 'encoding', 'fileformat', 'filetype'
             },
             lualine_y = { 'progress' },
             lualine_z = { 'location' }

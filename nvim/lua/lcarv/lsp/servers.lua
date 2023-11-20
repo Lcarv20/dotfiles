@@ -5,6 +5,28 @@
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
   clangd = {},
+  cssls = {
+    settings = {
+      css = {
+        validate = true,
+        lint = {
+          unknownAtRules = "ignore"
+        }
+      },
+      scss = {
+        validate = true,
+        lint = {
+          unknownAtRules = "ignore"
+        }
+      },
+      less = {
+        validate = true,
+        lint = {
+          unknownAtRules = "ignore"
+        }
+      },
+    }
+  },
   gopls = {
     settings = {
       gopls = {
