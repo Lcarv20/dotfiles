@@ -23,7 +23,6 @@ end
 
 M.getConfig = function()
 	local Path = require("plenary").Path
-	print(editorState)
 	local config = Path:new(editorState)
 
 	if not config:exists() then

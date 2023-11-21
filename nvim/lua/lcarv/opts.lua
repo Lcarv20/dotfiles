@@ -79,3 +79,5 @@ vim.cmd [[set formatoptions-=cro]]
 
 vim.opt.showmode = false
 vim.opt.listchars = { trail = "·", eol = "$", extends = ">", precedes = "<", tab = "→ ", nbsp = "␣" }
+
+vim.g.skip_ts_context_commentstring_module = true

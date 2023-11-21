@@ -1,3 +1,17 @@
+local recording = {
+  function()
+    return vim.fn.reg_recording()
+  end,
+  icon = "󰑊",
+}
+
+local recorded = {
+  function()
+    return vim.fn.reg_recorded()
+  end,
+  icon = "󰐊",
+}
+
 return {
 
   -- LUALINE
@@ -39,37 +53,36 @@ return {
           disabled_filetypes = { "dashboard", "NvimTree", "Outline", "alpha" },
           always_divide_middle = false,
 
-          sections = {
-            lualine_a = { 'mode' },
-            lualine_b = { 'branch', 'diff', 'diagnostics' },
-            lualine_c = { 'filename' },
-            -- TODO: not working, ask Mah
-            lualine_x = {
-              {
-                require("noice").api.status.message.get_hl,
-                cond = require("noice").api.status.message.has,
-              },
-              {
-                require("noice").api.status.command.get,
-                cond = require("noice").api.status.command.has,
-                color = { fg = "#ff9e64" },
-              },
-              {
-                require("noice").api.status.mode.get,
-                cond = require("noice").api.status.mode.has,
-                color = { fg = "#ff9e64" },
-              },
-              {
-                require("noice").api.status.search.get,
-                cond = require("noice").api.status.search.has,
-                color = { fg = "#ff9e64" },
-              },
-            },
-            lualine_y = { 'progress' },
-            lualine_z = { 'location' }
-          },
         },
-
+        -- sections = {
+        --   lualine_a = { 'mode' },
+        --   lualine_b = { recording, recorded, 'branch', 'diff', 'diagnostics' },
+        --   lualine_c = { 'filename' },
+        --   -- TODO: not working, ask Mah
+        --   lualine_x = {
+        --     {
+        --       require("noice").api.statusline.mode.get,
+        --       cond = require("noice").api.statusline.mode.has,
+        --       color = { fg = "#ff9e64" },
+        --     }
+        --   },
+        --   lualine_y = { 'progress' },
+        --   lualine_z = { 'location' }
+        -- },
+        sections = {
+          lualine_a = { 'mode' },
+          lualine_b = { recording, recorded, 'branch', 'diff', 'diagnostics' },
+          lualine_c = { 'filename' },
+          lualine_x = { 'encoding', 'fileformat', 'filetype',
+            {
+              require("noice").api.statusline.mode.get,
+              cond = require("noice").api.statusline.mode.has,
+              color = { fg = "#ff9e64" },
+            }
+          },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' }
+        },
       })
     end,
 

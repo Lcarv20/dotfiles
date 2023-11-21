@@ -2,6 +2,14 @@ return {
 	-- "gc" to comment visual regions/lines
 	{
 		'numToStr/Comment.nvim',
+		dependencies = {
+			{
+				'JoosepAlviste/nvim-ts-context-commentstring',
+				opts = {
+					enable_autocmd = false
+				}
+			}
+		},
 		opts = {
 			---Add a space b/w comment and the line
 			padding = true,
@@ -42,8 +50,10 @@ return {
 			},
 			---Function to call before (un)comment
 			pre_hook = function(...)
-				local loaded, ts_comment = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
+				local loaded, ts_comment = pcall(require,
+					"ts_context_commentstring.integrations.comment_nvim")
 				if loaded and ts_comment then
+					print("ts_comment")
 					return ts_comment.create_pre_hook()(...)
 				end
 			end,
@@ -52,4 +62,3 @@ return {
 		},
 	},
 }
-

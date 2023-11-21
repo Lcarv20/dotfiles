@@ -5,7 +5,6 @@ return {
         "nvim-treesitter/nvim-treesitter",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
-            'JoosepAlviste/nvim-ts-context-commentstring',
         },
         build = ":TSUpdate",
         config = function()
@@ -92,8 +91,6 @@ return {
                     max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
                 },
             }
-
-            require('ts_context_commentstring').setup {}
         end,
     },
 }

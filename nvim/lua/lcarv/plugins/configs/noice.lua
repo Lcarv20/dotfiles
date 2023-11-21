@@ -13,24 +13,19 @@ return {
 				},
 			},
 		},
-		config = function()
-			local require = require("noice.util.lazy")
-
-			local Msg = require("noice.ui.msg")
-
-			local M = {}
-
-			---@type table<string, NoiceFilter>
-			M.defaults = {
-				ruler = { event = Msg.events.ruler },
-				message = { event = Msg.events.show },
-				command = { event = Msg.events.showcmd },
-				mode = { event = Msg.events.showmode },
-				search = { event = Msg.events.show, kind = Msg.kinds.search_count },
-			}
-			return M
-		end,
 		opts = {
+			-- status = function()
+			-- 	local require = require("noice.util.lazy")
+			--
+			-- 	local Msg = require("noice.ui.msg")
+			-- 	return {
+			-- 		ruler = { event = Msg.events.ruler },
+			-- 		message = { event = Msg.events.show },
+			-- 		command = { event = Msg.events.showcmd },
+			-- 		mode = { event = Msg.events.showmode },
+			-- 		search = { event = Msg.events.show, kind = Msg.kinds.search_count },
+			-- 	}
+			-- end ,
 			lsp = {
 				-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
 				override = {
@@ -45,9 +40,9 @@ return {
 					enabled = true,
 					format = {
 						{ "({data.progress.percentage}%) ", hl_group = "NoiceLspProgressSpinner" },
-						{ " {spinner} ", hl_group = "NoiceLspProgressSpinner" },
-						{ "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
-						{ "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
+						{ " {spinner} ",                    hl_group = "NoiceLspProgressSpinner" },
+						{ "{data.progress.title} ",         hl_group = "NoiceLspProgressTitle" },
+						{ "{data.progress.client} ",        hl_group = "NoiceLspProgressClient" },
 					},
 
 					format_done = {
@@ -57,7 +52,7 @@ return {
 					},
 					view = "mini",
 				},
-			}, -- you can enable a preset for easier configuration
+			},                    -- you can enable a preset for easier configuration
 			presets = {
 				bottom_search = true, -- use a classic bottom cmdline for search
 				command_palette = true, -- position the cmdline and popupmenu together
@@ -68,7 +63,7 @@ return {
 			messages = {
 				-- NOTE: If you enable messages, then the cmdline is enabled automatically.
 				-- This is a current Neovim limitation.
-				enabled = true, -- enables the Noice messages UI
+				enabled = true,  -- enables the Noice messages UI
 				view = "notify", -- default view for messages
 				view_error = "notify", -- view for errors
 				view_warn = "notify", -- view for warnings
@@ -76,6 +71,10 @@ return {
 				view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
 			},
 			routes = {
+				{
+					view = "notify",
+					filter = { event = "msg_showmode" },
+				},
 				-- { filter = { event = "msg_show", find = "search hit" }, skip = true },
 				-- {
 				--   filter = {
