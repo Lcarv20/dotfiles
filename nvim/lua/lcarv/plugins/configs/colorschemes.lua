@@ -234,6 +234,51 @@ return {
 		"AlexvZyl/nordic.nvim",
 		lazy = false,
 		priority = 1000,
+		opts = {
+			-- This callback can be used to override the colors used in the palette.
+			on_palette = function(palette) return palette end,
+			-- Enable bold keywords.
+			bold_keywords = false,
+			-- Enable italic comments.
+			italic_comments = true,
+			-- Enable general editor background transparency.
+			transparent_bg = false,
+			-- Enable brighter float border.
+			bright_border = false,
+			-- Reduce the overall amount of blue in the theme (diverges from base Nord).
+			reduced_blue = true,
+			-- Swap the dark background with the normal one.
+			swap_backgrounds = false,
+			-- Override the styling of any highlight group.
+			override = {},
+			-- Cursorline options.  Also includes visual/selection.
+			cursorline = {
+				-- Bold font in cursorline.
+				bold = false,
+				-- Bold cursorline number.
+				bold_number = true,
+				-- Avialable styles: 'dark', 'light'.
+				theme = 'dark',
+				-- Blending the cursorline bg with the buffer bg.
+				blend = 0.7,
+			},
+			noice = {
+				-- Available styles: `classic`, `flat`.
+				style = 'flat',
+			},
+			telescope = {
+				-- Available styles: `classic`, `flat`.
+				style = 'flat',
+			},
+			leap = {
+				-- Dims the backdrop when using leap.
+				dim_backdrop = false,
+			},
+			ts_context = {
+				-- Enables dark background for treesitter-context window
+				dark_background = true,
+			}
+		},
 		config = function()
 			-- require "nordic".load()
 		end
@@ -242,6 +287,14 @@ return {
 		"Everblush/nvim",
 		name = "everblush",
 		lazy = false,
+		opts = {
+			-- Default options
+			override = {},
+			transparent_background = false,
+			nvim_tree = {
+				contrast = false,
+			},
+		},
 		priority = 1000
 	},
 	{
@@ -288,5 +341,168 @@ return {
 			}
 		end
 		,
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		opts = {
+			compile = false, -- enable compiling the colorscheme
+			undercurl = false, -- enable undercurls
+			commentStyle = { italic = true },
+			functionStyle = {},
+			keywordStyle = { italic = true },
+			statementStyle = { bold = true },
+			typeStyle = {},
+			transparent = false, -- do not set background color
+			dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+			terminalColors = true, -- define vim.g.terminal_color_{0,17}
+			colors = {    -- add/modify theme and palette colors
+				palette = {},
+				theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+			},
+			overrides = function(colors) -- add/modify highlights
+				return {}
+			end,
+			theme = "dragon", -- Load "wave" theme when 'background' option is not set
+			background = { -- map the value of 'background' option to a theme
+				dark = "dragon", -- try "dragon" !
+				light = "lotus"
+			},
+		}
+	},
+	{
+		"miikanissi/modus-themes.nvim",
+		priority = 1000,
+		opts = {
+			-- Theme comes in two styles `modus_operandi` and `modus_vivendi`
+			-- `auto` will automatically set style based on background set with vim.o.background
+			style = "auto",
+			variant = "default", -- Theme comes in four variants `default`, `tinted`, `deuteranopia`, and `tritanopia`
+			styles = {
+				-- Style to be applied to different syntax groups
+				-- Value is any valid attr-list value for `:help nvim_set_hl`
+				comments = { italic = true },
+				keywords = { italic = true },
+				functions = {},
+				variables = {},
+			},
+
+			--- You can override specific color groups to use other groups or a hex color
+			--- function will be called with a ColorScheme table
+			---@param colors ColorScheme
+			on_colors = function(colors) end,
+
+			--- You can override specific highlights to use other groups or a hex color
+			--- function will be called with a Highlights and ColorScheme table
+			---@param highlights Highlights
+			---@param colors ColorScheme
+			on_highlights = function(highlights, colors) end,
+		}
+	},
+	{
+		'maxmx03/fluoromachine.nvim',
+		config = function()
+			local fm = require 'fluoromachine'
+
+			fm.setup {
+				glow = true,
+				brightness = 0.05,
+				theme = 'retrowave', -- fluoromachine, retrowave, delta
+				transparent = false, -- true, false, 'full'
+				-- colors= {},
+				-- overrides = function(c)
+				-- 	return {
+				-- 		TelescopeResultsBorder = { fg = c.alt_bg, bg = c.alt_bg },
+				-- 		TelescopeResultsNormal = { bg = c.alt_bg },
+				-- 		TelescopePreviewNormal = { bg = c.bg },
+				-- 		TelescopePromptBorder = { fg = c.alt_bg, bg = c.alt_bg },
+				-- 		TelescopeTitle = { fg = c.fg, bg = c.comment },
+				-- 		TelescopePromptPrefix = { fg = c.purple },
+				-- 	}
+				-- end
+			}
+
+			-- vim.cmd.colorscheme 'fluoromachine'
+		end
+	},
+	{
+		{
+			'ribru17/bamboo.nvim',
+			lazy = false,
+			priority = 1000,
+			config = function()
+				-- Lua
+				require('bamboo').setup {
+					-- Main options --
+					-- NOTE: to use the light theme, set `vim.o.background = 'light'`
+					style = 'vulgaris',                        -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
+					toggle_style_key = nil,                    -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
+					toggle_style_list = { 'vulgaris', 'multiplex', 'light' }, -- List of styles to toggle between
+					transparent = false,                       -- Show/hide background
+					dim_inactive = false,                      -- Dim inactive windows/buffers
+					term_colors = true,                        -- Change terminal color as per the selected theme style
+					ending_tildes = false,                     -- Show the end-of-buffer tildes. By default they are hidden
+					cmp_itemkind_reverse = false,              -- reverse item kind highlights in cmp menu
+
+					-- Change code style ---
+					-- Options are italic, bold, underline, none
+					-- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+					code_style = {
+						comments = 'italic',
+						conditionals = 'italic',
+						keywords = 'none',
+						functions = 'none',
+						namespaces = 'italic',
+						parameters = 'italic',
+						strings = 'none',
+						variables = 'none',
+					},
+
+					-- Lualine options --
+					lualine = {
+						transparent = false, -- lualine center bar transparency
+					},
+
+					-- Custom Highlights --
+					colors = {}, -- Override default colors
+					highlights = {}, -- Override highlight groups
+
+					-- Plugins Config --
+					diagnostics = {
+						darker = false, -- darker colors for diagnostic
+						undercurl = true, -- use undercurl instead of underline for diagnostics
+						background = true, -- use background color for virtual text
+					},
+				}
+
+
+				-- require('bamboo').load()
+			end,
+		},
+	},
+	{
+		"zootedb0t/citruszest.nvim",
+		lazy = false,
+		opts = {
+			option = {
+				transparent = false, -- Enable/Disable transparency
+				italic = true,
+				bold = true,
+			},
+			-- Override default highlight style in this table
+			-- E.g If you want to override `Constant` highlight style
+			style = {
+				-- This will change Constant foreground color and make it bold.
+				-- Constant = { fg = "#FFFFFF", bold = true }
+			},
+		},
+		priority = 1000,
+	},
+	{
+		"gosukiwi/vim-atom-dark"
+	},
+	{
+		"LunarVim/primer.nvim",
+		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		priority = 1000, -- make sure to load this before all the other start plugins
 	},
 }

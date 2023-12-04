@@ -53,9 +53,17 @@ local on_attach = function(client, bufnr)
     vim.lsp.buf.format()
   end, { desc = "Format current buffer with LSP" })
 
-  if client.name ~= "typescript-tools" and client.server_capabilities["documentSymbolProvider"] then
-    require("nvim-navic").attach(client, bufnr)
-  end
+
+
+
+  -- NOTE: Uncomment this once I reenable typescript-tools
+  -- if client.name ~= "typescript-tools" and client.server_capabilities["documentSymbolProvider"] then
+  --   require("nvim-navic").attach(client, bufnr)
+  -- end
+
+
+
+
   -- -- lsp_signature
   -- require "lsp_signature".on_attach({
   --   bind = true,   -- This is mandatory, otherwise border config won't get registered.
@@ -147,7 +155,7 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
-require 'lspconfig'.tailwindcss.setup {
+require('lspconfig').tailwindcss.setup {
   cmd = { "tailwindcss-language-server", "--stdio" },
   filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
   settings = {
@@ -178,3 +186,7 @@ require 'lspconfig'.tailwindcss.setup {
     }
   }
 }
+
+
+-- Testing this typescript lsp
+require("lspconfig.configs").vtsls = require("vtsls").lspconfig

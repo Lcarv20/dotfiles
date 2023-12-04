@@ -53,7 +53,11 @@ M.cursorStyle = function()
 	vim.api.nvim_set_hl(0, "VCursor", { bg = mocha.red })
 	vim.api.nvim_set_hl(0, "RCursor", { bg = mocha.yellow })
 	vim.api.nvim_set_hl(0, "NoiceCursor", { bg = mocha.saphire })
-	vim.opt.guicursor = 'n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor'
+
+	if mocha.mauve then
+		vim.opt.guicursor =
+		'n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor'
+	end
 end
 
 M.colors = function()

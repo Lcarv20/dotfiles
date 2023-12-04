@@ -3,7 +3,7 @@ local fns = require("lcarv.fns")
 
 local function map(mode, mapping, cmd, opts)
 	opts = opts or {}
-	-- opts.silent = true
+	opts.silent = true
 	vim.keymap.set(mode, mapping, cmd, opts)
 end
 

@@ -4,7 +4,6 @@
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  clangd = {},
   cssls = {
     settings = {
       css = {
@@ -42,12 +41,6 @@ local servers = {
       },
     },
   },
-  marksman = {
-    -- cmd = { "marksman", "server" },
-    -- filetypes = { "markdown", "markdown.mdx" },
-    -- root_dir = require("lspconfig.util").root_pattern("marksman.json", ".git", ".marksman.toml"),
-    -- single_file_support = true
-  },
   -- html
   html = {
     filetypes = { "html", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
@@ -67,10 +60,8 @@ local servers = {
       autostart = true,
     },
   },
-  -- CSS
-  cssls = {},
-  pyright = {},
-  rust_analyzer = {},
+
+  -- NOTE:  do not use tsserver with vtsls
   -- tsserver = {
   --   settings = {
   --     typescript = {
@@ -99,6 +90,9 @@ local servers = {
   --     }
   --   }
   -- },
+
+
+
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
