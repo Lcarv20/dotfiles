@@ -20,6 +20,7 @@ require("lazy").setup({
 		r("trouble"),
 		r("neo-tree"),
 		r("web-stuff"),
+		r("none-ls"),
 		-- r("noice"),
 		r("indent-blankline"),
 		r("dressing"),

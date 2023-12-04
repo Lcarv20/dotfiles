@@ -21,15 +21,15 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv "HOME" .. "/.vim/undodir"
 vim.opt.undofile = true
 
 vim.optncsearch = true
 -- vim.opt.shortmess:append({ W = true, I = true, c = true, C = true, o = true, s = true })
-vim.opt.shortmess:append("C")
-vim.opt.shortmess:append("S") -- We have our own search counter
-vim.opt.shortmess:append("c")
-vim.opt.shortmess:append("s")
+vim.opt.shortmess:append "C"
+vim.opt.shortmess:append "S" -- We have our own search counter
+vim.opt.shortmess:append "c"
+vim.opt.shortmess:append "s"
 
 vim.opt.termguicolors = true
 
@@ -37,17 +37,16 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "110"
 vim.opt.textwidth = 110
-vim.opt.isfname:append("@-@")
+vim.opt.isfname:append "@-@"
 
-vim.opt.updatetime       = 50
+vim.opt.updatetime = 50
 
-vim.opt.completeopt      = "menu,menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noselect"
 -- vim.opt.completeopt      = { "menuone", "noselect" }
-vim.opt.fileencoding     = "utf-8"
+vim.opt.fileencoding = "utf-8"
 
 --NETRW DISABLED
 vim.g.loaded_netrwPlugin = 1
-
 
 --NETRW ENABLED
 -- vim.g.netrw_browse_split = 0
@@ -56,9 +55,9 @@ vim.g.loaded_netrwPlugin = 1
 -- vim.g.netrw_liststyle = 3
 -- vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 
-vim.opt.confirm   = true
+vim.opt.confirm = true
 
-vim.opt.pumblend  = 10 -- Popup blend
+vim.opt.pumblend = 10  -- Popup blend
 vim.opt.pumheight = 10 -- Maximum number of entries in a popup
 
 vim.opt.fillchars = {
@@ -71,8 +70,8 @@ vim.opt.fillchars = {
     eob = " ",
 }
 
-vim.opt.spell     = false
-vim.opt.cmdheight = 2
+vim.opt.spell = false
+vim.opt.cmdheight = 1
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set formatoptions-=cro]]

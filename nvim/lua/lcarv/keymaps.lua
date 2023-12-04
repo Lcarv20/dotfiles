@@ -1,5 +1,5 @@
-local wk = require("which-key")
-local fns = require("lcarv.fns")
+local wk = require "which-key"
+local fns = require "lcarv.fns"
 
 local function map(mode, mapping, cmd, opts)
 	opts = opts or {}
@@ -9,14 +9,12 @@ end
 
 local ignore = { desc = "which_key_ignore" }
 
-
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 map({ "n", "v" }, " ", "<Nop>", { silent = true })
 map({ "n" }, " e", ":Neotree left toggle<cr>", { desc = "[e]xplore", silent = true })
 map({ "n" }, " w", ":w<cr>", { desc = "[w]rite", silent = true })
 map("n", " q", ":q<cr>", { desc = "[q]uit" })
-
 
 -- FIND
 wk.register({ f = { name = "Find" } }, { prefix = "<leader>" }) -- which key is merely to register groups as I don't know how to do it in neovim
@@ -39,7 +37,6 @@ map("n", " ft", ":Telescope live_grep<cr>", { desc = "[T]ext" })
 -- Find and Replace File
 map("n", " r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "[r]eplace word" })
 
-
 -- GIT
 wk.register({ g = { name = "Git" } }, { prefix = "<leader>" })
 map("n", " fg", ":Telescope git_files<cr>", { desc = "[G]it files" })
@@ -47,19 +44,27 @@ map("n", " gN", ":Neogit<cr>", { desc = "[N]eogit" })
 
 -- LSP
 wk.register({ l = { name = "Lsp" } }, { prefix = "<leader>" })
-map("n", " lf", ":Format<cr>", { desc = "[f]ormat" })
+map("n", " lf", ":lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>", { desc = "[f]ormat" })
 
 -- Harpoon
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
+local mark = require "harpoon.mark"
+local ui = require "harpoon.ui"
 
 map("n", "ma", mark.add_file, { desc = "[a]dd file" })
 map("n", "mm", ui.toggle_quick_menu, { desc = "[m]enu" })
 
-map("n", "<C-1>", function() ui.nav_file(1) end)
-map("n", "<C-2>", function() ui.nav_file(2) end)
-map("n", "<C-3>", function() ui.nav_file(3) end)
-map("n", "<C-4>", function() ui.nav_file(4) end)
+map("n", "<C-1>", function()
+	ui.nav_file(1)
+end)
+map("n", "<C-2>", function()
+	ui.nav_file(2)
+end)
+map("n", "<C-3>", function()
+	ui.nav_file(3)
+end)
+map("n", "<C-4>", function()
+	ui.nav_file(4)
+end)
 
 -- UndooTree
 -- wk.register({ u = { name = "Undotree" } }, { prefix = "<leader>" })
@@ -72,13 +77,11 @@ wk.register({ R = { name = "Refactor" } }, { prefix = "<leader>" })
 wk.register({ E = { name = "Editor" } }, { prefix = "<leader>" })
 map("n", " Eh", function()
 	fns.toggleInlayHints()
-end
-, { desc = "[H]ints" })
+end, { desc = "[H]ints" })
 map("n", " EL", ":Lazy<cr>", { desc = "[L]azy" })
 map("n", " Ei", ":LspInfo<cr>", { desc = "[i]nfo" })
 map("n", " Em", ":Mason<cr>", { desc = "[m]ason" })
 map("n", " h", ":nohl<cr>", { desc = "hide [h]ighlight" })
-
 
 -- Movement
 map("n", "J", "mzJ`z")
@@ -108,7 +111,6 @@ map("x", "<A-k>", ":m '<-2<CR>gv-gv")
 -- Move current line insert mode with option/alt + j/k
 map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
-
 
 -- Stay indented in visual mode
 map("v", "<", "<gv")
