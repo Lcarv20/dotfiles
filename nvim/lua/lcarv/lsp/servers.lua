@@ -3,28 +3,15 @@
 --
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
+
 local servers = {
   cssls = {
-    settings = {
-      css = {
-        validate = true,
-        lint = {
-          unknownAtRules = "ignore"
-        }
+    css = {
+      validate = true,
+      lint = {
+        unknownAtRules = "ignore",
       },
-      scss = {
-        validate = true,
-        lint = {
-          unknownAtRules = "ignore"
-        }
-      },
-      less = {
-        validate = true,
-        lint = {
-          unknownAtRules = "ignore"
-        }
-      },
-    }
+    },
   },
   gopls = {
     settings = {
@@ -43,9 +30,17 @@ local servers = {
   },
   -- html
   html = {
-    filetypes = { "html", "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact",
-      "typescript.tsx" },
+    filetypes = {
+      "html",
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+    },
   },
+  biome = {},
   -- Emmet
   emmet_ls = {
     init_options = {
@@ -90,8 +85,6 @@ local servers = {
   --     }
   --   }
   -- },
-
-
 
   lua_ls = {
     Lua = {

@@ -1,4 +1,4 @@
-local icons = require("lcarv.icons")
+local icons = require "lcarv.icons"
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 
@@ -29,16 +29,17 @@ local on_attach = function(client, bufnr)
   nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
 
   nmap("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-  nmap('gl', vim.diagnostic.open_float, "Open floating diagnostic message")
+  nmap("gl", vim.diagnostic.open_float, "Open floating diagnostic message")
   nmap("gr", "<cmd>TroubleToggle lsp_references<cr>", "[R]eferences")
 
-  nmap('[d', vim.diagnostic.goto_prev, "Go to previous diagnostic message")
-  nmap(']d', vim.diagnostic.goto_next, "Go to next diagnostic message")
+  nmap("[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
+  nmap("]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
 
   nmap("K", vim.lsp.buf.hover, "Hover Documentation")
   -- See sig help insert mode
-  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end,
-    { remap = false, desc = "Signature Help", buffer = bufnr })
+  vim.keymap.set("i", "<C-h>", function()
+    vim.lsp.buf.signature_help()
+  end, { remap = false, desc = "Signature Help", buffer = bufnr })
 
   nmap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
   vim.keymap.set("i", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help", buffer = bufnr })
@@ -49,20 +50,14 @@ local on_attach = function(client, bufnr)
   nmap(" ld", "<cmd>TroubleToggle document_diagnostics<cr>", "TroubleToggle [d]ocument diagnostics")
 
   -- Create a command `:Format` local to the LSP buffer
-  vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-    vim.lsp.buf.format()
-  end, { desc = "Format current buffer with LSP" })
-
-
-
+  -- vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
+  --   vim.lsp.buf.format()
+  -- end, { desc = "Format current buffer with LSP" })
 
   -- NOTE: Uncomment this once I reenable typescript-tools
   -- if client.name ~= "typescript-tools" and client.server_capabilities["documentSymbolProvider"] then
   --   require("nvim-navic").attach(client, bufnr)
   -- end
-
-
-
 
   -- -- lsp_signature
   -- require "lsp_signature".on_attach({
@@ -130,7 +125,6 @@ require("neodev").setup()
 --   },
 -- })
 
-
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
@@ -138,7 +132,7 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 -- Ensure the servers above are installed
 local mason_lspconfig = require "mason-lspconfig"
 
-local servers = require("lcarv.lsp.servers")
+local servers = require "lcarv.lsp.servers"
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
@@ -150,14 +144,63 @@ mason_lspconfig.setup_handlers {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = servers[server_name],
-      handlers = require("lcarv.lsp.settings").Hover
+      handlers = require("lcarv.lsp.settings").Hover,
     }
   end,
 }
 
-require('lspconfig').tailwindcss.setup {
+require("lspconfig").tailwindcss.setup {
   cmd = { "tailwindcss-language-server", "--stdio" },
-  filetypes = { "aspnetcorerazor", "astro", "astro-markdown", "blade", "clojure", "django-html", "htmldjango", "edge", "eelixir", "elixir", "ejs", "erb", "eruby", "gohtml", "gohtmltmpl", "haml", "handlebars", "hbs", "html", "html-eex", "heex", "jade", "leaf", "liquid", "markdown", "mdx", "mustache", "njk", "nunjucks", "php", "razor", "slim", "twig", "css", "less", "postcss", "sass", "scss", "stylus", "sugarss", "javascript", "javascriptreact", "reason", "rescript", "typescript", "typescriptreact", "vue", "svelte" },
+  filetypes = {
+    "aspnetcorerazor",
+    "astro",
+    "astro-markdown",
+    "blade",
+    "clojure",
+    "django-html",
+    "htmldjango",
+    "edge",
+    "eelixir",
+    "elixir",
+    "ejs",
+    "erb",
+    "eruby",
+    "gohtml",
+    "gohtmltmpl",
+    "haml",
+    "handlebars",
+    "hbs",
+    "html",
+    "html-eex",
+    "heex",
+    "jade",
+    "leaf",
+    "liquid",
+    "markdown",
+    "mdx",
+    "mustache",
+    "njk",
+    "nunjucks",
+    "php",
+    "razor",
+    "slim",
+    "twig",
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss",
+    "stylus",
+    "sugarss",
+    "javascript",
+    "javascriptreact",
+    "reason",
+    "rescript",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "svelte",
+  },
   settings = {
     tailwindCSS = {
       classAttributes = { "class", "className", "class:list", "classList", "ngClass", ".*Styles", ".*Classes" },
@@ -168,10 +211,13 @@ require('lspconfig').tailwindcss.setup {
           "className\\s*:\\s*['\"`]([^'\"`]*)['\"`]",
           -- this is for btnClasses = "..."
           -- or btnClasses = { danger : "..."}
-          "Classes \\=([^;]*);", "'([^']*)'",
-          "Classes \\=([^;]*);", "\"([^\"]*)\"",
-          "Classes \\=([^;]*);", "\\`([^\\`]*)\\`"
-        }
+          "Classes \\=([^;]*);",
+          "'([^']*)'",
+          "Classes \\=([^;]*);",
+          '"([^"]*)"',
+          "Classes \\=([^;]*);",
+          "\\`([^\\`]*)\\`",
+        },
       },
       lint = {
         cssConflict = "warning",
@@ -180,13 +226,12 @@ require('lspconfig').tailwindcss.setup {
         invalidScreen = "error",
         invalidTailwindDirective = "error",
         invalidVariant = "error",
-        recommendedVariantOrder = "warning"
+        recommendedVariantOrder = "warning",
       },
-      validate = true
-    }
-  }
+      validate = true,
+    },
+  },
 }
-
 
 -- Testing this typescript lsp
 require("lspconfig.configs").vtsls = require("vtsls").lspconfig
