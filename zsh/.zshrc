@@ -100,6 +100,8 @@ alias lla="ls -la"
 alias lv="/Users/lcarv/.config/lvim/neolvim"
 alias nvl="XDG_CONFIG_HOME=/Users/lcarv/.config/nvl XDG_DATA_HOME=/Users/lcarv/.config/nvl nvim"
 alias launch="NVIM_APPNAME=launch nvim"
+alias chad="NVIM_APPNAME=chad nvim"
+alias lzv="NVIM_APPNAME=lazyvim nvim"
 alias "git open"="git-open"
 
 if command -v bat &> /dev/null; then

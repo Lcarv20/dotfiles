@@ -13,7 +13,7 @@ return {
 	{
 		"https://github.com/rose-pine/neovim",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"wadackel/vim-dogrun",
@@ -27,25 +27,25 @@ return {
 			-- 	mirage = false,
 			-- 	overrides = {}
 			-- })
-		end
+		end,
 	},
 	{
 		"hachy/eva01.vim",
 		branch = "main",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"challenger-deep-theme/vim",
 		name = "challenger-deep-theme",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"embark-theme/vim",
 		name = "embark",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"folke/tokyonight.nvim",
@@ -53,7 +53,7 @@ return {
 			-- require("tokyonight").setup({
 			-- 	transparent = true
 			-- })
-		end
+		end,
 	},
 	{
 		"rose-pine/neovim",
@@ -65,13 +65,13 @@ return {
 			-- 	dim_nc_background = false,
 			-- 	disable_background = true,
 			-- })
-		end
+		end,
 	},
 	{
 		"nyoom-engineering/oxocarbon.nvim",
 		name = "oxocarbon",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"projekt0n/github-nvim-theme",
@@ -81,17 +81,17 @@ return {
 			-- 	theme_style = "dark_default",
 			-- 	transparent = true
 			-- })
-		end
+		end,
 	},
 	{
 		"marko-cerovac/material.nvim",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"LunarVim/Colorschemes",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"catppuccin/nvim",
@@ -117,26 +117,26 @@ return {
 					NoiceLspProgressSuccess = { fg = colors.green },
 					NoiceLspProgressSpinner = { fg = colors.yellow },
 					TelescopePromptNormal = {
-						bg = '#18181b',
-						fg = '#d6d3d1'
+						bg = "#18181b",
+						fg = "#d6d3d1",
 					},
 					TelescopePromptBorder = {
-						bg = '#18181b',
-						fg = '#18181b',
+						bg = "#18181b",
+						fg = "#18181b",
 					},
 					TelescopePromptTitle = {
 						-- bg = '#18181b',
-						fg = '#57534e',
+						fg = "#57534e",
 					},
 
 					-- Preview
 					TelescopePreviewTitle = {
-						fg = '#18181b',
-						bg = '#18181b',
+						fg = "#18181b",
+						bg = "#18181b",
 					},
 					TelescopePreviewNormal = {
 						-- fg = '#18181b',
-						bg = '#18181b',
+						bg = "#18181b",
 					},
 					TelescopePreviewBorder = {
 						-- NO BORDER
@@ -144,31 +144,31 @@ return {
 						-- bg = '#18181b',
 						--
 						-- SPECIFIC FOR BORDERLINE
-						fg = '#334155',
-						bg = '#18181b',
+						fg = "#334155",
+						bg = "#18181b",
 					},
 
 					-- Results whi
 					TelescopeResultsTitle = {
-						fg = '#161617',
-						bg = '#161617',
+						fg = "#161617",
+						bg = "#161617",
 					},
 					TelescopeResultsNormal = {
 						-- fg = '#1F1F23',
-						bg = '#161617',
+						bg = "#161617",
 					},
 					TelescopeResultsBorder = {
-						fg = '#161617',
-						bg = '#161617',
+						fg = "#161617",
+						bg = "#161617",
 					},
 					NormalFloat = {
-						bg = '#161617',
-						fg = '#cdd6f5',
+						bg = "#161617",
+						fg = "#cdd6f5",
 					},
 					Pmenu = {
-						bg = '#161617',
-						fg = '#cdd6f5',
-					}
+						bg = "#161617",
+						fg = "#cdd6f5",
+					},
 				}
 			end,
 			integrations = {
@@ -223,12 +223,12 @@ return {
 	{
 		"nyoom-engineering/nyoom.nvim",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"savq/melange-nvim",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"AlexvZyl/nordic.nvim",
@@ -236,7 +236,9 @@ return {
 		priority = 1000,
 		opts = {
 			-- This callback can be used to override the colors used in the palette.
-			on_palette = function(palette) return palette end,
+			on_palette = function(palette)
+				return palette
+			end,
 			-- Enable bold keywords.
 			bold_keywords = false,
 			-- Enable italic comments.
@@ -258,17 +260,17 @@ return {
 				-- Bold cursorline number.
 				bold_number = true,
 				-- Avialable styles: 'dark', 'light'.
-				theme = 'dark',
+				theme = "dark",
 				-- Blending the cursorline bg with the buffer bg.
 				blend = 0.7,
 			},
 			noice = {
 				-- Available styles: `classic`, `flat`.
-				style = 'flat',
+				style = "flat",
 			},
 			telescope = {
 				-- Available styles: `classic`, `flat`.
-				style = 'flat',
+				style = "flat",
 			},
 			leap = {
 				-- Dims the backdrop when using leap.
@@ -277,11 +279,11 @@ return {
 			ts_context = {
 				-- Enables dark background for treesitter-context window
 				dark_background = true,
-			}
+			},
 		},
 		config = function()
 			-- require "nordic".load()
-		end
+		end,
 	},
 	{
 		"Everblush/nvim",
@@ -295,12 +297,12 @@ return {
 				contrast = false,
 			},
 		},
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"rafamadriz/neon",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"uloco/bluloco.nvim",
@@ -320,54 +322,52 @@ return {
 	{
 		"JoosepAlviste/palenightfall.nvim",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
 		"humanoid-colors/vim-humanoid-colorscheme",
 		lazy = false,
-		priority = 1000
+		priority = 1000,
 	},
 	{
-		'Mofiqul/dracula.nvim',
+		"Mofiqul/dracula.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("dracula").setup({ overrides = {} }
-			)
-			require('lualine').setup {
+			require("dracula").setup { overrides = {} }
+			require("lualine").setup {
 				options = {
-					theme = 'dracula-nvim'
-				}
+					theme = "dracula-nvim",
+				},
 			}
-		end
-		,
+		end,
 	},
 	{
 		"rebelot/kanagawa.nvim",
 		opts = {
-			compile = false, -- enable compiling the colorscheme
+			compile = false,   -- enable compiling the colorscheme
 			undercurl = false, -- enable undercurls
 			commentStyle = { italic = true },
 			functionStyle = {},
 			keywordStyle = { italic = true },
 			statementStyle = { bold = true },
 			typeStyle = {},
-			transparent = false, -- do not set background color
-			dimInactive = true, -- dim inactive window `:h hl-NormalNC`
+			transparent = false,   -- do not set background color
+			dimInactive = true,    -- dim inactive window `:h hl-NormalNC`
 			terminalColors = true, -- define vim.g.terminal_color_{0,17}
-			colors = {    -- add/modify theme and palette colors
+			colors = {             -- add/modify theme and palette colors
 				palette = {},
 				theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
 			},
 			overrides = function(colors) -- add/modify highlights
 				return {}
 			end,
-			theme = "dragon", -- Load "wave" theme when 'background' option is not set
-			background = { -- map the value of 'background' option to a theme
+			theme = "dragon",  -- Load "wave" theme when 'background' option is not set
+			background = {     -- map the value of 'background' option to a theme
 				dark = "dragon", -- try "dragon" !
-				light = "lotus"
+				light = "lotus",
 			},
-		}
+		},
 	},
 	{
 		"miikanissi/modus-themes.nvim",
@@ -396,17 +396,17 @@ return {
 			---@param highlights Highlights
 			---@param colors ColorScheme
 			on_highlights = function(highlights, colors) end,
-		}
+		},
 	},
 	{
-		'maxmx03/fluoromachine.nvim',
+		"maxmx03/fluoromachine.nvim",
 		config = function()
-			local fm = require 'fluoromachine'
+			local fm = require "fluoromachine"
 
 			fm.setup {
 				glow = true,
 				brightness = 0.05,
-				theme = 'retrowave', -- fluoromachine, retrowave, delta
+				theme = "retrowave", -- fluoromachine, retrowave, delta
 				transparent = false, -- true, false, 'full'
 				-- colors= {},
 				-- overrides = function(c)
@@ -422,39 +422,39 @@ return {
 			}
 
 			-- vim.cmd.colorscheme 'fluoromachine'
-		end
+		end,
 	},
 	{
 		{
-			'ribru17/bamboo.nvim',
+			"ribru17/bamboo.nvim",
 			lazy = false,
 			priority = 1000,
 			config = function()
 				-- Lua
-				require('bamboo').setup {
+				require("bamboo").setup {
 					-- Main options --
 					-- NOTE: to use the light theme, set `vim.o.background = 'light'`
-					style = 'vulgaris',                        -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
-					toggle_style_key = nil,                    -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
-					toggle_style_list = { 'vulgaris', 'multiplex', 'light' }, -- List of styles to toggle between
-					transparent = false,                       -- Show/hide background
-					dim_inactive = false,                      -- Dim inactive windows/buffers
-					term_colors = true,                        -- Change terminal color as per the selected theme style
-					ending_tildes = false,                     -- Show the end-of-buffer tildes. By default they are hidden
-					cmp_itemkind_reverse = false,              -- reverse item kind highlights in cmp menu
+					style = "vulgaris",                                       -- Choose between 'vulgaris' (regular), 'multiplex' (greener), and 'light'
+					toggle_style_key = nil,                                   -- Keybind to toggle theme style. Leave it nil to disable it, or set it to a string, e.g. "<leader>ts"
+					toggle_style_list = { "vulgaris", "multiplex", "light" }, -- List of styles to toggle between
+					transparent = false,                                      -- Show/hide background
+					dim_inactive = false,                                     -- Dim inactive windows/buffers
+					term_colors = true,                                       -- Change terminal color as per the selected theme style
+					ending_tildes = false,                                    -- Show the end-of-buffer tildes. By default they are hidden
+					cmp_itemkind_reverse = false,                             -- reverse item kind highlights in cmp menu
 
 					-- Change code style ---
 					-- Options are italic, bold, underline, none
 					-- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
 					code_style = {
-						comments = 'italic',
-						conditionals = 'italic',
-						keywords = 'none',
-						functions = 'none',
-						namespaces = 'italic',
-						parameters = 'italic',
-						strings = 'none',
-						variables = 'none',
+						comments = "italic",
+						conditionals = "italic",
+						keywords = "none",
+						functions = "none",
+						namespaces = "italic",
+						parameters = "italic",
+						strings = "none",
+						variables = "none",
 					},
 
 					-- Lualine options --
@@ -463,17 +463,16 @@ return {
 					},
 
 					-- Custom Highlights --
-					colors = {}, -- Override default colors
+					colors = {},     -- Override default colors
 					highlights = {}, -- Override highlight groups
 
 					-- Plugins Config --
 					diagnostics = {
-						darker = false, -- darker colors for diagnostic
-						undercurl = true, -- use undercurl instead of underline for diagnostics
+						darker = false,    -- darker colors for diagnostic
+						undercurl = true,  -- use undercurl instead of underline for diagnostics
 						background = true, -- use background color for virtual text
 					},
 				}
-
 
 				-- require('bamboo').load()
 			end,
@@ -498,11 +497,11 @@ return {
 		priority = 1000,
 	},
 	{
-		"gosukiwi/vim-atom-dark"
+		"gosukiwi/vim-atom-dark",
 	},
 	{
 		"LunarVim/primer.nvim",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		lazy = false,    -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 	},
 }

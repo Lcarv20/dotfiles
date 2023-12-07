@@ -1,4 +1,4 @@
-local fns = require("lcarv.fns")
+local fns = require "lcarv.fns"
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -15,13 +15,13 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   pattern = "*",
   callback = function()
     if vim.bo.ft == "netrw" then
-      vim.cmd("echo 'hello'")
+      vim.cmd "echo 'hello'"
     end
-  end
+  end,
 })
 
 -- Help at the bottom
-vim.cmd([[autocmd BufWinEnter,FileType help wincmd J]])
+vim.cmd [[autocmd BufWinEnter,FileType help wincmd J]]
 
 -- close with q for certain FileType
 vim.api.nvim_create_autocmd({ "FileType" }, {
@@ -42,28 +42,28 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Neotree
-vim.api.nvim_create_autocmd('BufEnter', {
-  pattern = '*',
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
   callback = function()
-    if vim.bo.ft == 'neo-tree' then
-      vim.cmd('setlocal number')
-      vim.cmd('setlocal relativenumber')
+    if vim.bo.ft == "neo-tree" then
+      vim.cmd "setlocal number"
+      vim.cmd "setlocal relativenumber"
     end
-  end
+  end,
 })
 
-vim.api.nvim_create_autocmd('BufLeave', {
-  pattern = '*',
+vim.api.nvim_create_autocmd("BufLeave", {
+  pattern = "*",
   callback = function()
-    if vim.bo.ft == 'neo-tree' then
-      vim.cmd('NeoTreeClose')
+    if vim.bo.ft == "neo-tree" then
+      vim.cmd "NeoTreeClose"
     end
-  end
+  end,
 })
 
 -- Only uncoment when version 0.10 of neovim
-vim.api.nvim_create_autocmd('BufEnter', {
-  pattern = { '*.lua', '*.ts', '*.js', '*.go', '*.tsx', '*.jsx' },
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*.lua", "*.ts", "*.js", "*.go", "*.tsx", "*.jsx" },
   callback = function()
     local isInlayActive = fns.getConfig()
 
@@ -88,23 +88,23 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
     local colors_name = vim.trim(vim.g.colors_name)
     if colors_name == "catppuccin-mocha" then
-      require('telescope').setup {
+      require("telescope").setup {
         defaults = {
           borderchars = {
-            prompt = { ' ', ' ', '⎯', ' ', ' ', ' ', ' ', ' ' },
-            results = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
-            preview = { ' ', ' ', ' ', '▏', '▏', ' ', ' ', '▏' },
+            prompt = { " ", " ", "⎯", " ", " ", " ", " ", " " },
+            results = { " ", " ", " ", " ", " ", " ", " ", " " },
+            preview = { " ", " ", " ", "▏", "▏", " ", " ", "▏" },
           },
-        }
+        },
       }
     end
-  end
+  end,
 })
 
 -- Syntax Highlight for mdx
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = {
-    "*.mdx"
+    "*.mdx",
   },
   callback = function()
     vim.cmd [[
@@ -127,3 +127,18 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 --     require("lsp-inlayhints").on_attach(client, bufnr)
 --   end,
 -- })
+
+-- remove border from neotree and give it a different background
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = { "*" },
+  callback = function()
+    vim.api.nvim_set_hl(0, "NeoTreeNormal", { link = "NormalFloat" })
+
+    -- this is the damn like I would love to remove
+    vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", {
+      link = "WhiteSpace",
+      -- bg = "black",
+      -- fg = "black",
+    })
+  end,
+})

@@ -1,10 +1,10 @@
-local icons = require('lcarv.icons')
+local icons = require "lcarv.icons"
 
 local file_browser_opts = function(fb_actions)
   local opts = {
     initial_mode = "normal",
     hijack_netrw = true,
-    theme = "ivy",
+    theme = "dropdown",
     path = vim.loop.cwd(),
     cwd = vim.loop.cwd(),
     cwd_to_path = false,
@@ -66,28 +66,27 @@ local file_browser_opts = function(fb_actions)
   return opts
 end
 
-
 return {
   {
-    'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim',
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
       {
-        'nvim-telescope/telescope-fzf-native.nvim',
+        "nvim-telescope/telescope-fzf-native.nvim",
         -- NOTE: If you are having trouble with this installation,
         --       refer to the README for telescope-fzf-native for more instructions.
-        build = 'make',
+        build = "make",
         cond = function()
-          return vim.fn.executable 'make' == 1
+          return vim.fn.executable "make" == 1
         end,
       },
       "nvim-telescope/telescope-file-browser.nvim",
-
     },
     config = function()
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
-      local telescope = require('telescope')
+      local telescope = require "telescope"
       local fb_actions = require "telescope._extensions.file_browser.actions"
       telescope.setup {
         defaults = {
@@ -97,27 +96,27 @@ return {
           --     results = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
           --     preview = { ' ', ' ', ' ', '▏', '▏', ' ', ' ', '▏' },
           -- },
-          sorting_strategy = "ascending",           -- display results top->bottom
+          sorting_strategy = "ascending", -- display results top->bottom
           layout_config = {
-            prompt_position = "top"                 -- search bar at the top
+            prompt_position = "top",      -- search bar at the top
           },
           mappings = {
             i = {
-              ['<C-u>'] = false,
-              ['<C-d>'] = false,
+              ["<C-u>"] = false,
+              ["<C-d>"] = false,
             },
           },
         },
         extensions = {
-          file_browser = file_browser_opts(fb_actions)
+          file_browser = file_browser_opts(fb_actions),
         },
       }
 
       -- Enable telescope fzf native, if installed
-      telescope.load_extension('fzf')
+      telescope.load_extension "fzf"
       -- Enable notify.nvim
       -- telescope.load_extension("notify")
       require("telescope").load_extension "file_browser"
-    end
+    end,
   },
 }
