@@ -1,10 +1,44 @@
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
-
 local servers = {
+  astro = {},
+
+  bashls = {},
+
+  jsonls = {},
+
+  yamlls = {},
+
+  marksman = {},
+
+  tailwindcss = {
+    settings = {
+      tailwindCSS = {
+        classAttributes = { "class", "className", "class:list", "classList", "ngClass", ".*Styles", ".*Classes" },
+        -- experimental = {
+        --   classRegex = {
+        --     "tw`([^`]*)",
+        --     "className\\s*:\\s*['\"`]([^'\"`]*)['\"`]",
+        --     "Classes \\=([^;]*);",
+        --     "'([^']*)'",
+        --     "Classes \\=([^;]*);",
+        --     '"([^"]*)"',
+        --     "Classes \\=([^;]*);",
+        --     "\\`([^\\`]*)\\`",
+        --   },
+        -- },
+        lint = {
+          cssConflict = "warning",
+          invalidApply = "error",
+          invalidConfigPath = "error",
+          invalidScreen = "error",
+          invalidTailwindDirective = "error",
+          invalidVariant = "error",
+          recommendedVariantOrder = "warning",
+        },
+        validate = true,
+      },
+    },
+  },
+
   cssls = {
     css = {
       validate = true,
@@ -13,6 +47,7 @@ local servers = {
       },
     },
   },
+
   gopls = {
     settings = {
       gopls = {
@@ -28,7 +63,7 @@ local servers = {
       },
     },
   },
-  -- html
+
   html = {
     filetypes = {
       "html",
@@ -40,8 +75,7 @@ local servers = {
       "typescript.tsx",
     },
   },
-  biome = {},
-  -- Emmet
+
   emmet_ls = {
     init_options = {
       filetypes = { "html", "css", "typescriptreact", "javascriptreact", "php", "mdx" },
@@ -56,39 +90,24 @@ local servers = {
     },
   },
 
-  -- NOTE:  do not use tsserver with vtsls
-  -- tsserver = {
-  --   settings = {
-  --     typescript = {
-  --       inlayHints = {
-  --         includeInlayParameterNameHints = 'all',
-  --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-  --         includeInlayFunctionParameterTypeHints = true,
-  --         includeInlayVariableTypeHints = true,
-  --         includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-  --         includeInlayPropertyDeclarationTypeHints = true,
-  --         includeInlayFunctionLikeReturnTypeHints = true,
-  --         includeInlayEnumMemberValueHints = true,
-  --       }
-  --     },
-  --     javascript = {
-  --       inlayHints = {
-  --         includeInlayParameterNameHints = 'all',
-  --         includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-  --         includeInlayFunctionParameterTypeHints = true,
-  --         includeInlayVariableTypeHints = true,
-  --         includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-  --         includeInlayPropertyDeclarationTypeHints = true,
-  --         includeInlayFunctionLikeReturnTypeHints = true,
-  --         includeInlayEnumMemberValueHints = true,
-  --       }
-  --     }
-  --   }
-  -- },
-
   lua_ls = {
     Lua = {
-      workspace = { checkThirdParty = false },
+      format = {
+        enable = false,
+      },
+      runtime = {
+        version = "LuaJIT",
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.stdpath "config" .. "/lua"] = true,
+        },
+      },
       telemetry = { enable = false },
       hint = {
         enable = true,

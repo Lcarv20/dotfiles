@@ -8,5 +8,3 @@ require("lcarv.keymaps")
 require("lcarv.lsp")
 -- Auto Commands
 require("lcarv.autocmds")
--- Highlights
-require("lcarv.highlights")

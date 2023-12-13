@@ -1,37 +1,17 @@
-local icons = require("lcarv.icons")
+local icons = require "lcarv.icons"
 local M = {}
-
-M.Border = {
-  { " ", "NormalFloat" },
-  { " ", "NormalFloat" },
-  { " ", "NormalFloat" },
-  { " ", "NormalFloat" },
-  { " ", "NormalFloat" },
-  { " ", "NormalFloat" },
-  { " ", "NormalFloat" },
-  { " ", "NormalFloat" },
-}
-
-M.Hover = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = M.border }),
-}
 
 -- function that sets the borders for floats
 function M.style()
-  -- this border is applied to lsp diagnostics and cmp documentation
-  local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+  require("lspconfig.ui.windows").default_options.border = "rounded"
 
-  function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-    opts = opts or {}
-    opts.border = opts.border or M.Border
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
-    return orig_util_open_floating_preview(contents, syntax, opts, ...)
-  end
-
-  vim.diagnostic.config({
+  vim.diagnostic.config {
     -- virtual_text = true,
     virtual_text = {
-      prefix = "⏺"
+      prefix = "⏺",
     },
     signs = {
       active = true,
@@ -40,7 +20,7 @@ function M.style()
         { name = "DiagnosticSignWarn",  text = icons.diagnostics.Warning },
         { name = "DiagnosticSignHint",  text = icons.diagnostics.Hint },
         { name = "DiagnosticSignInfo",  text = icons.diagnostics.Info },
-      }
+      },
     },
     underline = true,
     update_in_insert = false,
@@ -48,8 +28,7 @@ function M.style()
     float = {
       focusable = true,
       style = "minimal",
-      -- border = "solid",
-      border = M.Border,
+      border = "rounded",
       source = "always",
       header = "",
       prefix = "",
@@ -61,7 +40,7 @@ function M.style()
         return d.message
       end,
     },
-  })
+  }
 end
 
 return M

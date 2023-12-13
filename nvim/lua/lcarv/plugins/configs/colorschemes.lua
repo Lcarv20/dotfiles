@@ -99,15 +99,10 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = {
-			transparent_background = true,
+			-- transparent_background = true,
 			custom_highlights = function(colors)
 				local float = "#161617"
-				local string = "#CE9178"
-				local comment = "#6A9955"
 				return {
-					-- TabLineSel = { bg = colors.pink },
-					-- String = { fg = string },
-					-- Comment = { fg = comment },
 					NeotreeNormal = { bg = float },
 					NeotreeFloatBorder = { fg = float, bg = float },
 					VertSplit = { bg = float, fg = float },
@@ -340,88 +335,6 @@ return {
 					theme = "dracula-nvim",
 				},
 			}
-		end,
-	},
-	{
-		"rebelot/kanagawa.nvim",
-		opts = {
-			compile = false,   -- enable compiling the colorscheme
-			undercurl = false, -- enable undercurls
-			commentStyle = { italic = true },
-			functionStyle = {},
-			keywordStyle = { italic = true },
-			statementStyle = { bold = true },
-			typeStyle = {},
-			transparent = false,   -- do not set background color
-			dimInactive = true,    -- dim inactive window `:h hl-NormalNC`
-			terminalColors = true, -- define vim.g.terminal_color_{0,17}
-			colors = {             -- add/modify theme and palette colors
-				palette = {},
-				theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-			},
-			overrides = function(colors) -- add/modify highlights
-				return {}
-			end,
-			theme = "dragon",  -- Load "wave" theme when 'background' option is not set
-			background = {     -- map the value of 'background' option to a theme
-				dark = "dragon", -- try "dragon" !
-				light = "lotus",
-			},
-		},
-	},
-	{
-		"miikanissi/modus-themes.nvim",
-		priority = 1000,
-		opts = {
-			-- Theme comes in two styles `modus_operandi` and `modus_vivendi`
-			-- `auto` will automatically set style based on background set with vim.o.background
-			style = "auto",
-			variant = "default", -- Theme comes in four variants `default`, `tinted`, `deuteranopia`, and `tritanopia`
-			styles = {
-				-- Style to be applied to different syntax groups
-				-- Value is any valid attr-list value for `:help nvim_set_hl`
-				comments = { italic = true },
-				keywords = { italic = true },
-				functions = {},
-				variables = {},
-			},
-
-			--- You can override specific color groups to use other groups or a hex color
-			--- function will be called with a ColorScheme table
-			---@param colors ColorScheme
-			on_colors = function(colors) end,
-
-			--- You can override specific highlights to use other groups or a hex color
-			--- function will be called with a Highlights and ColorScheme table
-			---@param highlights Highlights
-			---@param colors ColorScheme
-			on_highlights = function(highlights, colors) end,
-		},
-	},
-	{
-		"maxmx03/fluoromachine.nvim",
-		config = function()
-			local fm = require "fluoromachine"
-
-			fm.setup {
-				glow = true,
-				brightness = 0.05,
-				theme = "retrowave", -- fluoromachine, retrowave, delta
-				transparent = false, -- true, false, 'full'
-				-- colors= {},
-				-- overrides = function(c)
-				-- 	return {
-				-- 		TelescopeResultsBorder = { fg = c.alt_bg, bg = c.alt_bg },
-				-- 		TelescopeResultsNormal = { bg = c.alt_bg },
-				-- 		TelescopePreviewNormal = { bg = c.bg },
-				-- 		TelescopePromptBorder = { fg = c.alt_bg, bg = c.alt_bg },
-				-- 		TelescopeTitle = { fg = c.fg, bg = c.comment },
-				-- 		TelescopePromptPrefix = { fg = c.purple },
-				-- 	}
-				-- end
-			}
-
-			-- vim.cmd.colorscheme 'fluoromachine'
 		end,
 	},
 	{
