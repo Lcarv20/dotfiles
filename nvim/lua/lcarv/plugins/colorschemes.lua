@@ -1,0 +1,90 @@
+return {
+	-- {
+	-- 	-- Theme inspired by Atom
+	-- 	"navarasu/onedark.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- },
+	-- {
+	-- 	"Mofiqul/vscode.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- },
+	-- {
+	-- 	"wadackel/vim-dogrun",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- },
+	{
+		"folke/tokyonight.nvim",
+		config = function()
+		end,
+	},
+	-- {
+	-- 	"rose-pine/neovim",
+	-- 	name = "rose-pine",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- },
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- },
+	-- {
+	-- 	"AlexvZyl/nordic.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	opts = {
+	-- 		-- This callback can be used to override the colors used in the palette.
+	-- 		on_palette = function(palette)
+	-- 			return palette
+	-- 		end,
+	-- 		bold_keywords = false,
+	-- 		italic_comments = true,
+	-- 		transparent_bg = false,
+	-- 		bright_border = false,
+	-- 		reduced_blue = true,
+	-- 		swap_backgrounds = false,
+	-- 		override = {},
+	-- 		cursorline = {
+	-- 			bold = false,
+	-- 			bold_number = true,
+	-- 			theme = "dark",
+	-- 			blend = 0.7,
+	-- 		},
+	-- 		telescope = {
+	-- 			-- Available styles: `classic`, `flat`.
+	-- 			style = "flat",
+	-- 		},
+	-- 		leap = {
+	-- 			dim_backdrop = false,
+	-- 		},
+	-- 		ts_context = {
+	-- 			dark_background = true,
+	-- 		},
+	-- 	},
+	-- 	config = function()
+	-- 		-- require "nordic".load()
+	-- 	end,
+	-- },
+	-- {
+	-- 	"Mofiqul/dracula.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		require("dracula").setup { overrides = {} }
+	-- 		require("lualine").setup {
+	-- 			options = {
+	-- 				theme = "dracula-nvim",
+	-- 			},
+	-- 		}
+	-- 	end,
+	-- },
+	-- {
+	-- 	"LunarVim/primer.nvim",
+	-- 	lazy = false,
+	-- 	priority = 1000,
+	-- },
+}

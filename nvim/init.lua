@@ -1,3 +1,8 @@
-require("lcarv")
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-- Editor Opts
+require "lcarv.opts"
+-- Plugins
+require "lcarv.lazy"
+-- KeyMapps
+require "lcarv.keymaps"
+-- Auto Commands
+require "lcarv.autocmds"

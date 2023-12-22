@@ -25,8 +25,10 @@ export PATH=/Users/lcarv/.local/share/bob/nvim-bin:$PATH
 #HomeBrew-------------------------------------------------------------
 export PATH=/opt/homebrew/sbin:$PATH
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-#LunarVim-------------------------------------------------------------
-export PATH=/Users/lcarv/.local/bin:$PATH
+
+# #LunarVim-------------------------------------------------------------
+# export PATH=/Users/lcarv/.local/bin:$PATH
+
 # Dart-------------------------------------------------------------
 export PATH="$PATH:/Users/lcarv/flutter/bin/cache/dart-sdk/bin"
 # Flutter-------------------------------------------------------------
@@ -96,9 +98,9 @@ alias lt="ls --tree"
 alias la="ls -a"
 alias ll="ls -l"
 alias lla="ls -la"
-# Lunarvim & Neovide PDE
-alias lv="/Users/lcarv/.config/lvim/neolvim"
-alias nvl="XDG_CONFIG_HOME=/Users/lcarv/.config/nvl XDG_DATA_HOME=/Users/lcarv/.config/nvl nvim"
+#Nvim stuff
+alias basevim="NVIM_APPNAME=basevim nvim"
+alias vim="NVIM_APPNAME=vim nvim"
 alias launch="NVIM_APPNAME=launch nvim"
 alias chad="NVIM_APPNAME=chad nvim"
 alias lzv="NVIM_APPNAME=lazyvim nvim"
