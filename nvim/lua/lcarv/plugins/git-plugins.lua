@@ -2,8 +2,8 @@ local icons = require "lcarv.icons"
 
 return {
   -- Git related plugins
-  -- "tpope/vim-fugitive",
-  -- "tpope/vim-rhubarb",
+  "tpope/vim-fugitive",
+  "tpope/vim-rhubarb",
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",

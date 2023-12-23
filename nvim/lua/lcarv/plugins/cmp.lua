@@ -94,6 +94,7 @@ return {
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" }, -- For luasnip users.
+        { name = "codeium" },
       }, {
         { name = "buffer" },
       }),
@@ -110,6 +111,7 @@ return {
             luasnip = "[LuaSnip]",
             nvim_lua = "[Lua]",
             latex_symbols = "[LaTeX]",
+            codeium = "[Codeium]",
           })[entry.source.name]
 
           return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)

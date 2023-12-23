@@ -16,8 +16,20 @@ function M.define(bufnr)
   keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts "Go to previous diagnostic message")
   keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts "Go to next diagnostic message")
   keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts "Hover Documentation")
-  keymap(bufnr, "n", " lS", require("telescope.builtin").lsp_document_symbols, opts "[D]ocument [S]ymbols")
-  keymap(bufnr, "n", " lW", require("telescope.builtin").lsp_dynamic_workspace_symbols, opts "[W]orkspace [S]ymbols")
+  keymap(
+    bufnr,
+    "n",
+    " lS",
+    "<cmd>lua require('telescope.builtin').lsp_document_symbols<cr>",
+    opts "[D]ocument [S]ymbols"
+  )
+  keymap(
+    bufnr,
+    "n",
+    " lW",
+    "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols<cr>",
+    opts "[W]orkspace [S]ymbols"
+  )
   -- See sig help insert mode
 
   keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts "Signature Documentation")

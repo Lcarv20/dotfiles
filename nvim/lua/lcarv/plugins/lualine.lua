@@ -24,7 +24,7 @@ return {
 
       lualine.setup {
         options = {
-          -- theme = "rose-pine",
+          theme = "tokyonight",
           globalstatus = true,
           component_separators = "|",
           section_separators = "",
