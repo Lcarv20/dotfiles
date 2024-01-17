@@ -39,15 +39,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Neotree
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.ft == "neo-tree" then
-      vim.cmd "setlocal number"
-      vim.cmd "setlocal relativenumber"
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "neo-tree",
+--   callback = function()
+--     vim.cmd "set relativenumber"
+--     -- if vim.bo.ft == "neo-tree" then
+--     -- end
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("BufLeave", {
   pattern = "*",
@@ -59,7 +58,7 @@ vim.api.nvim_create_autocmd("BufLeave", {
 })
 
 -- Cursor style
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd({"ColorScheme", "VimEnter"}, {
   pattern = "*",
   callback = fns.cursorStyle,
 })

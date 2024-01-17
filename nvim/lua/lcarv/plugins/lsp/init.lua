@@ -59,7 +59,7 @@ function M.config()
     "marksman",
     "vtsls", -- this might be better than tsserver
     -- "tsserver",
-    "emmet_ls",
+    "emmet_language_server",
     "tailwindcss",
   }
 
@@ -77,7 +77,9 @@ function M.config()
         { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
       },
     },
-    virtual_text = true,
+    virtual_text = {
+      prefix = "⏺",
+    },
     update_in_insert = false,
     underline = true,
     severity_sort = true,
@@ -118,6 +120,11 @@ function M.config()
 
     if server == "vtsls" then
       require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+    end
+
+    if server == "emmet_language_server" then
+      opts.filetypes =
+        { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" }
     end
 
     lspconfig[server].setup(opts)

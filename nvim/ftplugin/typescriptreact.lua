@@ -13,7 +13,7 @@ local opts = {
 }
 
 local mappings = {
-    T = {
+    t = {
         name = "[T]ools➡(javascript)",
         R = { "<cmd>VtsExec rename_file<Cr>", "[R]ename file" },
         C = { "<cmd>VtsExec goto_project_config<cr>", "open [c]onfig" },
