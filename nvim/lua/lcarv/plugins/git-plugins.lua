@@ -55,20 +55,19 @@ return {
         row = 0,
         col = 1,
       },
+      on_attach = function(bufnr)
+        vim.keymap.set(
+          "n",
+          "<leader>gp",
+          require("gitsigns").prev_hunk,
+          { buffer = bufnr, desc = "go to [P]revious Hunk" }
+        )
+
+        vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "go to [N]ext Hunk" })
+        vim.keymap.set("n", "<leader>gh", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "preview [H]unk" })
+      end,
     },
-
-    on_attach = function(bufnr)
-      vim.keymap.set(
-        "n",
-        "<leader>gp",
-        require("gitsigns").prev_hunk,
-        { buffer = bufnr, desc = "go to [P]revious Hunk" }
-      )
-      vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "go to [N]ext Hunk" })
-      vim.keymap.set("n", "<leader>gh", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "preview [H]unk" })
-    end,
   },
-
   {
     "NeogitOrg/neogit",
     dependencies = "nvim-lua/plenary.nvim",

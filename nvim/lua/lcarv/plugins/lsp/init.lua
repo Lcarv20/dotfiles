@@ -20,10 +20,18 @@ local M = {
   },
 }
 
-M.on_attach = function(_, bufnr)
+M.on_attach = function(client, bufnr)
   local keymaps = require "lcarv.plugins.lsp.keymaps"
   keymaps.define(bufnr)
+
+  if client.supports_method "textDocument/inlayHint" then
+    vim.lsp.inlay_hint.enable(bufnr, true)
+    vim.api.nvim_set_keymap(
+      "n", " Eh", "<cmd>lua require('lcarv.fns').toggle_inlay_hints()<cr>", {noremap = true, silent = true, desc = "Toggle inlay-[h]ints"}
+    )
+  end
 end
+
 
 function M.common_capabilities()
   local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")

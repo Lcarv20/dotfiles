@@ -44,7 +44,6 @@ map("n", " gN", ":Neogit<cr>", { desc = "[N]eogit" })
 
 -- LSP
 wk.register({ l = { name = "Lsp" } }, { prefix = "<leader>" })
-map("n", " lf", ":lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>", { desc = "[f]ormat" })
 
 -- Harpoon
 local mark = require "harpoon.mark"
@@ -81,6 +80,7 @@ end, { desc = "[H]ints" })
 map("n", " EL", ":Lazy<cr>", { desc = "[L]azy" })
 map("n", " Ei", ":LspInfo<cr>", { desc = "[i]nfo" })
 map("n", " Em", ":Mason<cr>", { desc = "[m]ason" })
+map("n", " Ec", ":TSContextToggle<cr>", { desc = "treesitter [c]ontext" })
 map("n", " h", ":nohl<cr>", { desc = "hide [h]ighlight" })
 
 -- Movement

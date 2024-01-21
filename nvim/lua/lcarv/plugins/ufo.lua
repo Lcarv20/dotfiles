@@ -1,6 +1,5 @@
 local M = {
   "kevinhwang91/nvim-ufo",
-  enabled = true,
   dependencies = {
     "kevinhwang91/promise-async",
     "luukvbaal/statuscol.nvim",
@@ -13,11 +12,9 @@ function M.config()
     setopt = true,
     relculright = true,
     segments = {
-
-      { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa", hl = "Comment" },
-
       { text = { "%s" }, click = "v:lua.ScSa" },
       { text = { builtin.lnumfunc, " " }, click = "v:lua.ScLa" },
+      { text = { builtin.foldfunc, " " }, click = "v:lua.ScFa", hl = "Comment" },
     },
   }
 
@@ -102,8 +99,11 @@ function M.config()
   vim.keymap.set("n", "K", function()
     local winid = require("ufo").peekFoldedLinesUnderCursor()
     if not winid then
+      print "No fold under cursor"
       vim.lsp.buf.hover()
+      return
     end
+    print "winwind works?"
   end)
 end
 

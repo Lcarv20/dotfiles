@@ -32,9 +32,4 @@ return {
     "dmmulroy/tsc.nvim",
     opts = {},
   },
-  {
-    event = "VeryLazy",
-    "yioneko/nvim-vtsls",
-    -- TODO: Add key maps
-  },
 }
