@@ -74,9 +74,6 @@ wk.register({ R = { name = "Refactor" } }, { prefix = "<leader>" })
 
 -- Editor
 wk.register({ E = { name = "Editor" } }, { prefix = "<leader>" })
-map("n", " Eh", function()
-	fns.toggleInlayHints()
-end, { desc = "[H]ints" })
 map("n", " EL", ":Lazy<cr>", { desc = "[L]azy" })
 map("n", " Ei", ":LspInfo<cr>", { desc = "[i]nfo" })
 map("n", " Em", ":Mason<cr>", { desc = "[m]ason" })
