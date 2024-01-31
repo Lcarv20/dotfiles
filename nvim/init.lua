@@ -6,3 +6,6 @@ require "lcarv.lazy"
 require "lcarv.keymaps"
 -- Auto Commands
 require "lcarv.autocmds"
+-- Highlights
+require "lcarv.highlights"
+

@@ -49,7 +49,7 @@ return {
       update_debounce = 200,
       max_file_length = 40000,
       preview_config = {
-        border = "rounded",
+        border = "single",
         style = "minimal",
         relative = "cursor",
         row = 0,
@@ -64,7 +64,8 @@ return {
         )
 
         vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "go to [N]ext Hunk" })
-        vim.keymap.set("n", "<leader>gh", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "preview [H]unk" })
+        vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "go to [N]ext Hunk" })
+        vim.keymap.set("n", "<leader>gh", require("gitsigns").diffthis, { buffer = bufnr, desc = "preview [H]unk" })
       end,
     },
   },

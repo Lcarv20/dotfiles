@@ -1,5 +1,6 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
+  enabled = false,
   event = "VeryLazy",
   opts = {
     buftype_exclude = { "terminal", "nofile" },
@@ -45,7 +46,9 @@ return {
     vim.g.rainbow_delimiters = { highlight = highlight }
 
     require("ibl").setup {
-      indent = { char = "┆" },
+      indent = {
+        char = " ",
+      },
 
       whitespace = {
         remove_blankline_trail = false,
@@ -53,9 +56,9 @@ return {
       scope = {
         enabled = true,
         highlight = highlight,
-        char = "┃",
-        show_start = false,
-        show_end = false,
+        char = require("lcarv.icons").ui.LineLeft,
+        show_start = true,
+        show_end = true,
       },
     }
   end,

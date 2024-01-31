@@ -1,5 +1,6 @@
 local M = {
   "andymass/vim-matchup",
+  enabled = false,
 }
 
 function M.config()

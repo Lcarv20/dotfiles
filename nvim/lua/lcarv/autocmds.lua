@@ -63,11 +63,12 @@ vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
   callback = fns.cursor_style,
 })
 
-vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  callback = function()
-    vim.cmd "set formatoptions-=cro"
-  end,
-})
+-- -- Disable auto comment
+-- vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
+--   callback = function()
+--     vim.cmd "set formatoptions-=cro"
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   pattern = { "gitcommit", "markdown", "NeogitCommitMessage" },

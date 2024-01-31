@@ -19,10 +19,10 @@ require("lazy").setup("lcarv.plugins", {
     colorscheme = {"tokyonight-night", "rose-pine" ,"habamax" },
   },
   ui = {
-    border = "rounded",
+    border = "double",
   },
   change_detection = {
     enabled = true,
-    notify = false,
+    notify = true,
   },
 })

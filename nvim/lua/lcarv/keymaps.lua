@@ -79,6 +79,9 @@ map("n", " Ei", ":LspInfo<cr>", { desc = "[i]nfo" })
 map("n", " Em", ":Mason<cr>", { desc = "[m]ason" })
 map("n", " Ec", ":TSContextToggle<cr>", { desc = "treesitter [c]ontext" })
 map("n", " h", ":nohl<cr>", { desc = "hide [h]ighlight" })
+map("n", "<c-h>", ":tabprevious<cr>", { desc = "hide [h]ighlight" })
+map("n", "<c-l>", ":tabnext<cr>", { desc = "hide [h]ighlight" })
+map("n", "<c-t>", ":tabnew<cr>", { desc = "hide [h]ighlight" })
 
 -- Movement
 map("n", "J", "mzJ`z")

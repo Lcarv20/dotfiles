@@ -18,7 +18,7 @@ return {
             start_in_insert = true,
 
             -- These are passed to nvim_open_win
-            border = "rounded",
+            border = "single",
             -- 'editor' and 'win' will default to being centered
             relative = "cursor",
 
@@ -103,7 +103,7 @@ return {
                 size = nil,
                 relative = "editor",
                 border = {
-                    style = "rounded",
+                    style = "sinle",
                 },
                 buf_options = {
                     swapfile = false,
@@ -121,7 +121,7 @@ return {
             -- Options for built-in selector
             builtin = {
                 -- These are passed to nvim_open_win
-                border = "rounded",
+                border = "single",
                 -- 'editor' and 'win' will default to being centered
                 relative = "editor",
 
