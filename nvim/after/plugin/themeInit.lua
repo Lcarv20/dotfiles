@@ -1,10 +1,11 @@
 -- DARK THEMES
 -----------------
--- vim.cmd.colorscheme("catppuccin-mocha")
+-- vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("dracula")
 -- vim.cmd.colorscheme("tokyonight-night")
 -- vim.cmd.colorscheme("vscode")
-vim.cmd.colorscheme("rose-pine-main")
+-- vim.cmd.colorscheme("rose-pine-main")
+-- vim.cmd.colorscheme("rose-pine-moon")
 -- vim.cmd.colorscheme("primer_dark")
 -- vim.cmd.colorscheme("onedark")
 -- vim.cmd.colorscheme("kanagawa")
@@ -15,7 +16,6 @@ vim.cmd.colorscheme("rose-pine-main")
 -- vim.cmd.colorscheme("jellybeans")
 -- vim.cmd.colorscheme("bamboo")
 -- vim.cmd.colorscheme("melange")
-
 
 -- LIGHT THEMES
 -----------------

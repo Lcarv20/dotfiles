@@ -64,8 +64,9 @@ return {
         )
 
         vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "go to [N]ext Hunk" })
-        vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "go to [N]ext Hunk" })
-        vim.keymap.set("n", "<leader>gh", require("gitsigns").diffthis, { buffer = bufnr, desc = "preview [H]unk" })
+        vim.keymap.set("n", "<leader>gi", require("gitsigns").preview_hunk_inline, { buffer = bufnr, desc = "preview [i]nline" })
+        vim.keymap.set("n", "<leader>gh", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "preview [h]unk" })
+        vim.keymap.set("n", "<leader>gd", require("gitsigns").diffthis, { buffer = bufnr, desc = "[d]iff file" })
       end,
     },
   },

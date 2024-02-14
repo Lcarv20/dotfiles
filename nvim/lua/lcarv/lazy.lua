@@ -23,6 +23,6 @@ require("lazy").setup("lcarv.plugins", {
   },
   change_detection = {
     enabled = true,
-    notify = true,
+    notify = false,
   },
 })

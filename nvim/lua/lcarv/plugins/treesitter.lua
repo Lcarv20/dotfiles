@@ -6,6 +6,7 @@ return {
       { "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
       {
         "nvim-treesitter/nvim-treesitter-context",
+        enable = false,
         event = "VeryLazy",
         config = function()
           require("treesitter-context").setup {}
@@ -45,7 +46,7 @@ return {
         },
         autotag = {
           enable = true,
-          enable_close_on_slash = false
+          enable_close_on_slash = false,
         },
         autopairs = {
           enable = true,

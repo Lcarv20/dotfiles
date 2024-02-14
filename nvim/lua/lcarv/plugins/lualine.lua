@@ -15,12 +15,12 @@ local recorded = {
 local theme = function()
   local colors = {
     darkgray = "#16161d",
-    gray = "#727169",
+    gray = "#C5C6C7",
     innerbg = nil,
     outerbg = "#16161D",
     normal = "#7e9cd8",
     insert = "#98bb6c",
-    visual = "#ffa066",
+    visual = "#AF8FE9",
     replace = "#e46876",
     command = "#e6c384",
   }

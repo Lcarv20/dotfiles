@@ -2,25 +2,30 @@ return {
   {
     -- Theme inspired by Atom
     "navarasu/onedark.nvim",
+    enabled = false,
     lazy = false,
     priority = 1000,
   },
   {
     "Mofiqul/vscode.nvim",
+    enabled = false,
     lazy = false,
     priority = 1000,
   },
   {
     "wadackel/vim-dogrun",
+    enabled = false,
     lazy = false,
     priority = 1000,
   },
   {
     "folke/tokyonight.nvim",
+    enabled = false,
     config = function() end,
   },
   {
     "rose-pine/neovim",
+    enabled = false,
     name = "rose-pine",
     lazy = false,
     priority = 1000,
@@ -28,7 +33,7 @@ return {
       -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
       require("rose-pine").setup {
         disable_background = true,
-        dim_inactive_windows = true,
+        -- dim_inactive_windows = true,
         highlight_groups = {
           TelescopeBorder = { fg = "overlay", bg = "overlay" },
           TelescopeNormal = { fg = "subtle", bg = "overlay" },
@@ -40,26 +45,34 @@ return {
           TelescopePreviewTitle = { fg = "base", bg = "iris" },
           TelescopePromptNormal = { fg = "text", bg = "surface" },
           TelescopePromptBorder = { fg = "surface", bg = "surface" },
+          NeotreeNormal = { bg = "surface" },
+          NormalFloat = { bg = "none" },
+          NormalNC = { bg = "none" },
+          FloatBorder = { bg = "none" },
+          FloatShadow = { bg = "none" },
         },
       }
-      function ColorMyPencils(color)
-        color = color or "rose-pine"
-
-        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      end
-
-      ColorMyPencils()
+      -- vim.cmd.colorscheme "rose-pine"
+      vim.cmd.colorscheme "rose-pine-moon"
     end,
   },
   {
     "catppuccin/nvim",
+    enabled = false,
     name = "catppuccin",
     lazy = false,
     priority = 1000,
+    config = function()
+      require("catppuccin").setup {
+        -- flavour = "mocha",
+        transparent_background = true,
+      }
+      vim.cmd.colorscheme "catppuccin"
+    end,
   },
   {
     "Mofiqul/dracula.nvim",
+    enabled = false,
     lazy = false,
     priority = 1000,
     -- config = function()
@@ -73,11 +86,13 @@ return {
   },
   {
     "LunarVim/primer.nvim",
+    enabled = false,
     lazy = false,
     priority = 1000,
   },
   {
     "rebelot/kanagawa.nvim",
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -97,12 +112,9 @@ return {
           palette = {},
           theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
         },
-        overrides = function(colors) -- add/modify highlights
-          return {}
-        end,
         theme = "wave", -- Load "wave" theme when 'background' option is not set
         background = { -- map the value of 'background' option to a theme
-          dark = "dragon", -- try "dragon" !
+          dark = "wave", -- try "dragon" !
           light = "lotus",
         },
       }
@@ -110,12 +122,51 @@ return {
   },
   {
     "morhetz/gruvbox",
+    enabled = false,
   },
   {
     "EdenEast/nightfox.nvim", -- https://github.com/EdenEast/nightfox.nvim
+    -- enabled = false,
+    config = function()
+      require("nightfox").setup {
+        options = {
+          transparent = true,
+        },
+        -- palettes = {
+        --   -- Custom duskfox with black background
+        --   duskfox = {
+        --     bg1 = "#000000", -- Black background
+        --     bg0 = "#1d1d2b", -- Alt backgrounds (floats, statusline, ...)
+        --     bg3 = "#121820", -- 55% darkened from stock
+        --     sel0 = "#131b24", -- 55% darkened from stock
+        --   },
+        -- },
+        -- specs = {
+        --   all = {
+        --     inactive = "bg0", -- Default value for other styles
+        --   },
+        --   duskfox = {
+        --     inactive = "#090909", -- Slightly lighter then black background
+        --   },
+        -- },
+        -- groups = {
+        --   all = {
+        --     NormalNC = { fg = "fg1", bg = "inactive" }, -- Non-current windows
+        --   },
+        -- },
+      }
+      -- vim.cmd "colorscheme nightfox"
+      -- vim.cmd "colorscheme dayfox"
+      -- vim.cmd "colorscheme dawnfox"
+      -- vim.cmd "colorscheme duskfox"
+      -- vim.cmd "colorscheme nordfox"
+      vim.cmd "colorscheme terafox"
+      -- vim.cmd "colorscheme carbonfox"
+    end,
   },
   {
     "AlexvZyl/nordic.nvim", -- https://github.com/AlexvZyl/nordic.nvim?tab=readme-ov-file
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -131,7 +182,7 @@ return {
         -- Enable general editor background transparency.
         transparent_bg = true,
         -- Enable brighter float border.
-        bright_border = true,
+        bright_border = false,
         -- Reduce the overall amount of blue in the theme (diverges from base Nord).
         reduced_blue = true,
         -- Swap the dark background with the normal one.
@@ -145,9 +196,9 @@ return {
           -- Bold cursorline number.
           bold_number = true,
           -- Avialable styles: 'dark', 'light'.
-          theme = "dark",
+          theme = "light",
           -- Blending the cursorline bg with the buffer bg.
-          blend = 0.85,
+          blend = 0,
         },
         telescope = {
           -- Available styles: `classic`, `flat`.
@@ -159,7 +210,7 @@ return {
         },
         neotree = {
           -- Disable the background highlight for the Neo-tree window
-          disable_background = true,
+          disable_background = false,
           -- Available styles: 'classic', 'flat'.
           style = "flat",
           dark_background = true,
@@ -169,20 +220,39 @@ return {
   },
   {
     "cocopon/iceberg.vim", -- https://github.com/cocopon/iceberg.vim
+    enabled = false,
   },
   {
     "nanotech/jellybeans.vim", -- https://github.com/nanotech/jellybeans.vim
+    enabled = false,
   },
   {
     "ribru17/bamboo.nvim", -- https://github.com/ribru17/bamboo.nvim
+    enabled = false,
     lazy = false,
     priority = 1000,
-    -- config = function()
-    --   require("bamboo").setup {
-    --     -- optional configuration here
-    --   }
-    --   require("bamboo").load()
-    -- end,
+    config = function()
+      require("bamboo").setup {
+        -- optional configuration here
+        style = "vulgaris", -- light, multiplex
+        transparent = true,
+        dim_inactive = false,
+        term_colors = true,
+        cmp_itemkind_reverse = false,
+        lualine = {
+          transparent = false,
+        },
+        diagnostics = {
+          darker = true, -- darker colors for diagnostic
+          undercurl = true, -- use undercurl instead of underline for diagnostics
+          background = false, -- use background color for virtual text
+        },
+      }
+      require("bamboo").load()
+    end,
   },
-  { "savq/melange-nvim" },
+  {
+    "savq/melange-nvim",
+    enabled = false,
+  },
 }

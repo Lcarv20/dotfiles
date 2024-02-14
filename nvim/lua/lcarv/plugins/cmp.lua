@@ -1,4 +1,5 @@
 local icons = require "lcarv.icons"
+
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {

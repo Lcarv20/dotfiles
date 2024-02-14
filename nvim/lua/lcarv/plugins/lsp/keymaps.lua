@@ -8,15 +8,15 @@ function M.define(bufnr)
   keymap(bufnr, "n", " lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts "[r]eame")
   keymap(bufnr, "n", " la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts "code [a]ction")
   -- keymap(bufnr, "n", " lD", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts "Type [D]efinition")
-  keymap(bufnr, "n", "gY", "<CMD>Glance type_definitions<CR>", opts "Type [D]efinition")
+  keymap(bufnr, "n", "gY", "<cmd>Glance type_definitions<CR>", opts "Type [D]efinition")
   -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts "[G]oto [D]efinition")
-  keymap(bufnr, "n", "gd", "<CMD>Glance definitions<CR>", opts "[G]oto [d]efinition")
+  keymap(bufnr, "n", "gd", "<cmd>Glance definitions<CR>", opts "[G]oto [d]efinition")
   -- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts "[G]oto [I]mplementation")
-  keymap(bufnr, "n", "gI", "<CMD>Glance implementations<CR>", opts "[G]oto [I]mplementation")
+  keymap(bufnr, "n", "gI", "<cmd>Glance implementations<CR>", opts "[G]oto [I]mplementation")
   keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts "[G]oto [D]eclaration")
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts "Open floating diagnostic message")
   -- keymap(bufnr, "n", "gr", "<cmd>TroubleToggle lsp_references<cr>", opts "[R]eferences")
-  keymap(bufnr, "n", "gr", "<CMD>Glance references<CR>", opts "[R]eferences")
+  keymap(bufnr, "n", "gr", "<cmd>Glance references<CR>", opts "[R]eferences")
   keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts "Go to previous diagnostic message")
   keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts "Go to next diagnostic message")
   keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts "Hover Documentation")
@@ -24,14 +24,14 @@ function M.define(bufnr)
     bufnr,
     "n",
     " lS",
-    "<cmd>lua require('telescope.builtin').lsp_document_symbols<cr>",
+    "<cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>",
     opts "[D]ocument [S]ymbols"
   )
   keymap(
     bufnr,
     "n",
     " lW",
-    "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols<cr>",
+    "<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols(<cr>",
     opts "[W]orkspace [S]ymbols"
   )
   -- See sig help insert mode
