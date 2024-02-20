@@ -46,24 +46,24 @@ map("n", " gN", ":Neogit<cr>", { desc = "[N]eogit" })
 wk.register({ l = { name = "Lsp" } }, { prefix = "<leader>" })
 
 -- Harpoon
-local mark = require "harpoon.mark"
-local ui = require "harpoon.ui"
-
-map("n", "ma", mark.add_file, { desc = "[a]dd file" })
-map("n", "mm", ui.toggle_quick_menu, { desc = "[m]enu" })
-
-map("n", "<C-1>", function()
-	ui.nav_file(1)
-end)
-map("n", "<C-2>", function()
-	ui.nav_file(2)
-end)
-map("n", "<C-3>", function()
-	ui.nav_file(3)
-end)
-map("n", "<C-4>", function()
-	ui.nav_file(4)
-end)
+-- local mark = require "harpoon.mark"
+-- local ui = require "harpoon.ui"
+--
+-- map("n", "ma", mark.add_file, { desc = "[a]dd file" })
+-- map("n", "mm", ui.toggle_quick_menu, { desc = "[m]enu" })
+--
+-- map("n", "<C-1>", function()
+-- 	ui.nav_file(1)
+-- end)
+-- map("n", "<C-2>", function()
+-- 	ui.nav_file(2)
+-- end)
+-- map("n", "<C-3>", function()
+-- 	ui.nav_file(3)
+-- end)
+-- map("n", "<C-4>", function()
+-- 	ui.nav_file(4)
+-- end)
 
 -- UndooTree
 -- wk.register({ u = { name = "Undotree" } }, { prefix = "<leader>" })

@@ -137,3 +137,6 @@ export FZF_DEFAULT_OPTS=" \
 
 # TUNR OFF NEXT TELEMETRY
 export NEXT_TELEMETRY_DISABLED=1
+
+# bun completions
+[ -s "/Users/lcarv/.bun/_bun" ] && source "/Users/lcarv/.bun/_bun"

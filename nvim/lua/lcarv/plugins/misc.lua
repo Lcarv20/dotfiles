@@ -1,10 +1,10 @@
 return {
-  -- "tpope/vim-sleuth",
-  {
-    event = "VeryLazy",
-    "ThePrimeagen/harpoon",
-    dependencies = { "nvim-lua/plenary.nvim" },
-  },
+  "tpope/vim-sleuth",
+  -- {
+  --   event = "VeryLazy",
+  --   "ThePrimeagen/harpoon",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  -- },
   {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
