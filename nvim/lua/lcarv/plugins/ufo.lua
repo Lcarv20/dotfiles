@@ -99,11 +99,9 @@ function M.config()
   vim.keymap.set("n", "K", function()
     local winid = require("ufo").peekFoldedLinesUnderCursor()
     if not winid then
-      print "No fold under cursor"
       vim.lsp.buf.hover()
       return
     end
-    print "winwind works?"
   end)
 end
 

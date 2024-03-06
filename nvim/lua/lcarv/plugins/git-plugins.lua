@@ -2,11 +2,12 @@ local icons = require "lcarv.icons"
 
 return {
   -- Git related plugins
-  "tpope/vim-fugitive",
-  "tpope/vim-rhubarb",
+  { "tpope/vim-fugitive", cmd = {"Git", "G"}},
+  { "tpope/vim-rhubarb", cmd = "GBrowse" },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     opts = {
       signs = {
         add = {
@@ -64,7 +65,12 @@ return {
         )
 
         vim.keymap.set("n", "<leader>gn", require("gitsigns").next_hunk, { buffer = bufnr, desc = "go to [N]ext Hunk" })
-        vim.keymap.set("n", "<leader>gi", require("gitsigns").preview_hunk_inline, { buffer = bufnr, desc = "preview [i]nline" })
+        vim.keymap.set(
+          "n",
+          "<leader>gi",
+          require("gitsigns").preview_hunk_inline,
+          { buffer = bufnr, desc = "preview [i]nline" }
+        )
         vim.keymap.set("n", "<leader>gh", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "preview [h]unk" })
         vim.keymap.set("n", "<leader>gd", require("gitsigns").diffthis, { buffer = bufnr, desc = "[d]iff file" })
       end,
@@ -100,7 +106,7 @@ return {
         -- { CLOSED, OPENED }
         section = { icons.ui.ChevronRight, icons.ui.ChevronShortDown },
         item = { icons.ui.ChevronRight, icons.ui.ChevronShortDown },
-        hunk = { "", "" },
+        -- hunk = { "", "" },
       },
       integrations = {
         diffview = true,

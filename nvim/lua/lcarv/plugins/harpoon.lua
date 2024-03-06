@@ -1,59 +1,96 @@
 return {
-  "ThePrimeagen/harpoon",
-  branch = "harpoon2",
-  event = "VeryLazy",
-  dependencies = { "nvim-lua/plenary.nvim" },
-  config = function()
-    local harpoon = require "harpoon"
+  {
+    -- event = "VeryLazy",
+    "Lcarv20/harpoon_leg",
+    enabled = false,
+    name = "harpoon-legacy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local function map(mode, mapping, cmd, opts)
+        opts = opts or {}
+        opts.silent = true
+        vim.keymap.set(mode, mapping, cmd, opts)
+      end
 
-    -- REQUIRED
-    harpoon:setup {}
+      -- Harpoon
+      local mark = require "harpoon.mark"
+      local ui = require "harpoon.ui"
 
-    local opts = { border = "rounded" }
-    -- REQUIRED
+      map("n", "ma", mark.add_file, { desc = "[a]dd file" })
+      map("n", "mm", ui.toggle_quick_menu, { desc = "[m]enu" })
 
-    harpoon:extend {
-      UI_CREATE = function(cx)
-        vim.keymap.set("n", "<C-v>", function()
-          harpoon.ui:select_menu_item { vsplit = true }
-        end, { buffer = cx.bufnr })
+      map("n", "<C-1>", function()
+        ui.nav_file(1)
+      end)
+      map("n", "<C-2>", function()
+        ui.nav_file(2)
+      end)
+      map("n", "<C-3>", function()
+        ui.nav_file(3)
+      end)
+      map("n", "<C-4>", function()
+        ui.nav_file(4)
+      end)
+    end,
+  },
+  {
+    "ThePrimeagen/harpoon",
+    enabled = false,
+    branch = "harpoon2",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      local harpoon = require "harpoon"
 
-        vim.keymap.set("n", "<C-x>", function()
-          harpoon.ui:select_menu_item { split = true }
-        end, { buffer = cx.bufnr })
+      -- REQUIRED
+      harpoon:setup()
 
-        vim.keymap.set("n", "<C-t>", function()
-          harpoon.ui:select_menu_item { tabedit = true }
-        end, { buffer = cx.bufnr })
-      end,
-    }
+      local opts = { border = "rounded" }
+      -- REQUIRED
 
-    vim.keymap.set("n", "ma", function()
-      harpoon:list():append()
-    end)
-    vim.keymap.set("n", "mm", function()
-      harpoon.ui:toggle_quick_menu(harpoon:list(), opts)
-    end, { desc = "Toggle Harpoon menu" })
+      harpoon:extend {
+        UI_CREATE = function(cx)
+          vim.keymap.set("n", "<C-v>", function()
+            harpoon.ui:select_menu_item { vsplit = true }
+          end, { buffer = cx.bufnr })
 
-    vim.keymap.set("n", "<C-1>", function()
-      harpoon:list():select(1)
-    end)
-    vim.keymap.set("n", "<C-2>", function()
-      harpoon:list():select(2)
-    end)
-    vim.keymap.set("n", "<C-3>", function()
-      harpoon:list():select(3)
-    end)
-    vim.keymap.set("n", "<C-4>", function()
-      harpoon:list():select(4)
-    end)
+          vim.keymap.set("n", "<C-x>", function()
+            harpoon.ui:select_menu_item { split = true }
+          end, { buffer = cx.bufnr })
 
-    -- Toggle previous & next buffers stored within Harpoon list
-    vim.keymap.set("n", "mp", function()
-      harpoon:list():prev()
-    end)
-    vim.keymap.set("n", "mn", function()
-      harpoon:list():next()
-    end)
-  end,
+          vim.keymap.set("n", "<C-t>", function()
+            harpoon.ui:select_menu_item { tabedit = true }
+          end, { buffer = cx.bufnr })
+        end,
+      }
+
+      vim.keymap.set("n", "ma", function()
+        harpoon:list():append()
+      end)
+      vim.keymap.set("n", "mm", function()
+        harpoon.ui:toggle_quick_menu(harpoon:list(), opts)
+      end, { desc = "Toggle Harpoon menu" })
+
+      vim.keymap.set("n", "<C-1>", function()
+        harpoon:list():select(1)
+      end)
+      vim.keymap.set("n", "<C-2>", function()
+        harpoon:list():select(2)
+      end)
+      vim.keymap.set("n", "<C-3>", function()
+        harpoon:list():select(3)
+      end)
+      vim.keymap.set("n", "<C-4>", function()
+        harpoon:list():select(4)
+      end)
+
+      -- Toggle previous & next buffers stored within Harpoon list
+      vim.keymap.set("n", "mp", function()
+        harpoon:list():prev()
+      end)
+      vim.keymap.set("n", "mn", function()
+        harpoon:list():next()
+      end)
+    end,
+  },
 }

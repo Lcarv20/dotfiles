@@ -27,11 +27,13 @@ M.on_attach = function(client, bufnr)
   if client.supports_method "textDocument/inlayHint" then
     vim.lsp.inlay_hint.enable(bufnr, true)
     vim.api.nvim_set_keymap(
-      "n", " Eh", "<cmd>lua require('lcarv.fns').toggle_inlay_hints()<cr>", {noremap = true, silent = true, desc = "Toggle inlay-[h]ints"}
+      "n",
+      " Eh",
+      "<cmd>lua require('lcarv.fns').toggle_inlay_hints()<cr>",
+      { noremap = true, silent = true, desc = "Toggle inlay-[h]ints" }
     )
   end
 end
-
 
 function M.common_capabilities()
   local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
@@ -75,15 +77,26 @@ function M.config()
     ensure_installed = servers,
   }
 
+  local signs = {
+    { name = "DiagnosticSignError", text = "" },
+    { name = "DiagnosticSignWarn", text = "" },
+    { name = "DiagnosticSignInfo", text = "" },
+    { name = "DiagnosticSignHint", text = "" },
+  }
+
+  for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
+  end
+
   local default_diagnostic_config = {
     signs = {
-      active = true,
-      values = {
-        { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-        { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
-      },
+      active = signs,
+      -- values = {
+      --   { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+      --   { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+      --   { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+      --   { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+      -- },
     },
     virtual_text = {
       prefix = "⏺",
@@ -97,7 +110,33 @@ function M.config()
       border = "single",
       source = "always",
       header = "",
-      prefix = "",
+      prefix = function(diagnostic, i, total)
+        local function get_i()
+          if total > 1 then
+            return " " .. i .. ")"
+          end
+          return ""
+        end
+
+        local get_lnum_range = function()
+          if diagnostic.lnum ~= diagnostic.end_lnum then
+            return diagnostic.lnum + 1 .. ":" .. diagnostic.end_lnum + 1
+          end
+          return diagnostic.lnum + 1
+        end
+
+        local get_col_range = function()
+          if diagnostic.col ~= diagnostic.end_col then
+            return diagnostic.col .. ":" .. diagnostic.end_col
+          end
+          return diagnostic.col
+        end
+
+        local sign = signs[diagnostic.severity].text
+        local hl = signs[diagnostic.severity].name
+
+        return string.format("%s%s [%s,%s] ", sign, get_i(), get_lnum_range(), get_col_range()), hl
+      end,
     },
   }
 

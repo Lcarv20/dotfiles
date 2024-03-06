@@ -2,6 +2,7 @@ return {
 	-- "gc" to comment visual regions/lines
 	{
 		'numToStr/Comment.nvim',
+		event = "VeryLazy",
 		-- dependencies = {
 		-- 	'JoosepAlviste/nvim-ts-context-commentstring',
 		-- },

@@ -2,6 +2,7 @@
 return {
   {
     "Exafunction/codeium.nvim",
+    event = "InsertEnter",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "hrsh7th/nvim-cmp",
@@ -12,6 +13,7 @@ return {
   },
   {
     "Exafunction/codeium.vim",
+    event = "BufEnter",
     config = function()
       -- Change '<C-g>' here to any keycode you like.
       vim.keymap.set("i", "<c-\\>", function()

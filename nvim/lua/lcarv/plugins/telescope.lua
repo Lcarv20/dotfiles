@@ -20,7 +20,7 @@ return {
     },
     config = function()
       local telescope = require "telescope"
-      local harpoon = require "harpoon"
+      -- local harpoon = require "harpoon"
       telescope.setup {
         defaults = {
           prompt_prefix = " " .. icons.ui.Search .. " ",
@@ -47,31 +47,31 @@ return {
       -- Enable telescope fzf native, if installed
       telescope.load_extension "fzf"
 
-      local conf = require("telescope.config").values
-
-      local function toggle_telescope(harpoon_files)
-        local file_paths = {}
-        for _, item in ipairs(harpoon_files.items) do
-          table.insert(file_paths, item.value)
-        end
-
-        require("telescope.pickers")
-          .new({}, {
-            prompt_title = "Harpoon",
-            finder = require("telescope.finders").new_table {
-              results = file_paths,
-            },
-            previewer = conf.file_previewer {},
-            sorter = conf.generic_sorter {},
-            layout_config = { prompt_position = "top", height = 0.4, width = 0.5, preview_cutoff = 0 },
-            -- layout_strategy = "vertical",
-          })
-          :find()
-      end
-
-      vim.keymap.set("n", "<C-e>", function()
-        toggle_telescope(harpoon:list())
-      end, { desc = "Open harpoon window" })
+      -- local conf = require("telescope.config").values
+      --
+      -- local function toggle_telescope(harpoon_files)
+      --   local file_paths = {}
+      --   for _, item in ipairs(harpoon_files.items) do
+      --     table.insert(file_paths, item.value)
+      --   end
+      --
+      --   require("telescope.pickers")
+      --     .new({}, {
+      --       prompt_title = "Harpoon",
+      --       finder = require("telescope.finders").new_table {
+      --         results = file_paths,
+      --       },
+      --       previewer = conf.file_previewer {},
+      --       sorter = conf.generic_sorter {},
+      --       layout_config = { prompt_position = "top", height = 0.4, width = 0.5, preview_cutoff = 0 },
+      --       -- layout_strategy = "vertical",
+      --     })
+      --     :find()
+      -- end
+      --
+      -- vim.keymap.set("n", "<C-e>", function()
+      --   toggle_telescope(harpoon:list())
+      -- end, { desc = "Open harpoon window" })
     end,
   },
 }

@@ -140,3 +140,4 @@ export NEXT_TELEMETRY_DISABLED=1
 
 # bun completions
 [ -s "/Users/lcarv/.bun/_bun" ] && source "/Users/lcarv/.bun/_bun"
+

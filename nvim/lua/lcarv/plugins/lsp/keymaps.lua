@@ -19,7 +19,7 @@ function M.define(bufnr)
   keymap(bufnr, "n", "gr", "<cmd>Glance references<CR>", opts "[R]eferences")
   keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts "Go to previous diagnostic message")
   keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts "Go to next diagnostic message")
-  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts "Hover Documentation")
+  -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts "Hover Documentation")
   keymap(
     bufnr,
     "n",

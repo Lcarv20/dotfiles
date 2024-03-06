@@ -2,6 +2,7 @@ local colors = require "lcarv.colors"
 
 return {
   "jinh0/eyeliner.nvim",
+  event = "BufEnter",
   config = function()
     require("eyeliner").setup {
       highlight_on_key = true,

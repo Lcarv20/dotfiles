@@ -1,5 +1,6 @@
 return {
   "dnlhc/glance.nvim",
+  event = "VeryLazy",
   config = function()
     local glance = require "glance"
     local actions = glance.actions

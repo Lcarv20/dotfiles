@@ -16,10 +16,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("lcarv.plugins", {
   install = {
-    colorscheme = {"tokyonight-night", "rose-pine" ,"habamax" },
+    colorscheme = { "tokyonight-night", "rose-pine", "habamax" },
   },
   ui = {
-    border = "double",
+    -- border = "double",
+    -- border = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█" },
+    border = "shadow",
   },
   change_detection = {
     enabled = true,

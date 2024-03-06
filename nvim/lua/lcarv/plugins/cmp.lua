@@ -37,7 +37,7 @@ return {
     {
       "hrsh7th/cmp-nvim-lua",
     },
-    "onsails/lspkind.nvim",
+    -- "onsails/lspkind.nvim",
   },
   config = function()
     local cmp = require "cmp"
@@ -53,13 +53,18 @@ return {
       },
       window = {
         completion = {
-          border = cmp.config.window.border,
-          winhighlight = cmp.config.window.highlight,
+          border = "single",
+          winhighlight = "Normal:CmpNormal",
+          -- border = cmp.config.window.border,
+          -- winhighlight = cmp.config.window.highlight,
           scrollbar = true,
         },
         documentation = {
-          border = cmp.config.window.border,
-          winhighlight = cmp.config.window.highlight,
+          border = "single",
+          winhighlight = "Normal:CmpNormal",
+          -- border = cmp.config.window.border,
+          -- winhighlight = cmp.config.window.highlight,
+
           scrollbar = true,
         },
       },
@@ -101,22 +106,65 @@ return {
       }),
       formatting = {
         expandable_indicator = true,
-        fields = { "abbr", "kind", "menu" },
+        fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-          vim_item.kind = string.format("%s %s", icons.kind[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+          -- vim_item.kind = string.format("%s %s", icons.kind[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+          local kind = vim_item.kind
+
+          vim_item.kind = " " .. icons.kind[kind] .. " "
 
           -- Source
-          vim_item.menu = ({
-            buffer = "[Buffer]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[LuaSnip]",
-            nvim_lua = "[Lua]",
-            latex_symbols = "[LaTeX]",
-            codeium = "[Codeium]",
-          })[entry.source.name]
+          vim_item.menu = "["
+            .. ({
+              -- buffer = "Buffer",
+              -- nvim_lsp = "LSP",
+              -- luasnip = "LuaSnip",
+              -- nvim_lua = "Lua",
+              latex_symbols = "LaTeX",
+              codeium = "",
+              nvim_lsp = "󰚥",
+              luasnip = "",
+              nvim_lua = "󰢱",
+              buffer = "",
+              path = "",
+              emoji = "󰱫",
+              nerdfont = "󰊪",
+              calc = "󰃬",
+              bufname = "󰈬",
+            })[entry.source.name]
+            .. " "
+            .. kind
+            .. "]"
 
           return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
         end,
+        -- format = function(entry, vim_item)
+        --   -- vim_item.kind = string.format("%s", icons.kind[vim_item.kind])
+        --   -- vim_item.kind = string.format("%s %s", icons.kind[vim_item.kind], vim_item.kind)
+        --   local kind = vim_item.kind
+        --
+        --   if kind == "Color" then
+        --     vim_item.kind = "  "
+        --   else
+        --     vim_item.kind = (" " .. icons.kind[kind] .. " ") or " ? "
+        --   end
+        --
+        --   vim_item.menu = ({
+        --     nvim_lsp = "󰚥",
+        --     luasnip = "",
+        --     nvim_lua = "󰢱",
+        --     buffer = "",
+        --     path = "",
+        --     emoji = "󰱫",
+        --     nerdfont = "󰊪",
+        --     calc = "󰃬",
+        --     bufname = "󰈬",
+        --     codeium = "",
+        --   })[entry.source.name] .. " " .. kind
+        --
+        --   -- return vim_item
+        --   return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
+        -- end,
       },
     }
   end,

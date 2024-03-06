@@ -1,10 +1,5 @@
 return {
   "tpope/vim-sleuth",
-  -- {
-  --   event = "VeryLazy",
-  --   "ThePrimeagen/harpoon",
-  --   dependencies = { "nvim-lua/plenary.nvim" },
-  -- },
   {
     "folke/todo-comments.nvim",
     event = "VeryLazy",
@@ -17,7 +12,6 @@ return {
     event = "VeryLazy",
     opts = {},
   },
-
   -- Changes bg of kitty to match nvim
   { "typicode/bg.nvim", lazy = false, priority = 1000 },
   {

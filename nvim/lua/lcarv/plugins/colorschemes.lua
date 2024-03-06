@@ -20,8 +20,14 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    enabled = false,
-    config = function() end,
+    -- enabled = false,
+    config = function()
+      require("tokyonight").setup {
+        transparent = true,
+        -- style = "storm",
+      }
+      vim.cmd [[colorscheme tokyonight-night]]
+    end,
   },
   {
     "rose-pine/neovim",
@@ -126,7 +132,7 @@ return {
   },
   {
     "EdenEast/nightfox.nvim", -- https://github.com/EdenEast/nightfox.nvim
-    -- enabled = false,
+    enabled = false,
     config = function()
       require("nightfox").setup {
         options = {
@@ -155,12 +161,12 @@ return {
         --   },
         -- },
       }
-      -- vim.cmd "colorscheme nightfox"
+      vim.cmd "colorscheme nightfox"
       -- vim.cmd "colorscheme dayfox"
       -- vim.cmd "colorscheme dawnfox"
       -- vim.cmd "colorscheme duskfox"
       -- vim.cmd "colorscheme nordfox"
-      vim.cmd "colorscheme terafox"
+      -- vim.cmd "colorscheme terafox"
       -- vim.cmd "colorscheme carbonfox"
     end,
   },
