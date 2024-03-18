@@ -24,7 +24,7 @@ plug "Freed-Wu/fzf-tab-source"
 export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 #HomeBrew-------------------------------------------------------------
 export PATH=/opt/homebrew/sbin:$PATH
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Dart-------------------------------------------------------------
 export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
@@ -96,7 +96,7 @@ fi
 
 
 # Zsh syntax highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
