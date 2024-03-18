@@ -19,9 +19,9 @@ require("lazy").setup("lcarv.plugins", {
     colorscheme = { "tokyonight-night", "rose-pine", "habamax" },
   },
   ui = {
-    -- border = "double",
+    border = "double",
     -- border = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█" },
-    border = "shadow",
+    -- border = "shadow",
   },
   change_detection = {
     enabled = true,

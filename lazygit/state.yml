@@ -1,14 +1,11 @@
 lastupdatecheck: 0
 recentrepos:
-- /Users/lcarv/dev/web/hackrnews
 - /Users/lcarv/.dotfiles
+- /Users/lcarv/dev/web/hackrnews
 - /Users/lcarv/dev/web/dragable
 - /Users/lcarv/.config/basevim
 - /Users/lcarv/dev/web/nextjs-dashboard
-- /Users/lcarv/dev/smarttech/smart-tech-exercise
 - /Users/lcarv/dev/web/nostrSDK
-- /Users/lcarv/dev/gefisco
-- /Users/lcarv/dev/Frog
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false

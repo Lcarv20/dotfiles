@@ -55,8 +55,9 @@ function M.common_capabilities()
 end
 
 function M.config()
-  local lspconfig = require "lspconfig"
-  local icons = require "lcarv.icons"
+  -- local lspconfig = require "lspconfig"
+  -- local icons = require "lcarv.icons"
+  require("mason").setup()
 
   local servers = {
     "lua_ls",
@@ -68,7 +69,6 @@ function M.config()
     "yamlls",
     "marksman",
     "vtsls", -- this might be better than tsserver
-    -- "tsserver",
     "emmet_language_server",
     "tailwindcss",
   }
@@ -150,32 +150,59 @@ function M.config()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single" })
   require("lspconfig.ui.windows").default_options.border = "single"
 
-  for _, server in pairs(servers) do
-    local opts = {
-      on_attach = M.on_attach,
-      capabilities = M.common_capabilities(),
-    }
+  local mason_lspconfig = require "mason-lspconfig"
 
-    local require_ok, settings = pcall(require, "lcarv.plugins.lsp.settings." .. server)
-    if require_ok then
-      opts = vim.tbl_deep_extend("force", settings, opts)
-    end
+  mason_lspconfig.setup_handlers {
+    function(server_name)
+      local opts = {
+        on_attach = M.on_attach,
+        capabilities = M.common_capabilities(),
+      }
 
-    if server == "lua_ls" then
-      require("neodev").setup {}
-    end
+      local require_ok, settings = pcall(require, "lcarv.plugins.lsp.settings." .. server_name)
 
-    if server == "vtsls" then
-      require("lspconfig.configs").vtsls = require("vtsls").lspconfig
-    end
+      if require_ok then
+        opts = vim.tbl_deep_extend("force", settings, opts)
+      end
 
-    if server == "emmet_language_server" then
-      opts.filetypes =
-        { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" }
-    end
+      if server_name == "lua_ls" then
+        require("neodev").setup {}
+      end
 
-    lspconfig[server].setup(opts)
-  end
+      if server_name == "vtsls" then
+        require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+      end
+
+      require("lspconfig")[server_name].setup(opts)
+    end,
+  }
+
+  -- for _, server in pairs(servers) do
+  --   local opts = {
+  --     on_attach = M.on_attach,
+  --     capabilities = M.common_capabilities(),
+  --   }
+  --
+  --   local require_ok, settings = pcall(require, "lcarv.plugins.lsp.settings." .. server)
+  --   if require_ok then
+  --     opts = vim.tbl_deep_extend("force", settings, opts)
+  --   end
+  --
+  --   if server == "lua_ls" then
+  --     require("neodev").setup {}
+  --   end
+  --
+  --   if server == "vtsls" then
+  --     require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+  --   end
+  --
+  --   if server == "emmet_language_server" then
+  --     opts.filetypes =
+  --       { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" }
+  --   end
+  --
+  --   lspconfig[server].setup(opts)
+  -- end
 end
 
 return M

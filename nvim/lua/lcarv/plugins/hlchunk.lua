@@ -16,7 +16,7 @@ return {
         use_treesitter = true,
         -- details about support_filetypes and exclude_filetypes in https://github.com/shellRaining/hlchunk.nvim/blob/main/lua/hlchunk/utils/filetype.lua
         support_filetypes = ft.support_filetypes,
-        exclude_filetypes = vim.tbl_deep_extend("force", ft.exclude_filetypes, { netrw = true })
+        exclude_filetypes = vim.tbl_deep_extend("force", ft.exclude_filetypes, { netrw = true, glance = true })
           or ft.exclude_filetypes,
         chars = {
           horizontal_line = "─",

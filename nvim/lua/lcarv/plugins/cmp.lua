@@ -103,6 +103,9 @@ return {
         { name = "codeium" },
       }, {
         { name = "buffer" },
+        { name = "path" },
+        { name = "emoji" },
+        { name = "nvim_lua" },
       }),
       formatting = {
         expandable_indicator = true,

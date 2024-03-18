@@ -45,6 +45,7 @@ vim.opt.textwidth = 100
 vim.opt.fillchars = vim.opt.fillchars + "eob: "
 vim.opt.fillchars:append {
   stl = " ",
+  diff = " ",
 }
 
 vim.opt.shortmess:append "c"
@@ -54,3 +55,6 @@ vim.cmd [[set iskeyword+=-]]
 
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
+
+--fzf
+vim.opt.rtp:append(os.getenv("HOME") .. "/opt/homebrew/opt/fzf")

@@ -21,45 +21,34 @@ plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
 
 #BOB (nvim v-manager)-------------------------------------------------------
-export PATH=/Users/lcarv/.local/share/bob/nvim-bin:$PATH
+export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 #HomeBrew-------------------------------------------------------------
 export PATH=/opt/homebrew/sbin:$PATH
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# #LunarVim-------------------------------------------------------------
-# export PATH=/Users/lcarv/.local/bin:$PATH
-
 # Dart-------------------------------------------------------------
-export PATH="$PATH:/Users/lcarv/flutter/bin/cache/dart-sdk/bin"
+export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
 # Flutter-------------------------------------------------------------
-export PATH="$PATH:/Users/lcarv/flutter/bin"
+export PATH="$PATH:$HOME/flutter/bin"
 # goimports-------------------------------------------------------------
 export PATH="$PATH:$HOME/go/bin"
 # Added by Toolbox App-------------------------------------------------------------
-export PATH="$PATH:/Users/lcarv/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 # PNPM-------------------------------------------------------------
-export PNPM_HOME="/Users/lcarv/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# Java openJDK-------------------------------------------------------------
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-# For compilers to find openjdk you may need to set:
-# export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-#
+
 # GOLANG CI LINTER-------------------------------------------------------------
 export PATH=$PATH:$GOLANGCI_LINT_INSTALL_DIR
 
-# Lazygit, Neovim and etc------------------------------------------------
-export XDG_CONFIG_HOME="$HOME/.config"
+# # Lazygit, Neovim and etc------------------------------------------------
+# export XDG_CONFIG_HOME="$HOME/.config"
 
 # FNM node version manager-------------------------------------------------------------
 export PATH=/home/$USER/.fnm:$PATH
 
 # Default Editor -------------------------------------------------------------
 export EDITOR='nvim'
-
-# SDK man for managing java version mannager
-export SDKMAN_DIR=$(brew --prefix sdkman-cli)/libexec
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
 
 # Rust toolchain----------------------------------------------------------
 export CARGO_HOME=$HOME/.cargo
@@ -68,28 +57,22 @@ export PATH=$PATH:$HOME/.cargo/bin
 
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/lcarv/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lcarv/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/lcarv/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lcarv/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
 # Buildpacks autocompletion
 # . $(pack completion --shell zsh)
-
-# Dotnet------------------------------------------------------------- 
-export PATH="/opt/homebrew/opt/dotnet@6/bin:$PATH"
-export DOTNET_ROOT="/opt/homebrew/opt/dotnet@6/libexec"
-
-
 
 
 # ------------------------------
 # --- ALIASES
 # ------------------------------
 # Golang apps and libraries
-alias air="/Users/lcarv/go/bin/air"
-alias gin="/Users/lcarv/go/bin/gin"
-alias wails="/Users/lcarv/go/bin/wails"
+alias air="$HOME/go/bin/air"
+alias gin="$HOME/go/bin/gin"
+alias wails="$HOME/go/bin/wails"
 alias pnx="pnpm nx"
 # Better ls
 alias l="ls -l"
@@ -139,5 +122,7 @@ export FZF_DEFAULT_OPTS=" \
 export NEXT_TELEMETRY_DISABLED=1
 
 # bun completions
-[ -s "/Users/lcarv/.bun/_bun" ] && source "/Users/lcarv/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

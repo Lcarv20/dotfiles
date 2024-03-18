@@ -73,6 +73,9 @@ return {
         )
         vim.keymap.set("n", "<leader>gh", require("gitsigns").preview_hunk, { buffer = bufnr, desc = "preview [h]unk" })
         vim.keymap.set("n", "<leader>gd", require("gitsigns").diffthis, { buffer = bufnr, desc = "[d]iff file" })
+        vim.keymap.set("n", "<leader>ga", require("gitsigns").stage_hunk, { buffer = bufnr, desc = "[a]dd hunk" })
+        vim.keymap.set("n", "<leader>gb", require("gitsigns").blame_line, { buffer = bufnr, desc = "[b]lame line" })
+        vim.keymap.set("n", "<leader>gB", require("gitsigns").stage_buffer, { buffer = bufnr, desc = "add [B]uffer" })
       end,
     },
   },
