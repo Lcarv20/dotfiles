@@ -34,7 +34,7 @@ return {
             buf_options = {},
             win_options = {
                 -- Window transparency (0-100)
-                winblend = 10,
+                winblend = 0,
                 -- Disable line wrapping
                 wrap = false,
                 -- Indicator for when text exceeds window
@@ -111,7 +111,7 @@ return {
                     filetype = "DressingSelect",
                 },
                 win_options = {
-                    winblend = 10,
+                    winblend = 0,
                 },
                 max_width = 80,
                 max_height = 40,
@@ -129,7 +129,7 @@ return {
                 buf_options = {},
                 win_options = {
                     -- Window transparency (0-100)
-                    winblend = 10,
+                    winblend = 0,
                     cursorline = false,
                     cursorlineopt = "both",
                 },
