@@ -33,3 +33,6 @@ ln -s ~/.dotfiles/lsd ~/.config/lsd
 
 # configure nvim
 ln -s ~/.dotfiles/nvim ~/.config
+
+# configure gitconfig
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
