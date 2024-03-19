@@ -10,7 +10,13 @@ return {
   {
     "petertriho/nvim-scrollbar",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      handlers = {
+        cursor = false,
+        gitsigns = false,
+        search = false,
+      },
+    },
   },
   -- Changes bg of kitty to match nvim
   { "typicode/bg.nvim", lazy = false, priority = 1000 },
