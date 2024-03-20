@@ -55,6 +55,8 @@ export CARGO_HOME=$HOME/.cargo
 export RUSTUP_HOME=$HOME/.rustup
 export PATH=$PATH:$HOME/.cargo/bin
 
+## VIVID
+export LS_COLORS="$(vivid generate ayu)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
@@ -75,12 +77,12 @@ alias gin="$HOME/go/bin/gin"
 alias wails="$HOME/go/bin/wails"
 alias pnx="pnpm nx"
 # Better ls
-alias l="ls -l"
 alias ls="lsd"
-alias lt="ls --tree"
-alias la="ls -a"
-alias ll="ls -l"
-alias lla="ls -la"
+alias l="lsd -l"
+alias lt="lsd --tree"
+alias la="lsd -a"
+alias ll="lsd -l"
+alias lla="lsd -la"
 #Nvim stuff
 alias basevim="NVIM_APPNAME=basevim nvim"
 alias vim="NVIM_APPNAME=vim nvim"
@@ -95,28 +97,13 @@ if command -v bat &> /dev/null; then
 fi
 
 
-# Zsh syntax highlighting
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# not sure if this works
-# HYPHEN_INSENSITIVE="true"
-
-# fzf catppuccin_mocha
-# export FZF_DEFAULT_OPTS=" \
-# --border=rounded --margin=1% --no-info --prompt=' ' --no-mouse \
-# --color=bg+:#272836,bg:#1a1b26,spinner:#f5e0dc,hl:#f38ba8 \
-# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 export FZF_DEFAULT_OPTS=" \
 --border=rounded --margin=1% --no-info --prompt=' ' --no-mouse \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-
 
 # TUNR OFF NEXT TELEMETRY
 export NEXT_TELEMETRY_DISABLED=1
@@ -124,5 +111,6 @@ export NEXT_TELEMETRY_DISABLED=1
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
