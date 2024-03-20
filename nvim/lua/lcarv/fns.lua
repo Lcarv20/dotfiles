@@ -10,7 +10,7 @@ end
 
 M.cursor_style = function()
   -- create highlights for the different modes
-  local colors = require("lcarv.colors")
+  local colors = require "lcarv.colors"
 
   vim.api.nvim_set_hl(0, "NCursor", { bg = colors.blue })
   vim.api.nvim_set_hl(0, "ICursor", { bg = colors.green })
@@ -19,7 +19,8 @@ M.cursor_style = function()
   vim.api.nvim_set_hl(0, "ComCursor", { bg = colors.yellow })
   vim.api.nvim_set_hl(0, "NoiceCursor", { bg = colors.saphire })
 
-  vim.opt.guicursor = "n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
+  vim.opt.guicursor =
+    "n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
 end
 
 M.toggle_inlay_hints = function()

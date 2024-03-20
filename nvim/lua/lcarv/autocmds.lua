@@ -48,14 +48,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 --   end,
 -- })
 
-vim.api.nvim_create_autocmd("BufLeave", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.ft == "neo-tree" then
-      vim.cmd "NeoTreeClose"
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd("BufLeave", {
+--   pattern = "*",
+--   callback = function()
+--     if vim.bo.ft == "neo-tree" then
+--       vim.cmd "NeoTreeClose"
+--     end
+--   end,
+-- })
 
 -- Cursor style
 vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {

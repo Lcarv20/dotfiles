@@ -25,7 +25,8 @@ M.on_attach = function(client, bufnr)
   keymaps.define(bufnr)
 
   if client.supports_method "textDocument/inlayHint" then
-    vim.lsp.inlay_hint.enable(bufnr, true)
+    -- change to true to enable inlayHint
+    vim.lsp.inlay_hint.enable(bufnr, false)
     vim.api.nvim_set_keymap(
       "n",
       " Eh",
