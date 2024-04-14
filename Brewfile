@@ -87,10 +87,10 @@ brew "ncdu"
 brew "ninja"
 # Fast, disk space efficient package manager
 brew "pnpm"
-# Generic machine emulator and virtualizer
-brew "qemu"
 # Tool for managing OCI containers and pods
 brew "podman"
+# Generic machine emulator and virtualizer
+brew "qemu"
 # Alternative to docker-compose using podman
 brew "podman-compose"
 # Interpreted, interactive, object-oriented programming language
@@ -109,6 +109,8 @@ brew "stylua"
 brew "tmux"
 # CLI tool that moves files or folder to the trash
 brew "trash"
+# Generator for LS_COLORS with support for multiple color themes
+brew "vivid"
 # Internet file retriever
 brew "wget"
 # Fish-like fast/unobtrusive autosuggestions for zsh
