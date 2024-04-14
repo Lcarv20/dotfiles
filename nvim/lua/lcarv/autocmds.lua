@@ -138,3 +138,13 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     which_key.register(mappings, opts)
   end,
 })
+
+-- autocmd to set wrap and spell in text filetypes
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "gitcommit", "markdown", "NeogitCommitMessage" },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
+

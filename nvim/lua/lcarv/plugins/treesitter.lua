@@ -6,7 +6,7 @@ return {
       { "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
       {
         "nvim-treesitter/nvim-treesitter-context",
-        enable = false,
+        enabled = false,
         event = "VeryLazy",
         config = function()
           require("treesitter-context").setup {}

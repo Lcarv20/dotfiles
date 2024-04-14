@@ -1,4 +1,5 @@
 -- Remove the `use` here if you're using folke/lazy.nvim.
+--
 return {
   {
     "Exafunction/codeium.nvim",
@@ -9,6 +10,10 @@ return {
     },
     config = function()
       require("codeium").setup {}
+      vim.g.codeium_filetypes = {
+        ["DressingInput"] = false,
+        ["neo-tree"] = true,
+      }
     end,
   },
   {
@@ -19,7 +24,7 @@ return {
       vim.keymap.set("i", "<c-\\>", function()
         return vim.fn["codeium#Complete"]()
       end, { expr = true })
-      vim.keymap.set("i", "<c-cr>", function()
+      vim.keymap.set("i", "<c-a>", function()
         return vim.fn["codeium#Accept"]()
       end, { expr = true })
       vim.keymap.set("i", "<c-.>", function()

@@ -24,16 +24,17 @@ M.on_attach = function(client, bufnr)
   local keymaps = require "lcarv.plugins.lsp.keymaps"
   keymaps.define(bufnr)
 
-  if client.supports_method "textDocument/inlayHint" then
-    -- change to true to enable inlayHint
-    vim.lsp.inlay_hint.enable(bufnr, false)
-    vim.api.nvim_set_keymap(
-      "n",
-      " Eh",
-      "<cmd>lua require('lcarv.fns').toggle_inlay_hints()<cr>",
-      { noremap = true, silent = true, desc = "Toggle inlay-[h]ints" }
-    )
-  end
+  -- INFO: Uncomment on version >10
+  -- if client.supports_method "textDocument/inlayHint" then
+  --   -- change to true to enable inlayHint
+  --   vim.lsp.inlay_hint.enable(bufnr, false)
+  --   vim.api.nvim_set_keymap(
+  --     "n",
+  --     " Eh",
+  --     "<cmd>lua require('lcarv.fns').toggle_inlay_hints()<cr>",
+  --     { noremap = true, silent = true, desc = "Toggle inlay-[h]ints" }
+  --   )
+  -- end
 end
 
 function M.common_capabilities()

@@ -22,4 +22,3 @@
 -- vim.opt.background = "light"
 -- vim.cmd.colorscheme("tokyonight-day")
 -- vim.cmd.colorscheme("rose-pine-dawn")
-

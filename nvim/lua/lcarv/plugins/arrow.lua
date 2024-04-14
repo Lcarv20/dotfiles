@@ -31,7 +31,7 @@ return {
       leader_key = ";",
       global_bookmarks = false,
       index_keys = "123456789zxcbnmZXVBNM,afghjklAFGHJKLwrtyuiopWRTYUIOP", -- keys mapped to bookmark index, i.e. 1st bookmark will be accessible by 1, and 12th - by c
-      -- full_path_list = { "update_stuff" }, -- filenames on this list will ALWAYS show the file path too.
+      full_path_list = { "page", "route" }, -- filenames on this list will ALWAYS show the file path too.
     }
   end,
 }
