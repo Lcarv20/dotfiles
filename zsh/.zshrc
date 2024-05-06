@@ -112,5 +112,5 @@ export NEXT_TELEMETRY_DISABLED=1
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
+eval "$(fzf --zsh)"
 

@@ -13,6 +13,7 @@
 	excludesfile = /Users/lcarv/.gitignore_global
   pager = delta
   trustctime = false
+	sparseCheckout = true
 [diff]
   tool = vimdiff
   colorMoved = default
