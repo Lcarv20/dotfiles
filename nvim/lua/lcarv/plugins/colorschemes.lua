@@ -81,20 +81,15 @@ return {
     enabled = false,
     lazy = false,
     priority = 1000,
-    -- config = function()
-    --   require("dracula").setup()
-    --   require("lualine").setup {
-    --     options = {
-    --       theme = "dracula-nvim",
-    --     },
-    --   }
-    -- end,
-  },
-  {
-    "LunarVim/primer.nvim",
-    enabled = false,
-    lazy = false,
-    priority = 1000,
+    config = function()
+      require("dracula").setup()
+      require("lualine").setup {
+        options = {
+          theme = "dracula-nvim",
+        },
+      }
+      vim.cmd.colorscheme "dracula"
+    end,
   },
   {
     "rebelot/kanagawa.nvim",
@@ -231,6 +226,10 @@ return {
   {
     "nanotech/jellybeans.vim", -- https://github.com/nanotech/jellybeans.vim
     enabled = false,
+    lazy = false,
+    config = function()
+      vim.cmd "colorscheme jellybeans"
+    end,
   },
   {
     "ribru17/bamboo.nvim", -- https://github.com/ribru17/bamboo.nvim
@@ -260,5 +259,29 @@ return {
   {
     "savq/melange-nvim",
     enabled = false,
+    config = function()
+      vim.cmd "colorscheme melange"
+    end,
+  },
+  {
+    "Mofiqul/adwaita.nvim",
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.adwaita_darker = true -- for darker version
+      -- vim.g.adwaita_disable_cursorline = true -- to disable cursorline
+      -- vim.g.adwaita_transparent = true -- makes the background transparent
+      vim.cmd "colorscheme adwaita"
+    end,
+  },
+  {
+    "xero/miasma.nvim",
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd "colorscheme miasma"
+    end,
   },
 }

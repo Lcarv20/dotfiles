@@ -1,7 +1,7 @@
 return {
     "ThePrimeagen/refactoring.nvim",
     lazy = true,
-
+    enabled = false,
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",

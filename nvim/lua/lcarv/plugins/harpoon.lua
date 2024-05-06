@@ -1,6 +1,6 @@
 return {
   {
-    -- event = "VeryLazy",
+    event = "VeryLazy",
     "Lcarv20/harpoon_leg",
     enabled = false,
     name = "harpoon-legacy",
@@ -35,7 +35,7 @@ return {
   },
   {
     "ThePrimeagen/harpoon",
-    enabled = false,
+    -- enabled = false,
     branch = "harpoon2",
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -43,7 +43,12 @@ return {
       local harpoon = require "harpoon"
 
       -- REQUIRED
-      harpoon:setup()
+      harpoon:setup {
+        settings = {
+          save_on_toggle = true,
+          sync_on_ui_close = true,
+        },
+      }
 
       local opts = { border = "rounded" }
       -- REQUIRED

@@ -1,5 +1,6 @@
 return {
   "otavioschwanck/arrow.nvim",
+  enabled = false,
   event = "VeryLazy",
   config = function()
     require("arrow").setup {
