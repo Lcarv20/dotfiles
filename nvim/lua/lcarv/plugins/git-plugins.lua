@@ -2,7 +2,7 @@ local icons = require "lcarv.icons"
 
 return {
   -- Git related plugins
-  { "tpope/vim-fugitive", cmd = {"Git", "G"}},
+  { "tpope/vim-fugitive", cmd = { "Git", "G" } },
   { "tpope/vim-rhubarb", cmd = "GBrowse" },
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
@@ -83,6 +83,7 @@ return {
   {
     "NeogitOrg/neogit",
     dependencies = "nvim-lua/plenary.nvim",
+    branch = "master",
     event = "VeryLazy",
     opts = {
       disable_signs = false,

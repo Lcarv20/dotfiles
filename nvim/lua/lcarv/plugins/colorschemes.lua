@@ -2,7 +2,7 @@ return {
   {
     -- Theme inspired by Atom
     "navarasu/onedark.nvim",
-    enabled = false,
+    -- enabled = false,
     lazy = false,
     priority = 1000,
   },
@@ -14,7 +14,7 @@ return {
   },
   {
     "wadackel/vim-dogrun",
-    enabled = false,
+    -- enabled = false,
     lazy = false,
     priority = 1000,
   },
@@ -26,12 +26,12 @@ return {
         transparent = true,
         -- style = "storm",
       }
-      vim.cmd [[colorscheme tokyonight-night]]
+      -- vim.cmd [[colorscheme tokyonight-night]]
     end,
   },
   {
     "rose-pine/neovim",
-    enabled = false,
+    -- enabled = false,
     name = "rose-pine",
     lazy = false,
     priority = 1000,
@@ -59,12 +59,12 @@ return {
         },
       }
       -- vim.cmd.colorscheme "rose-pine"
-      vim.cmd.colorscheme "rose-pine-moon"
+      -- vim.cmd.colorscheme "rose-pine-moon"
     end,
   },
   {
     "catppuccin/nvim",
-    enabled = false,
+    -- enabled = false,
     name = "catppuccin",
     lazy = false,
     priority = 1000,
@@ -73,12 +73,12 @@ return {
         -- flavour = "mocha",
         transparent_background = true,
       }
-      vim.cmd.colorscheme "catppuccin"
+      -- vim.cmd.colorscheme "catppuccin"
     end,
   },
   {
     "Mofiqul/dracula.nvim",
-    enabled = false,
+    -- enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -88,12 +88,12 @@ return {
           theme = "dracula-nvim",
         },
       }
-      vim.cmd.colorscheme "dracula"
+      -- vim.cmd.colorscheme "dracula"
     end,
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = false,
+    -- enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -123,7 +123,7 @@ return {
   },
   {
     "morhetz/gruvbox",
-    enabled = false,
+    -- enabled = false,
   },
   {
     "EdenEast/nightfox.nvim", -- https://github.com/EdenEast/nightfox.nvim
@@ -156,7 +156,7 @@ return {
         --   },
         -- },
       }
-      vim.cmd "colorscheme nightfox"
+      -- vim.cmd "colorscheme nightfox"
       -- vim.cmd "colorscheme dayfox"
       -- vim.cmd "colorscheme dawnfox"
       -- vim.cmd "colorscheme duskfox"
@@ -221,19 +221,19 @@ return {
   },
   {
     "cocopon/iceberg.vim", -- https://github.com/cocopon/iceberg.vim
-    enabled = false,
+    -- enabled = false,
   },
   {
     "nanotech/jellybeans.vim", -- https://github.com/nanotech/jellybeans.vim
-    enabled = false,
+    -- enabled = false,
     lazy = false,
-    config = function()
-      vim.cmd "colorscheme jellybeans"
-    end,
+    -- config = function()
+    --   vim.cmd "colorscheme jellybeans"
+    -- end,
   },
   {
     "ribru17/bamboo.nvim", -- https://github.com/ribru17/bamboo.nvim
-    enabled = false,
+    -- enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -253,35 +253,35 @@ return {
           background = false, -- use background color for virtual text
         },
       }
-      require("bamboo").load()
+      -- require("bamboo").load()
     end,
   },
   {
     "savq/melange-nvim",
-    enabled = false,
+    -- enabled = false,
     config = function()
-      vim.cmd "colorscheme melange"
+      -- vim.cmd "colorscheme melange"
     end,
   },
   {
     "Mofiqul/adwaita.nvim",
-    enabled = false,
+    -- enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.adwaita_darker = true -- for darker version
+      -- vim.g.adwaita_darker = true -- for darker version
       -- vim.g.adwaita_disable_cursorline = true -- to disable cursorline
       -- vim.g.adwaita_transparent = true -- makes the background transparent
-      vim.cmd "colorscheme adwaita"
+      -- vim.cmd "colorscheme adwaita"
     end,
   },
   {
     "xero/miasma.nvim",
-    enabled = false,
+    -- enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd "colorscheme miasma"
+      -- vim.cmd "colorscheme miasma"
     end,
   },
 }

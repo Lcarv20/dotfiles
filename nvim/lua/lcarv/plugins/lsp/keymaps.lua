@@ -14,7 +14,7 @@ function M.define(bufnr)
   keymap(bufnr, "n", "gd", "<cmd>Trouble lsp_definitions<cr>", opts "[G]oto [D]efinition")
   keymap(bufnr, "n", "gI", "<cmd>Trouble lsp_implementations<cr>", opts "[G]oto [I]mplementation")
   keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<cr>", opts "Open floating diagnostic message")
-  keymap(bufnr, "n", "gr", "<cmd>TroubleToggle lsp_references<cr>", opts "[R]eferences")
+  keymap(bufnr, "n", "gr", "<cmd>Trouble lsp_references<cr>", opts "[R]eferences")
   keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts "Go to previous diagnostic message")
   keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts "Go to next diagnostic message")
   -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts "Hover Documentation")
@@ -36,17 +36,6 @@ function M.define(bufnr)
 
   keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts "Signature Documentation")
   keymap(bufnr, "i", "<C-K>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts "Signature Documentation")
-
-  -- TROUBLE
-  -- keymap(" lt", "<cmd>TroubleToggle<cr>", "TroubleToggle")
-  keymap(
-    bufnr,
-    "n",
-    " lw",
-    "<cmd>TroubleToggle workspace_diagnostics<cr>",
-    opts "TroubleToggle [w]orkspace diagnostics"
-  )
-  keymap(bufnr, "n", " ld", "<cmd>Trouble document_diagnostics<cr>", opts "TroubleToggle [d]ocument diagnostics")
 
   -- Format
   keymap(bufnr, "n", " lf", ":lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>", opts "[f]ormat")

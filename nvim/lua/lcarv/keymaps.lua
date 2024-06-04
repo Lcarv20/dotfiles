@@ -2,9 +2,9 @@ local wk = require "which-key"
 local fns = require "lcarv.fns"
 
 local function map(mode, mapping, cmd, opts)
-	opts = opts or {}
-	opts.silent = true
-	vim.keymap.set(mode, mapping, cmd, opts)
+  opts = opts or {}
+  opts.silent = true
+  vim.keymap.set(mode, mapping, cmd, opts)
 end
 
 local ignore = { desc = "which_key_ignore" }
@@ -24,11 +24,11 @@ map("n", " fb", ":Telescope buffers<cr>", { desc = "[b]uffers" })
 map("n", " fc", ":Telescope colorscheme enable_preview=true<cr>", { desc = "[c]olorscheme" })
 map("n", " fB", ":Telescope git_branches<cr>", { desc = "[B]ranches" })
 map("n", " fF", function()
-	-- You can pass additional configuration to telescope to change theme, layout, etc.
-	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
-		winblend = 0,
-		previewer = false,
-	})
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
+    winblend = 0,
+    previewer = false,
+  })
 end, { desc = "[F]uzzily search in current buffer" })
 map("n", " fh", ":Telescope help_tags<cr>", { desc = "[H]elp" })
 map("n", " fw", ":Telescope grep_string<cr>", { desc = "[W]ord" })
@@ -44,7 +44,6 @@ map("n", " gN", ":Neogit<cr>", { desc = "[N]eogit" })
 
 -- LSP
 wk.register({ l = { name = "Lsp" } }, { prefix = "<leader>" })
-
 
 -- UndooTree
 -- wk.register({ u = { name = "Undotree" } }, { prefix = "<leader>" })
@@ -63,6 +62,12 @@ map("n", " h", ":nohl<cr>", { desc = "hide [h]ighlight" })
 map("n", "<c-h>", ":tabprevious<cr>", { desc = "hide [h]ighlight" })
 map("n", "<c-l>", ":tabnext<cr>", { desc = "hide [h]ighlight" })
 map("n", "<c-t>", ":tabnew<cr>", { desc = "hide [h]ighlight" })
+map(
+  "n",
+  " Eh",
+  ":lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>",
+  { desc = "toggle [h]ighlight" }
+)
 
 -- Movement
 map("n", "J", "mzJ`z")

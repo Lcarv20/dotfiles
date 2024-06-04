@@ -70,7 +70,7 @@ return {
       }
 
       vim.keymap.set("n", "ma", function()
-        harpoon:list():append()
+        harpoon:list():add()
       end)
       vim.keymap.set("n", "mm", function()
         harpoon.ui:toggle_quick_menu(harpoon:list(), opts)
