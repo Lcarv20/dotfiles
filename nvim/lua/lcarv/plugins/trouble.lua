@@ -4,7 +4,7 @@ return {
   keys = {
     {
       "<leader>lw",
-      "<cmd>Trouble diagnostics toggle<cr>",
+      "<cmd>Trouble diagnostics toggle <cr>",
       desc = "Diagnostics (Trouble)",
     },
     {
@@ -14,12 +14,12 @@ return {
     },
     {
       "<leader>lS",
-      "<cmd>Trouble symbols toggle focus=false<cr>",
+      "<cmd>Trouble symbols toggle<cr>",
       desc = "Symbols (Trouble)",
     },
     {
-      "<leader>cl",
-      "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+      "<leader>lt",
+      "<cmd>Trouble lsp toggle win.position=right<cr>",
       desc = "LSP Definitions / references / ... (Trouble)",
     },
     {
@@ -33,5 +33,10 @@ return {
       desc = "Quickfix List (Trouble)",
     },
   },
-  opts = {},
+  opts = {
+    auto_close = true,
+    auto_jump = true,
+    focus = true,
+  },
 }
+
