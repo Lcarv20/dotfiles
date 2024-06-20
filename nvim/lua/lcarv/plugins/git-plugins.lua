@@ -11,34 +11,19 @@ return {
     opts = {
       signs = {
         add = {
-          hl = "GitSignsAdd",
           text = icons.ui.BoldLineLeft,
-          numhl = "GitSignsAddNr",
-          linehl = "GitSignsAddLn",
         },
         change = {
-          hl = "GitSignsChange",
           text = icons.ui.BoldLineLeft,
-          numhl = "GitSignsChangeNr",
-          linehl = "GitSignsChangeLn",
         },
         delete = {
-          hl = "GitSignsDelete",
           text = icons.ui.TriangleShortArrowRight,
-          numhl = "GitSignsDeleteNr",
-          linehl = "GitSignsDeleteLn",
         },
         topdelete = {
-          hl = "GitSignsDelete",
           text = icons.ui.TriangleShortArrowRight,
-          numhl = "GitSignsDeleteNr",
-          linehl = "GitSignsDeleteLn",
         },
         changedelete = {
-          hl = "GitSignsChange",
           text = icons.ui.BoldLineLeft,
-          numhl = "GitSignsChangeNr",
-          linehl = "GitSignsChangeLn",
         },
       },
       watch_gitdir = {
