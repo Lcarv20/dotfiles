@@ -9,6 +9,11 @@ return {
   config = function()
     require("dropbar").setup()
     vim.ui.select = require("dropbar.utils.menu").select
-    vim.api.nvim_set_keymap("n", " Ed", '<cmd>lua require("dropbar.api").pick()<cr>', { noremap = true, silent = true, desc = "dropbar [h]ome" })
+    vim.api.nvim_set_keymap(
+      "n",
+      " Ed",
+      '<cmd>lua require("dropbar.api").pick()<cr>',
+      { noremap = true, silent = true, desc = "dropbar [h]ome" }
+    )
   end,
 }

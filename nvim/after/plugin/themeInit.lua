@@ -2,7 +2,7 @@
 -----------------
 -- vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("dracula")
-vim.cmd.colorscheme "tokyonight-night"
+-- vim.cmd.colorscheme "tokyonight-night"
 -- vim.cmd.colorscheme("vscode")
 -- vim.cmd.colorscheme("rose-pine-main")
 -- vim.cmd.colorscheme("rose-pine-moon")
@@ -19,6 +19,8 @@ vim.cmd.colorscheme "tokyonight-night"
 -- vim.cmd.colorscheme("dogrun")
 -- vim.cmd.colorscheme("adwaita")
 -- vim.cmd.colorscheme("miasma")
+vim.cmd.colorscheme("github_dark_default")
+-- vim.cmd.colorscheme("github_dark_colorblind")
 
 
 -- LIGHT THEMES

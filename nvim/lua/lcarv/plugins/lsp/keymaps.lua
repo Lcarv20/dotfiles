@@ -8,8 +8,6 @@ function M.define(bufnr)
   keymap(bufnr, "n", " lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts "[r]eame")
   keymap(bufnr, "n", " la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts "code [a]ction")
   keymap(bufnr, "n", " lD", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts "Type [D]efinition")
-  -- keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts "[G]oto [D]efinition")
-  -- keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts "[G]oto [I]mplementation")
   keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts "[G]oto [D]eclaration")
   keymap(bufnr, "n", "gd", "<cmd>Trouble lsp_definitions<cr>", opts "[G]oto [D]efinition")
   keymap(bufnr, "n", "gI", "<cmd>Trouble lsp_implementations<cr>", opts "[G]oto [I]mplementation")
@@ -17,7 +15,6 @@ function M.define(bufnr)
   keymap(bufnr, "n", "gr", "<cmd>Trouble lsp_references<cr>", opts "[R]eferences")
   keymap(bufnr, "n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts "Go to previous diagnostic message")
   keymap(bufnr, "n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts "Go to next diagnostic message")
-  -- keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts "Hover Documentation")
   keymap(
     bufnr,
     "n",

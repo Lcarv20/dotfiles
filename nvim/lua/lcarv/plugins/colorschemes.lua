@@ -24,9 +24,7 @@ return {
     config = function()
       require("tokyonight").setup {
         transparent = true,
-        -- style = "storm",
       }
-      -- vim.cmd [[colorscheme tokyonight-night]]
     end,
   },
   {
@@ -36,30 +34,9 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
       require("rose-pine").setup {
         disable_background = true,
-        -- dim_inactive_windows = true,
-        highlight_groups = {
-          TelescopeBorder = { fg = "overlay", bg = "overlay" },
-          TelescopeNormal = { fg = "subtle", bg = "overlay" },
-          TelescopeSelection = { fg = "text", bg = "highlight_med" },
-          TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
-          TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
-          TelescopeTitle = { fg = "base", bg = "love" },
-          TelescopePromptTitle = { fg = "base", bg = "pine" },
-          TelescopePreviewTitle = { fg = "base", bg = "iris" },
-          TelescopePromptNormal = { fg = "text", bg = "surface" },
-          TelescopePromptBorder = { fg = "surface", bg = "surface" },
-          NeotreeNormal = { bg = "surface" },
-          NormalFloat = { bg = "none" },
-          NormalNC = { bg = "none" },
-          FloatBorder = { bg = "none" },
-          FloatShadow = { bg = "none" },
-        },
       }
-      -- vim.cmd.colorscheme "rose-pine"
-      -- vim.cmd.colorscheme "rose-pine-moon"
     end,
   },
   {
@@ -70,10 +47,8 @@ return {
     priority = 1000,
     config = function()
       require("catppuccin").setup {
-        -- flavour = "mocha",
         transparent_background = true,
       }
-      -- vim.cmd.colorscheme "catppuccin"
     end,
   },
   {
@@ -88,7 +63,6 @@ return {
           theme = "dracula-nvim",
         },
       }
-      -- vim.cmd.colorscheme "dracula"
     end,
   },
   {
@@ -133,36 +107,7 @@ return {
         options = {
           transparent = true,
         },
-        -- palettes = {
-        --   -- Custom duskfox with black background
-        --   duskfox = {
-        --     bg1 = "#000000", -- Black background
-        --     bg0 = "#1d1d2b", -- Alt backgrounds (floats, statusline, ...)
-        --     bg3 = "#121820", -- 55% darkened from stock
-        --     sel0 = "#131b24", -- 55% darkened from stock
-        --   },
-        -- },
-        -- specs = {
-        --   all = {
-        --     inactive = "bg0", -- Default value for other styles
-        --   },
-        --   duskfox = {
-        --     inactive = "#090909", -- Slightly lighter then black background
-        --   },
-        -- },
-        -- groups = {
-        --   all = {
-        --     NormalNC = { fg = "fg1", bg = "inactive" }, -- Non-current windows
-        --   },
-        -- },
       }
-      -- vim.cmd "colorscheme nightfox"
-      -- vim.cmd "colorscheme dayfox"
-      -- vim.cmd "colorscheme dawnfox"
-      -- vim.cmd "colorscheme duskfox"
-      -- vim.cmd "colorscheme nordfox"
-      -- vim.cmd "colorscheme terafox"
-      -- vim.cmd "colorscheme carbonfox"
     end,
   },
   {
@@ -227,9 +172,6 @@ return {
     "nanotech/jellybeans.vim", -- https://github.com/nanotech/jellybeans.vim
     -- enabled = false,
     lazy = false,
-    -- config = function()
-    --   vim.cmd "colorscheme jellybeans"
-    -- end,
   },
   {
     "ribru17/bamboo.nvim", -- https://github.com/ribru17/bamboo.nvim
@@ -260,7 +202,6 @@ return {
     "savq/melange-nvim",
     -- enabled = false,
     config = function()
-      -- vim.cmd "colorscheme melange"
     end,
   },
   {
@@ -269,10 +210,6 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- vim.g.adwaita_darker = true -- for darker version
-      -- vim.g.adwaita_disable_cursorline = true -- to disable cursorline
-      -- vim.g.adwaita_transparent = true -- makes the background transparent
-      -- vim.cmd "colorscheme adwaita"
     end,
   },
   {
@@ -281,7 +218,65 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- vim.cmd "colorscheme miasma"
+    end,
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    config = function()
+      require("github-theme").setup {
+        options = {
+          hide_end_of_buffer = true, -- Hide the '~' character at the end of the buffer for a cleaner look
+          hide_nc_statusline = true, -- Override the underline style for non-active statuslines
+          transparent = false, -- Disable setting background
+          terminal_colors = true, -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+          dim_inactive = false, -- Non focused panes set to alternative background
+          module_default = true, -- Default enable value for modules
+          styles = { -- Style to be applied to different syntax groups
+            comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
+            functions = "NONE",
+            keywords = "NONE",
+            variables = "NONE",
+            conditionals = "NONE",
+            constants = "NONE",
+            numbers = "NONE",
+            operators = "NONE",
+            strings = "NONE",
+            types = "NONE",
+          },
+          inverse = { -- Inverse highlight for different types
+            match_paren = false,
+            visual = false,
+            search = false,
+          },
+          darken = { -- Darken floating windows and sidebar-like windows
+            floats = false,
+            sidebars = {
+              enabled = true,
+              list = {}, -- Apply dark background to specific windows
+            },
+          },
+          modules = { -- List of various plugins and additional options
+            -- ...
+          },
+        },
+        palettes = {},
+        specs = {
+          all = {
+            diag = {
+              hint = "cyan.bright",
+            },
+          },
+        },
+        groups = {
+          all = {
+            ["@tag.builtin.tsx"] = { fg = "palette.yellow.bright" },
+            ["@tag.tsx"] = { fg = "palette.orange.base" },
+            String = { fg = "palette.cyan.bright" },
+            NormalFloat = { bg = "bg1" },
+            TelescopeBorder = {fg = "palette.black.bright"}
+          },
+        },
+      }
     end,
   },
 }

@@ -3,9 +3,6 @@ return {
 	{
 		'numToStr/Comment.nvim',
 		event = "VeryLazy",
-		-- dependencies = {
-		-- 	'JoosepAlviste/nvim-ts-context-commentstring',
-		-- },
 		opts = {
 			---Add a space b/w comment and the line
 			padding = true,

@@ -104,7 +104,7 @@ return {
                 size = nil,
                 relative = "editor",
                 border = {
-                    style = "sinle",
+                    style = "single",
                 },
                 buf_options = {
                     swapfile = false,

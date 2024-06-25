@@ -2,6 +2,7 @@
 --
 return {
   {
+    enabled = false,
     "Exafunction/codeium.nvim",
     event = "InsertEnter",
     dependencies = {
@@ -18,6 +19,7 @@ return {
   },
   {
     "Exafunction/codeium.vim",
+    enabled = false,
     event = "BufEnter",
     config = function()
       -- Change '<C-g>' here to any keycode you like.
@@ -36,6 +38,7 @@ return {
       vim.keymap.set("i", "<c-x>", function()
         return vim.fn["codeium#Clear"]()
       end, { expr = true })
+      vim.cmd[[CodeiumDisable]]
     end,
   },
 }

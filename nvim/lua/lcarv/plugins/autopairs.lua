@@ -36,5 +36,4 @@ return {
       },
     }, -- this is equalent to setup({}) function
   },
-  -- { "echasnovski/mini.pairs", version = false },
 }

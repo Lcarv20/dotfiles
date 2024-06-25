@@ -23,18 +23,6 @@ local M = {
 M.on_attach = function(client, bufnr)
   local keymaps = require "lcarv.plugins.lsp.keymaps"
   keymaps.define(bufnr)
-
-  -- INFO: Uncomment on version >10
-  -- if client.supports_method "textDocument/inlayHint" then
-  --   -- change to true to enable inlayHint
-  --   vim.lsp.inlay_hint.enable(bufnr, false)
-  --   vim.api.nvim_set_keymap(
-  --     "n",
-  --     " Eh",
-  --     "<cmd>lua require('lcarv.fns').toggle_inlay_hints()<cr>",
-  --     { noremap = true, silent = true, desc = "Toggle inlay-[h]ints" }
-  --   )
-  -- end
 end
 
 function M.common_capabilities()
@@ -57,8 +45,6 @@ function M.common_capabilities()
 end
 
 function M.config()
-  -- local lspconfig = require "lspconfig"
-  -- local icons = require "lcarv.icons"
   require("mason").setup()
 
   local servers = {
@@ -93,12 +79,6 @@ function M.config()
   local default_diagnostic_config = {
     signs = {
       active = signs,
-      -- values = {
-      --   { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-      --   { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-      --   { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-      --   { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
-      -- },
     },
     virtual_text = {
       prefix = "⏺",
@@ -178,33 +158,6 @@ function M.config()
       require("lspconfig")[server_name].setup(opts)
     end,
   }
-
-  -- for _, server in pairs(servers) do
-  --   local opts = {
-  --     on_attach = M.on_attach,
-  --     capabilities = M.common_capabilities(),
-  --   }
-  --
-  --   local require_ok, settings = pcall(require, "lcarv.plugins.lsp.settings." .. server)
-  --   if require_ok then
-  --     opts = vim.tbl_deep_extend("force", settings, opts)
-  --   end
-  --
-  --   if server == "lua_ls" then
-  --     require("neodev").setup {}
-  --   end
-  --
-  --   if server == "vtsls" then
-  --     require("lspconfig.configs").vtsls = require("vtsls").lspconfig
-  --   end
-  --
-  --   if server == "emmet_language_server" then
-  --     opts.filetypes =
-  --       { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" }
-  --   end
-  --
-  --   lspconfig[server].setup(opts)
-  -- end
 end
 
 return M

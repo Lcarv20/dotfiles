@@ -55,22 +55,15 @@ return {
         completion = {
           border = "single",
           winhighlight = "Normal:CmpNormal",
-          -- border = cmp.config.window.border,
-          -- winhighlight = cmp.config.window.highlight,
           scrollbar = true,
         },
         documentation = {
           border = "single",
           winhighlight = "Normal:CmpNormal",
-          -- border = cmp.config.window.border,
-          -- winhighlight = cmp.config.window.highlight,
-
           scrollbar = true,
         },
       },
       mapping = cmp.mapping.preset.insert {
-        -- ['<C-n>'] = cmp.mapping.select_next_item(),
-        -- ['<C-p>'] = cmp.mapping.select_prev_item(),
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete {},
@@ -111,7 +104,6 @@ return {
         expandable_indicator = true,
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
-          -- vim_item.kind = string.format("%s %s", icons.kind[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
           local kind = vim_item.kind
 
           vim_item.kind = " " .. icons.kind[kind] .. " "
@@ -119,10 +111,6 @@ return {
           -- Source
           vim_item.menu = "["
             .. ({
-              -- buffer = "Buffer",
-              -- nvim_lsp = "LSP",
-              -- luasnip = "LuaSnip",
-              -- nvim_lua = "Lua",
               latex_symbols = "LaTeX",
               codeium = "",
               nvim_lsp = "󰚥",
@@ -141,33 +129,6 @@ return {
 
           return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
         end,
-        -- format = function(entry, vim_item)
-        --   -- vim_item.kind = string.format("%s", icons.kind[vim_item.kind])
-        --   -- vim_item.kind = string.format("%s %s", icons.kind[vim_item.kind], vim_item.kind)
-        --   local kind = vim_item.kind
-        --
-        --   if kind == "Color" then
-        --     vim_item.kind = "  "
-        --   else
-        --     vim_item.kind = (" " .. icons.kind[kind] .. " ") or " ? "
-        --   end
-        --
-        --   vim_item.menu = ({
-        --     nvim_lsp = "󰚥",
-        --     luasnip = "",
-        --     nvim_lua = "󰢱",
-        --     buffer = "",
-        --     path = "",
-        --     emoji = "󰱫",
-        --     nerdfont = "󰊪",
-        --     calc = "󰃬",
-        --     bufname = "󰈬",
-        --     codeium = "",
-        --   })[entry.source.name] .. " " .. kind
-        --
-        --   -- return vim_item
-        --   return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
-        -- end,
       },
     }
   end,

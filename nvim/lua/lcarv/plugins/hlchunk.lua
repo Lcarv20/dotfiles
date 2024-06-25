@@ -6,6 +6,8 @@ return {
     local ft = require "hlchunk.utils.filetype"
     local colors = require "lcarv.colors"
 
+    local hl_color = colors.orange
+
     require("hlchunk").setup {
       context = {
         use_treesitter = true,
@@ -31,7 +33,7 @@ return {
           right_arrow = "─",
         },
         style = {
-          { fg = colors.mauve },
+          { fg = hl_color },
           { fg = colors.suave_red }, -- this fg is used to highlight wrong chunk
         },
         textobject = "",
@@ -46,7 +48,7 @@ return {
       line_num = {
         enable = true,
         use_treesitter = false,
-        style = colors.mauve,
+        style = hl_color,
       },
 
       blank = {

@@ -50,7 +50,7 @@ return {
         },
       }
 
-      local opts = { border = "rounded" }
+      local opts = { border = "single" }
       -- REQUIRED
 
       harpoon:extend {
