@@ -18,7 +18,7 @@ map("n", " q", ":q<cr>", { desc = "[q]uit" })
 
 -- FIND
 wk.register({ f = { name = "Find" } }, { prefix = "<leader>" }) -- which key is merely to register groups as I don't know how to do it in neovim
-map("n", " ff", ":Telescope find_files<cr>", { desc = "[f]iles" })
+map("n", " ff", ":Telescope find_files <cr>", { desc = "[f]iles" })
 map("n", " fa", ":Telescope find_files hidden=true<cr>", { desc = "[a]ll files" })
 map("n", " fb", ":Telescope buffers<cr>", { desc = "[b]uffers" })
 map("n", " fc", ":Telescope colorscheme enable_preview=true<cr>", { desc = "[c]olorscheme" })
