@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("lcarv.plugins", {
   install = {
-    colorscheme = { "tokyonight-night", "rose-pine", "habamax" },
+    colorscheme = {"github_dark_default", "tokyonight-night", "rose-pine", "habamax" },
   },
   ui = {
     border = "double",
