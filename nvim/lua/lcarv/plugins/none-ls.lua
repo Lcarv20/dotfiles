@@ -11,6 +11,7 @@ return {
         formatting.prettier,
         formatting.prettier.with {
           extra_filetypes = { "toml" },
+          embedded_language_formatting = { "auto" },
           -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
         },
         -- null_ls.builtins.diagnostics.eslint,

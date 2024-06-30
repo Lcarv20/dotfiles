@@ -10,13 +10,14 @@ return {
       "sass",
       "scss",
       "pug",
+      "typescript",
       "typescriptreact",
       "mdx",
       "php",
     },
     includeLanguages = {
       typescript = "html",
-      javascript = "html"
+      javascript = "html",
     },
     html = {
       options = {
@@ -28,4 +29,3 @@ return {
     autostart = true,
   },
 }
-

@@ -56,7 +56,8 @@ function M.config()
     "jsonls",
     "yamlls",
     "marksman",
-    "vtsls", -- this might be better than tsserver
+    -- "tsserver",
+    -- "vtsls", -- this might be better than tsserver
     "emmet_language_server",
     "tailwindcss",
   }
@@ -152,10 +153,14 @@ function M.config()
       end
 
       if server_name == "vtsls" then
+        -- dangerous stuff
+        goto continue
         require("lspconfig.configs").vtsls = require("vtsls").lspconfig
       end
 
       require("lspconfig")[server_name].setup(opts)
+
+      ::continue::
     end,
   }
 end

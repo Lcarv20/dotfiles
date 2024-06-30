@@ -14,6 +14,7 @@
 
 return {
   event = "VeryLazy",
+  enabled = false,
   "yioneko/nvim-vtsls",
   -- config = function()
   --   vim.api.nvim_create_autocmd({ "FileType" }, {
