@@ -25,4 +25,13 @@ name = "ollama/mistral"
 name = "ollama/gemma2:9b"
 
 [[models]]
+name = "ollama/gemma2"
+
+[[models]]
 name = "ollama/codegemma"
+
+[[models]]
+name = "ollama/codellama:13b"
+
+[[models]]
+name = "ollama/deepseek-coder-v2"
