@@ -1,5 +1,6 @@
 local wk = require "which-key"
-local fns = require "lcarv.fns"
+local icons = require "mini.icons"
+local icons2 = require("nvim-web-devicons").get_icons()
 
 local function map(mode, mapping, cmd, opts)
   opts = opts or {}
@@ -11,13 +12,66 @@ local ignore = { desc = "which_key_ignore" }
 
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
+wk.add {
+  "<leader>e",
+  ":Neotree left toggle<cr>",
+  desc = "Explorer",
+  icon = {
+    icon = "󰙅",
+    hl = "MiniIconsAzure",
+  },
+}
+
+wk.add {
+  "<leader>w",
+  ":w<cr>",
+  desc = "Write",
+  icon = {
+    icon = "",
+    hl = "MiniIconsAzure",
+  },
+}
+
+wk.add {
+  "<leader>h",
+  ":nohl<cr>",
+  desc = "Hide highlight",
+  icon = {
+    icon = "󰈉",
+    hl = "MiniIconsAzure",
+  },
+}
+
+wk.add {
+  "<leader>q",
+  ":q<cr>",
+  desc = "Quit",
+  icon = {
+    icon = "󰩈",
+    hl = "MiniIconsAzure",
+  },
+}
+
+wk.add {
+  "<leader>o",
+  ":Oil<cr>",
+  desc = "Oil",
+  icon = {
+    icon = "󰏇",
+    hl = "MiniIconsYellow",
+  },
+}
+
 map({ "n", "v" }, " ", "<Nop>", { silent = true })
-map({ "n" }, " e", ":Neotree left toggle<cr>", { desc = "[e]xplore", silent = true })
-map({ "n" }, " w", ":w<cr>", { desc = "[w]rite", silent = true })
-map("n", " q", ":q<cr>", { desc = "[q]uit" })
+-- map({ "n" }, " e", ":Neotree left toggle<cr>", { desc = "[e]xplore", silent = true })
+-- map({ "n" }, " w", ":w<cr>", { desc = "[w]rite", silent = true })
+-- map("n", " q", ":q<cr>", { desc = "[q]uit" })
 
 -- FIND
-wk.register({ f = { name = "Find" } }, { prefix = "<leader>" }) -- which key is merely to register groups as I don't know how to do it in neovim
+wk.add { { "<leader>f", group = "Find", icon = {
+  icon = "",
+  hl = "MiniIconsAzure",
+} } }
 map("n", " ff", ":Telescope find_files <cr>", { desc = "[f]iles" })
 map("n", " fa", ":Telescope find_files hidden=true<cr>", { desc = "[a]ll files" })
 map("n", " fb", ":Telescope buffers<cr>", { desc = "[b]uffers" })
@@ -35,25 +89,48 @@ map("n", " fw", ":Telescope grep_string<cr>", { desc = "[W]ord" })
 map("n", " ft", ":Telescope live_grep<cr>", { desc = "[T]ext" })
 
 -- Find and Replace File
-map("n", " r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "[r]eplace word" })
+wk.add {
+  "<leader>r",
+  [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+  desc = "Rind and Feplace",
+  icon = {
+    icon = "󰛔",
+    hl = "MiniIconsAzureRed",
+  },
+}
+-- map("n", " r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "[r]eplace word" })
 
 -- GIT
-wk.register({ g = { name = "Git" } }, { prefix = "<leader>" })
+wk.add { { "<leader>g", group = "GIT" } }
 map("n", " fg", ":Telescope git_files<cr>", { desc = "[G]it files" })
 map("n", " gN", ":Neogit<cr>", { desc = "[N]eogit" })
 
 -- LSP
-wk.register({ l = { name = "Lsp" } }, { prefix = "<leader>" })
+wk.add {
+  {
+    "<leader>l",
+    group = "Lsp",
+    icon = {
+      icon = icons.get("lsp", ""),
+      hl = "MiniIconsPurple",
+    },
+  },
+}
 
 -- UndooTree
--- wk.register({ u = { name = "Undotree" } }, { prefix = "<leader>" })
+wk.add {
+  "<leader>u",
+  ":UndotreeToggle<cr>",
+  desc = "Undo Tree",
+  icon = {
+    icon = "󰕍",
+    hl = "MiniIconsGrey",
+  },
+}
 map("n", " u", ":UndotreeToggle<cr>", { desc = "[u]ndotree" })
 
--- Refactor
-wk.register({ R = { name = "Refactor" } }, { prefix = "<leader>" })
-
 -- Editor
-wk.register({ E = { name = "Editor" } }, { prefix = "<leader>" })
+wk.add { { "<leader>E", group = "Editor", icon = { icon = icons.get("file", "init.lua"), hl = "MiniIconsGreen" } } }
 map("n", " EL", ":Lazy<cr>", { desc = "[L]azy" })
 map("n", " Ei", ":LspInfo<cr>", { desc = "[i]nfo" })
 map("n", " Em", ":Mason<cr>", { desc = "[m]ason" })

@@ -1,5 +1,6 @@
 local nmap = require("lcarv.fns").nmap
 return {
+  enabled = false,
   "David-Kunz/gen.nvim",
   opts = {
     -- model = "gemma2:latest", -- The default model to use.

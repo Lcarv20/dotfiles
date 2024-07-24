@@ -188,6 +188,6 @@ return {
       },
     }
 
-    map(" o", ":Oil<cr>", "Oil")
+    -- map(" o", ":Oil<cr>", "Oil")
   end,
 }
