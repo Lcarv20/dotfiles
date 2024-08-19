@@ -2,18 +2,19 @@ return {
   settings = {
     tailwindCSS = {
       classAttributes = { "class", "className", "class:list", "classList", "ngClass", ".*Styles", ".*Classes" },
-      -- experimental = {
-      --   classRegex = {
-      --     "tw`([^`]*)",
-      --     "className\\s*:\\s*['\"`]([^'\"`]*)['\"`]",
-      --     "Classes \\=([^;]*);",
-      --     "'([^']*)'",
-      --     "Classes \\=([^;]*);",
-      --     '"([^"]*)"',
-      --     "Classes \\=([^;]*);",
-      --     "\\`([^\\`]*)\\`",
-      --   },
-      -- },
+      experimental = {
+        classRegex = {
+          "tw`([^`]*)",
+          "cn`([^`]*)",
+          "className\\s*:\\s*['\"`]([^'\"`]*)['\"`]",
+          "Classes \\=([^;]*);",
+          "'([^']*)'",
+          "Classes \\=([^;]*);",
+          '"([^"]*)"',
+          "Classes \\=([^;]*);",
+          "\\`([^\\`]*)\\`",
+        },
+      },
       lint = {
         cssConflict = "warning",
         invalidApply = "error",

@@ -201,24 +201,21 @@ return {
   {
     "savq/melange-nvim",
     -- enabled = false,
-    config = function()
-    end,
+    config = function() end,
   },
   {
     "Mofiqul/adwaita.nvim",
     -- enabled = false,
     lazy = false,
     priority = 1000,
-    config = function()
-    end,
+    config = function() end,
   },
   {
     "xero/miasma.nvim",
     -- enabled = false,
     lazy = false,
     priority = 1000,
-    config = function()
-    end,
+    config = function() end,
   },
   {
     "projekt0n/github-nvim-theme",
@@ -262,7 +259,7 @@ return {
         palettes = {},
         specs = {
           all = {
-            diag = {
+            diagnostics = {
               hint = "cyan.bright",
             },
           },
@@ -273,7 +270,7 @@ return {
             ["@tag.tsx"] = { fg = "palette.orange.base" },
             String = { fg = "palette.cyan.bright" },
             NormalFloat = { bg = "bg1" },
-            TelescopeBorder = {fg = "palette.black.bright"}
+            TelescopeBorder = { fg = "palette.black.bright" },
           },
         },
       }

@@ -31,7 +31,7 @@ end
 M.typescript_keymaps = function()
   local status_ok, which_key = pcall(require, "which-key")
   if not status_ok then
-    print("not working")
+    print "not working"
     return
   end
 
@@ -63,22 +63,61 @@ M.typescript_keymaps = function()
   --     },
   -- }
 
-  local mappings = {
-    t = {
-      name = "[T]ools➡(javascript)",
-      R = { "<cmd>TSToolsRenameFile<Cr>", "[R]ename file" },
-      d = { "<cmd>TSToolsGoToSourceDefinition<Cr>", "source [d]efenition" },
-      r = { "<cmd>TSToolsFileReferences<Cr>", "file [r]eferences" },
-      o = { "<cmd>TSToolsOrganizeImports<Cr>", "[o]rganize imports" },
-      s = { "<cmd>TSToolsSortImports<Cr>", "[s]ort imports" },
-      U = { "<cmd>TSToolsRemoveUnusedImports<Cr>", "remove [U]nused imports" },
-      f = { "<cmd>TSToolsFixAll<Cr>", "[f]ix all" },
-      u = { "<cmd>TSToolsRemoveUnused<Cr>", "remove [u]nused" },
-      m = { "<cmd>TSToolsAddMissingImports<Cr>", "add [m]issing imports" },
+  which_key.add {
+    {
+      "<leader>t",
+      group = "Tools",
+      icon = {
+        icon = "󰛦",
+        hl = "MiniIconsBlue",
+      },
+      {
+        "<leader>tR",
+        "<cmd>TSToolsRenameFile<Cr>",
+        desc = "rename file",
+      },
+      {
+        "<leader>td",
+        "<cmd>TSToolsGoToSourceDefinition<Cr>",
+        desc = "source defenition",
+      },
+      {
+        "<leader>tr",
+        "<cmd>TSToolsFileReferences<Cr>",
+        desc = "file references",
+      },
+      {
+        "<leader>to",
+        "<cmd>TSToolsOrganizeImports<Cr>",
+        desc = "organize imports",
+      },
+      {
+        "<leader>ts",
+        "<cmd>TSToolsSortImports<Cr>",
+        desc = "sort imports",
+      },
+      {
+        "<leader>tU",
+        "<cmd>TSToolsRemoveUnusedImports<Cr>",
+        desc = "remove unused imports",
+      },
+      {
+        "<leader>tf",
+        "<cmd>TSToolsFixAll<Cr>",
+        desc = "fix all",
+      },
+      {
+        "<leader>tu",
+        "<cmd>TSToolsRemoveUnused<Cr>",
+        desc = "remove unused",
+      },
+      {
+        "<leader>tm",
+        "<cmd>TSToolsAddMissingImports<Cr>",
+        desc = "add missing imports",
+      },
     },
   }
-
-  which_key.register(mappings, opts)
 end
 
 return M
