@@ -8,6 +8,7 @@ xcode-select --install
 ```
 
 ## Optional installations:
+
 ```
 # Install Docker
 brew install docker
@@ -15,17 +16,18 @@ brew install docker
 # Install Discord
 brew install --cask discord
 
-# Install Insomnia 
+# Install Insomnia
 brew install --cask insomnia
 
 # Install Github Desktop
 brew install --cask github
 
-# Install Steam 
+# Install Steam
 brew install --cask steam
 ```
 
 ---
-### Specials
+
+> ### Specials
 
 Flutter is kinda special so follow instructions on their page: [Flutter Toolkit](https://docs.flutter.dev/get-started/install/macos/).

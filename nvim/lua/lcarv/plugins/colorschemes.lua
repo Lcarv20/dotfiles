@@ -58,11 +58,11 @@ return {
     priority = 1000,
     config = function()
       require("dracula").setup()
-      require("lualine").setup {
-        options = {
-          theme = "dracula-nvim",
-        },
-      }
+      -- require("lualine").setup {
+      --   options = {
+      --     theme = "dracula-nvim",
+      --   },
+      -- }
     end,
   },
   {
@@ -230,11 +230,11 @@ return {
           module_default = true, -- Default enable value for modules
           styles = { -- Style to be applied to different syntax groups
             comments = "NONE", -- Value is any valid attr-list value `:help attr-list`
-            functions = "NONE",
+            functions = "italic",
             keywords = "NONE",
             variables = "NONE",
             conditionals = "NONE",
-            constants = "NONE",
+            constants = "bold",
             numbers = "NONE",
             operators = "NONE",
             strings = "NONE",

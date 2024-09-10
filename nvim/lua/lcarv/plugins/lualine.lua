@@ -72,7 +72,7 @@ return {
       lualine.setup {
         options = {
           -- theme = "rose-pine",
-          theme = theme,
+          theme = theme(),
           globalstatus = true,
           -- component_separators = "|",
           -- section_separators = "",

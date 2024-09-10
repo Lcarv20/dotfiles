@@ -11,29 +11,23 @@
 [core]
 	editor = nvim
 	excludesfile = /Users/lcarv/.gitignore_global
-  pager = delta
-  trustctime = false
+	pager = delta
+	trustctime = false
 	sparseCheckout = true
 [diff]
-  tool = vimdiff
-  colorMoved = default
+	tool = nvimdiff
+	colorMoved = default
 [merge]
-  tool = vimdiff
-  conflictstyle = diff3
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+	tool = vimdiff
+	conflictstyle = diff3
 [commit]
 	template = /Users/lcarv/.stCommitMsg
 [interactive]
-    diffFilter = delta --color-only
+	diffFilter = delta --color-only
 [include]
-    path = ~/.dotfiles/git/themes.gitconfig
+	path = ~/.dotfiles/git/themes.gitconfig
 [delta]
-    features = calochortus-lyallii
-    navigate = true  # use n and N to move between diff sections
-    side-by-side = true
-    line-numbers = true
+	features = calochortus-lyallii
+	navigate = true  # use n and N to move between diff sections
+	side-by-side = true
+	line-numbers = true
