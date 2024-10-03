@@ -14,6 +14,7 @@ return {
       "typescriptreact",
       "mdx",
       "php",
+      "svelte",
     },
     includeLanguages = {
       typescript = "html",

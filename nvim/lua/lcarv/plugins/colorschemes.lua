@@ -271,6 +271,7 @@ return {
             String = { fg = "palette.cyan.bright" },
             NormalFloat = { bg = "bg1" },
             TelescopeBorder = { fg = "palette.black.bright" },
+            LspInlayHint = { fg = "#8b949e", bg = "bg1" },
           },
         },
       }

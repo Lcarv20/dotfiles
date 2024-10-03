@@ -18,7 +18,7 @@
 	tool = nvimdiff
 	colorMoved = default
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
 	conflictstyle = diff3
 [commit]
 	template = /Users/lcarv/.stCommitMsg
@@ -31,3 +31,5 @@
 	navigate = true  # use n and N to move between diff sections
 	side-by-side = true
 	line-numbers = true
+; [difftool "nvimdiff"]
+;   cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
