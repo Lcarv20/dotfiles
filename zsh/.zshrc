@@ -84,10 +84,7 @@ alias la="lsd -a"
 alias ll="lsd -l"
 alias lla="lsd -la"
 #Nvim stuff
-alias basevim="NVIM_APPNAME=basevim nvim"
-alias vim="NVIM_APPNAME=vim nvim"
-alias launch="NVIM_APPNAME=launch nvim"
-alias chad="NVIM_APPNAME=chad nvim"
+alias vim="NVIM_APPNAME=nvim nvim"
 alias lzv="NVIM_APPNAME=lazyvim nvim"
 alias "git open"="git-open"
 
