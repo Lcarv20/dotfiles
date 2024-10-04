@@ -36,88 +36,69 @@ M.typescript_keymaps = function()
   end
 
   local opts = {
-    mode = "n", -- NORMAL mode
+    mode = "n", -- normal mode
     prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    buffer = nil, -- global mappings. specify a buffer number for buffer local mappings
     silent = true, -- use `silent` when creating keymaps
     noremap = true, -- use `noremap` when creating keymaps
     nowait = true, -- use `nowait` when creating keymaps
   }
 
-  -- local mappings = {
-  --     t = {
-  --         name = "[T]ools➡(javascript)",
-  --         R = { "<cmd>VtsExec rename_file<Cr>", "[R]ename file" },
-  --         C = { "<cmd>VtsExec goto_project_config<cr>", "open [c]onfig" },
-  --         d = { "<cmd>VtsExec goto_source_definition<Cr>", "source [d]efenition" },
-  --         r = { "<cmd>VtsExec file_references<Cr>", "file [r]eferences" },
-  --         o = { "<cmd>VtsExec organize_imports<Cr>", "[o]rganize imports" },
-  --         s = { "<cmd>VtsExec sort_imports<Cr>", "[s]ort imports" },
-  --         U = { "<cmd>VtsExec remove_unused_imports<Cr>", "remove [U]nused imports" },
-  --         f = { "<cmd>VtsExec fix_all<Cr>", "[f]ix all" },
-  --         u = { "<cmd>VtsExec remove_unused<Cr>", "remove [u]nused" },
-  --         m = { "<cmd>VtsExec add_missing_imports<Cr>", "add [m]issing imports" },
-  --         a = { "<cmd>VtsExec source_actions<Cr>", "source [a]ctions" },
-  --         t = { "<cmd>VtsExec select_ts_version<Cr>", "select [t]s version" },
-  --         p = { "<cmd>VtsExec reload_projects<Cr>", "reload [p]rojects" },
-  --     },
-  -- }
-
-  which_key.add {
+  local mappings = {
+    "<leader>t",
+    group = "tools",
+    icon = {
+      icon = "󰛦",
+      hl = "miniiconsblue",
+    },
     {
-      "<leader>t",
-      group = "Tools",
-      icon = {
-        icon = "󰛦",
-        hl = "MiniIconsBlue",
-      },
-      {
-        "<leader>tR",
-        "<cmd>TSToolsRenameFile<Cr>",
-        desc = "rename file",
-      },
-      {
-        "<leader>td",
-        "<cmd>TSToolsGoToSourceDefinition<Cr>",
-        desc = "source defenition",
-      },
-      {
-        "<leader>tr",
-        "<cmd>TSToolsFileReferences<Cr>",
-        desc = "file references",
-      },
-      {
-        "<leader>to",
-        "<cmd>TSToolsOrganizeImports<Cr>",
-        desc = "organize imports",
-      },
-      {
-        "<leader>ts",
-        "<cmd>TSToolsSortImports<Cr>",
-        desc = "sort imports",
-      },
-      {
-        "<leader>tU",
-        "<cmd>TSToolsRemoveUnusedImports<Cr>",
-        desc = "remove unused imports",
-      },
-      {
-        "<leader>tf",
-        "<cmd>TSToolsFixAll<Cr>",
-        desc = "fix all",
-      },
-      {
-        "<leader>tu",
-        "<cmd>TSToolsRemoveUnused<Cr>",
-        desc = "remove unused",
-      },
-      {
-        "<leader>tm",
-        "<cmd>TSToolsAddMissingImports<Cr>",
-        desc = "add missing imports",
-      },
+      "<leader>tr",
+      "<cmd>vtsexec rename_file<cr>",
+      desc = "rename file",
+    },
+    {
+      "<leader>td",
+      "<cmd>vtsexec goto_source_definition<cr>",
+      desc = "source defenition",
+    },
+    {
+      "<leader>tr",
+      "<cmd>vtsexec file_references<cr>",
+      desc = "file references",
+    },
+    {
+      "<leader>to",
+      "<cmd>vtsexec organize_imports<cr>",
+      desc = "organize imports",
+    },
+    {
+      "<leader>ts",
+      "<cmd>vtsexec sort_imports<cr>",
+      desc = "sort imports",
+    },
+    {
+      "<leader>tu",
+      "<cmd>vtsexec remove_unused_imports<cr>",
+      desc = "remove unused imports",
+    },
+    {
+      "<leader>tf",
+      "<cmd>vtsexec fix_all<cr>",
+      desc = "fix all",
+    },
+    {
+      "<leader>tu",
+      "<cmd>vtsexec remove_unused<cr>",
+      desc = "remove unused",
+    },
+    {
+      "<leader>tm",
+      "<cmd>vtsexec add_missing_imports<cr>",
+      desc = "add missing imports",
     },
   }
+
+  which_key.add(mappings, opts)
 end
 
 return M

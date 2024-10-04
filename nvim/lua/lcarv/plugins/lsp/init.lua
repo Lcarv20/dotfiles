@@ -57,7 +57,7 @@ function M.config()
     "yamlls",
     "marksman",
     -- "tsserver",
-    -- "vtsls", -- this might be better than tsserver
+    "vtsls", -- this might be better than tsserver
     "emmet_language_server",
     "tailwindcss",
   }
@@ -152,15 +152,11 @@ function M.config()
         require("neodev").setup {}
       end
 
-      if server_name == "vtsls" then
-        -- dangerous stuff
-        goto continue
-        require("lspconfig.configs").vtsls = require("vtsls").lspconfig
-      end
-
       require("lspconfig")[server_name].setup(opts)
 
-      ::continue::
+      if server_name == "vtsls" then
+        require("lspconfig.configs").vtsls = require("vtsls").lspconfig
+      end
     end,
   }
 end
