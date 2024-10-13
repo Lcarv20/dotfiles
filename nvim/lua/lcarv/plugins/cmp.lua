@@ -42,7 +42,11 @@ return {
   config = function()
     local cmp = require "cmp"
     local luasnip = require "luasnip"
-    require("luasnip.loaders.from_vscode").lazy_load()
+    -- require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_vscode").lazy_load {
+      paths = { "~/.config/nvim/snippets" },
+    }
+
     luasnip.config.setup {}
     ---@diagnostic disable-next-line: missing-fields
     cmp.setup {
@@ -51,18 +55,18 @@ return {
           luasnip.lsp_expand(args.body)
         end,
       },
-      window = {
-        completion = {
-          border = "single",
-          winhighlight = "Normal:CmpNormal",
-          scrollbar = true,
-        },
-        documentation = {
-          border = "single",
-          winhighlight = "Normal:CmpNormal",
-          scrollbar = true,
-        },
-      },
+      -- window = {
+      --   completion = {
+      --     border = "single",
+      --     winhighlight = "Normal:CmpNormal",
+      --     scrollbar = true,
+      --   },
+      --   documentation = {
+      --     border = "single",
+      --     winhighlight = "Normal:CmpNormal",
+      --     scrollbar = true,
+      --   },
+      -- },
       mapping = cmp.mapping.preset.insert {
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),

@@ -19,9 +19,9 @@
 -- vim.cmd.colorscheme("dogrun")
 -- vim.cmd.colorscheme("adwaita")
 -- vim.cmd.colorscheme("miasma")
-vim.cmd.colorscheme("github_dark_default")
+-- vim.cmd.colorscheme "github_dark_default"
+vim.cmd.colorscheme("everforest")
 -- vim.cmd.colorscheme("github_dark_colorblind")
-
 
 -- LIGHT THEMES
 -----------------
