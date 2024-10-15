@@ -87,6 +87,7 @@ alias lla="lsd -la"
 alias vim="NVIM_APPNAME=nvim nvim"
 alias lzv="NVIM_APPNAME=lazyvim nvim"
 alias "git open"="git-open"
+alias gui="gitui"
 
 if command -v bat &> /dev/null; then
   alias cat="bat -pp --theme \"base16-256\"" 
