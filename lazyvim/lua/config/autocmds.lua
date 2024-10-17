@@ -48,3 +48,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = true
   end,
 })
+
+-- Change highlight of neogitstatus
+-- This is only for everfores or themes that don't work well with Neogit
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "NeogitStatus",
+  callback = function()
+    vim.api.nvim_set_hl(0, "NeogitFold", { link = "@text.gitcommit" })
+  end,
+})
+
