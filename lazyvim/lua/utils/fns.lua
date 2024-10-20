@@ -11,8 +11,11 @@ M.cursor_style = function()
   vim.api.nvim_set_hl(0, "ComCursor", { bg = colors.yellow })
   vim.api.nvim_set_hl(0, "NoiceCursor", { bg = colors.saphire })
 
-  vim.opt.guicursor =
-    "n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
+  -- With lazyvim this will be overriden, so we do this in opts.
+  -- However the highlights are set on vimenter using an autocmd.
+  --
+  -- vim.opt.guicursor =
+  --   "n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
 end
 
 return M

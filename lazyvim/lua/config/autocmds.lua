@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 -- Cursor style
-vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
+vim.api.nvim_create_autocmd({ "ColorScheme", "WinEnter" }, {
   pattern = "*",
   callback = fns.cursor_style,
 })
@@ -57,4 +57,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.api.nvim_set_hl(0, "NeogitFold", { link = "@text.gitcommit" })
   end,
 })
-
