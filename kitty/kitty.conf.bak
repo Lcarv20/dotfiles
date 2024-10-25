@@ -8,7 +8,7 @@ include ./config/macos.conf
 include ./config/everforest.conf
 
 # BEGIN_KITTY_THEME
-# Everforest
-include everforest.conf
+# Everforest Dark Hard
+include ever-forest.conf
 # END_KITTY_THEME
 
