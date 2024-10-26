@@ -7,6 +7,7 @@ return {
   ---@param opts cmp.ConfigSchema
   opts = function(_, opts)
     local cmp = require("cmp")
+    -- opts.experimental.ghost_text = false
 
     opts.preselect = cmp.PreselectMode.None
     opts.completion = {
