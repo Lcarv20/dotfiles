@@ -33,11 +33,11 @@ return {
       --     })
       --   end,
       -- },
-      display = {
-        diff = {
-          provider = "mini_diff",
-        },
-      },
+      -- display = {
+      --   diff = {
+      --     provider = "mini_diff",
+      --   },
+      -- },
       opts = {
         log_level = "DEBUG",
       },

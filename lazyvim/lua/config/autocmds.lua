@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "oil",
     "DressingSelect",
     "tsplayground",
+    "codecompanion",
     "",
   },
   callback = function()
@@ -55,5 +56,16 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "NeogitStatus",
   callback = function()
     vim.api.nvim_set_hl(0, "NeogitFold", { link = "@text.gitcommit" })
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "codecompanion",
+  callback = function()
+    vim.cmd([[
+      nnoremap <silent> <buffer> q :close<CR>
+      nnoremap <silent> <buffer> <esc> :close<CR>
+      set nobuflisted
+    ]])
   end,
 })

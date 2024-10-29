@@ -1,6 +1,51 @@
 return {
   "nvim-lualine/lualine.nvim",
   opts = function(_, opts)
+    local M = require("lualine.component"):extend()
+
+    M.processing = false
+    M.spinner_index = 1
+
+    -- local spinner_symbols = { "▙ ", "▛ ", "▜ ", "▟ " }
+    local spinner_symbols = {
+      "⠋",
+      "⠙",
+      "⠹",
+      "⠸",
+      "⠼",
+      "⠴",
+      "⠦",
+      "⠧",
+      "⠇",
+      "⠏",
+    }
+    local spinner_symbols_len = 10
+
+    -- Initializer
+    function M:init(options)
+      M.super.init(self, options)
+
+      local group = vim.api.nvim_create_augroup("CodeCompanionHooks", {})
+
+      vim.api.nvim_create_autocmd({ "User" }, {
+        pattern = "CodeCompanionRequest",
+        group = group,
+        callback = function(request)
+          self.processing = (request.data.status == "started")
+        end,
+      })
+    end
+
+    -- Function that runs every time statusline is updated
+    function M:update_status()
+      if self.processing then
+        self.spinner_index = (self.spinner_index % spinner_symbols_len) + 1
+        return spinner_symbols[self.spinner_index]
+      else
+        return nil
+      end
+    end
+
     local theme = require("lualine.themes.auto")
     theme.normal.c.bg = "none"
     theme.insert.c.bg = "none"
@@ -15,7 +60,7 @@ return {
       icon = "󰑊",
       separator = { left = "", right = "" },
       color = { fg = theme.normal.a.fg, bg = theme.visual.a.bg, gui = "bold" },
-      left_padding = 2
+      left_padding = 2,
     }
 
     local recorded = {
@@ -37,6 +82,11 @@ return {
       lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
       lualine_b = { "filename", "branch" },
       lualine_c = {
+        {
+          require("utils.codecompanion_spinner"),
+          separator = { right = "" },
+          icon = { " ", align = "left"},
+        },
         "%=", --[[ add your center components here ]]
         recording,
         recorded,
