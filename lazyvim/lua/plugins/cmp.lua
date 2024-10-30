@@ -15,6 +15,8 @@ return {
     }
 
     table.insert(opts.sources, { name = "emoji" })
+    table.insert(opts.sources, { name = "supermaven" })
+
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       -- My config
       ["<CR>"] = cmp.mapping.confirm({ select = false }), -- 'select = false' to only confirm explicitly selected item

@@ -64,6 +64,7 @@ function M.config()
     yaml = "",
   }
 
+  --luacheck: ignore
   require("ufo").setup({
     fold_virt_text_handler = handler,
     close_fold_kinds = {},
