@@ -1,15 +1,16 @@
 return {
   "supermaven-inc/supermaven-nvim",
+  enabled = false,
   config = function()
     require("supermaven-nvim").setup({
       keymaps = {
-        accept_suggestion = "<Tab>",
+        accept_suggestion = "<C-a>",
         clear_suggestion = "<C-e>",
         accept_word = "<C-j>",
       },
       ignore_filetypes = {}, -- or { "cpp", }
       color = {
-        suggestion_color = "#ffffff",
+        suggestion_color = "#859289",
         cterm = 244,
       },
       log_level = "info", -- set to "off" to disable logging completely
@@ -31,5 +32,8 @@ return {
         return false
       end, --
     })
+    LazyVim.safe_keymap_set({ "n", "v" }, "<leader>ua", "<cmd>SupermavenToggle<cr>", { desc = "Toggle Supermaven" })
+
+    vim.cmd([[SupermavenStart]])
   end,
 }

@@ -15,7 +15,20 @@ return {
   },
   config = function()
     require("codecompanion").setup({
-      -- adapters = {
+      adapters = {
+        gemini = function()
+          return require("codecompanion.adapters").extend("gemini", {
+            env = {
+              api_key = "AIzaSyAJfEDn-g3UIKzHMqKRNg3g4XcF511hsUg",
+            },
+            schema = {
+              model = {
+                default = "gemini-1.5-pro",
+              },
+            },
+          })
+        end,
+      }, -- adapters = {
       --   ollama = function()
       --     return require("codecompanion.adapters").extend("ollama", {
       --       name = "deepseek",
@@ -41,20 +54,21 @@ return {
       opts = {
         log_level = "DEBUG",
       },
+
       strategies = {
         chat = {
-          -- adapter = "ollama",
+          adapter = "gemini",
           roles = {
             llm = " lc.AI", -- The markdown header content for the LLM's responses
             user = " Awesome Person", -- The markdown header for your questions
           },
         },
-        -- inline = {
-        --   adapter = "ollama",
-        -- },
-        -- agent = {
-        --   adapter = "ollama",
-        -- },
+        inline = {
+          adapter = "gemini",
+        },
+        agent = {
+          adapter = "gemini",
+        },
       },
     })
 

@@ -4,6 +4,7 @@ local ignore = { desc = "which_key_ignore" }
 -- General
 map("n", "J", "mzJ`z") -- keep cursor in place
 map("i", "jj", "<ESC>") -- quit insert mode
+map("n", "<leader>h", ":nohlsearch<CR>", ignore)
 
 -- Maintain scroll in the middle
 map("n", "<C-d>", "<C-d>zz")
@@ -46,4 +47,3 @@ vim.keymap.del("n", "<c-down>")
 vim.keymap.del("n", "<c-left>")
 vim.keymap.del("n", "<c-right>")
 vim.keymap.del("n", "<leader>cd")
-

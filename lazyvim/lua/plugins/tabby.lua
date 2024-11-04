@@ -28,7 +28,7 @@ return {
               tab.is_current() and "" or "󰆣",
               tab.number(),
               tab.name(),
-              tab.close_btn(""),
+              -- tab.close_btn(""),
               line.sep("◗ ", hl, theme.fill),
               hl = hl,
               margin = " ",

@@ -1,6 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
-  dependencies = { "hrsh7th/cmp-emoji" },
+  dependencies = { "hrsh7th/cmp-emoji",  "Lcarv20/cmp-tw2css", },
   -- keys = {
   --   { "<Tab>", mode = { "i", "s" }, false },
   -- },
@@ -15,7 +15,8 @@ return {
     }
 
     table.insert(opts.sources, { name = "emoji" })
-    table.insert(opts.sources, { name = "supermaven" })
+    -- table.insert(opts.sources, { name = "supermaven" })
+    table.insert(opts.sources, { name = "cmp-tw2css" })
 
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       -- My config
