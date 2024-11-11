@@ -69,3 +69,12 @@ vim.api.nvim_create_autocmd("FileType", {
     ]])
   end,
 })
+
+-- disable auto comment for XML & HTML 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "svelte" },
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "o", "r" }) -- Disable for HTML/XML
+  end,
+})
+
