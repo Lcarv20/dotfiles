@@ -59,17 +59,6 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "codecompanion",
-  callback = function()
-    vim.cmd([[
-      nnoremap <silent> <buffer> q :close<CR>
-      nnoremap <silent> <buffer> <esc> :close<CR>
-      set nobuflisted
-    ]])
-  end,
-})
-
 -- disable auto comment for XML & HTML 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "svelte" },

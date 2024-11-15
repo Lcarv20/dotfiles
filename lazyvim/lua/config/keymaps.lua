@@ -5,6 +5,7 @@ local ignore = { desc = "which_key_ignore" }
 map("n", "J", "mzJ`z") -- keep cursor in place
 map("i", "jj", "<ESC>") -- quit insert mode
 map("n", "<leader>h", ":nohlsearch<CR>", ignore)
+map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 -- Maintain scroll in the middle
 map("n", "<C-d>", "<C-d>zz")
