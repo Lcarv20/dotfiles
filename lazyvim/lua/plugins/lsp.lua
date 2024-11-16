@@ -84,19 +84,19 @@ return {
             scss = {
               validate = true,
               lint = {
-                unknownatrules = "ignore",
+                unknownAtRules = "ignore",
               },
             },
             less = {
               validate = true,
               lint = {
-                unknownatrules = "ignore",
+                unknownAtRules = "ignore",
               },
             },
             css = {
               validate = true,
               lint = {
-                unknownatrules = "ignore",
+                unknownAtRules = "ignore",
               },
             },
           },
