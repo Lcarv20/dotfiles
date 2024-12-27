@@ -86,15 +86,23 @@ alias la="lsd -a"
 alias ll="lsd -l"
 alias lla="lsd -la"
 #Nvim stuff
-alias vim="NVIM_APPNAME=lazyvim nvim"
+alias nv="NVIM_APPNAME=lazyvim nvim"
 alias lzv="NVIM_APPNAME=lazyvim nvim"
 alias "git open"="git-open"
 alias gui="gitui"
 
 if command -v bat &> /dev/null; then
-  alias cat="bat -pp --theme \"1337\"" 
-  alias catt="bat --theme \"1337\"" 
+  alias cat="bat -pp --theme \"1337\""
+  alias catt="bat --theme \"1337\""
 fi
+
+# Editor for commit messages
+# VS Code
+alias vscommit='GIT_EDITOR="code --wait" git commit'
+# Zed
+alias zcommit='GIT_EDITOR="zed --wait" git commit'
+# Xcode
+alias xcommit='GIT_EDITOR="xed -w" git commit'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -123,4 +131,3 @@ export NEXT_TELEMETRY_DISABLED=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
-

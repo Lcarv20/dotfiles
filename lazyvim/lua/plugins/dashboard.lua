@@ -15,6 +15,7 @@ logo = string.rep("\n", 8) .. logo .. "\n\n"
 
 return {
   "nvimdev/dashboard-nvim",
+  enabled = false,
   opts = function(_, opts)
     opts.config.header = vim.split(logo, "\n")
     -- Insert new entry into the existing center table

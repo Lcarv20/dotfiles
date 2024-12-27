@@ -33,3 +33,5 @@
 	line-numbers = true
 ; [difftool "nvimdiff"]
 ;   cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+[hub]
+	protocol = https

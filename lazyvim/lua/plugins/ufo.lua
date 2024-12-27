@@ -62,9 +62,10 @@ function M.config()
     -- typescriptreact = { "lsp", "treesitter" },
     -- python = { "indent" },
     yaml = "",
+    ["neo-tree"] = "",
+    snacks_dashboard = "",
   }
 
-  --luacheck: ignore
   require("ufo").setup({
     fold_virt_text_handler = handler,
     close_fold_kinds = {},

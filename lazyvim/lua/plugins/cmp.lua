@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  enabled = false,
   dependencies = { "hrsh7th/cmp-emoji",  "Lcarv20/cmp-tw2css", },
   -- keys = {
   --   { "<Tab>", mode = { "i", "s" }, false },
