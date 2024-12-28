@@ -1,11 +1,16 @@
 
 # Cursor config
 # shell-integration-features = no-cursor
-cursor-style = block
-cursor-style-blink = true
+# cursor-style = block
+# cursor-style-blink = true
 
 # Theme
-theme = light:Github,dark:GitHub Dark
+# theme = light:Github,dark:GitHub Dark
+theme = GitHub Dark
+
+# Font
+font-family = Cascadia Code
+font-size = 14
 
 # Keybindings
 # map cmd arrow keys to move to the begining of the line or the end of the line;
