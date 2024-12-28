@@ -5,32 +5,46 @@
 # cursor-style-blink = true
 
 # Theme
+# -------------
 # theme = light:Github,dark:GitHub Dark
 theme = GitHub Dark
+#--------------
 
 # Font
+# -------------
 font-family = Cascadia Code
 font-size = 14
+#--------------
 
 # Window size
+# -------------
 window-width = 130
 window-height = 35
+#--------------
 
 # Keybindings
-# map cmd arrow keys to move to the begining of the line or the end of the line;
-# map cmd+shift+arrow keys to move to the begining of the line or the end of the line and select the text;
-# map cmd bakcspace to be the same as ctrl+u
-# map some nice keys for creating splits
+#--------------
+# cmd+arrows to navigate
 keybind = super+left=text:\x01
 keybind = super+right=text:\x05
+
+# cmd+backspace to delete the entire line
 keybind = super+backspace=text:\x15
 
+# Split creation
 keybind = ctrl+|=new_split:down
 keybind = ctrl+_=new_split:right
 
+# Split navigation
 keybind = ctrl+H=goto_split:left
 keybind = ctrl+L=goto_split:right
 keybind = ctrl+J=goto_split:bottom
 keybind = ctrl+K=goto_split:top
 
+# map alt+backspace to delete the word before the cursor
 keybind = alt+backspace=text:\x17
+
+# open new tab on dotfiles
+
+# open new tab on home
+#--------------
