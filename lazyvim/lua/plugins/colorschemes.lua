@@ -2,16 +2,18 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "everforest",
-      icons = {
-        kinds = {
-          Supermaven = " ",
-        },
+      colorscheme = "github_dark_dimmed",
+      transparent = true,
+    },
+    icons = {
+      kinds = {
+        Supermaven = " ",
       },
     },
   },
   {
     "neanias/everforest-nvim",
+    enabled = false,
     -- Optional; default configuration will be used if setup isn't called.
     config = function()
       require("everforest").setup({

@@ -1,0 +1,11 @@
+
+# Cursor config
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = true
+
+# Theme
+theme = light:Github,dark:GitHub Dark
+
+# Keybindings
+# map cmd arrows, cmd bakcspace, splits

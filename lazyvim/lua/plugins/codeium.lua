@@ -24,7 +24,7 @@ return {
   },
   {
     "Exafunction/codeium.nvim",
-    -- enabled = false,
+    enabled = false,
     opts = function()
       vim.g.codeium_filetypes = {
         ["DressingInput"] = false,
