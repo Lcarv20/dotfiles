@@ -23,7 +23,7 @@ return {
             },
             schema = {
               model = {
-                default = "gemini-2.0-flash-thinking-exp-1219",
+                default = "gemini-2.0-flash-exp",
               },
             },
           })

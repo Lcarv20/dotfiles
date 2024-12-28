@@ -1,6 +1,6 @@
 
 # Cursor config
-shell-integration-features = no-cursor
+# shell-integration-features = no-cursor
 cursor-style = block
 cursor-style-blink = true
 
@@ -8,4 +8,20 @@ cursor-style-blink = true
 theme = light:Github,dark:GitHub Dark
 
 # Keybindings
-# map cmd arrows, cmd bakcspace, splits
+# map cmd arrow keys to move to the begining of the line or the end of the line;
+# map cmd+shift+arrow keys to move to the begining of the line or the end of the line and select the text;
+# map cmd bakcspace to be the same as ctrl+u
+# map some nice keys for creating splits
+keybind = super+left=text:\x01
+keybind = super+right=text:\x05
+keybind = super+backspace=text:\x15
+
+keybind = ctrl+|=new_split:down
+keybind = ctrl+_=new_split:right
+
+keybind = ctrl+H=goto_split:left
+keybind = ctrl+L=goto_split:right
+keybind = ctrl+J=goto_split:bottom
+keybind = ctrl+K=goto_split:top
+
+keybind = alt+backspace=text:\x17
