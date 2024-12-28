@@ -7,14 +7,14 @@ return {
     { "<leader><space>", false },
   },
   opts = {
+    hls = {
+      border = "FloatBorder", -- Use your desired highlight group here
+      preview_border = "FloatBorder",
+    },
     winopts = {
       border = "rounded",
-      hl = {
-        border = "FloatBorder", -- Main window border highlight group
-        preview_border = "FloatBorder", -- Separate highlight for preview border
-      },
       preview = {
-        border = "rounded", -- Preview window border style
+        border = "rounded",
       },
     },
     fzf_colors = {
