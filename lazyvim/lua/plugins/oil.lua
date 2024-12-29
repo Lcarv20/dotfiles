@@ -125,7 +125,7 @@ return {
         padding = 2,
         max_width = 0,
         max_height = 0,
-        border = "single",
+        border = "rounded",
         win_options = {
           winblend = 0,
         },
@@ -155,7 +155,7 @@ return {
         min_height = { 5, 0.1 },
         -- optionally define an integer/float for the exact height of the preview window
         height = nil,
-        border = "single",
+        border = "rounded",
         win_options = {
           winblend = 0,
         },
@@ -170,7 +170,7 @@ return {
         max_height = { 10, 0.9 },
         min_height = { 5, 0.1 },
         height = nil,
-        border = "single",
+        border = "rounded",
         minimized_border = "none",
         win_options = {
           winblend = 0,
@@ -178,11 +178,11 @@ return {
       },
       -- Configuration for the floating SSH window
       ssh = {
-        border = "single",
+        border = "rounded",
       },
       -- Configuration for the floating keymaps help window
       keymaps_help = {
-        border = "single",
+        border = "rounded",
       },
     })
 

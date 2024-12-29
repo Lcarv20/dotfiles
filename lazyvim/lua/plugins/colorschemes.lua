@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "github_dark_dimmed",
+      colorscheme = "tokyonight-night",
       transparent = true,
     },
     icons = {

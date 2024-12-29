@@ -4,7 +4,7 @@ return {
     preset = "helix",
     win = {
       title = " ",
-      border = "single",
+      border = "rounded",
     },
   },
 }

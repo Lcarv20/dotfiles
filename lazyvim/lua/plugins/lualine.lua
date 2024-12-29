@@ -46,12 +46,12 @@ return {
       end
     end
 
-    local theme = require("lualine.themes.auto")
+    local theme = require("lualine.themes.tokyonight-night")
     theme.normal.c.bg = "none"
-    theme.insert.c.bg = "none"
-    theme.visual.c.bg = "none"
-    theme.replace.c.bg = "none"
-    theme.command.c.bg = "none"
+    -- theme.insert.c.bg = "none"
+    -- theme.visual.c.bg = "none"
+    -- theme.replace.c.bg = "none"
+    -- theme.command.c.bg = "none"
 
     local recording = {
       function()
@@ -68,7 +68,7 @@ return {
         return vim.fn.reg_recorded()
       end,
       icon = "󰐊",
-      separator = { left = "", right = "" },
+      separator = { left = " ", right = "" },
       color = { fg = theme.normal.a.fg, bg = theme.normal.a.bg, gui = "bold" },
     }
 
