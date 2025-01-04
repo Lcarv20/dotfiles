@@ -85,7 +85,7 @@ return {
         {
           require("utils.codecompanion_spinner"),
           separator = { right = "" },
-          icon = { " ", align = "left"},
+          icon = { " ", align = "left" },
         },
         "%=", --[[ add your center components here ]]
         recording,

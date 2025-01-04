@@ -1,9 +1,3 @@
-
-# Cursor config
-# shell-integration-features = no-cursor
-# cursor-style = block
-# cursor-style-blink = true
-
 # Theme
 # -------------
 # theme = light:Github,dark:GitHub Dark
@@ -12,8 +6,8 @@ theme = tokyonight
 
 # Font
 # -------------
-font-family = Cascadia Code
-font-size = 14
+# font-family = Cascadia Code
+# font-size = 14
 #--------------
 
 # Window size
@@ -30,16 +24,6 @@ keybind = super+right=text:\x05
 
 # cmd+backspace to delete the entire line
 keybind = super+backspace=text:\x15
-
-# Split creation
-keybind = ctrl+|=new_split:down
-keybind = ctrl+_=new_split:right
-
-# Split navigation
-keybind = ctrl+H=goto_split:left
-keybind = ctrl+L=goto_split:right
-keybind = ctrl+J=goto_split:bottom
-keybind = ctrl+K=goto_split:top
 
 # map alt+backspace to delete the word before the cursor
 keybind = alt+backspace=text:\x17
