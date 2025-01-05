@@ -29,6 +29,10 @@ return {
       notifier = {
         top_down = false,
       },
+      -- illuminate alike
+      words = {
+        enabled = true,
+      },
       dashboard = {
         preset = {
           header = logo,

@@ -25,6 +25,6 @@ vim.opt.listchars = {
 --
 -- vim.cmd("set whichwrap+=<,>,[,],h,l")
 -- vim.cmd([[set iskeyword+=-]])
---
+
 vim.opt.guicursor =
   "n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
