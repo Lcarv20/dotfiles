@@ -48,3 +48,25 @@ vim.keymap.del("n", "<c-down>")
 vim.keymap.del("n", "<c-left>")
 vim.keymap.del("n", "<c-right>")
 vim.keymap.del("n", "<leader>cd")
+
+-- -- List chars
+-- -- Create a function to toggle `vim.opt.list` and update the description dynamically
+-- local function toggle_listchars()
+--   vim.wo.list = not vim.wo.list
+--   local state = vim.wo.list and "enabled" or "disabled"
+--   print("Listchars " .. state)
+-- end
+--
+-- local description = function()
+--   return (vim.wo.list and "Enable" or "Disable") .. " listchars"
+-- end
+--
+-- -- Set the keymap with a dynamic description
+-- map("n", "<leader>uu", toggle_listchars, {
+--   desc = description(),
+--     icon = {
+--       icon = vim.wo.list and "" or "",
+--       hl = "MiniIconsGreen",
+--     },
+-- })
+--

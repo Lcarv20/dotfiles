@@ -2,10 +2,11 @@
 vim.opt.clipboard = ""
 vim.opt.wrap = false
 vim.g.autoformat = false
--- vim.opt.pb = 0 -- blend/transparency on floats
+vim.opt.pumblend = 15 -- blend/transparency on floats
+vim.opt.winblend = 15 -- blend/transparency on floats
 
 -- vim.opt.listchars:append({ tab = "··" }) -- Use two spaces for the tab character
-vim.opt.list = true -- Enable listchars
+vim.opt.list = false -- Enable listchars
 vim.opt.listchars = {
   tab = "··", -- Show tabs as two middle dots
   -- trail = "·",      -- Show trailing spaces as a middle dot

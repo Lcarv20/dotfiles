@@ -66,6 +66,9 @@ return {
         },
       },
     }
+
+    Snacks.toggle.option("list", { off = false, on = true, name = "List chars" }):map("<leader>uu")
+
     return config
   end,
 }
