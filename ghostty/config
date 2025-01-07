@@ -1,7 +1,8 @@
 # Theme
 # -------------
 # theme = light:Github,dark:GitHub Dark
-theme = light:tokyonight-day,dark:tokyonight_night
+# theme = light:tokyonight-day,dark:tokyonight_night
+theme = tokyonight_night
 #--------------
 
 # Font
