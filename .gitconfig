@@ -27,8 +27,12 @@
 [include]
 	path = ~/.dotfiles/git/themes.gitconfig
 [delta]
-	features = calochortus-lyallii
-	navigate = true  # use n and N to move between diff sections
+  ; features = woolly-mammoth
+  ; features = calochortus-lyallii
+  ; features = mantis-shrimp-lite
+  ; features = mellow-barbet
+  features = arctic-fox
+  navigate = true  # use n and N to move between diff sections
 	side-by-side = true
 	line-numbers = true
 ; [difftool "nvimdiff"]

@@ -19,6 +19,9 @@ plug "romkatv/powerlevel10k"
 plug "paulirish/git-open"
 plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
+plug "Lcarv20/web-search"
+
+plugins=(...web-search)
 
 #BOB (nvim v-manager)-------------------------------------------------------
 export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
@@ -54,6 +57,8 @@ export EDITOR='nvim'
 export CARGO_HOME=$HOME/.cargo
 export RUSTUP_HOME=$HOME/.rustup
 export PATH=$PATH:$HOME/.cargo/bin
+
+export XDG_CONFIG_HOME="$HOME/.config"
 
 # Not sure but I think I want to use the terminal colors,
 # because vivid doesn't support everforest theme

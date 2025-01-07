@@ -1,12 +1,14 @@
 lastupdatecheck: 0
 recentrepos:
-- /Users/lcarv/.dotfiles
-- /Users/lcarv/dev/web/hackrnews
-- /Users/lcarv/dev/web/dragable
-- /Users/lcarv/.config/basevim
-- /Users/lcarv/dev/web/nextjs-dashboard
-- /Users/lcarv/dev/web/nostrSDK
+    - /Users/lcarv/.dotfiles
 startuppopupversion: 5
+lastversion: 0.44.1
 customcommandshistory: []
 hidecommandlog: false
 ignorewhitespaceindiffview: true
+diffcontextsize: 3
+renamesimilaritythreshold: 50
+localbranchsortorder: recency
+remotebranchsortorder: alphabetical
+gitlogorder: topo-order
+gitlogshowgraph: always
