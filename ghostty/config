@@ -1,8 +1,8 @@
 # Theme
 # -------------
 # theme = light:Github,dark:GitHub Dark
-theme = light:tokyonight-day,dark:tokyonight_night
-theme = light:NvimLight,dark:NvimDark
+# theme = light:tokyonight-day,dark:tokyonight_night
+theme = NvimDark
 # theme = tokyonight_night
 #--------------
 

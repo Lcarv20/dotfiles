@@ -62,7 +62,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Not sure but I think I want to use the terminal colors,
 # because vivid doesn't support everforest theme
 ## VIVID
-export LS_COLORS="$(vivid generate one-light)"
+export LS_COLORS="$(vivid generate one-dark)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
@@ -112,11 +112,6 @@ alias xcommit='GIT_EDITOR="xed -w" git commit'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# export FZF_DEFAULT_OPTS=" \
-# --border=rounded --margin=1% --no-info --prompt=' ' --no-mouse \
-# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # completions dir
 fpath+=~/.zfunc

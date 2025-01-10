@@ -9,40 +9,38 @@ gui:
   animateExplosion: true
   
   theme:
-    commitauthorcolor:
-      - "#00a3a3" 
     activeBorderColor:
-      - '#00A3A3' # Brighter version of accent
+      - '#005078' # Blue
       - bold
     inactiveBorderColor:
-      - '#005F5F' # Darker accent
+      - '#4f5258' # Grey4
     optionsTextColor:
-      - '#00A3A3' # Brighter version of accent
+      - '#007676' # Cyan
     selectedLineBgColor:
-      - '#1E1F26' # Slightly lighter than text color
+      - '#2c2e33' # Grey3
     cherryPickedCommitBgColor:
-      - '#1B2426' # Similar dark tone
+      - '#4f5258'
     cherryPickedCommitFgColor:
-      - '#00A3A3' # Brighter accent
+      - '#005078'
     unstagedChangesColor:
-      - '#F4A261' # Muted orange for contrast
+      - '#6e5600' # Yellow
     defaultFgColor:
-      - '#DADADA' # Light gray
+      - '#c5c8ce' # Neutral Light Gray
     searchingActiveBorderColor:
-      - '#F4A261' # Orange for focus
+      - '#6e5600' # Yellow
     markedBaseCommitBgColor:
-      - '#007373' # Accent
+      - '#005078'
     markedBaseCommitFgColor:
-      - '#14161B' # Dark text color
+      - '#1c1d23' # Grey2
     inactiveViewSelectedLineBgColor:
-      - '#1B2426' # Dark tone
+      - '#2c2e33' # Grey3
 
   branchColors:
-    'feature': '#007373' # Accent
-    'bugfix': '#F4A261' # Orange
-    'release': '#00A3A3' # Brighter accent
-    'hotfix': '#F2849E' # Soft red
-    'development': '#DADADA' # Light gray
+    'feature': '#007676' # Cyan
+    'bugfix': '#6e5600' # Yellow
+    'release': '#005078' # Blue
+    'hotfix': '#5e0009' # Red
+    'development': '#015825' # Green
 
   showFileTree: true
   showListFooter: true
@@ -59,7 +57,7 @@ git:
 
   paging:
     colorArg: always
-    pager: delta --dark --paging=never 
+    pager: delta --paging=never 
 
   commit:
     autoWrapCommitMessage: true
