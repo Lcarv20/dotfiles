@@ -39,3 +39,9 @@
 ;   cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
 [hub]
 	protocol = https
+[color]
+	ui = true
+[color "log"]
+	date = normal
+	graph = normal
+	author = cyan

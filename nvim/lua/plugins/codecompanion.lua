@@ -23,34 +23,12 @@ return {
             },
             schema = {
               model = {
-                default = "gemini-2.0-flash-exp",
+                default = "gemini-exp-1206",
               },
             },
           })
         end,
-      }, -- adapters = {
-      --   ollama = function()
-      --     return require("codecompanion.adapters").extend("ollama", {
-      --       name = "deepseek",
-      --       schema = {
-      --         model = {
-      --           default = "llama3.1",
-      --         },
-      --         num_ctx = {
-      --           default = 16384,
-      --         },
-      --         num_predict = {
-      --           default = -1,
-      --         },
-      --       },
-      --     })
-      --   end,
-      -- },
-      -- display = {
-      --   diff = {
-      --     provider = "mini_diff",
-      --   },
-      -- },
+      },
       opts = {
         log_level = "DEBUG",
       },

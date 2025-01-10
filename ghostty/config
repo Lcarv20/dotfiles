@@ -1,8 +1,9 @@
 # Theme
 # -------------
 # theme = light:Github,dark:GitHub Dark
-# theme = light:tokyonight-day,dark:tokyonight_night
-theme = tokyonight_night
+theme = light:tokyonight-day,dark:tokyonight_night
+theme = light:NvimLight,dark:NvimDark
+# theme = tokyonight_night
 #--------------
 
 # Font
@@ -28,6 +29,15 @@ keybind = super+backspace=text:\x15
 
 # map alt+backspace to delete the word before the cursor
 keybind = alt+backspace=text:\x17
+
+# Split navigation
+keybind = super+ctrl+h=goto_split:left
+keybind = super+ctrl+j=goto_split:bottom
+keybind = super+ctrl+k=goto_split:top
+keybind = super+ctrl+l=goto_split:right
+
+# Split zoom
+keybind = super+ctrl+enter=toggle_split_zoom
 
 # open new tab on dotfiles
 

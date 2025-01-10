@@ -12,37 +12,37 @@ gui:
     commitauthorcolor:
       - "#00a3a3" 
     activeBorderColor:
-      - '#00A3A3' # Brighter version of accent
+      - '#007373' # Accent color
       - bold
     inactiveBorderColor:
-      - '#005F5F' # Darker accent
+      - '#9CA3AF' # Mid-gray for visibility
     optionsTextColor:
-      - '#00A3A3' # Brighter version of accent
+      - '#007373' # Accent color
     selectedLineBgColor:
-      - '#1E1F26' # Slightly lighter than text color
+      - '#E5E7EB' # Soft light gray
     cherryPickedCommitBgColor:
-      - '#1B2426' # Similar dark tone
+      - '#D1D5DB' # Light gray
     cherryPickedCommitFgColor:
-      - '#00A3A3' # Brighter accent
+      - '#007373' # Accent color
     unstagedChangesColor:
-      - '#F4A261' # Muted orange for contrast
+      - '#D97706' # Muted orange
     defaultFgColor:
-      - '#DADADA' # Light gray
-    searchingActiveBorderColor:
-      - '#F4A261' # Orange for focus
-    markedBaseCommitBgColor:
-      - '#007373' # Accent
-    markedBaseCommitFgColor:
       - '#14161B' # Dark text color
+    searchingActiveBorderColor:
+      - '#D97706' # Orange
+    markedBaseCommitBgColor:
+      - '#007373' # Accent color
+    markedBaseCommitFgColor:
+      - '#FFFFFF' # Pure white for contrast
     inactiveViewSelectedLineBgColor:
-      - '#1B2426' # Dark tone
+      - '#E5E7EB' # Light gray
 
   branchColors:
-    'feature': '#007373' # Accent
-    'bugfix': '#F4A261' # Orange
-    'release': '#00A3A3' # Brighter accent
-    'hotfix': '#F2849E' # Soft red
-    'development': '#DADADA' # Light gray
+    'feature': '#007373' # Accent color
+    'bugfix': '#D97706' # Muted orange
+    'release': '#10B981' # Green
+    'hotfix': '#EF4444' # Soft red
+    'development': '#14161B' # Dark text color
 
   showFileTree: true
   showListFooter: true
@@ -59,7 +59,7 @@ git:
 
   paging:
     colorArg: always
-    pager: delta --dark --paging=never 
+    pager: delta --light --features=hoopoe --syntax-theme=GitHub --paging=never 
 
   commit:
     autoWrapCommitMessage: true

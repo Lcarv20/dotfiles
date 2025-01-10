@@ -3,7 +3,7 @@ vim.opt.clipboard = ""
 vim.opt.wrap = false
 vim.g.autoformat = false
 vim.opt.pumblend = 15 -- blend/transparency on floats
-vim.opt.winblend = 15 -- blend/transparency on floats
+vim.opt.winblend = 8 -- blend/transparency on floats
 
 -- vim.opt.listchars:append({ tab = "··" }) -- Use two spaces for the tab character
 vim.opt.list = false -- Enable listchars

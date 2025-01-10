@@ -2,8 +2,9 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight-night",
-      transparent = true,
+      -- colorscheme = "tokyonight-night",
+      -- transparent = true,
+      colorscheme = "default",
     },
     icons = {
       kinds = {

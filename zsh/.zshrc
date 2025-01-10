@@ -23,6 +23,8 @@ plug "Lcarv20/web-search"
 
 plugins=(...web-search)
 
+export XDG_CONFIG_HOME="$HOME/.config"
+
 #BOB (nvim v-manager)-------------------------------------------------------
 export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 #HomeBrew-------------------------------------------------------------
@@ -44,9 +46,6 @@ export PATH="$PNPM_HOME:$PATH"
 # GOLANG CI LINTER-------------------------------------------------------------
 export PATH=$PATH:$GOLANGCI_LINT_INSTALL_DIR
 
-# # Lazygit, Neovim and etc------------------------------------------------
-# export XDG_CONFIG_HOME="$HOME/.config"
-
 # FNM node version manager-------------------------------------------------------------
 export PATH=/home/$USER/.fnm:$PATH
 
@@ -63,7 +62,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Not sure but I think I want to use the terminal colors,
 # because vivid doesn't support everforest theme
 ## VIVID
-export LS_COLORS="$(vivid generate solarized-dark)"
+export LS_COLORS="$(vivid generate one-light)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
@@ -91,8 +90,10 @@ alias la="lsd -a"
 alias ll="lsd -l"
 alias lla="lsd -la"
 
+# Neovim
 alias v="nvim"
 
+# Gitui
 alias "git open"="git-open"
 alias gui="gitui"
 
