@@ -190,7 +190,7 @@ return {
 
     wk.add({
       "<leader>o",
-      ":Oil<cr>",
+      ":tab Oil<cr>",
       desc = "Oil",
       icon = {
         icon = "󰏇",
