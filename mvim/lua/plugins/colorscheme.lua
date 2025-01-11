@@ -76,7 +76,8 @@ return {
 		end,
 	},
 	{
-		"thimc/gruber-darker.nvim",
+		"Lcarv20/gruber-darker.nvim",
+    -- enabled = false,
 		config = function()
 			require("gruber-darker").setup({
 				-- OPTIONAL
