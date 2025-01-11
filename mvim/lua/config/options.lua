@@ -34,6 +34,9 @@ vim.opt.listchars = {
   multispace = "·", -- Show multiple spaces as middle dots
   -- eol = "↲",        -- Show end of line character
 }
+
+vim.opt.fillchars = {eob = " "}
+
 vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10

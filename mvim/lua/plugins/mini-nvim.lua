@@ -16,6 +16,14 @@ return {
 		-- - sr)'  - [S]urround [R]eplace [)] [']
 		require("mini.surround").setup()
 
+		require("mini.pairs").setup()
+
+		require("mini.indentscope").setup({
+			symbol = "┋",
+		})
+
+		require("mini.notify").setup()
+
 		-- Simple and easy statusline.
 		local statusline = require("mini.statusline")
 		-- set use_icons to true if you have a Nerd Font

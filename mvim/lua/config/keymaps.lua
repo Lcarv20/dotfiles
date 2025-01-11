@@ -49,6 +49,8 @@ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 -- diagnostics
 map("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
+map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
+
 -- -- List chars
 -- -- Create a function to toggle `vim.opt.list` and update the description dynamically
 -- local function toggle_listchars()
@@ -70,4 +72,3 @@ map("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 --     },
 -- })
 --
-

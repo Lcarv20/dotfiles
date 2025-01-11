@@ -85,6 +85,7 @@ return {
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
 			local servers = {
 				clangd = {},
 				gopls = {},
@@ -124,5 +125,36 @@ return {
 				},
 			})
 		end,
+	},
+	{
+		"neovim/nvim-lspconfig",
+		opts = {
+			inlay_hints = { enabled = false },
+			servers = {
+				cssls = {
+					settings = {
+						scss = {
+							validate = true,
+							lint = {
+								unknownAtRules = "ignore",
+							},
+						},
+						less = {
+							validate = true,
+							lint = {
+								unknownAtRules = "ignore",
+							},
+						},
+						css = {
+							validate = true,
+							lint = {
+								unknownAtRules = "ignore",
+							},
+						},
+					},
+				},
+				sourcekit = {},
+			},
+		},
 	},
 }
