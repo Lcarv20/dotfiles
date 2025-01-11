@@ -27,6 +27,23 @@ return {
 						mode = mode or "n"
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
+
+					-- Copied from lazyvim
+					local diagnostic_goto = function(next, severity)
+						local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
+						severity = severity and vim.diagnostic.severity[severity] or nil
+						return function()
+							go({ severity = severity })
+						end
+					end
+
+					map("]d", diagnostic_goto(true), "Next Diagnostic")
+					map("[d", diagnostic_goto(false), "Prev Diagnostic")
+					map("]e", diagnostic_goto(true, "ERROR"), "Next Error")
+					map("[e", diagnostic_goto(false, "ERROR"), "Prev Error")
+					map("]w", diagnostic_goto(true, "WARN"), "Next Warning")
+					map("[w", diagnostic_goto(false, "WARN"), "Prev Warning")
+
 					map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 					map("gr", require("telescope.builtin").lsp_references, "Goto References")
 					map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
@@ -91,6 +108,7 @@ return {
 				gopls = {},
 				pyright = {},
 				rust_analyzer = {},
+				swift_mesonls = {},
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
@@ -114,7 +132,7 @@ return {
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-			---@diagnostic disable-next-line: missing-fields
+			---@dignostic disable-next-line: missing-fields
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
@@ -123,6 +141,10 @@ return {
 						require("lspconfig")[server_name].setup(server)
 					end,
 				},
+			})
+			-- Configure sourcekit-lsp here, without nesting in `servers`
+			require("lspconfig").sourcekit.setup({
+				capabilities = capabilities,
 			})
 		end,
 	},
@@ -154,6 +176,7 @@ return {
 					},
 				},
 				sourcekit = {},
+				swift_mesonlsp = {},
 			},
 		},
 	},

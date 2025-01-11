@@ -2,10 +2,10 @@ return {
   "folke/which-key.nvim",
   opts = {
     preset = "helix",
-    -- win = {
-    --   title = " ",
-    --   border = "none",
-    -- },
+    win = {
+      title = " ",
+      border = "single",
+    },
   },
 }
 

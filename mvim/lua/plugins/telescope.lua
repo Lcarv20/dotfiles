@@ -16,11 +16,15 @@ return {
 	},
 	config = function()
 		require("telescope").setup({
-			-- defaults = {
-			--   mappings = {
-			--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-			--   },
-			-- },
+			defaults = {
+				-- mappings = {
+				--   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
+				-- },
+				border = {},
+				borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+				layout_config = { prompt_position = "top"},
+				sorting_strategy = "ascending",
+			},
 			-- pickers = {}
 			extensions = {
 				["ui-select"] = {

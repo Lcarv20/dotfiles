@@ -22,8 +22,6 @@ return {
 			symbol = "┋",
 		})
 
-		require("mini.notify").setup()
-
 		-- Simple and easy statusline.
 		local statusline = require("mini.statusline")
 		-- set use_icons to true if you have a Nerd Font
