@@ -51,24 +51,15 @@ map("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 
 map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 
--- -- List chars
--- -- Create a function to toggle `vim.opt.list` and update the description dynamically
--- local function toggle_listchars()
---   vim.wo.list = not vim.wo.list
---   local state = vim.wo.list and "enabled" or "disabled"
---   print("Listchars " .. state)
--- end
---
--- local description = function()
---   return (vim.wo.list and "Enable" or "Disable") .. " listchars"
--- end
---
--- -- Set the keymap with a dynamic description
--- map("n", "<leader>uu", toggle_listchars, {
---   desc = description(),
---     icon = {
---       icon = vim.wo.list and "" or "",
---       hl = "MiniIconsGreen",
---     },
--- })
+-- List chars
+-- Create a function to toggle `vim.opt.list` and update the description dynamically
+local function toggle_listchars()
+  vim.opt.list = not vim.wo.list
+  local state = vim.opt.list and "enabled" or "disabled"
+  print("Listchars " .. state)
+end
+
+-- Set the keymap with a dynamic description
+map("n", "<leader>ul", toggle_listchars, {
+  desc = "Toggle listchars"})
 --

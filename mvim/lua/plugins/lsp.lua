@@ -37,6 +37,9 @@ return {
 						end
 					end
 
+          map("<c-k>", vim.lsp.buf.signature_help, "Signature Help", { mode = "i" })
+          map("gK", vim.lsp.buf.signature_help, "Signature Help")
+          map("K", vim.lsp.buf.hover, "Hover")
 					map("]d", diagnostic_goto(true), "Next Diagnostic")
 					map("[d", diagnostic_goto(false), "Prev Diagnostic")
 					map("]e", diagnostic_goto(true, "ERROR"), "Next Error")
