@@ -37,9 +37,9 @@ return {
 						end
 					end
 
-          map("<c-k>", vim.lsp.buf.signature_help, "Signature Help", { mode = "i" })
-          map("gK", vim.lsp.buf.signature_help, "Signature Help")
-          map("K", vim.lsp.buf.hover, "Hover")
+					map("<c-k>", vim.lsp.buf.signature_help, "Signature Help", { mode = "i" })
+					map("gK", vim.lsp.buf.signature_help, "Signature Help")
+					map("K", vim.lsp.buf.hover, "Hover")
 					map("]d", diagnostic_goto(true), "Next Diagnostic")
 					map("[d", diagnostic_goto(false), "Prev Diagnostic")
 					map("]e", diagnostic_goto(true, "ERROR"), "Next Error")
@@ -95,13 +95,85 @@ return {
 			})
 
 			if vim.g.have_nerd_font then
-				local signs = { ERROR = "", WARN = "", INFO = "", HINT = "" }
-				local diagnostic_signs = {}
-				for type, icon in pairs(signs) do
-					diagnostic_signs[vim.diagnostic.severity[type]] = icon
+				-- local signs = { ERROR = " ", WARN = " ", INFO = " ", HINT = "" }
+				-- local diagnostic_signs = {}
+				-- for type, icon in pairs(signs) do
+				-- 	diagnostic_signs[vim.diagnostic.severity[type]] = icon
+				-- end
+				-- vim.diagnostic.config({ signs = { text = diagnostic_signs } })
+
+				local signs = {
+					{ name = "diagnosticsignerror", text = " " },
+					{ name = "diagnosticsignwarn", text = " " },
+					{ name = "diagnosticsigninfo", text = " " },
+					{ name = "diagnosticsignhint", text = " " },
+				}
+
+				for _, sign in ipairs(signs) do
+					vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
 				end
-				vim.diagnostic.config({ signs = { text = diagnostic_signs } })
+
+				local default_diagnostic_config = {
+					signs = {
+						active = signs,
+					},
+					virtual_text = {
+						prefix = "⏺",
+					},
+					update_in_insert = false,
+					underline = true,
+					severity_sort = true,
+					float = {
+						focusable = true,
+						style = "minimal",
+						border = "single",
+						source = "always",
+						header = "",
+						prefix = function(diagnostic, i, total)
+							local function get_i()
+								if total > 1 then
+									return " " .. i .. ")"
+								end
+								return ""
+							end
+
+							local get_lnum_range = function()
+								if diagnostic.lnum ~= diagnostic.end_lnum then
+									return diagnostic.lnum + 1 .. ":" .. diagnostic.end_lnum + 1
+								end
+								return diagnostic.lnum + 1
+							end
+
+							local get_col_range = function()
+								if diagnostic.col ~= diagnostic.end_col then
+									return diagnostic.col .. ":" .. diagnostic.end_col
+								end
+								return diagnostic.col
+							end
+
+							local sign = signs[diagnostic.severity].text
+							local hl = signs[diagnostic.severity].name
+
+							return string.format("%s%s [%s,%s] ", sign, get_i(), get_lnum_range(), get_col_range()), hl
+						end,
+					},
+				}
+
+				vim.diagnostic.config(default_diagnostic_config)
+
+				for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config() or {}, "signs", "values") or {}) do
+					vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
+				end
 			end
+
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				border = "single",
+				max_width = 80,
+				max_height = 20,
+			})
+
+			vim.lsp.handlers["textDocument/signatureHelp"] =
+				vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single", max_width = 80, max_height = 20 })
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
