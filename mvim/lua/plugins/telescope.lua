@@ -16,13 +16,18 @@ return {
 	},
 	config = function()
 		require("telescope").setup({
+			pickers = {
+				find_files = {
+					hidden = true,
+				},
+			},
 			defaults = {
 				-- mappings = {
 				--   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 				-- },
 				border = {},
 				borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-				layout_config = { prompt_position = "top"},
+				layout_config = { prompt_position = "top" },
 				sorting_strategy = "ascending",
 			},
 			-- pickers = {}
@@ -41,8 +46,8 @@ return {
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Search Keymaps" })
-		vim.keymap.set("n", "<leader>ff", builtin.git_files, { desc = "Search Git Files" })
-		vim.keymap.set("n", "<leader>fF", builtin.find_files, { desc = "Search Files" })
+		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Search Git Files" })
+		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Search Files" })
 		-- vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = 'Search Select Telescope' })
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current Word" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by Grep" })
