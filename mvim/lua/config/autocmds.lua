@@ -76,3 +76,11 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Make terminal buffers not show up in `ls` or `vim -p`
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "term://*",
+	callback = function()
+		vim.bo.noswapfile = true
+		vim.bo.buftype = "nofile"
+	end,
+})

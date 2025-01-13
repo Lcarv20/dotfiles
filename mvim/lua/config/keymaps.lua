@@ -1,5 +1,6 @@
 local map = vim.keymap.set
 local ignore = { desc = "which_key_ignore" }
+local toggle_term = require("utils.fns").toggle_term
 
 -- General
 map("n", "J", "mzJ`z") -- keep cursor in place
@@ -15,22 +16,22 @@ map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
--- Resize with arrows
+-- -- Resize with arrows
 map("n", "<M-Up>", ":resize -2<CR>")
 map("n", "<M-Down>", ":resize +2<CR>")
--- map("n", "<M-Left>", ":vertical resize -2<CR>")
--- map("n", "<M-Right", ":vertical resize +2<CR>")
--- Escape sequence for the commented above keymaps for mac
+-- Map("n", "<M-Left>", ":vertical resize -2<CR>")
+-- Map("n", "<M-Right", ":vertical resize +2<CR>")
+-- -- Escape sequence for the commented above keymaps for mac
 map("n", "<Esc>b", ":vertical resize -2<CR>", { noremap = true, silent = true })
 map("n", "<Esc>f", ":vertical resize +2<CR>", { noremap = true, silent = true })
 
--- delete without saving the replaced text to buffer
+-- Delete without saving the replaced text to buffer
 map("x", "<leader>p", [["_dP]], ignore)
--- paste to system clipboard
+-- Paste to system clipboard
 map({ "n", "v" }, "<leader>y", [["+y]], ignore)
 map("n", "<leader>Y", [["+y$]], ignore)
 map("n", "<leader>yy", [["+Y]], ignore)
--- delete to void
+-- Delete to void
 map({ "n", "v" }, "<leader>d", [["_d]], ignore)
 map({ "n", "v" }, "<leader>D", [["_d$]], ignore)
 
@@ -46,20 +47,27 @@ map("x", "<A-k>", ":m '<-2<CR>gv-gv")
 map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 
--- diagnostics
-map("n", "gl", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-
 map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 
 -- List chars
 -- Create a function to toggle `vim.opt.list` and update the description dynamically
 local function toggle_listchars()
-  vim.opt.list = not vim.wo.list
-  local state = vim.opt.list and "enabled" or "disabled"
-  print("Listchars " .. state)
+	vim.opt.list = not vim.wo.list
+	local state = vim.opt.list and "enabled" or "disabled"
+	print("Listchars " .. state)
 end
 
 -- Set the keymap with a dynamic description
 map("n", "<leader>ul", toggle_listchars, {
-  desc = "Toggle listchars"})
---
+	desc = "Toggle listchars",
+})
+
+-- Terminal
+vim.keymap.set("n", "<d-j>", toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
+vim.keymap.set("t", "<d-j>", toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
+vim.keymap.set(
+	"t",
+	"<Esc>",
+	[[<C-\><C-n>]],
+	{ noremap = true, silent = true, desc = "Switch to normal mode from terminal" }
+)

@@ -48,6 +48,7 @@ return {
 						end
 					end
 
+					-- Diagnostics
 					map("<c-k>", vim.lsp.buf.signature_help, "Signature Help", { mode = "i" })
 					map("gK", vim.lsp.buf.signature_help, "Signature Help")
 					map("K", vim.lsp.buf.hover, "Hover")
@@ -57,7 +58,9 @@ return {
 					map("[e", diagnostic_goto(false, "ERROR"), "Prev Error")
 					map("]w", diagnostic_goto(true, "WARN"), "Next Warning")
 					map("[w", diagnostic_goto(false, "WARN"), "Prev Warning")
+					map("gl", vim.diagnostic.open_float, "Line Diagnostics")
 
+          -- LSP
 					map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 					map("gr", require("telescope.builtin").lsp_references, "Goto References")
 					map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")

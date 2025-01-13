@@ -83,22 +83,25 @@ return {
 		config = function()
 			require("gruber-darker").setup({
 				-- OPTIONAL
-				transparent = true, -- removes the background
+				-- transparent = true, -- removes the background
 				-- underline = false, -- disables underline fonts
 				-- bold = false, -- disables bold fonts
 			})
-
-			local colors = require("utils.colors")
+			local colors = require("gruber-darker.groups").colors
 
 			-- for list chars
 			vim.api.nvim_set_hl(0, "Whitespace", {
-				bg = require("utils.colors").subtle_gray,
-				ctermbg = 240,
+				fg = colors.niagara_1,
+				-- ctermfg = 240,
+			})
+			-- for indent scope
+			vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", {
+				fg = colors.brown,
 			})
 
 			-- for eyeliner
-			vim.api.nvim_set_hl(0, "EyelinerPrimary", { bold = true, underline = true, bg = colors.orange, fg = "#1c1c1c" })
-			vim.api.nvim_set_hl(0, "EyelinerSecondary", { underline = true, bg = colors.suave_red, fg = "#1c1c1c" })
+			vim.api.nvim_set_hl(0, "EyelinerPrimary", { bold = true, bg = colors.yellow, fg = colors.bg })
+			vim.api.nvim_set_hl(0, "EyelinerSecondary", { bg = colors.red, fg = colors.bg })
 
 			vim.cmd.colorscheme("gruber-darker")
 		end,

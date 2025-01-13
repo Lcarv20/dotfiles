@@ -3,9 +3,9 @@ return {
 	event = "VimEnter",
 	branch = "0.1.x",
 	dependencies = {
-		"nvim-lua/plenary.nvim",
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
+			"nvim-lua/plenary.nvim",
 			build = "make",
 			cond = function()
 				return vim.fn.executable("make") == 1
@@ -18,7 +18,7 @@ return {
 		require("telescope").setup({
 			pickers = {
 				find_files = {
-          -- coppied from lazyvim
+					-- coppied from lazyvim
 					find_command = function()
 						if 1 == vim.fn.executable("rg") then
 							return { "rg", "--files", "--color", "never", "-g", "!.git" }
@@ -74,7 +74,7 @@ return {
 				winblend = 10,
 				previewer = false,
 			}))
-		end, { desc = "[/] Fuzzily search in current buffer" })
+		end, { desc = "Fuzzy Find in Current Buffer" })
 
 		vim.keymap.set("n", "<leader>sG", function()
 			builtin.live_grep({
@@ -84,8 +84,8 @@ return {
 		end, { desc = "Search / in Open Files" })
 
 		-- -- Shortcut for searching your Neovim configuration files
-		-- vim.keymap.set('n', '<leader>sn', function()
-		--   builtin.find_files { cwd = vim.fn.stdpath 'config' }
-		-- end, { desc = 'Search Neovim files' })
+		vim.keymap.set("n", "<leader>fc", function()
+			builtin.find_files({ cwd = vim.fn.stdpath("config") })
+		end, { desc = "find Neovim config" })
 	end,
 }
