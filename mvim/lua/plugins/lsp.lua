@@ -28,7 +28,8 @@ return {
 					},
 				},
 			},
-			"hrsh7th/cmp-nvim-lsp",
+			-- "hrsh7th/cmp-nvim-lsp",
+			"saghen/blink.cmp",
 		},
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -60,14 +61,15 @@ return {
 					map("[w", diagnostic_goto(false, "WARN"), "Prev Warning")
 					map("gl", vim.diagnostic.open_float, "Line Diagnostics")
 
-          -- LSP
+					-- LSP
 					map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 					map("gr", require("telescope.builtin").lsp_references, "Goto References")
 					map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
 					map("gD", require("telescope.builtin").lsp_type_definitions, "Type Definition")
-					map("<leader>cds", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
+					map("<leader>c", '', "Code")
+					map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
 					map(
-						"<leader>cws",
+						"<leader>cS",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
 						"[W]orkspace [S]ymbols"
 					)
@@ -190,7 +192,11 @@ return {
 				vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single", max_width = 80, max_height = 20 })
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+			-- CMP
+			-- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+			-- BLINK
+			capabilities =
+				vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities(capabilities))
 
 			local servers = {
 				clangd = {},

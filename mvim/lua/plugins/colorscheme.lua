@@ -103,6 +103,10 @@ return {
 			vim.api.nvim_set_hl(0, "EyelinerPrimary", { bold = true, bg = colors.yellow, fg = colors.bg })
 			vim.api.nvim_set_hl(0, "EyelinerSecondary", { bg = colors.red, fg = colors.bg })
 
+			-- for blink
+			vim.api.nvim_set_hl(0, "BlinkCmpScrollBarThumb", { bg = colors.green })
+			-- vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "Pmenu" })
+
 			vim.cmd.colorscheme("gruber-darker")
 		end,
 	},

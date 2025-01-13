@@ -10,12 +10,6 @@ M.cursor_style = function()
 	vim.api.nvim_set_hl(0, "RCursor", { bg = colors.red })
 	vim.api.nvim_set_hl(0, "ComCursor", { bg = colors.yellow })
 	vim.api.nvim_set_hl(0, "NoiceCursor", { bg = colors.saphire })
-
-	-- With lazyvim this will be overriden, so we do this in opts.
-	-- However the highlights are set on vimenter using an autocmd.
-	--
-	-- vim.opt.guicursor =
-	--   "n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
 end
 
 local terminal_bufnr = nil
@@ -44,6 +38,13 @@ M.toggle_term = function()
 
 	-- Automatically enter insert mode
 	vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("i", true, false, true), "n", true)
+end
+
+-- Create a function to toggle `vim.opt.list` and update the description dynamically
+M.toggle_listchars = function()
+	vim.opt.list = not vim.wo.list
+	local state = vim.opt.list and "enabled" or "disabled"
+	print("Listchars " .. state)
 end
 
 return M

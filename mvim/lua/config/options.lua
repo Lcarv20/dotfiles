@@ -20,7 +20,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 vim.opt.conceallevel = 3 -- Hide * markup for bold and italic, but not markers with substitutions
-vim.opt.concealcursor = 'n'
+-- vim.opt.concealcursor = ''
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
@@ -47,15 +47,4 @@ vim.opt.scrolloff = 10
 vim.opt.guicursor =
   "n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
 
-
-if vim.fn.has("nvim-0.10") == 1 then
- vim.opt.smoothscroll = true
- vim.opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
- vim.opt.foldmethod = "expr"
- vim.opt.foldtext = ""
-else
- vim.opt.foldmethod = "indent"
- vim.opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
-end
-
-vim.g.markdown_recommended_style = 0
+vim.opt.foldmethod = "manual"

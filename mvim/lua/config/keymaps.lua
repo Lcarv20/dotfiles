@@ -1,6 +1,6 @@
 local map = vim.keymap.set
 local ignore = { desc = "which_key_ignore" }
-local toggle_term = require("utils.fns").toggle_term
+local fns = require("utils.fns")
 
 -- General
 map("n", "J", "mzJ`z") -- keep cursor in place
@@ -50,24 +50,24 @@ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 
 -- List chars
--- Create a function to toggle `vim.opt.list` and update the description dynamically
-local function toggle_listchars()
-	vim.opt.list = not vim.wo.list
-	local state = vim.opt.list and "enabled" or "disabled"
-	print("Listchars " .. state)
-end
-
 -- Set the keymap with a dynamic description
-map("n", "<leader>ul", toggle_listchars, {
+map("n", "<leader>ul", fns.toggle_listchars, {
 	desc = "Toggle listchars",
 })
 
 -- Terminal
-vim.keymap.set("n", "<d-j>", toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
-vim.keymap.set("t", "<d-j>", toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
+vim.keymap.set("n", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
+vim.keymap.set("t", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
 vim.keymap.set(
 	"t",
 	"<Esc>",
 	[[<C-\><C-n>]],
 	{ noremap = true, silent = true, desc = "Switch to normal mode from terminal" }
 )
+
+-- Descriptive labels
+-- Git
+map("n", "<leader>g", "", { desc = "Git" })
+map("n", "<leader>gh", "", { desc = "Hunk" })
+-- UI
+map("n", "<leader>u", "", { desc = "Ui" })

@@ -1,5 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
+  enabled = false,
 	event = "InsertEnter",
 	dependencies = {
 		{
@@ -34,6 +35,14 @@ return {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
 				end,
+			},
+			window = {
+				completion = cmp.config.window.bordered({
+					border = "single",
+				}),
+				documentation = cmp.config.window.bordered({
+          border = "single",
+        }),
 			},
 			completion = { completeopt = "menu,preview,menuone,noinsert,noselect" },
 			mapping = cmp.mapping.preset.insert({

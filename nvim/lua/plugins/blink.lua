@@ -19,6 +19,10 @@ return {
       preset = "enter",
       ["<Tab>"] = { "snippet_forward", "fallback" },
       ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      cmdline = {
+        ["<Tab>"] = { "completion", "fallback" },
+        -- ["<C-n>"] = {"select_next"}
+        -- ["<C-p>"] = "completion",
     },
     completion = {
       menu = {
