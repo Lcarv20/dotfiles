@@ -12,5 +12,6 @@ return {
   blue = "#69bef0",
   red = "#d41343",
   orange = "#ff9e64",
+  subtle_gray = "#736b6b",
 }
 

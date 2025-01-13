@@ -16,7 +16,18 @@ return {
 			{ "williamboman/mason.nvim", opts = {} },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			{ "j-hui/fidget.nvim", opts = {} },
+			{
+				"j-hui/fidget.nvim",
+				opts = {
+					notification = {
+						window = {
+							border = "single",
+							winblend = 0,
+							align = "top",
+						},
+					},
+				},
+			},
 			"hrsh7th/cmp-nvim-lsp",
 		},
 		config = function()

@@ -23,7 +23,9 @@ return {
 					identifier = "#b1b1b1",
 					type = "#7df8f6",
 					type_builtin = "#c5c5c5", -- current
-					-- type_builtin = "#8cf8f7", -- glowy blue old (was present by default before type_builtin was introduced added here for people who may like it)
+					-- type_builtin = "#8cf8f7", -- glowy blue old
+					-- (was present by default before type_builtin was
+					-- introduced added here for people who may like it)
 					search_highlight = "#e31999",
 					operator = "#1bfd9c",
 					bracket = "#e6e6e6",
@@ -77,7 +79,7 @@ return {
 	},
 	{
 		"Lcarv20/gruber-darker.nvim",
-    -- enabled = false,
+		-- enabled = false,
 		config = function()
 			require("gruber-darker").setup({
 				-- OPTIONAL
@@ -85,6 +87,19 @@ return {
 				-- underline = false, -- disables underline fonts
 				-- bold = false, -- disables bold fonts
 			})
+
+			local colors = require("utils.colors")
+
+			-- for list chars
+			vim.api.nvim_set_hl(0, "Whitespace", {
+				bg = require("utils.colors").subtle_gray,
+				ctermbg = 240,
+			})
+
+			-- for eyeliner
+			vim.api.nvim_set_hl(0, "EyelinerPrimary", { bold = true, underline = true, bg = colors.orange, fg = "#1c1c1c" })
+			vim.api.nvim_set_hl(0, "EyelinerSecondary", { underline = true, bg = colors.suave_red, fg = "#1c1c1c" })
+
 			vim.cmd.colorscheme("gruber-darker")
 		end,
 	},
