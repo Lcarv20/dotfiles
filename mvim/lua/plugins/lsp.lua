@@ -4,6 +4,7 @@ return {
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {
+			inlay_hints = { enabled = false },
 			library = {
 				{ path = "luvit-meta/library", words = { "vim%.uv" } },
 			},
@@ -66,7 +67,7 @@ return {
 					map("gr", require("telescope.builtin").lsp_references, "Goto References")
 					map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
 					map("gD", require("telescope.builtin").lsp_type_definitions, "Type Definition")
-					map("<leader>c", '', "Code")
+					map("<leader>c", "", "Code")
 					map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
 					map(
 						"<leader>cS",
@@ -76,6 +77,8 @@ return {
 					map("<leader>cr", vim.lsp.buf.rename, "Rename")
 					map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
 					map("gS", vim.lsp.buf.declaration, "Goto Declaration")
+					map("<leader>cd", vim.diagnostic.setloclist, "Document Diagnostics")
+					map("<leader>cw", vim.diagnostic.setqflist, "Workspace Diagnostics")
 
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
 					if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
@@ -110,86 +113,8 @@ return {
 				end,
 			})
 
-			if vim.g.have_nerd_font then
-				-- local signs = { ERROR = " ", WARN = " ", INFO = " ", HINT = "" }
-				-- local diagnostic_signs = {}
-				-- for type, icon in pairs(signs) do
-				-- 	diagnostic_signs[vim.diagnostic.severity[type]] = icon
-				-- end
-				-- vim.diagnostic.config({ signs = { text = diagnostic_signs } })
-
-				local signs = {
-					{ name = "diagnosticsignerror", text = " " },
-					{ name = "diagnosticsignwarn", text = " " },
-					{ name = "diagnosticsigninfo", text = " " },
-					{ name = "diagnosticsignhint", text = " " },
-				}
-
-				for _, sign in ipairs(signs) do
-					vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
-				end
-
-				local default_diagnostic_config = {
-					signs = {
-						active = signs,
-					},
-					virtual_text = {
-						prefix = "⏺",
-					},
-					update_in_insert = false,
-					underline = true,
-					severity_sort = true,
-					float = {
-						focusable = true,
-						style = "minimal",
-						border = "single",
-						source = "always",
-						header = "",
-						prefix = function(diagnostic, i, total)
-							local function get_i()
-								if total > 1 then
-									return " " .. i .. ")"
-								end
-								return ""
-							end
-
-							local get_lnum_range = function()
-								if diagnostic.lnum ~= diagnostic.end_lnum then
-									return diagnostic.lnum + 1 .. ":" .. diagnostic.end_lnum + 1
-								end
-								return diagnostic.lnum + 1
-							end
-
-							local get_col_range = function()
-								if diagnostic.col ~= diagnostic.end_col then
-									return diagnostic.col .. ":" .. diagnostic.end_col
-								end
-								return diagnostic.col
-							end
-
-							local sign = signs[diagnostic.severity].text
-							local hl = signs[diagnostic.severity].name
-
-							return string.format("%s%s [%s,%s] ", sign, get_i(), get_lnum_range(), get_col_range()), hl
-						end,
-					},
-				}
-
-				vim.diagnostic.config(default_diagnostic_config)
-
-				for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config() or {}, "signs", "values") or {}) do
-					vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
-				end
-			end
-
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "single",
-				max_width = 80,
-				max_height = 20,
-			})
-
-			vim.lsp.handlers["textDocument/signatureHelp"] =
-				vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single", max_width = 80, max_height = 20 })
+			require("utils.fns").diagnostics_config()
+			require("utils.fns").lsp_popover_borders()
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			-- CMP
@@ -204,6 +129,28 @@ return {
 				pyright = {},
 				rust_analyzer = {},
 				swift_mesonls = {},
+				cssls = {
+					settings = {
+						scss = {
+							validate = true,
+							lint = {
+								unknownAtRules = "ignore",
+							},
+						},
+						less = {
+							validate = true,
+							lint = {
+								unknownAtRules = "ignore",
+							},
+						},
+						css = {
+							validate = true,
+							lint = {
+								unknownAtRules = "ignore",
+							},
+						},
+					},
+				},
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
@@ -237,42 +184,20 @@ return {
 					end,
 				},
 			})
+
 			-- Configure sourcekit-lsp here, without nesting in `servers`
 			require("lspconfig").sourcekit.setup({
-				capabilities = capabilities,
-			})
-		end,
-	},
-	{
-		"neovim/nvim-lspconfig",
-		opts = {
-			inlay_hints = { enabled = false },
-			servers = {
-				cssls = {
-					settings = {
-						scss = {
-							validate = true,
-							lint = {
-								unknownAtRules = "ignore",
-							},
-						},
-						less = {
-							validate = true,
-							lint = {
-								unknownAtRules = "ignore",
-							},
-						},
-						css = {
-							validate = true,
-							lint = {
-								unknownAtRules = "ignore",
-							},
+        -- this is the suggested config from the official documentation
+        -- https://www.swift.org/documentation/articles/zero-to-swift-nvim.html#language-server-support
+				capabilities = {
+					workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
 						},
 					},
 				},
-				sourcekit = {},
-				swift_mesonlsp = {},
-			},
-		},
+				-- capabilities = capabilities,
+			})
+		end,
 	},
 }

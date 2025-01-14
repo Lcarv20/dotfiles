@@ -17,13 +17,20 @@ return {
     },
     keymap = {
       preset = "enter",
-      ["<Tab>"] = { "snippet_forward", "fallback" },
+      ["<Tab>"] = {
+        "snippet_forward",
+        "fallback",
+      },
       ["<S-Tab>"] = { "snippet_backward", "fallback" },
       cmdline = {
-        ["<Tab>"] = { "completion", "fallback" },
-        -- ["<C-n>"] = {"select_next"}
-        -- ["<C-p>"] = "completion",
+        ["<Tab>"] = { "select_and_accept", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<C-n>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback" },
+        ["<Cr>"] = { "accept", "fallback" },
+      },
     },
+
     completion = {
       menu = {
         auto_show = true,

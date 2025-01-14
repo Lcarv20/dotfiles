@@ -18,6 +18,7 @@ return {
 		require("telescope").setup({
 			pickers = {
 				find_files = {
+					theme = "dropdown",
 					-- coppied from lazyvim
 					find_command = function()
 						if 1 == vim.fn.executable("rg") then
@@ -34,11 +35,35 @@ return {
 					end,
 					hidden = true,
 				},
+				live_grep = {
+					theme = "ivy",
+				},
+				diagnostics = {
+					theme = "ivy",
+				},
+				git_files = {
+					theme = "dropdown",
+				},
+				oldfiles = {
+					theme = "dropdown",
+					previewer = false,
+				},
+				buffers = {
+					theme = "dropdown",
+					previewer = false,
+				},
 			},
 			defaults = {
-				-- mappings = {
-				--   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-				-- },
+				mappings = {
+					n = {
+						["<c-d>"] = require("telescope.actions").delete_buffer,
+					},
+					i = {
+						["<c-enter>"] = "to_fuzzy_refine",
+						["<C-h>"] = "which_key",
+						["<c-d>"] = require("telescope.actions").delete_buffer,
+					},
+				},
 				border = {},
 				borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 				layout_config = { prompt_position = "top" },
@@ -62,13 +87,13 @@ return {
 		vim.keymap.set("n", "<leader>s", "", { desc = "Search" })
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Search Keymaps" })
-		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Search Git Files" })
-		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Search Files" })
+		vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Find Git Files" })
+		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
 		-- vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = 'Search Select Telescope' })
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current Word" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by Grep" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
-		vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = 'Search Recent Files ("." for repeat)' })
+		vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find Recent Files" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find existing buffers" })
 
 		vim.keymap.set("n", "<leader>sF", function()
@@ -88,6 +113,6 @@ return {
 		-- -- Shortcut for searching your Neovim configuration files
 		vim.keymap.set("n", "<leader>fc", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
-		end, { desc = "find Neovim config" })
+		end, { desc = "Find Neovim config" })
 	end,
 }

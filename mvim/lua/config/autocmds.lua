@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     "DressingSelect",
     "tsplayground",
     "codecompanion",
+    "vim",
     -- "markdown", -- some help files are markdown
     "",
   },
