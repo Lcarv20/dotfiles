@@ -56,14 +56,10 @@ map("n", "<leader>ul", fns.toggle_listchars, {
 })
 
 -- Terminal
-vim.keymap.set("n", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
-vim.keymap.set("t", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
-vim.keymap.set(
-	"t",
-	"<Esc>",
-	[[<C-\><C-n>]],
-	{ noremap = true, silent = true, desc = "Switch to normal mode from terminal" }
-)
+map("n", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
+map("t", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
+map("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Switch to normal mode from terminal" })
+map("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- Descriptive labels
 -- Git

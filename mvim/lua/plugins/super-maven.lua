@@ -6,6 +6,7 @@ return {
 				suggestion_color = require("utils.colors").subtle_gray,
 				cterm = 244,
 			},
+			ignore_filetypes = { "markdown", "cpp" }, -- or { "cpp", }
 			keymaps = {
 				accept_suggestion = "<Tab>",
 				clear_suggestion = "<C-e>",
