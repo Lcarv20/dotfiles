@@ -132,8 +132,8 @@ return {
 			float = {
 				-- Padding around the floating window
 				padding = 2,
-				max_width = 0,
-				max_height = 0,
+				max_width = 0.7,
+				max_height = 0.7,
 				border = "single",
 				win_options = {
 					winblend = 0,

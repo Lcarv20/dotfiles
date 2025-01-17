@@ -5,9 +5,16 @@ local fns = require("utils.fns")
 -- General
 map("n", "J", "mzJ`z") -- keep cursor in place
 map("i", "jj", "<ESC>") -- quit insert mode
-map("n", "<leader>h", ":nohlsearch<CR>", ignore)
-map("n", "<esc>", ":nohlsearch<CR>", ignore)
+map("n", "<leader>h", "<cmd>nohlsearch<CR>", ignore)
+map("n", "<esc>", "<cmd>nohlsearch<CR>", ignore)
 map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- Quit and close
+map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit/Close" })
+map("n", "<leader>qq", "<cmd>q<cr>", { desc = "Close" })
+map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "ALL", noremap = true, silent = true })
+map("n", "<leader>qb", "<cmd>bd<cr>", { desc = "Buffer", noremap = true, silent = true })
+map("n", "<leader>qt", "<cmd>tabclose<cr>", { desc = "Tab", noremap = true, silent = true })
 
 -- Maintain scroll in the middle
 map("n", "<C-d>", "<C-d>zz")
@@ -47,8 +54,6 @@ map("x", "<A-k>", ":m '<-2<CR>gv-gv")
 map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 
-map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
-
 -- List chars
 -- Set the keymap with a dynamic description
 map("n", "<leader>ul", fns.toggle_listchars, {
@@ -61,9 +66,14 @@ map("t", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Togg
 map("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Switch to normal mode from terminal" })
 map("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
 
--- Descriptive labels
 -- Git
 map("n", "<leader>g", "", { desc = "Git" })
 map("n", "<leader>gh", "", { desc = "Hunk" })
 -- UI
 map("n", "<leader>u", "", { desc = "Ui" })
+map("n", "<leader>ut", "", { desc = "Tab" })
+map("n", "<leader>uts", "<cmd>tab split<cr>", { desc = "New tab with curr buffer", noremap = true, silent = true })
+map("n", "<leader>utn", "<cmd>tabnew<cr>", { desc = "New", noremap = true, silent = true })
+map("n", "<leader>utc", "<cmd>tabclose<cr>", { desc = "Close", noremap = true, silent = true })
+map("n", "<leader>ub", "", { desc = "Buffer" })
+map("n", "<leader>ubc", "<cmd>tabc<cr>", { desc = "Close" })

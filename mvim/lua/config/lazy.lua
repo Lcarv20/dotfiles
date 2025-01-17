@@ -24,5 +24,5 @@ require("lazy").setup({
 		notify = false, -- notify on update
 	}, -- automatically check for plugin updates
 	border = "single",
-	install = { colorscheme = { "default", "habamax" } },
+	install = { colorscheme = { "gruber-darker", "default", "habamax" } },
 })
