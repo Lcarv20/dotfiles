@@ -107,3 +107,20 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.conceallevel = 0
 	end,
 })
+
+-- Delete empty buffer on leave
+vim.api.nvim_create_autocmd("BufLeave", {
+	callback = function()
+    print("left buffer")
+		local bufnr = vim.fn.bufnr() -- Get the current buffer number
+		local lines = vim.fn.getbufline(bufnr, 1, vim.fn.line("$")) -- Get all lines in the buffer
+
+		-- Check if the buffer is empty and unmodified
+		if #lines == 1 and lines[1] == "" and not vim.bo[bufnr].modified then
+			vim.cmd("bwipeout " .. bufnr) -- Safely delete the buffer by its number
+		end
+	end,
+	group = vim.api.nvim_create_augroup("DeleteEmptyBuffer", { clear = true }),
+	pattern = "*",
+})
+

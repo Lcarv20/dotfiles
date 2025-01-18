@@ -8,13 +8,7 @@ map("i", "jj", "<ESC>") -- quit insert mode
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", ignore)
 map("n", "<esc>", "<cmd>nohlsearch<CR>", ignore)
 map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
-
--- Quit and close
-map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit/Close" })
-map("n", "<leader>qq", "<cmd>q<cr>", { desc = "Close" })
-map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "ALL", noremap = true, silent = true })
-map("n", "<leader>qb", "<cmd>bd<cr>", { desc = "Buffer", noremap = true, silent = true })
-map("n", "<leader>qt", "<cmd>tabclose<cr>", { desc = "Tab", noremap = true, silent = true })
+map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
 
 -- Maintain scroll in the middle
 map("n", "<C-d>", "<C-d>zz")

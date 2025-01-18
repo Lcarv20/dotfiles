@@ -187,16 +187,25 @@ return {
 
 			-- Configure sourcekit-lsp here, without nesting in `servers`
 			require("lspconfig").sourcekit.setup({
-        -- this is the suggested config from the official documentation
-        -- https://www.swift.org/documentation/articles/zero-to-swift-nvim.html#language-server-support
-				capabilities = {
+				-- this is the suggested config from the official documentation
+				-- https://www.swift.org/documentation/articles/zero-to-swift-nvim.html#language-server-support
+				-- capabilities = {
+				-- 	workspace = {
+				-- 		didChangeWatchedFiles = {
+				-- 			dynamicRegistration = true,
+				-- 		},
+				-- 	},
+				-- },
+				--
+				-- capabilities = capabilities,
+				vim.tbl_deep_extend("force", capabilities, {
 					workspace = {
 						didChangeWatchedFiles = {
 							dynamicRegistration = true,
 						},
 					},
-				},
-				-- capabilities = capabilities,
+				}),
+				filetypes = { "swift", "swiftinterface", "c", "cpp", "objective-c", "objective-cpp" },
 			})
 		end,
 	},
