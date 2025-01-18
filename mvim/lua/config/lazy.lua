@@ -19,10 +19,15 @@ require("lazy").setup({
 		-- import/override with your plugins
 		{ import = "plugins" },
 	},
-	checker = {
-		enabled = true, -- check for plugin updates periodically
-		notify = false, -- notify on update
-	}, -- automatically check for plugin updates
-	border = "single",
+	change_detection = {
+		notify = false,
+	},
+	-- checker = {
+	-- 	enabled = true, -- check for plugin updates periodically
+	-- 	notify = false, -- notify on update
+	-- }, -- automatically check for plugin updates
+	ui = {
+		border = "double",
+	},
 	install = { colorscheme = { "gruber-darker", "default", "habamax" } },
 })

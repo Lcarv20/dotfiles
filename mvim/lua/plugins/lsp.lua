@@ -198,6 +198,7 @@ return {
 				-- },
 				--
 				-- capabilities = capabilities,
+        single_file_support = true,
 				vim.tbl_deep_extend("force", capabilities, {
 					workspace = {
 						didChangeWatchedFiles = {

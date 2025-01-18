@@ -133,3 +133,6 @@ export NEXT_TELEMETRY_DISABLED=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
+
+
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
