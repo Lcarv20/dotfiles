@@ -19,8 +19,23 @@ return {
 		require("mini.pairs").setup()
 
 		require("mini.indentscope").setup({
-			symbol = "┋",
+			-- symbol = "┋",
+			symbol = "⠅",
+			-- symbol = "⠄",
 		})
+
+		-- MiniNotifyNormal -> bg highlight
+		require("mini.notify").setup({
+			window = {
+				-- Floating window config
+				config = {
+					border = "single",
+				},
+				-- Value of 'winblend' option
+				winblend = 0,
+			},
+		})
+		vim.notify = require("mini.notify").make_notify()
 
 		-- Simple and easy statusline.
 		local statusline = require("mini.statusline")

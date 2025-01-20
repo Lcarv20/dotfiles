@@ -161,4 +161,23 @@ M.open_floating_window = function(bufnr)
 	vim.api.nvim_open_win(bufnr, true, opts) -- Open the floating window
 end
 
+--- Create a temporary notification using mini.notify.
+-- This function displays a notification message with a specified level and automatically removes it after a delay.
+-- @param msg string: The notification message to display.
+-- @param level "INFO" | "WARN" | "ERROR" | "DEBUG": The level of the notification
+-- @param delay number: (optional) The delay in milliseconds before removing the notification. Defaults to 2500.
+M.create_notification = function(msg, level, delay)
+	delay = delay or 2500 -- Use the provided delay or default to 2500
+
+	local hl = level == "INFO" and "DiagnosticInfo"
+		or level == "WARN" and "DiagnosticWarn"
+		or level == "ERROR" and "DiagnosticError"
+		or "DiagnosticHint"
+
+	local id = require("mini.notify").add(msg, level, hl)
+	vim.defer_fn(function()
+		require("mini.notify").remove(id)
+	end, delay)
+end
+
 return M

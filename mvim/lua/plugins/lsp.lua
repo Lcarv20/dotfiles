@@ -17,18 +17,18 @@ return {
 			{ "williamboman/mason.nvim", opts = {} },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			{
-				"j-hui/fidget.nvim",
-				opts = {
-					notification = {
-						window = {
-							border = "single",
-							winblend = 0,
-							align = "top",
-						},
-					},
-				},
-			},
+			-- {
+			-- 	"j-hui/fidget.nvim",
+			-- 	opts = {
+			-- 		notification = {
+			-- 			window = {
+			-- 				border = "single",
+			-- 				winblend = 0,
+			-- 				align = "top",
+			-- 			},
+			-- 		},
+			-- 	},
+			-- },
 			-- "hrsh7th/cmp-nvim-lsp",
 			"saghen/blink.cmp",
 		},
@@ -198,7 +198,12 @@ return {
 				-- },
 				--
 				-- capabilities = capabilities,
-        single_file_support = true,
+				single_file_support = true,
+				settings = {
+					swiftPM = {
+						swiftSDKsDirectory = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk", -- Optional, if required
+					},
+				},
 				vim.tbl_deep_extend("force", capabilities, {
 					workspace = {
 						didChangeWatchedFiles = {
@@ -208,6 +213,7 @@ return {
 				}),
 				filetypes = { "swift", "swiftinterface", "c", "cpp", "objective-c", "objective-cpp" },
 			})
+
 		end,
 	},
 }
