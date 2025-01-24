@@ -50,7 +50,7 @@ return {
 						end
 					end
 
-					-- Diagnostics
+					-- Diagnostics Related
 					map("<c-k>", vim.lsp.buf.signature_help, "Signature Help", { mode = "i" })
 					map("gK", vim.lsp.buf.signature_help, "Signature Help")
 					map("K", vim.lsp.buf.hover, "Hover")
@@ -62,18 +62,28 @@ return {
 					map("[w", diagnostic_goto(false, "WARN"), "Prev Warning")
 					map("gl", vim.diagnostic.open_float, "Line Diagnostics")
 
-					-- LSP
-					map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
-					map("gr", require("telescope.builtin").lsp_references, "Goto References")
-					map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
-					map("gD", require("telescope.builtin").lsp_type_definitions, "Type Definition")
+          -- W/out Telescope
+					map("gd", vim.lsp.buf.definition, "Goto Definition")
+					map("gr", vim.lsp.buf.references, "Goto References")
+					map("gI", vim.lsp.buf.implementation, "Goto Implementation")
+					map("gD", vim.lsp.buf.type_definition, "Type Definition")
 					map("<leader>c", "", "Code")
-					map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
-					map(
-						"<leader>cS",
-						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"[W]orkspace [S]ymbols"
-					)
+					map("<leader>cs", vim.lsp.buf.document_symbol, "Document Symbols")
+					map("<leader>cS", vim.lsp.buf.workspace_symbol, "[W]orkspace [S]ymbols")
+					--
+
+          -- W/ Telescope
+					-- map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
+					-- map("gr", require("telescope.builtin").lsp_references, "Goto References")
+					-- map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
+					-- map("gD", require("telescope.builtin").lsp_type_definitions, "Type Definition")
+					-- map("<leader>c", "", "Code")
+					-- map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
+					-- map(
+					-- 	"<leader>cS",
+					-- 	require("telescope.builtin").lsp_dynamic_workspace_symbols,
+					-- 	"[W]orkspace [S]ymbols"
+					-- )
 					map("<leader>cr", vim.lsp.buf.rename, "Rename")
 					map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
 					map("gS", vim.lsp.buf.declaration, "Goto Declaration")
@@ -117,18 +127,13 @@ return {
 			require("utils.fns").lsp_popover_borders()
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			-- CMP
-			-- capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-			-- BLINK
+
 			capabilities =
 				vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities(capabilities))
 
 			local servers = {
-				clangd = {},
 				gopls = {},
 				pyright = {},
-				rust_analyzer = {},
-				swift_mesonls = {},
 				cssls = {
 					settings = {
 						scss = {
@@ -152,9 +157,6 @@ return {
 					},
 				},
 				lua_ls = {
-					-- cmd = { ... },
-					-- filetypes = { ... },
-					-- capabilities = {},
 					settings = {
 						Lua = {
 							completion = {
@@ -185,35 +187,24 @@ return {
 				},
 			})
 
-			-- Configure sourcekit-lsp here, without nesting in `servers`
+			-- For now swift has to be configured seperatly because Mason doesn't have sourcekit lsp
 			require("lspconfig").sourcekit.setup({
-				-- this is the suggested config from the official documentation
 				-- https://www.swift.org/documentation/articles/zero-to-swift-nvim.html#language-server-support
-				-- capabilities = {
-				-- 	workspace = {
-				-- 		didChangeWatchedFiles = {
-				-- 			dynamicRegistration = true,
-				-- 		},
-				-- 	},
-				-- },
-				--
-				-- capabilities = capabilities,
-				single_file_support = true,
-				settings = {
-					swiftPM = {
-						swiftSDKsDirectory = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk", -- Optional, if required
-					},
-				},
-				vim.tbl_deep_extend("force", capabilities, {
+				capabilities = vim.tbl_deep_extend("force", capabilities, {
 					workspace = {
 						didChangeWatchedFiles = {
 							dynamicRegistration = true,
 						},
 					},
 				}),
+				single_file_support = true,
+				settings = {
+					-- swiftPM = {
+					-- 	swiftSDKsDirectory = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk", -- Optional, if required
+					-- },
+				},
 				filetypes = { "swift", "swiftinterface", "c", "cpp", "objective-c", "objective-cpp" },
 			})
-
 		end,
 	},
 }

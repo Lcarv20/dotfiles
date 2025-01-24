@@ -1,4 +1,5 @@
 return {
+	-- enabled = false,
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
 	branch = "0.1.x",
@@ -52,16 +53,32 @@ return {
 					theme = "dropdown",
 					previewer = false,
 				},
+				lsp_definitions = {
+					theme = "ivy",
+				},
+				lsp_references = {
+					theme = "ivy",
+				},
+				lsp_implementations = {
+					theme = "ivy",
+				},
+				lsp_type_definitons = {
+					theme = "ivy",
+				},
 			},
 			defaults = {
 				mappings = {
 					n = {
 						["<c-d>"] = require("telescope.actions").delete_buffer,
+						["<C-f>"] = require("telescope.actions").preview_scrolling_down,
+						["<C-b>"] = require("telescope.actions").preview_scrolling_up,
 					},
 					i = {
 						["<c-enter>"] = "to_fuzzy_refine",
 						["<C-h>"] = "which_key",
 						["<c-d>"] = require("telescope.actions").delete_buffer,
+						["<C-f>"] = require("telescope.actions").preview_scrolling_down,
+						["<C-b>"] = require("telescope.actions").preview_scrolling_up,
 					},
 				},
 				border = {},

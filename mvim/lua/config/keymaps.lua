@@ -70,4 +70,4 @@ map("n", "<leader>uts", "<cmd>tab split<cr>", { desc = "New tab with curr buffer
 map("n", "<leader>utn", "<cmd>tabnew<cr>", { desc = "New", noremap = true, silent = true })
 map("n", "<leader>utc", "<cmd>tabclose<cr>", { desc = "Close", noremap = true, silent = true })
 map("n", "<leader>ub", "", { desc = "Buffer" })
-map("n", "<leader>ubc", "<cmd>tabc<cr>", { desc = "Close" })
+map("n", "<leader>ubc", "<cmd>bdelete<cr>", { desc = "Close (delete)" })
