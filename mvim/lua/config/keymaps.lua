@@ -71,3 +71,6 @@ map("n", "<leader>utn", "<cmd>tabnew<cr>", { desc = "New", noremap = true, silen
 map("n", "<leader>utc", "<cmd>tabclose<cr>", { desc = "Close", noremap = true, silent = true })
 map("n", "<leader>ub", "", { desc = "Buffer" })
 map("n", "<leader>ubc", "<cmd>bdelete<cr>", { desc = "Close (delete)" })
+
+-- Keymap: Toggle maximize/minimize with `<leader>m`
+map("n", "<leader>m", fns.toggle_maximize, { desc = "Toggle Maximize/Minimize Current Split" })

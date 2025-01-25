@@ -51,7 +51,7 @@ return {
 					end
 
 					-- Diagnostics Related
-					map("<c-k>", vim.lsp.buf.signature_help, "Signature Help", { mode = "i" })
+					map("<c-k>", vim.lsp.buf.signature_help, "Signature Help", "i")
 					map("gK", vim.lsp.buf.signature_help, "Signature Help")
 					map("K", vim.lsp.buf.hover, "Hover")
 					map("]d", diagnostic_goto(true), "Next Diagnostic")
@@ -62,7 +62,7 @@ return {
 					map("[w", diagnostic_goto(false, "WARN"), "Prev Warning")
 					map("gl", vim.diagnostic.open_float, "Line Diagnostics")
 
-          -- W/out Telescope
+					-- W/out Telescope
 					map("gd", vim.lsp.buf.definition, "Goto Definition")
 					map("gr", vim.lsp.buf.references, "Goto References")
 					map("gI", vim.lsp.buf.implementation, "Goto Implementation")
@@ -72,7 +72,7 @@ return {
 					map("<leader>cS", vim.lsp.buf.workspace_symbol, "[W]orkspace [S]ymbols")
 					--
 
-          -- W/ Telescope
+					-- W/ Telescope
 					-- map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 					-- map("gr", require("telescope.builtin").lsp_references, "Goto References")
 					-- map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
