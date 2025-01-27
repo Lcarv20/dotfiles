@@ -208,18 +208,18 @@ return {
 			},
 		})
 
-		wk.add({
-			"<leader>e",
-			function()
-				local cwd = vim.fn.getcwd()
-				require("oil").toggle_float(cwd)
-			end,
-			desc = "Oil (cwd)",
-			icon = {
-				icon = "󰏇",
-				hl = "DiagnosticWarn",
-			},
-		})
+		-- wk.add({
+		-- 	"<leader>e",
+		-- 	function()
+		-- 		local cwd = vim.fn.getcwd()
+		-- 		require("oil").toggle_float(cwd)
+		-- 	end,
+		-- 	desc = "Oil (cwd)",
+		-- 	icon = {
+		-- 		icon = "󰏇",
+		-- 		hl = "DiagnosticWarn",
+		-- 	},
+		-- })
 
 		-- wk.add({
 		-- 	"<leader>o",
