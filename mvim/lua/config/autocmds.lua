@@ -115,3 +115,14 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 		vim.bo.filetype = "swift"
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
+  callback = function()
+    local current_buf_ft = vim.bo.filetype
+    if current_buf_ft == "qf" then
+      vim.cmd("cclose")
+    elseif current_buf_ft == "loclist" then
+      vim.cmd("lclose")
+    end
+  end,
+})
