@@ -79,6 +79,7 @@ return {
 						["<c-d>"] = require("telescope.actions").delete_buffer,
 						["<C-f>"] = require("telescope.actions").preview_scrolling_down,
 						["<C-b>"] = require("telescope.actions").preview_scrolling_up,
+						["<ESC>"] = require("telescope.actions").close,
 					},
 				},
 				border = {},

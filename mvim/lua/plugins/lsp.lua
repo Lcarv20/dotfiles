@@ -38,7 +38,12 @@ return {
 				callback = function(event)
 					local map = function(keys, func, desc, mode)
 						mode = mode or "n"
-						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+						vim.keymap.set(
+							mode,
+							keys,
+							func,
+							{ buffer = event.buf, noremap = true, silent = true, desc = "LSP: " .. desc }
+						)
 					end
 
 					-- Copied from lazyvim
@@ -203,7 +208,7 @@ return {
 					-- 	swiftSDKsDirectory = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk", -- Optional, if required
 					-- },
 				},
-				filetypes = { "swift", "swiftinterface", "c", "cpp", "objective-c", "objective-cpp" },
+				-- filetypes = { "swift", "swiftinterface", "c", "cpp", "objective-c", "objective-cpp" },
 			})
 		end,
 	},
