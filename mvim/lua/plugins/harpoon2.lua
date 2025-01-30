@@ -41,6 +41,10 @@ return {
 				vim.keymap.set("n", "<C-t>", function()
 					harpoon.ui:select_menu_item({ tabedit = true })
 				end, { buffer = cx.bufnr })
+
+				vim.keymap.set("n", "<C-c>", function()
+					harpoon.ui:close_menu()
+				end, { buffer = cx.bufnr })
 			end,
 		})
 

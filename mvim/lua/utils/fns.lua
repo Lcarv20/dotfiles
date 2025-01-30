@@ -163,9 +163,10 @@ end
 
 --- Create a temporary notification using mini.notify.
 -- This function displays a notification message with a specified level and automatically removes it after a delay.
--- @param msg string: The notification message to display.
+-- @param msg The notification message to display.
 -- @param level "INFO" | "WARN" | "ERROR" | "DEBUG": The level of the notification
 -- @param delay number: (optional) The delay in milliseconds before removing the notification. Defaults to 2500.
+---@type fun(msg: string, level: "'INFO'" | "'WARN'" | "'ERROR'" | "'DEBUG'", delay?: number)
 M.create_notification = function(msg, level, delay)
 	delay = delay or 2500 -- Use the provided delay or default to 2500
 

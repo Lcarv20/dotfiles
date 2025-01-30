@@ -35,7 +35,7 @@ vim.opt.listchars = {
 	nbsp = "␣", -- Show non-breaking spaces
 	lead = "·", -- Show leading spaces
 	multispace = "·", -- Show multiple spaces as middle dots
-	eol = "↲", -- Show end of line character
+	-- eol = "↲", -- Show end of line character
 }
 
 vim.opt.fillchars = { eob = " " }

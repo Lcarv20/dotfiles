@@ -108,30 +108,16 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
--- This is annowing because I get all the warnings on the quickfix
--- Swift stuff
+-- Make lsp and hightlight work on .swiftinterface files, and disable diagnostics
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.swiftinterface",
 	callback = function()
 		vim.bo.filetype = "swift"
-		vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+
+		vim.diagnostic.enable(false, {
+			bufnr = 0,
+		})
+
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "BufLeave", "BufNewFile" }, {
-	pattern = "*.swiftinterface",
-	callback = function()
-		vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-	end,
-})
-
--- vim.api.nvim_create_autocmd({ "BufLeave" }, {
---   callback = function()
---     local current_buf_ft = vim.bo.filetype
---     if current_buf_ft == "qf" then
---       vim.cmd("cclose")
---     elseif current_buf_ft == "loclist" then
---       vim.cmd("lclose")
---     end
---   end,
--- })
