@@ -22,7 +22,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 		"DressingSelect",
 		"tsplayground",
 		"codecompanion",
-		"vim",
+		-- "vim",
 		"",
 	},
 	callback = function()

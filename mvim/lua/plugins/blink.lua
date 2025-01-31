@@ -44,7 +44,7 @@ return {
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 300,
-				window = { border = "single" },
+				-- window = { border = "single" },
 			},
 
 			-- Display a preview of the selected item on the current line

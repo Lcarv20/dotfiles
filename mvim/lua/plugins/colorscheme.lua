@@ -1,13 +1,12 @@
 return {
 	{
 		"aliqyan-21/darkvoid.nvim",
-		enabled = false,
+		-- enabled = false,
 		config = function()
 			require("darkvoid").setup({
 				transparent = true,
 				glow = true,
 				show_end_of_buffer = true,
-
 				colors = {
 					fg = "#c0c0c0",
 					bg = "#1c1c1c",
@@ -74,7 +73,22 @@ return {
 					info = "#7fa1c3",
 				},
 			})
-			vim.cmd("colorscheme darkvoid")
+			-- vim.cmd("colorscheme darkvoid")
+		end,
+	},
+	{
+		"kvrohit/rasmus.nvim",
+		priority = 1000,
+		config = function()
+			-- -- Configure the appearance
+			-- vim.g.rasmus_italic_functions = true
+			-- vim.g.rasmus_bold_functions = true
+			--
+			-- -- Set the colorscheme variant to monochrome
+			-- vim.g.rasmus_variant = "monochrome"
+			--
+			-- -- Load the colorscheme
+			-- vim.cmd([[colorscheme rasmus]])
 		end,
 	},
 	{
@@ -83,33 +97,12 @@ return {
 		config = function()
 			require("gruber-darker").setup({
 				-- OPTIONAL
-				transparent = true, -- removes the background
+				-- transparent = true, -- removes the background
 				underline = true, -- disables underline fonts
 				bold = true, -- disables bold fonts
 			})
-			local colors = require("gruber-darker.groups").colors
 
-			-- List chars
-			vim.api.nvim_set_hl(0, "Whitespace", {
-				fg = colors.niagara_1,
-				-- ctermfg = 240,
-			})
-
-			-- Indent scope
-			vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", {
-				fg = colors.brown,
-			})
-
-			-- Eyeliner
-			vim.api.nvim_set_hl(0, "EyelinerPrimary", { bold = true, bg = colors.yellow, fg = colors.bg })
-			vim.api.nvim_set_hl(0, "EyelinerSecondary", { bg = colors.red, fg = colors.bg })
-
-			-- Blink
-			vim.api.nvim_set_hl(0, "BlinkCmpScrollBarThumb", { bg = colors.green })
-			-- vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "Pmenu" })
-
-			-- Telescope
-			vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = colors.bg, bg = colors.red })
+			vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "Pmenu" })
 
 			vim.cmd.colorscheme("gruber-darker")
 		end,
