@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 -- Cursor style
-vim.api.nvim_create_autocmd({ "ColorScheme", "WinEnter" }, {
+vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
 	pattern = "*",
 	callback = function()
 		require("utils.fns").cursor_style()
@@ -121,3 +121,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.conceallevel = 2
+    vim.opt_local.concealcursor = "n"
+  end,
+})

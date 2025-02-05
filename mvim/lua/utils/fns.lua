@@ -3,13 +3,13 @@ local M = {}
 M.cursor_style = function()
 	-- create highlights for the different modes
 	local colors = require("utils.colors")
-  -- local colors = require("gruber.groups")
+	-- local colors = require("gruber.groups")
 
-	vim.api.nvim_set_hl(0, "NCursor", { bg = colors.cyan })
+	vim.api.nvim_set_hl(0, "NCursor", { bg = colors.blue })
 	vim.api.nvim_set_hl(0, "ICursor", { bg = colors.green })
 	vim.api.nvim_set_hl(0, "VCursor", { bg = colors.yellow })
 	vim.api.nvim_set_hl(0, "RCursor", { bg = colors.red })
-	vim.api.nvim_set_hl(0, "ComCursor", { bg = colors.quartz })
+	vim.api.nvim_set_hl(0, "ComCursor", { bg = colors.cyan })
 	vim.api.nvim_set_hl(0, "NoiceCursor", { bg = colors.niagara_1 })
 end
 
@@ -128,8 +128,8 @@ end
 M.lsp_popover_borders = function()
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		border = "single",
-		max_width = 80,
-		max_height = 20,
+		-- max_width = 80,
+		-- max_height = 20,
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] =

@@ -41,4 +41,5 @@ return {
 	niagara = "#96a6c8",
 	wisteria = "#9e95c7",
 	dark_blue = "#0e323d",
+  blue = "#345beb",
 }

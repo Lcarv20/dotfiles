@@ -93,7 +93,7 @@ hi! link Title dkoTextLight
 hi! Todo                guibg=#303033 guifg=#ddaa66 gui=bold
 hi! Type                              guifg=#dddddd gui=NONE  ctermfg=253
 hi! Underlined                        guifg=#88aaee gui=underline           ctermfg=110
-hi! Visual              guibg=#afa08f guifg=#1f1f1f
+hi! Visual              guibg=#452f2a guifg=NONE
 hi! WarningMsg                        guifg=#ccaa88
 hi! Whitespace          guibg=#1c1c1c guifg=#40485a gui=bold
 hi! Folded              guibg=#24252a guifg=#88aabb           ctermbg=236   ctermfg=110
@@ -141,13 +141,19 @@ hi! link CursorLine     dkoBgAlt
 
 " want guifg=#666666 for borders, but not on text
 " waiting for https://github.com/neovim/neovim/issues/15551
-hi! Pmenu               guibg=bg
+hi! Pmenu               guibg=#303033
 hi! PmenuSel            guifg=fg guibg=#40485a
 " popup menu scrollbar
 hi! link PmenuSbar      PmenuSel
-hi! PmenuThumb          guibg=#505055
+hi! PmenuThumb          guibg=#cc8877
 
 hi! link WildMenu       PmenuThumb
+
+" ============================================================================
+" Blink Documentation popup
+" ============================================================================
+hi! link BlinkCmpDoc    Pmenu
+hi! link BlinkCmpDocSeparator Pmenu
 
 " ============================================================================
 " Neovim float

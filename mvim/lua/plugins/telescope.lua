@@ -18,6 +18,9 @@ return {
 	config = function()
 		require("telescope").setup({
 			pickers = {
+        colorscheme = {
+          enable_preview = true
+        },
 				find_files = {
 					theme = "dropdown",
 					-- coppied from lazyvim
@@ -113,6 +116,7 @@ return {
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
 		vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find Recent Files" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find existing buffers" })
+		vim.keymap.set("n", "<leader>uc", builtin.colorscheme, { desc = "Change colorscheme" })
 
 		vim.keymap.set("n", "<leader>sF", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
