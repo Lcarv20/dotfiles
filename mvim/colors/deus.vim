@@ -84,6 +84,7 @@ let s:ds = {}
 
 " fill it with absolute colors
 let s:ds.darkX       = ['#181818', 235]     "
+let s:ds.darkX2       = ['#202020', 235]     "
 let s:ds.dark0       = ['#2C323B', 235]     " 40-40-40 Background
 let s:ds.dark1       = ['#3c3836', 237]     " 60-56-54
 let s:ds.dark2       = ['#242a32', 239]     " 80-73-69
@@ -108,6 +109,7 @@ let s:ds.bright_blue    = ['#83a598', 109]     " 131-165-152
 let s:ds.bright_purple  = ['#C678DD', 175]     " 211-134-155
 let s:ds.bright_aqua    = ['#8ec07c', 108]     " 142-192-124
 let s:ds.bright_orange  = ['#fe8019', 208]     " 254-128-25
+let s:ds.dark_red       = ['#452626', 208]
 
 " 
 " Setup Emphasis: 
@@ -413,16 +415,19 @@ hi! link NonText deusGreen
 hi! link Ignore deusPurple 
 hi! link SpecialKey deusOrange
 
-call s:HL('Visual',    s:none,  s:bg1)
+call s:HL('Visual',    s:none,  s:ds.dark_red)
 hi! link VisualNOS Visual
+call s:HL('LspReferenceRead', s:none, s:bg1)
+call s:HL('LspReferenceText', s:none, s:bg1)
+call s:HL('LspReferenceWrite', s:none, s:bg1)
 
 call s:HL('Search',    s:bg0, s:yellow)
 call s:HL('IncSearch', s:bg0, s:hls_cursor)
 
 call s:HL('Underlined', s:blue, s:none, s:underline)
 
-call s:HL('StatusLine',   s:bg2, s:fg1, s:bold . s:inverse)
-call s:HL('StatusLineNC', s:bg2, s:fg1, s:bold . s:inverse)
+call s:HL('StatusLine',   s:ds.darkX2, s:fg1, s:bold . s:inverse)
+call s:HL('StatusLineNC', s:ds.darkX2, s:fg1, s:bold . s:inverse)
 
 " The column separating vertically split windows
 call s:HL('VertSplit', s:fg4, s:vert_split)
@@ -503,9 +508,9 @@ hi! link Operator Normal
 hi! link Keyword deusRed
 
 " Variable name
-hi! link Identifier deusBlue
+hi! link Identifier deusFg0
 " Function name
-hi! link Function deusGreenBold
+hi! link Function deusYellow
 
 " Generic preprocessor
 hi! link PreProc deusAqua
@@ -569,6 +574,9 @@ call s:HL('DiffAdd',    s:green, s:bg0, s:inverse)
 " Alternative setting
 call s:HL('DiffChange', s:aqua, s:bg0, s:inverse)
 call s:HL('DiffText',   s:yellow, s:bg0, s:inverse)
+
+" Separator
+call s:HL('WinSeparator', s:fg3)
 
 " 
 " Spelling: 
@@ -778,8 +786,11 @@ call s:HL('BufTabLineActive', s:fg4, s:bg2)
 call s:HL('BufTabLineHidden', s:fg1, s:bg2)
 call s:HL('BufTabLineFill', s:bg0, s:bg2)
 
-hi StatusLine ctermbg=10 ctermfg=10 cterm=bold guibg=NONE guifg=NONE gui=NONE
-hi StatusLineNC ctermbg=10 ctermfg=10 cterm=NONE guibg=NONE guifg=NONE gui=NONE
+"
+" StatusLine
+
+"hi StatusLine ctermbg=12 ctermfg=10 cterm=bold guibg=NONE guifg=NONE gui=NONE
+"hi StatusLineNC ctermbg=12 ctermfg=10 cterm=NONE guibg=NONE guifg=NONE gui=NONE
 
 " 
 " Netrw: 
@@ -1222,6 +1233,10 @@ hi! link jsonQuote deusGreen
 hi! link jsonBraces deusFg1
 hi! link jsonString deusFg1
 
+"
+" Swift
+hi! link @lsp.type.function.swift deusFg2
+
 " 
 " 
 " Utility Functions 
@@ -1235,6 +1250,8 @@ function! DeusHlsHideCursor()
   call s:HL('Cursor', s:none, s:none, s:inverse)
 endfunction
 
+
+set guicursor=n:block-deusYellow,ci:block-deusPurple,v:block-deusPurple,i-ci-ve:block-deusGreen,r-cr-o:block-deusRed,sm:block-DeusOrange
 " 
 " 
 

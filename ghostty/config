@@ -2,10 +2,12 @@
 # -------------
 cursor-style = block
 shell-integration-features = no-cursor
-cursor-style-blink = false
+# cursor-style-blink = false
 cursor-click-to-move = true
+cursor-text = #181818
+# cursor-invert-fg-bg
 # cursor-color = cyan
-cursor-opacity = 0.7
+# cursor-opacity = 0.7
 
 # Theme
 # -------------
@@ -13,6 +15,7 @@ cursor-opacity = 0.7
 # theme = light:tokyonight-day,dark:tokyonight_night
 # theme = NvimDark
 theme = gruber-darker
+# theme = gruvbox-material
 # theme = tokyonight_night
 #--------------
 

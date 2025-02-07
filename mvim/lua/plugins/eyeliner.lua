@@ -1,12 +1,13 @@
 return {
 	"jinh0/eyeliner.nvim",
+	keys = { "f", "F", "t", "T" },
 	config = function()
 		require("eyeliner").setup({
 			-- show highlights only after keypress
 			highlight_on_key = true,
 
 			-- dim all other characters if set to true (recommended!)
-			dim = false,
+			dim = true,
 
 			-- set the maximum number of characters eyeliner.nvim will check from
 			-- your current cursor position; this is useful if you are dealing with
@@ -26,5 +27,7 @@ return {
 			-- see section on advanced configuration for more information
 			default_keymaps = true,
 		})
+		vim.api.nvim_set_hl(0, "EyelinerPrimary", { fg = "#181818", bg = "#fabd2f" })
+		vim.api.nvim_set_hl(0, "EyelinerSecondary", { fg = "#181818", bg = "#fb4934" })
 	end,
 }

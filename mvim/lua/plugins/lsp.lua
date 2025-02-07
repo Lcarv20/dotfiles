@@ -21,19 +21,6 @@ return {
 			} },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			-- {
-			-- 	"j-hui/fidget.nvim",
-			-- 	opts = {
-			-- 		notification = {
-			-- 			window = {
-			-- 				border = "single",
-			-- 				winblend = 0,
-			-- 				align = "top",
-			-- 			},
-			-- 		},
-			-- 	},
-			-- },
-			-- "hrsh7th/cmp-nvim-lsp",
 			"saghen/blink.cmp",
 		},
 		config = function()
@@ -207,12 +194,6 @@ return {
 					},
 				}),
 				single_file_support = true,
-				settings = {
-					-- swiftPM = {
-					-- 	swiftSDKsDirectory = "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk", -- Optional, if required
-					-- },
-				},
-				-- filetypes = { "swift", "swiftinterface", "c", "cpp", "objective-c", "objective-cpp" },
 			})
 		end,
 	},
