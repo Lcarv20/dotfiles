@@ -452,6 +452,20 @@ hi! link Question deusOrangeBold
 " Warning messages
 hi! link WarningMsg deusRedBold
 
+"
+" Diagnostics
+call s:HL('DiagnosticVirtualTextWarn', s:yellow, ["#3b3009", 132])
+call s:HL('DiagnosticVirtualTextError', s:red, ["#260804", 132])
+call s:HL('DiagnosticVirtualTextOk', s:green, ["#093b16", 132])
+call s:HL('DiagnosticVirtualTextHint', s:blue, ["#20273b", 132])
+call s:HL('DiagnosticVirtualTextInfo', s:aqua, ["#09323b", 132])
+
+hi DiagnosticUnderlineWarn cterm=undercurl gui=undercurl 
+hi DiagnosticUnderlineError cterm=undercurl gui=undercurl 
+hi DiagnosticUnderlineOk cterm=undercurl gui=undercurl 
+hi DiagnosticUnderlineHint cterm=undercurl gui=undercurl 
+hi DiagnosticUnderlineInfo cterm=undercurl gui=undercurl 
+
 " 
 " Gutter: 
 
@@ -545,7 +559,7 @@ hi! link Type deusYellow
 " static, register, volatile, etc
 hi! link StorageClass deusOrange
 " struct, union, enum, etc.
-hi! link Structure deusAqua
+hi! link Structure deusOrange
 " typedef
 hi! link Typedef deusYellow
 
@@ -989,93 +1003,93 @@ hi! link cssRenderProp deusAqua
 hi! link cssColorProp deusAqua
 hi! link cssGeneratedContentProp deusAqua
 
-" 
-" JavaScript: 
-
-hi! link javaScriptBraces deusFg1
-hi! link javaScriptFunction deusAqua
-hi! link javaScriptIdentifier deusRed
-hi! link javaScriptMember deusBlue
-hi! link javaScriptNumber deusPurple
-hi! link javaScriptNull deusPurple
-hi! link javaScriptParens deusFg3
-
-" 
-" YAJS: 
-
-hi! link javascriptImport deusAqua
-hi! link javascriptExport deusAqua
-hi! link javascriptClassKeyword deusAqua
-hi! link javascriptClassExtends deusAqua
-hi! link javascriptDefault deusAqua
-
-hi! link javascriptClassName deusYellow
-hi! link javascriptClassSuperName deusYellow
-hi! link javascriptGlobal deusYellow
-
-hi! link javascriptEndColons deusFg1
-hi! link javascriptFuncArg deusFg1
-hi! link javascriptGlobalMethod deusFg1
-hi! link javascriptNodeGlobal deusFg1
-
-" hi! link javascriptVariable deusOrange
-hi! link javascriptVariable deusPurple
-" hi! link javascriptIdentifier deusOrange
-" hi! link javascriptClassSuper deusOrange
-hi! link javascriptIdentifier deusOrange
-hi! link javascriptClassSuper deusOrange
-
-" hi! link javascriptFuncKeyword deusOrange
-" hi! link javascriptAsyncFunc deusOrange
-hi! link javascriptFuncName deusFg1
-hi! link javascriptFuncKeyword deusAqua
-hi! link javascriptAwaitFuncKeyword deusRed
-hi! link javascriptAsyncFuncKeyword deusBlue
-hi! link javascriptClassStatic deusOrange
-
-hi! link javascriptOperator deusRed
-hi! link javascriptForOperator deusRed
-hi! link javascriptYield deusRed
-hi! link javascriptExceptions deusRed
-hi! link javascriptMessage deusRed
-
-hi! link javascriptTemplateSB deusAqua
-hi! link javascriptTemplateSubstitution deusFg1
-
-" hi! link javascriptLabel deusBlue
-" hi! link javascriptObjectLabel deusBlue
-" hi! link javascriptPropertyName deusBlue
-hi! link javascriptLabel deusFg1
-hi! link javascriptObjectLabel deusFg1
-hi! link javascriptPropertyName deusFg1
-
-hi! link javascriptLogicSymbols deusFg1
-hi! link javascriptArrowFunc deusYellow
-
-hi! link javascriptDocParamName deusFg4
-hi! link javascriptDocTags deusFg4
-hi! link javascriptDocNotation deusFg4
-hi! link javascriptDocParamType deusFg4
-hi! link javascriptDocNamedParamType deusFg4
-
-" 
-" jsx-pretty: 
-hi! link jsxTagName deusBlue
-hi! link jsxComponentName jsxTagName
-hi! link jsxOpenPunct deusGray
-hi! link jsxBraces jsxTagName
-hi! link jsxCloseString jsxOpenPunct
-hi! link jsxEqual jsxTagName
-hi! link jsxString javascriptString
-hi! link jsxAttrib jsxString
-" 
-" CoffeeScript: 
-
-hi! link coffeeExtendedOp deusFg3
-hi! link coffeeSpecialOp deusFg3
-hi! link coffeeCurly deusOrange
-hi! link coffeeParen deusFg3
-hi! link coffeeBracket deusOrange
+"" 
+"" JavaScript: 
+"
+"hi! link javaScriptBraces deusFg1
+"hi! link javaScriptFunction deusAqua
+"hi! link javaScriptIdentifier deusRed
+"hi! link javaScriptMember deusBlue
+"hi! link javaScriptNumber deusPurple
+"hi! link javaScriptNull deusPurple
+"hi! link javaScriptParens deusFg3
+"
+"" 
+"" YAJS: 
+"
+"hi! link javascriptImport deusAqua
+"hi! link javascriptExport deusAqua
+"hi! link javascriptClassKeyword deusAqua
+"hi! link javascriptClassExtends deusAqua
+"hi! link javascriptDefault deusAqua
+"
+"hi! link javascriptClassName deusYellow
+"hi! link javascriptClassSuperName deusYellow
+"hi! link javascriptGlobal deusYellow
+"
+"hi! link javascriptEndColons deusFg1
+"hi! link javascriptFuncArg deusFg1
+"hi! link javascriptGlobalMethod deusFg1
+"hi! link javascriptNodeGlobal deusFg1
+"
+"" hi! link javascriptVariable deusOrange
+"hi! link javascriptVariable deusPurple
+"" hi! link javascriptIdentifier deusOrange
+"" hi! link javascriptClassSuper deusOrange
+"hi! link javascriptIdentifier deusOrange
+"hi! link javascriptClassSuper deusOrange
+"
+"" hi! link javascriptFuncKeyword deusOrange
+"" hi! link javascriptAsyncFunc deusOrange
+"hi! link javascriptFuncName deusFg1
+"hi! link javascriptFuncKeyword deusAqua
+"hi! link javascriptAwaitFuncKeyword deusRed
+"hi! link javascriptAsyncFuncKeyword deusBlue
+"hi! link javascriptClassStatic deusOrange
+"
+"hi! link javascriptOperator deusRed
+"hi! link javascriptForOperator deusRed
+"hi! link javascriptYield deusRed
+"hi! link javascriptExceptions deusRed
+"hi! link javascriptMessage deusRed
+"
+"hi! link javascriptTemplateSB deusAqua
+"hi! link javascriptTemplateSubstitution deusFg1
+"
+"" hi! link javascriptLabel deusBlue
+"" hi! link javascriptObjectLabel deusBlue
+"" hi! link javascriptPropertyName deusBlue
+"hi! link javascriptLabel deusFg1
+"hi! link javascriptObjectLabel deusFg1
+"hi! link javascriptPropertyName deusFg1
+"
+"hi! link javascriptLogicSymbols deusFg1
+"hi! link javascriptArrowFunc deusYellow
+"
+"hi! link javascriptDocParamName deusFg4
+"hi! link javascriptDocTags deusFg4
+"hi! link javascriptDocNotation deusFg4
+"hi! link javascriptDocParamType deusFg4
+"hi! link javascriptDocNamedParamType deusFg4
+"
+"" 
+"" jsx-pretty: 
+"hi! link jsxTagName deusBlue
+"hi! link jsxComponentName jsxTagName
+"hi! link jsxOpenPunct deusGray
+"hi! link jsxBraces jsxTagName
+"hi! link jsxCloseString jsxOpenPunct
+"hi! link jsxEqual jsxTagName
+"hi! link jsxString javascriptString
+"hi! link jsxAttrib jsxString
+"" 
+"" CoffeeScript: 
+"
+"hi! link coffeeExtendedOp deusFg3
+"hi! link coffeeSpecialOp deusFg3
+"hi! link coffeeCurly deusOrange
+"hi! link coffeeParen deusFg3
+"hi! link coffeeBracket deusOrange
 
 " 
 " Ruby: 

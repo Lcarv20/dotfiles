@@ -94,7 +94,10 @@ return {
 			vim.g.gruvbox_material_better_performance = false
 			vim.g.gruvbox_material_cursor = "aqua" --  'red', 'orange', 'yellow', 'green', 'aqua', 'blue', 'purple'
 
-			-- vim.g.gruvbox_material_colors_override = { }
+			-- vim.g.gruvbox_material_colors_override = {
+			-- 	bg0 = { "#181818", "234" },
+			-- 	-- bg2 = { "#282828", "235" },
+			-- }
 
 			vim.api.nvim_set_hl(0, "blinkcmpdocseparator", { link = "normal", force = true })
 			vim.api.nvim_set_hl(0, "blinkcmpdocborder", { link = "pmenu", force = true })

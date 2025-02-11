@@ -49,6 +49,5 @@ return {
 		statusline.section_location = function()
 			return "%2l:%-2v"
 		end
-
 	end,
 }

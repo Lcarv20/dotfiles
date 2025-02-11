@@ -48,6 +48,10 @@ map("x", "<A-k>", ":m '<-2<CR>gv-gv")
 map("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
 map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 
+-- Do not lose visual focus on the selection after indend
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+
 -- List chars
 -- Set the keymap with a dynamic description
 map("n", "<leader>ul", fns.toggle_listchars, {

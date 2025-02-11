@@ -82,9 +82,12 @@ M.diagnostics_config = function()
 			severity_sort = true,
 			float = {
 				focusable = true,
+				max_width = 80,
+				max_height = 20,
 				style = "minimal",
 				border = "single",
 				source = "always",
+				wrap = true,
 				header = "",
 				prefix = function(diagnostic, i, total)
 					local function get_i()
@@ -128,8 +131,9 @@ end
 M.lsp_popover_borders = function()
 	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 		border = "single",
-		-- max_width = 80,
-		-- max_height = 20,
+		max_width = 80,
+		wrap = true,
+		max_height = 20,
 	})
 
 	vim.lsp.handlers["textDocument/signatureHelp"] =
