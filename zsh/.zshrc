@@ -25,6 +25,10 @@ plugins=(...web-search)
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
+
+# Ruby stuff I guess
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+
 #BOB (nvim v-manager)-------------------------------------------------------
 export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 #HomeBrew-------------------------------------------------------------
@@ -42,6 +46,9 @@ export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
 # PNPM-------------------------------------------------------------
 export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+# LMStudio
+export PATH=$PATH:$HOME/.lmstudio/bin
 
 # GOLANG CI LINTER-------------------------------------------------------------
 export PATH=$PATH:$GOLANGCI_LINT_INSTALL_DIR
@@ -133,6 +140,8 @@ export NEXT_TELEMETRY_DISABLED=1
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
 
 
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/lcarv/.lmstudio/bin"
