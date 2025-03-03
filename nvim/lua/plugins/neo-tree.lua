@@ -4,7 +4,7 @@ return {
     { "<Leader>E", false },
   },
   opts = {
-    popup_border_style = "solid",
+    popup_border_style = "rounded",
     source_selector = {
       winbar = false,
       statusline = false,

@@ -2,9 +2,10 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "tokyonight-night",
+      colorscheme = "tokyonight-night",
       -- transparent = true,
-      colorscheme = "gruber-darker",
+      -- colorscheme = "gruber-darker",
+      -- colorscheme = "everforest",
     },
     icons = {
       kinds = {
@@ -92,6 +93,7 @@ return {
   -- Or with configuration
   {
     "projekt0n/github-nvim-theme",
+    enabled = false,
     name = "github-theme",
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
@@ -102,12 +104,12 @@ return {
         },
       })
 
-      -- vim.cmd("colorscheme github_dark_dimmed")
+      vim.cmd("colorscheme github_dark_dimmed")
     end,
   },
   {
     "Lcarv20/gruber-darker.nvim",
-    -- enabled = false,
+    enabled = false,
     config = function()
       require("gruber-darker").setup({
         -- OPTIONAL

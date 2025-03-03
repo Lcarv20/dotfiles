@@ -1,4 +1,11 @@
-# Theme
+# Shader
+# -------------
+# custom-shader = ghostty-shaders/in-game-crt.glsl
+# custom-shader = ghostty-shaders/cubes.glsl
+# custom-shader = ghostty-shaders/bloom.glsl
+# custom-shader = ghostty-shaders/gears-and-belts.glsl
+
+# Cursor
 # -------------
 cursor-style = block
 shell-integration-features = no-cursor
@@ -13,14 +20,19 @@ cursor-text = #181818
 # Theme
 # -------------
 # theme = light:Github,dark:GitHub Dark
-# theme = light:tokyonight-day,dark:tokyonight_night
+theme = light:tokyonight-day,dark:tokyonight_night
 # theme = NvimDark
 # theme = gruber-darker
 # theme = Elementary
-theme = mellow
+# theme = mellow
 # theme = gruvbox-material
 # theme = Brogrammer
 # theme = tokyonight_night
+#--------------
+
+# Cell
+# -------------
+adjust-cell-height = 20%
 #--------------
 
 # Font

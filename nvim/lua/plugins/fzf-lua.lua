@@ -7,12 +7,12 @@ return {
     { "<leader><space>", false },
   },
   opts = {
-    winopts = {
-      border = "none",
-      preview = {
-        border = "none"
-      }
-    },
+    -- winopts = {
+    --   border = "none",
+    --   preview = {
+    --     border = "none"
+    --   }
+    -- },
     fzf_args = '--prompt="   "',
   },
 }

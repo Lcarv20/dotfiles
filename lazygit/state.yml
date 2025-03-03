@@ -1,9 +1,9 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/lcarv/Developer/software/lcai
     - /Users/lcarv/.dotfiles
+    - /Users/lcarv/Developer/software/lcai
 startuppopupversion: 5
-lastversion: 0.45.2
+lastversion: 0.48.0
 customcommandshistory: []
 hidecommandlog: false
 ignorewhitespaceindiffview: true

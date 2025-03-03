@@ -47,10 +47,10 @@ return {
 
     local theme = require("lualine.themes.auto")
     theme.normal.c.bg = "none"
-    theme.insert.c.bg = "none"
-    theme.visual.c.bg = "none"
-    theme.replace.c.bg = "none"
-    theme.command.c.bg = "none"
+    -- theme.insert.c.bg = "none"
+    -- theme.visual.c.bg = "none"
+    -- theme.replace.c.bg = "none"
+    -- theme.command.c.bg = "none"
 
 
     local recording = {

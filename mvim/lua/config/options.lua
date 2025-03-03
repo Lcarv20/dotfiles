@@ -46,7 +46,7 @@ vim.opt.scrolloff = 10
 
 -- vim.opt.guicursor =
 -- 	"n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
-vim.opt.guicursor =
-	"n:block-deusYellow,ci:block-deusPurple,v:block-deusPurple,i-ci-ve:block-deusGreen,r-cr-o:block-deusRed,sm:block-DeusOrange"
+-- vim.opt.guicursor =
+-- 	"n:block-deusYellow,ci:block-deusPurple,v:block-deusPurple,i-ci-ve:block-deusGreen,r-cr-o:block-deusRed,sm:block-DeusOrange"
 vim.opt.foldmethod = "manual"
 vim.opt.cmdheight = 2

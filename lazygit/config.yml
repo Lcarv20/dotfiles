@@ -7,7 +7,6 @@ gui:
   portraitMode: "auto"
   mainPanelSplitMode: "flexible"
   animateExplosion: true
-  
   # theme:
   #   activeBorderColor:
   #     - '#005078' # Blue
@@ -41,7 +40,6 @@ gui:
   #   'release': '#005078' # Blue
   #   'hotfix': '#5e0009' # Red
   #   'development': '#015825' # Green
-
   showFileTree: true
   showListFooter: true
   showRandomTip: true
@@ -49,30 +47,23 @@ gui:
   expandFocusedSidePanel: true
   skipStashWarning: true
   skipDiscardChangeWarning: true
-
 git:
   log:
     showGraph: "always"
     showWholeGraph: true
-
   paging:
     colorArg: always
-    pager: delta --paging=never 
-
+    pager: delta --paging=never
   commit:
     autoWrapCommitMessage: true
     autoWrapWidth: 72
-
   commitPrefix:
-    pattern: "^(feature|bugfix|hotfix)/(\\w+-\\w+).*"
-    replace: "[$2] "
-
+    - pattern: "^(feature|bugfix|hotfix)/(\\w+-\\w+).*"
+      replace: "[$2] "
   autoFetch: true
   autoRefresh: true
   fetchAll: true
   autoStageResolvedConflicts: true
-
 refresher:
-  refreshInterval: 5  # Check for file changes every 5 seconds
-  fetchInterval: 60   # Fetch from remote every minute
-
+  refreshInterval: 5 # Check for file changes every 5 seconds
+  fetchInterval: 60 # Fetch from remote every minute

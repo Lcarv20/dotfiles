@@ -29,5 +29,5 @@ require("lazy").setup({
 	ui = {
 		border = "double",
 	},
-	install = { colorscheme = { "gruber-darker", "default", "habamax" } },
+	install = { colorscheme = { "tokyonight", "default", "habamax" } },
 })
