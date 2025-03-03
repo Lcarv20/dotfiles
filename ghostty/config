@@ -1,7 +1,7 @@
 # Shader
 # -------------
 # custom-shader = ghostty-shaders/in-game-crt.glsl
-# custom-shader = ghostty-shaders/cubes.glsl
+custom-shader = ghostty-shaders/cubes.glsl
 # custom-shader = ghostty-shaders/bloom.glsl
 # custom-shader = ghostty-shaders/gears-and-belts.glsl
 
@@ -11,8 +11,8 @@ cursor-style = block
 shell-integration-features = no-cursor
 # cursor-style-blink = false
 cursor-click-to-move = true
-cursor-text = #181818
-cursor-color = #e86d6d
+# cursor-text = #181818
+# cursor-color = #e86d6d
 # cursor-invert-fg-bg
 # cursor-color = cyan
 # cursor-opacity = 0.7
@@ -21,13 +21,9 @@ cursor-color = #e86d6d
 # -------------
 # theme = light:Github,dark:GitHub Dark
 theme = light:tokyonight-day,dark:tokyonight_night
-# theme = NvimDark
 # theme = gruber-darker
 # theme = Elementary
 # theme = mellow
-# theme = gruvbox-material
-# theme = Brogrammer
-# theme = tokyonight_night
 #--------------
 
 # Cell
