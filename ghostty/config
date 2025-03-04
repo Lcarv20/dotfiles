@@ -1,7 +1,7 @@
 # Shader
 # -------------
 # custom-shader = ghostty-shaders/in-game-crt.glsl
-custom-shader = ghostty-shaders/cubes.glsl
+# custom-shader = ghostty-shaders/cubes.glsl
 # custom-shader = ghostty-shaders/bloom.glsl
 # custom-shader = ghostty-shaders/gears-and-belts.glsl
 
@@ -33,7 +33,7 @@ adjust-cell-height = 20%
 
 # Font
 # -------------
-# font-family = Cascadia Code
+# font-family = Monaspace Krypton Frozen
 # font-size = 14
 #--------------
 
