@@ -109,15 +109,23 @@ return {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = {},
+		opts = {
+			style = "night",
+			on_colors = function(colors)
+				-- colors.bg = "#ffffff"
+			end,
+		},
 	},
 	{
 		"f-person/auto-dark-mode.nvim",
-    enabled = false,
+		enabled = true,
 		opts = {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
 		},
 	},
+  {
+    'yorickpeterse/nvim-grey'
+  }
 }

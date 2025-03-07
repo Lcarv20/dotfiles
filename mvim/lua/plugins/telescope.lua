@@ -18,9 +18,9 @@ return {
 	config = function()
 		require("telescope").setup({
 			pickers = {
-        colorscheme = {
-          enable_preview = true
-        },
+				colorscheme = {
+					enable_preview = true,
+				},
 				find_files = {
 					theme = "dropdown",
 					-- coppied from lazyvim
@@ -85,6 +85,8 @@ return {
 						["<ESC>"] = require("telescope.actions").close,
 					},
 				},
+				prompt_prefix = " 󰍉 ",
+        selection_caret = "󰅂 ",
 				border = {},
 				borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 				layout_config = { prompt_position = "top" },
