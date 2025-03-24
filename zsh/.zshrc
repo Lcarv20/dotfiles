@@ -100,6 +100,7 @@ alias lla="lsd -la"
 # Neovim
 alias v="nvim"
 alias m="NVIM_APPNAME=mvim nvim"
+alias mvim="NVIM_APPNAME=mvim nvim"
 
 # Gitui
 alias "git open"="git-open"
