@@ -20,7 +20,8 @@ cursor-click-to-move = true
 # Theme
 # -------------
 # theme = light:Github,dark:GitHub Dark
-theme = light:tokyonight-day,dark:tokyonight_night
+# theme = light:tokyonight-day,dark:tokyonight_night
+theme = IC_Orange_PPL
 # theme = gruber-darker
 # theme = Elementary
 # theme = mellow

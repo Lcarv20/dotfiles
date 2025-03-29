@@ -36,6 +36,9 @@ return {
 			},
 		})
 		vim.notify = require("mini.notify").make_notify()
+		vim.api.nvim_create_user_command("Notifications", function()
+			require("mini.notify").show_history()
+		end, {})
 
 		-- Simple and easy statusline.
 		local statusline = require("mini.statusline")
