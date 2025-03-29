@@ -56,8 +56,6 @@ function M.load(theme_name)
 
   -- Apply the highlight groups
   highlights_module.setup(colors, config)
-
-  print("Apophis Dark Matter theme loaded.")
 end
 
 --- Sets up the colorscheme with user options.

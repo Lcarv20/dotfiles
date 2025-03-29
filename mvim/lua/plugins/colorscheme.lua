@@ -136,4 +136,5 @@ return {
 	{
 		"NLKNguyen/papercolor-theme",
 	},
+  { "typicode/bg.nvim", lazy = false }
 }

@@ -26,10 +26,10 @@ function M.setup(colors, config)
 
 	-- Basic Editor UI
 	hl("Normal", { fg = colors.foreground, bg = config.transparent and "NONE" or colors.editor_background })
-	hl("NormalFloat", { fg = colors.foreground, bg = config.transparent and "NONE" or colors.editorWidget_background }) -- For floating windows like LSP hover
+	hl("NormalFloat", { fg = colors.foreground, bg = colors.editorWidget_background }) -- For floating windows like LSP hover
 	hl(
 		"FloatBorder",
-		{ fg = colors.editorWidget_border, bg = config.transparent and "NONE" or colors.editorWidget_background }
+		{ fg = colors.editorWidget_border, bg = colors.editorWidget_background }
 	)
 	hl("Cursor", { fg = colors.editor_background, bg = colors.foreground })
 	hl("CursorLine", { bg = colors.editor_lineHighlightBackground })
@@ -66,7 +66,7 @@ function M.setup(colors, config)
 	hl("TabLine", { fg = colors.tab_inactiveForeground, bg = colors.tab_inactiveBackground })
 	hl("TabLineFill", { bg = colors.tab_inactiveBackground })
 	hl("TabLineSel", { fg = colors.tab_activeForeground, bg = colors.tab_activeBackground })
-	hl("Title", { fg = colors.accent, bold = true }) -- Titles for output of :set all, :autocmd, etc.
+	hl("Title", { fg = colors.accent, bold = true, bg = colors.editorWidget_background }) -- Titles for output of :set all, :autocmd, etc.
 	hl("VertSplit", { fg = colors.border, bg = config.transparent and "NONE" or colors.editor_background }) -- Separator between vertical splits
 	hl("WarningMsg", { fg = colors.warn, bg = config.transparent and "NONE" or colors.editor_background, bold = true })
 	hl("WildMenu", { fg = colors.editor_background, bg = colors.accent }) -- Wildmenu completion
@@ -80,7 +80,7 @@ function M.setup(colors, config)
 	hl("Boolean", { link = "Constant" })
 	hl("Float", { fg = colors.number })
 
-	hl("Constant", { fg = colors.foreground, bold = true }) -- Any constant
+	hl("Constant", { fg = colors.builtin_constant  }) -- Any constant
 	hl("Define", { link = "Keyword" }) -- Links to the new blue (if desired)
 	hl("Macro", { link = "Keyword" }) -- Links to the new blue (if desired)
 	hl("PreProc", { link = "Keyword" }) -- Links to the new blue (if desired)
