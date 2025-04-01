@@ -3,7 +3,6 @@ require("config.lazy")
 require("config.autocmds")
 require("config.keymaps")
 
-
 require('experimental.apophis_dark_matter').setup({
     transparent = false, -- Disable transparency
     italic_comments = true,

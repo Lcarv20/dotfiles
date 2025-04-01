@@ -73,9 +73,6 @@ vim.opt.wildmode = "longest:full,full"
 vim.opt.winminwidth = 5
 
 vim.opt.smoothscroll = true
-vim.opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
-vim.opt.foldmethod = "expr"
-vim.opt.foldtext = ""
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0

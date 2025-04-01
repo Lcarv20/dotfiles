@@ -74,9 +74,10 @@ M.diagnostics_config = function()
 				active = popup_signs,
 				text = diagnostic_signs,
 			},
-			virtual_text = {
-				prefix = "⏺",
-			},
+			-- virtual_text = {
+			-- 	prefix = "⏺",
+			-- },
+      virtual_lines = true,
 			update_in_insert = false,
 			underline = true,
 			severity_sort = true,
@@ -129,15 +130,13 @@ end
 
 -- Configure the LSP hover and signature help popups borders
 M.lsp_popover_borders = function()
-	vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-		border = "single",
-		max_width = 80,
-		wrap = true,
-		max_height = 20,
-	})
-
-	vim.lsp.handlers["textDocument/signatureHelp"] =
-		vim.lsp.with(vim.lsp.handlers.signature_help, { border = "single", max_width = 80, max_height = 20 })
+	local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
+	---@diagnostic disable-next-line: duplicate-set-field
+	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
+		opts = opts or {}
+		opts.border = opts.border or "single"
+		return orig_util_open_floating_preview(contents, syntax, opts, ...)
+	end
 end
 
 M.open_floating_window = function(bufnr)
