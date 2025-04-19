@@ -1,6 +1,11 @@
 -- LSP Plugins
 return {
 	{
+		"b0o/SchemaStore.nvim",
+		lazy = true,
+		version = false, -- last release is way too old
+	},
+	{
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {
@@ -29,7 +34,7 @@ return {
 				callback = function(event)
 					local map = function(keys, func, desc, mode)
 						mode = mode or "n"
-						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. ( desc or "" ) })
+						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. (desc or "") })
 					end
 
 					-- Diagnostics Related
@@ -37,11 +42,11 @@ return {
 					map("gK", vim.lsp.buf.signature_help, "Signature Help")
 					map("K", vim.lsp.buf.hover, "Hover")
 					map("]d", function()
-            vim.diagnostic.jump({count = 1, float = true})
-          end, "Next Diagnostic")
+						vim.diagnostic.jump({ count = 1, float = true })
+					end, "Next Diagnostic")
 					map("[d", function()
-            vim.diagnostic.jump({count = 1, float = true})
-          end, "Prev Diagnostic")
+						vim.diagnostic.jump({ count = 1, float = true })
+					end, "Prev Diagnostic")
 					map("gl", vim.diagnostic.open_float, "Line Diagnostics")
 
 					map("gd", vim.lsp.buf.definition, "Goto Definition")
@@ -58,30 +63,61 @@ return {
 					map("<leader>cd", vim.diagnostic.setloclist, "Document Diagnostics")
 					map("<leader>cw", vim.diagnostic.setqflist, "Workspace Diagnostics")
 
+					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
+					local function client_supports_method(client, method, bufnr)
+						if vim.fn.has("nvim-0.11") == 1 then
+							return client:supports_method(method, bufnr)
+						else
+							return client.supports_method(method, { bufnr = bufnr })
+						end
+					end
+
+					-- The following two autocommands are used to highlight references of the
+					-- word under your cursor when your cursor rests there for a little while.
+					--    See `:help CursorHold` for information about when this is executed
+					--
+					-- When you move your cursor, the highlights will be cleared (the second autocommand).
 					local client = vim.lsp.get_client_by_id(event.data.client_id)
-					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
-					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-						buffer = event.buf,
-						group = highlight_augroup,
-						callback = vim.lsp.buf.document_highlight,
-					})
+					if
+						client
+						and client_supports_method(
+							client,
+							vim.lsp.protocol.Methods.textDocument_documentHighlight,
+							event.buf
+						)
+					then
+						local highlight_augroup =
+							vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+							buffer = event.buf,
+							group = highlight_augroup,
+							callback = vim.lsp.buf.document_highlight,
+						})
 
-					vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-						buffer = event.buf,
-						group = highlight_augroup,
-						callback = vim.lsp.buf.clear_references,
-					})
+						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+							buffer = event.buf,
+							group = highlight_augroup,
+							callback = vim.lsp.buf.clear_references,
+						})
 
-					vim.api.nvim_create_autocmd("LspDetach", {
-						group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
-						callback = function(event2)
-							vim.lsp.buf.clear_references()
-							vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
-						end,
-					})
+						vim.api.nvim_create_autocmd("LspDetach", {
+							group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+							callback = function(event2)
+								vim.lsp.buf.clear_references()
+								vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+							end,
+						})
+					end
 
-					if client then
-						map("<leader>uh", function()
+					-- The following code creates a keymap to toggle inlay hints in your
+					-- code, if the language server you are using supports them
+					--
+					-- This may be unwanted, since they displace some of your code
+					if
+						client
+						and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
+					then
+						map("<leader>th", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 						end, "[T]oggle Inlay [H]ints")
 					end
@@ -99,6 +135,21 @@ return {
 			local servers = {
 				gopls = {},
 				pyright = {},
+				jsonls = {
+					-- lazy-load schemastore when needed
+					on_new_config = function(new_config)
+						new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+						vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())
+					end,
+					settings = {
+						json = {
+							format = {
+								enable = true,
+							},
+							validate = { enable = true },
+						},
+					},
+				},
 				cssls = {
 					settings = {
 						scss = {
