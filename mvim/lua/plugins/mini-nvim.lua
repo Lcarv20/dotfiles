@@ -19,8 +19,10 @@ return {
 		require("mini.pairs").setup()
 
 		require("mini.indentscope").setup({
+			symbol = "│",
+			options = { try_as_border = true },
 			-- symbol = "┋",
-			symbol = "⠅",
+			-- symbol = "⠅",
 			-- symbol = "⠄",
 		})
 

@@ -74,10 +74,10 @@ M.diagnostics_config = function()
 				active = popup_signs,
 				text = diagnostic_signs,
 			},
-			-- virtual_text = {
-			-- 	prefix = "⏺",
-			-- },
-      virtual_lines = true,
+			virtual_text = {
+				prefix = "⏺",
+			},
+      virtual_lines = false,
 			update_in_insert = false,
 			underline = true,
 			severity_sort = true,

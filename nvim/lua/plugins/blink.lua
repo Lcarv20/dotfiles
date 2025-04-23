@@ -3,26 +3,12 @@ return {
   opts = {
     cmdline = {
       keymap = {
-        -- recommended, as the default keymap will only show and select the next item
-        ["<Tab>"] = { "show", "accept" },
-        ["<CR>"] = { "accept_and_enter", "fallback" },
+        ["<Tab>"] = { "select_and_accept", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<C-n>"] = { "select_next", "fallback" },
+        ["<C-p>"] = { "select_prev", "fallback" },
+        ["<Cr>"] = { "accept", "fallback" },
       },
-      completion = {
-        menu = {
-          auto_show = function(_)
-            return vim.fn.getcmdtype() == ":"
-              -- enable for inputs as well, with:
-              or vim.fn.getcmdtype() == "@"
-          end,
-        },
-      },
-      -- keymap = {
-      --   ["<Tab>"] = { "select_and_accept", "fallback" },
-      --   ["<S-Tab>"] = { "select_prev", "fallback" },
-      --   ["<C-n>"] = { "select_next", "fallback" },
-      --   ["<C-p>"] = { "select_prev", "fallback" },
-      --   ["<Cr>"] = { "accept", "fallback" },
-      -- },
       sources = function()
         local type = vim.fn.getcmdtype()
         -- Search forward and backward
