@@ -45,7 +45,7 @@ return {
 						vim.diagnostic.jump({ count = 1, float = true })
 					end, "Next Diagnostic")
 					map("[d", function()
-						vim.diagnostic.jump({ count = 1, float = true })
+						vim.diagnostic.jump({ count = -1, float = true })
 					end, "Prev Diagnostic")
 					map("gl", vim.diagnostic.open_float, "Line Diagnostics")
 
