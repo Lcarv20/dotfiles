@@ -34,7 +34,6 @@ return {
 				-- auto_show = true,
 				auto_show = function(ctx)
 					if ctx.mode == "cmdline" then
-            print("hello there")
 					end
 					return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?", ":%" }, vim.fn.getcmdtype())
 				end,

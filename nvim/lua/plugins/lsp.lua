@@ -81,6 +81,10 @@ return {
   -- },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      { "mason-org/mason.nvim", version = "^1.0.0" },
+      { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
+    },
     opts = {
       inlay_hints = { enabled = false },
       servers = {

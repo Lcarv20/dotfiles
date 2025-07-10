@@ -8,13 +8,5 @@ return {
 		vim.keymap.set("i", "<C-a>", function()
 			require("copilot-lsp.nes").apply_pending_nes()
 		end)
-		local function greet(name)
-			print("Hello, " .. name)
-		end
-
-		greet("User")
-    greet("Coder")
-
-    
 	end,
 }

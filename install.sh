@@ -17,11 +17,6 @@ fi
 # clone dotfiles
 git clone https://github.com/lcarv/dotfiles.git ~/.dotfiles
 
-# config kitty
-ln -s ~/.dotfiles/kitty.conf ~/.config/kitty
-# install kitty.terminal
-brew install kitty
-
 # configure zsh
 ln -s ~/.dotfiles/zsh/.zshrc ~
 

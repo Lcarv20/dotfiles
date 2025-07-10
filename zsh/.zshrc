@@ -1,9 +1,3 @@
-# FNM node version manager - this eval changes node version and prints
-eval "$(fnm env --use-on-cd --version-file-strategy=recursive)"
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
 $HOME/.dotfiles/zsh/poke-colorscript
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -13,7 +7,6 @@ fi
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
 plug "zap-zsh/supercharge"
-# plug "zap-zsh/zap-prompt"
 plug "zsh-users/zsh-syntax-highlighting"
 plug "romkatv/powerlevel10k"
 plug "paulirish/git-open"
@@ -25,7 +18,6 @@ plugins=(...web-search)
 
 export XDG_CONFIG_HOME="$HOME/.config"
 
-
 # Ruby stuff I guess
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
@@ -35,39 +27,10 @@ export PATH=$HOME/.local/share/bob/nvim-bin:$PATH
 export PATH=/opt/homebrew/sbin:$PATH
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Dart-------------------------------------------------------------
-export PATH="$PATH:$HOME/flutter/bin/cache/dart-sdk/bin"
-# Flutter-------------------------------------------------------------
-export PATH="$PATH:$HOME/flutter/bin"
-# goimports-------------------------------------------------------------
-export PATH="$PATH:$HOME/go/bin"
-# Added by Toolbox App-------------------------------------------------------------
-export PATH="$PATH:$HOME/Library/Application Support/JetBrains/Toolbox/scripts"
-# PNPM-------------------------------------------------------------
-export PNPM_HOME="$HOME/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-
-# LMStudio
-export PATH=$PATH:$HOME/.lmstudio/bin
-
-# GOLANG CI LINTER-------------------------------------------------------------
-export PATH=$PATH:$GOLANGCI_LINT_INSTALL_DIR
-
-# FNM node version manager-------------------------------------------------------------
-export PATH=/home/$USER/.fnm:$PATH
-
 # Default Editor -------------------------------------------------------------
 export EDITOR='nvim'
-
-# Rust toolchain----------------------------------------------------------
-export CARGO_HOME=$HOME/.cargo
-export RUSTUP_HOME=$HOME/.rustup
-export PATH=$PATH:$HOME/.cargo/bin
-
 export XDG_CONFIG_HOME="$HOME/.config"
 
-# Not sure but I think I want to use the terminal colors,
-# because vivid doesn't support everforest theme
 ## VIVID
 export LS_COLORS="$(vivid generate one-dark)"
 
@@ -77,18 +40,9 @@ if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/
 # The next line enables shell command completion for gcloud.
 if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
 
-# Buildpacks autocompletion
-# . $(pack completion --shell zsh)
-
-
 # ------------------------------
 # --- ALIASES
 # ------------------------------
-# Golang apps and libraries
-alias air="$HOME/go/bin/air"
-alias gin="$HOME/go/bin/gin"
-alias wails="$HOME/go/bin/wails"
-alias pnx="pnpm nx"
 # Better ls
 alias ls="lsd"
 alias l="lsd -l"
@@ -97,14 +51,13 @@ alias la="lsd -a"
 alias ll="lsd -l"
 alias lla="lsd -la"
 
+# Better CD
+alias cd="z"
+
 # Neovim
 alias v="nvim"
 alias m="NVIM_APPNAME=mvim nvim"
 alias mvim="NVIM_APPNAME=mvim nvim"
-
-# Gitui
-alias "git open"="git-open"
-alias gui="gitui"
 
 if command -v bat &> /dev/null; then
   alias cat="bat -pp --theme \"1337\""
@@ -124,7 +77,6 @@ alias xcommit='GIT_EDITOR="xed -w" git commit'
 
 # completions dir
 fpath+=~/.zfunc
-
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
@@ -142,7 +94,4 @@ export NEXT_TELEMETRY_DISABLED=1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/lcarv/.lmstudio/bin"
+eval "$(mise activate bash)"

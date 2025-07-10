@@ -12,7 +12,7 @@ return {
 	},
 	{
 		"Lcarv20/gruber-darker.nvim",
-		-- enabled = false,
+		enabled = true,
 		config = function()
 			require("gruber-darker").setup({
 				-- OPTIONAL
@@ -25,7 +25,7 @@ return {
 
 			vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "Pmenu", force = true })
 
-			-- vim.cmd.colorscheme("gruber-darker")
+			vim.cmd.colorscheme("gruber-darker")
 		end,
 	},
 	{
@@ -107,7 +107,7 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
-    -- enabled = false,
+		-- enabled = false,
 		lazy = false,
 		priority = 1000,
 		opts = {
@@ -123,18 +123,28 @@ return {
 		opts = {
 			set_dark_mode = function()
 				vim.api.nvim_set_option_value("background", "dark", {})
-        vim.cmd.colorscheme("tokyonight")
+				vim.cmd.colorscheme("tokyonight")
 			end,
 			set_light_mode = function()
 				vim.api.nvim_set_option_value("background", "light", {})
-        vim.cmd.colorscheme("tokyonight")
+				vim.cmd.colorscheme("tokyonight")
 			end,
 			update_interval = 3000,
 			fallback = "dark",
 		},
 	},
+	{ "datsfilipe/vesper.nvim" },
 	{
 		"NLKNguyen/papercolor-theme",
 	},
-  { "typicode/bg.nvim", lazy = false }
+	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+    enabled = false,
+		priority = 1000,
+		config = function()
+			require("nordic").load()
+		end,
+	},
+	{ "typicode/bg.nvim", lazy = false },
 }

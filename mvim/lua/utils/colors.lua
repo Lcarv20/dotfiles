@@ -15,7 +15,7 @@
 --   subtle_gray = "#736b6b",
 -- }
 
--- came colors as gruber except for the cyan
+-- same colors as gruber except for the cyan
 return {
   cyan = "#00ffff",
 	fg = "#e4e4ef",
