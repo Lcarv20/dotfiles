@@ -1,5 +1,6 @@
 return {
 	"saghen/blink.cmp",
+  -- enabled = false,
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		{
@@ -28,13 +29,12 @@ return {
 				"cmdline",
 			},
 		},
-
 		completion = {
 			menu = {
 				-- auto_show = true,
 				auto_show = function(ctx)
-					if ctx.mode == "cmdline" then
-					end
+					-- if ctx.mode == "cmdline" then
+					-- end
 					return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?", ":%" }, vim.fn.getcmdtype())
 				end,
 			},

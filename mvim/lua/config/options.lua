@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+vim.g.maplocalleader = " "
 
 vim.g.have_nerd_font = true
 vim.opt.relativenumber = true -- set relative numbered lines
@@ -9,7 +9,7 @@ vim.opt.clipboard = ""
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
 vim.opt.tabstop = 2 -- insert 2 spaces for a tab
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.number = true
 vim.opt.mouse = "a"
 vim.opt.showmode = false
@@ -18,6 +18,7 @@ vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
+vim.opt.smoothscroll = true
 vim.opt.conceallevel = 2 -- Hide * markup for bold and italic, but not markers with substitutions
 -- vim.opt.concealcursor = ''
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
@@ -56,8 +57,8 @@ vim.opt.inccommand = "nosplit"
 vim.opt.formatoptions = "jcroqlnt"
 vim.opt.laststatus = 3
 vim.opt.linebreak = true
-vim.opt.pumblend = 15
-vim.opt.winblend = 4
+-- vim.opt.pumblend = 15
+-- vim.opt.winblend = 4
 vim.opt.pumheight = 10
 vim.opt.ruler = false
 vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
@@ -76,3 +77,5 @@ vim.opt.smoothscroll = true
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
+
+vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })

@@ -12,7 +12,7 @@ return {
 	},
 	{
 		"Lcarv20/gruber-darker.nvim",
-		enabled = true,
+		enabled = false,
 		config = function()
 			require("gruber-darker").setup({
 				-- OPTIONAL
@@ -140,11 +140,45 @@ return {
 	{
 		"AlexvZyl/nordic.nvim",
 		lazy = false,
-    enabled = false,
+		enabled = false,
 		priority = 1000,
 		config = function()
 			require("nordic").load()
 		end,
+	},
+	{
+		"datsfilipe/min-theme.nvim",
+		enabled = false,
+		config = function()
+			-- require("min-theme").setup()
+			vim.cmd.colorscheme("min-theme")
+		end,
+	},
+	{
+		"wtfox/jellybeans.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			transparent = false,
+			italics = true,
+			bold = true,
+			flat_ui = false, -- toggles "flat UI" for pickers
+			background = {
+				dark = "jellybeans", -- default dark palette
+				light = "jellybeans_light", -- default light palette
+			},
+			plugins = {
+				all = true,
+				auto = true, -- will read lazy.nvim and apply the colors for plugins that are installed
+			},
+			on_highlights = function(highlights, colors)
+				highlights.NormalFloat = { bg = colors.bg, fg = colors.fg }
+
+				-- vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#151515" }) -- Or "ColorColumn", "Comment", etc.
+				highlights.RenderMarkdownCode = { bg = "#151515" }
+			end,
+			on_colors = function(colors) end,
+		},
 	},
 	{ "typicode/bg.nvim", lazy = false },
 }

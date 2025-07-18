@@ -29,13 +29,13 @@ theme = IC_Orange_PPL
 
 # Cell
 # -------------
-adjust-cell-height = 20%
+adjust-cell-height = 40%
 #--------------
 
 # Font
 # -------------
-# font-family = Monaspace Krypton Frozen
-# font-size = 14
+font-family = caskaydiaCove NF
+font-size = 16
 #--------------
 
 # Window size
