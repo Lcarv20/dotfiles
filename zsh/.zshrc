@@ -58,6 +58,7 @@ alias cd="z"
 alias v="nvim"
 alias m="NVIM_APPNAME=mvim nvim"
 alias mvim="NVIM_APPNAME=mvim nvim"
+alias mvide="NVIM_APPNAME=mvim neovide --frame=transparent"
 
 if command -v bat &> /dev/null; then
   alias cat="bat -pp --theme \"1337\""

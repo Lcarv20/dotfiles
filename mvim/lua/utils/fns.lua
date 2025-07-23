@@ -49,7 +49,7 @@ M.toggle_listchars = function()
 end
 
 -- Add icons to diagnostics, and configure the diagnotics message
-M.diagnostics_config = function()
+M.diagnostics_config = function(border)
 	if vim.g.have_nerd_font then
 		local signs = { ERROR = " ", WARN = " ", INFO = " ", HINT = "" }
 		local diagnostic_signs = {}
@@ -86,7 +86,7 @@ M.diagnostics_config = function()
 				max_width = 80,
 				max_height = 20,
 				style = "minimal",
-				border = "single",
+				border = border or "single",
 				source = "always",
 				wrap = true,
 				header = "",
@@ -129,17 +129,17 @@ M.diagnostics_config = function()
 end
 
 -- Configure the LSP hover and signature help popups borders
-M.lsp_popover_borders = function()
+M.lsp_popover_borders = function(border)
 	local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
 	---@diagnostic disable-next-line: duplicate-set-field
 	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 		opts = opts or {}
-		opts.border = opts.border or "single"
+		opts.border = opts.border or border or "single"
 		return orig_util_open_floating_preview(contents, syntax, opts, ...)
 	end
 end
 
-M.open_floating_window = function(bufnr)
+M.open_floating_window = function(bufnr, border)
 	bufnr = bufnr or vim.api.nvim_get_current_buf()
 
 	local width = vim.o.columns
@@ -158,7 +158,7 @@ M.open_floating_window = function(bufnr)
 		col = col,
 		row = row,
 		style = "minimal",
-		border = "single", -- Options: "none", "single", "double", "rounded", etc.
+		border = border or "single", -- Options: "none", "single", "double", "rounded", etc.
 	}
 
 	-- local buf = vim.api.nvim_create_buf(false, true) -- Create a scratch buffer

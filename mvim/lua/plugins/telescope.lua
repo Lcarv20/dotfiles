@@ -41,6 +41,7 @@ return {
 				},
 				live_grep = {
 					theme = "ivy",
+					borderchars = { " ", "│", " ", "│", " ", " ", " ", " " },
 				},
 				diagnostics = {
 					theme = "ivy",
@@ -87,7 +88,6 @@ return {
 				},
 				prompt_prefix = " 󰍉 ",
 				selection_caret = "󰅂 ",
-				border = false,
 				layout_config = { prompt_position = "top" },
 				sorting_strategy = "ascending",
 			},
@@ -123,6 +123,7 @@ return {
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 				winblend = 10,
 				previewer = false,
+				borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
 			}))
 		end, { desc = "Fuzzy Find in Current Buffer" })
 

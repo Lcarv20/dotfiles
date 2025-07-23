@@ -41,7 +41,6 @@ vim.opt.listchars = {
 
 vim.opt.fillchars = { eob = " " }
 
-vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
@@ -49,7 +48,7 @@ vim.opt.scrolloff = 10
 -- 	"n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
 -- vim.opt.guicursor =
 -- 	"n:block-deusYellow,ci:block-deusPurple,v:block-deusPurple,i-ci-ve:block-deusGreen,r-cr-o:block-deusRed,sm:block-DeusOrange"
-vim.opt.cmdheight = 2
+-- vim.opt.cmdheight = 2
 
 vim.opt.autowrite = true
 vim.opt.jumpoptions = "view"

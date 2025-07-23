@@ -2,7 +2,9 @@
 -- vim.cmd.colorscheme("deus")
 -- vim.cmd.colorscheme("tokyonight")
 -- vim.cmd.colorscheme("vesper")
-vim.cmd.colorscheme("jellybeans")
+-- vim.cmd.colorscheme("jellybeans")
+-- vim.cmd.colorscheme("melange")
+vim.cmd.colorscheme("minisummer")
 
 -- require("experimental.apophis_dark_matter").setup({
 -- 	transparent = false, -- Disable transparency

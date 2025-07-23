@@ -1,16 +1,5 @@
 return {
 	{
-		"kvrohit/rasmus.nvim",
-		priority = 1000,
-		config = function()
-			vim.g.rasmus_italic_functions = true
-			vim.g.rasmus_bold_functions = true
-			-- vim.g.rasmus_variant = "monochrome"
-
-			-- vim.cmd([[colorscheme rasmus]])
-		end,
-	},
-	{
 		"Lcarv20/gruber-darker.nvim",
 		enabled = false,
 		config = function()
@@ -180,5 +169,7 @@ return {
 			on_colors = function(colors) end,
 		},
 	},
+	{ "savq/melange-nvim" },
+	{ "EdenEast/nightfox.nvim" }, -- lazy
 	{ "typicode/bg.nvim", lazy = false },
 }

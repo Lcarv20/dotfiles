@@ -134,7 +134,7 @@ return {
 				padding = 2,
 				max_width = 0.7,
 				max_height = 0.7,
-				border = "single",
+				border = vim.g.neovide == true and "none" or "single",
 				win_options = {
 					winblend = 0,
 				},
