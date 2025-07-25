@@ -49,17 +49,17 @@ return {
 					end, "Prev Diagnostic")
 					map("gl", vim.diagnostic.open_float, "Line Diagnostics")
 
-					map("gd", vim.lsp.buf.definition, "Goto Definition")
-					map("gr", vim.lsp.buf.references, "Goto References")
-					map("gI", vim.lsp.buf.implementation, "Goto Implementation")
-					map("gD", vim.lsp.buf.type_definition, "Type Definition")
+					-- map("gd", vim.lsp.buf.definition, "Goto Definition")
+					-- map("gr", vim.lsp.buf.references, "Goto References")
+					-- map("gI", vim.lsp.buf.implementation, "Goto Implementation")
+					-- map("gD", vim.lsp.buf.type_definition, "Type Definition")
 					map("<leader>c", "", "Code")
 					map("<leader>cs", vim.lsp.buf.document_symbol, "Document Symbols")
 					map("<leader>cS", vim.lsp.buf.workspace_symbol, "[W]orkspace [S]ymbols")
 
 					map("<leader>cr", vim.lsp.buf.rename, "Rename")
 					map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
-					map("gS", vim.lsp.buf.declaration, "Goto Declaration")
+					-- map("gS", vim.lsp.buf.declaration, "Goto Declaration")
 					map("<leader>cd", vim.diagnostic.setloclist, "Document Diagnostics")
 					map("<leader>cw", vim.diagnostic.setqflist, "Workspace Diagnostics")
 
@@ -107,19 +107,6 @@ return {
 								vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
 							end,
 						})
-					end
-
-					-- The following code creates a keymap to toggle inlay hints in your
-					-- code, if the language server you are using supports them
-					--
-					-- This may be unwanted, since they displace some of your code
-					if
-						client
-						and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
-					then
-						map("<leader>th", function()
-							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-						end, "[T]oggle Inlay [H]ints")
 					end
 				end,
 			})

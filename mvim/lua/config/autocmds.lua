@@ -122,9 +122,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
+  pattern = { "markdown", "markdown_inline", "codecompanion" },
   callback = function()
-    vim.opt_local.conceallevel = 2
-    vim.opt_local.concealcursor = "n"
+    vim.opt_local.conceallevel = 3
+    vim.opt_local.concealcursor = "nvic"
   end,
 })

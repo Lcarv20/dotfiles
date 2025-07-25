@@ -1,5 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	-- enabled = false,
 	opts = {
 		signs = {
 			add = { text = "▎" },
@@ -66,10 +67,9 @@ return {
 				gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end, { desc = "git reset hunk" })
 			-- normal mode
-			map("n", "<leader>ghs", gitsigns.stage_hunk, { desc = "git stage hunk" })
+			map("n", "<leader>ghs", gitsigns.stage_hunk, { desc = "git stage/unstage hunk" })
 			map("n", "<leader>ghr", gitsigns.reset_hunk, { desc = "git reset hunk" })
 			map("n", "<leader>ghS", gitsigns.stage_buffer, { desc = "git Stage buffer" })
-			map("n", "<leader>ghu", gitsigns.undo_stage_hunk, { desc = "git undo stage hunk" })
 			map("n", "<leader>ghR", gitsigns.reset_buffer, { desc = "git Reset buffer" })
 			map("n", "<leader>ghp", gitsigns.preview_hunk, { desc = "git preview hunk" })
 			map("n", "<leader>gb", gitsigns.blame_line, { desc = "git blame line" })

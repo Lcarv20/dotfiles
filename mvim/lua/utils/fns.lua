@@ -185,31 +185,4 @@ M.create_notification = function(msg, level, delay)
 	end, delay)
 end
 
-M.is_maximized = false
-M.original_sizes = {}
-
-M.toggle_maximize = function()
-	if not M.is_maximized then
-		-- Save original sizes of all splits
-		M.original_sizes = vim.api.nvim_tabpage_list_wins(0)
-		for _, win in ipairs(M.original_sizes) do
-			local win_width = vim.api.nvim_win_get_width(win)
-			local win_height = vim.api.nvim_win_get_height(win)
-			vim.api.nvim_win_set_var(win, "original_size", { width = win_width, height = win_height })
-		end
-		-- Maximize current split
-		vim.cmd("resize | vertical resize")
-		M.is_maximized = true
-	else
-		-- Restore original sizes
-		for _, win in ipairs(M.original_sizes) do
-			local size = vim.api.nvim_win_get_var(win, "original_size")
-			vim.api.nvim_win_set_width(win, size.width)
-			vim.api.nvim_win_set_height(win, size.height)
-		end
-
-		M.is_maximized = false
-	end
-end
-
 return M

@@ -1,6 +1,6 @@
 return {
 	"hrsh7th/nvim-cmp",
-  enabled = false,
+	enabled = false,
 	event = "InsertEnter",
 	dependencies = {
 		{
@@ -41,8 +41,8 @@ return {
 					border = "single",
 				}),
 				documentation = cmp.config.window.bordered({
-          border = "single",
-        }),
+					border = "single",
+				}),
 			},
 			completion = { completeopt = "menu,preview,menuone,noinsert,noselect" },
 			mapping = cmp.mapping.preset.insert({

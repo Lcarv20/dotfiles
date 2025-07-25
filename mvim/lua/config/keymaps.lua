@@ -71,10 +71,11 @@ map("n", "<leader>gh", "", { desc = "Hunk" })
 map("n", "<leader>u", "", { desc = "Ui" })
 map("n", "<leader>ut", "", { desc = "Tab" })
 map("n", "<leader>uts", "<cmd>tab split<cr>", { desc = "New tab with curr buffer", noremap = true, silent = true })
-map("n", "<leader>utn", "<cmd>tabnew<cr>", { desc = "New", noremap = true, silent = true })
-map("n", "<leader>utc", "<cmd>tabclose<cr>", { desc = "Close", noremap = true, silent = true })
-map("n", "<leader>ub", "", { desc = "Buffer" })
-map("n", "<leader>ubc", "<cmd>bdelete<cr>", { desc = "Close (delete)" })
 
--- Keymap: Toggle maximize/minimize with `<leader>m`
-map("n", "<leader>m", fns.toggle_maximize, { desc = "Toggle Maximize/Minimize Current Split" })
+
+-- Buffer
+map("n", "<leader>b", "", { desc = "Buffer" })
+
+-- Snacks
+map("n", "<leader>s", "", { desc = "Search" })
+map("n", "<leader>f", "", { desc = "Search" })

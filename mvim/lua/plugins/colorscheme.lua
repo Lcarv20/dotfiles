@@ -13,8 +13,6 @@ return {
 			-- local colors = require("utils.colors")
 
 			vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "Pmenu", force = true })
-
-			vim.cmd.colorscheme("gruber-darker")
 		end,
 	},
 	{
@@ -27,18 +25,17 @@ return {
 	},
 	{
 		"drewxs/ash.nvim",
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
-			require("ash").setup({
-				-- transparent = true,
-			})
-			-- vim.cmd.colorscheme("ash")
+			require("ash").setup({})
 		end,
 	},
 	{
 		"rose-pine/neovim",
 		name = "rose-pine",
+		enabled = false,
 		opts = {
 			styles = {
 				bold = true,
@@ -48,12 +45,12 @@ return {
 		},
 		config = function(_, opts)
 			require("rose-pine").setup(opts)
-			-- vim.cmd("colorscheme rose-pine-moon")
 			vim.api.nvim_set_hl(0, "RenderMarkdownCode", { link = "NormalFloat" })
 		end,
 	},
 	{
 		"sainnhe/gruvbox-material",
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
@@ -90,13 +87,11 @@ return {
 
 			vim.api.nvim_set_hl(0, "blinkcmpdocseparator", { link = "normal", force = true })
 			vim.api.nvim_set_hl(0, "blinkcmpdocborder", { link = "pmenu", force = true })
-
-			-- vim.cmd.colorscheme("gruvbox-material")
 		end,
 	},
 	{
 		"folke/tokyonight.nvim",
-		-- enabled = false,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		opts = {
@@ -105,43 +100,6 @@ return {
 				-- colors.bg = "#ffffff"
 			end,
 		},
-	},
-	{
-		"f-person/auto-dark-mode.nvim",
-		enabled = false,
-		opts = {
-			set_dark_mode = function()
-				vim.api.nvim_set_option_value("background", "dark", {})
-				vim.cmd.colorscheme("tokyonight")
-			end,
-			set_light_mode = function()
-				vim.api.nvim_set_option_value("background", "light", {})
-				vim.cmd.colorscheme("tokyonight")
-			end,
-			update_interval = 3000,
-			fallback = "dark",
-		},
-	},
-	{ "datsfilipe/vesper.nvim" },
-	{
-		"NLKNguyen/papercolor-theme",
-	},
-	{
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
-		enabled = false,
-		priority = 1000,
-		config = function()
-			require("nordic").load()
-		end,
-	},
-	{
-		"datsfilipe/min-theme.nvim",
-		enabled = false,
-		config = function()
-			-- require("min-theme").setup()
-			vim.cmd.colorscheme("min-theme")
-		end,
 	},
 	{
 		"wtfox/jellybeans.nvim",
@@ -169,7 +127,23 @@ return {
 			on_colors = function(colors) end,
 		},
 	},
-	{ "savq/melange-nvim" },
-	{ "EdenEast/nightfox.nvim" }, -- lazy
+
+	--- Utilities ---
 	{ "typicode/bg.nvim", lazy = false },
+	{
+		"f-person/auto-dark-mode.nvim",
+		enabled = false,
+		opts = {
+			set_dark_mode = function()
+				vim.api.nvim_set_option_value("background", "dark", {})
+				vim.cmd.colorscheme("tokyonight")
+			end,
+			set_light_mode = function()
+				vim.api.nvim_set_option_value("background", "light", {})
+				vim.cmd.colorscheme("tokyonight")
+			end,
+			update_interval = 3000,
+			fallback = "dark",
+		},
+	},
 }

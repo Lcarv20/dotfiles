@@ -3,6 +3,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
+			{ "OXY2DEV/markview.nvim" },
 			{ "nvim-treesitter/nvim-treesitter-textobjects", event = "VeryLazy" },
 			{
 				"nvim-treesitter/nvim-treesitter-context",
@@ -100,27 +101,16 @@ return {
 							["[]"] = "@class.outer",
 						},
 					},
-					swap = {
-						enable = true,
-						swap_next = {
-							["<leader>tn"] = "@parameter.inner",
-						},
-						swap_previous = {
-							["<leader>tp"] = "@parameter.inner",
-						},
-					},
 				},
-				-- rainbow = {
-				--   enable = true,
-				--   extended_mode = false, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-				--   max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
-				-- },
+				rainbow = {
+					enable = true,
+					extended_mode = false, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+					max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+				},
 			})
-			vim.keymap.set("n", "<leader>t", "", { desc = "Treesitter" })
 
-
-      -- temporary
-      vim.hl = vim.highlight
+			-- temporary
+			vim.hl = vim.highlight
 		end,
 	},
 }

@@ -20,7 +20,7 @@ return {
 				"mm",
 				function()
 					local harpoon = require("harpoon")
-					harpoon.ui:toggle_quick_menu(harpoon:list(), { border = "single" })
+					harpoon.ui:toggle_quick_menu(harpoon:list(), { border = vim.g.neovide == true and "solid" or "rounded" })
 				end,
 				desc = "Harpoon Quick Menu",
 			},

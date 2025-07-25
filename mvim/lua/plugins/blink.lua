@@ -1,6 +1,6 @@
 return {
 	"saghen/blink.cmp",
-  -- enabled = false,
+	-- enabled = false,
 	dependencies = {
 		"rafamadriz/friendly-snippets",
 		{
@@ -20,13 +20,21 @@ return {
 			},
 			["<S-Tab>"] = { "snippet_backward", "fallback" },
 		},
-
 		cmdline = {
 			keymap = {
-				preset = "cmdline",
-			},
-			sources = {
-				"cmdline",
+				preset = "inherit",
+				["<Tab>"] = { "show_and_insert", "select_next" },
+				["<S-Tab>"] = { "show_and_insert", "select_prev" },
+
+				["<C-space>"] = { "show", "fallback" },
+
+				["<C-n>"] = { "select_next", "fallback" },
+				["<C-p>"] = { "select_prev", "fallback" },
+				["<Right>"] = { "select_next", "fallback" },
+				["<Left>"] = { "select_prev", "fallback" },
+
+				["<C-y>"] = { "select_and_accept" },
+				["<C-e>"] = { "cancel" },
 			},
 		},
 		completion = {

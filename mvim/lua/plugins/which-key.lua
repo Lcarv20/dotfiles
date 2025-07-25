@@ -4,13 +4,7 @@ return {
 		preset = "helix",
 		win = {
 			title = " ",
-			border = function()
-				if vim.g.neovide then
-					return "none"
-				else
-					return "rounded"
-				end
-			end,
+			border = vim.g.neovide and "solid" or "single",
 		},
 	},
 }

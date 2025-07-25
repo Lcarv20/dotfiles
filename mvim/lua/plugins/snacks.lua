@@ -1,6 +1,10 @@
+-- Currently testing this plugin. So far I can disable the following plugins:
+--   - telescope
+--   - git-signs
+--   - neo-tree
 return {
 	"folke/snacks.nvim",
-  enabled = false,
+	enabled = true,
 	priority = 1000,
 	lazy = false,
 	---@type snacks.Config
@@ -13,9 +17,9 @@ return {
 		notifier = {
 			enabled = true,
 			timeout = 3000,
-      border = "none",
+			border = "none",
 		},
-		picker = { enabled = true,  },
+		picker = { enabled = true },
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = false },
@@ -23,39 +27,30 @@ return {
 		words = { enabled = true },
 		styles = {
 			notification = {
-				-- wo = { wrap = true } -- Wrap notifications
+				wo = { wrap = true }, -- Wrap notifications
 			},
 		},
 	},
+	init = function()
+		vim.keymap.set("n", "<leader>s", "", { desc = "Search" })
+		vim.keymap.set("n", "<leader>b", "", { desc = "Buffers" })
+	end,
+
 	keys = {
 		-- Top Pickers & Explorer
 		{
-			"<leader><space>",
+			"<leader>fs",
 			function()
 				Snacks.picker.smart()
 			end,
 			desc = "Smart Find Files",
 		},
 		{
-			"<leader>,",
-			function()
-				Snacks.picker.buffers()
-			end,
-			desc = "Buffers",
-		},
-		{
-			"<leader>/",
+			"<leader>fg",
 			function()
 				Snacks.picker.grep()
 			end,
 			desc = "Grep",
-		},
-		{
-			"<leader>:",
-			function()
-				Snacks.picker.command_history()
-			end,
-			desc = "Command History",
 		},
 		{
 			"<leader>n",
@@ -238,14 +233,14 @@ return {
 			desc = "Commands",
 		},
 		{
-			"<leader>sd",
+			"<leader>cd",
 			function()
 				Snacks.picker.diagnostics()
 			end,
 			desc = "Diagnostics",
 		},
 		{
-			"<leader>sD",
+			"<leader>cD",
 			function()
 				Snacks.picker.diagnostics_buffer()
 			end,
@@ -380,14 +375,14 @@ return {
 			desc = "Goto T[y]pe Definition",
 		},
 		{
-			"<leader>ss",
+			"<leader>cs",
 			function()
 				Snacks.picker.lsp_symbols()
 			end,
 			desc = "LSP Symbols",
 		},
 		{
-			"<leader>sS",
+			"<leader>cS",
 			function()
 				Snacks.picker.lsp_workspace_symbols()
 			end,
@@ -395,28 +390,28 @@ return {
 		},
 		-- Other
 		{
-			"<leader>z",
+			"<leader>uz",
 			function()
 				Snacks.zen()
 			end,
 			desc = "Toggle Zen Mode",
 		},
 		{
-			"<leader>Z",
+			"<leader>bz",
 			function()
 				Snacks.zen.zoom()
 			end,
 			desc = "Toggle Zoom",
 		},
 		{
-			"<leader>.",
+			"<leader>bn",
 			function()
 				Snacks.scratch()
 			end,
 			desc = "Toggle Scratch Buffer",
 		},
 		{
-			"<leader>S",
+			"<leader>bs",
 			function()
 				Snacks.scratch.select()
 			end,
@@ -480,24 +475,6 @@ return {
 			end,
 			desc = "Prev Reference",
 			mode = { "n", "t" },
-		},
-		{
-			"<leader>N",
-			desc = "Neovim News",
-			function()
-				Snacks.win({
-					file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-					width = 0.6,
-					height = 0.6,
-					wo = {
-						spell = false,
-						wrap = false,
-						signcolumn = "yes",
-						statuscolumn = " ",
-						conceallevel = 3,
-					},
-				})
-			end,
 		},
 	},
 	init = function()

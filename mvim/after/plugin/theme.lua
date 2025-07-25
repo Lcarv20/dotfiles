@@ -1,10 +1,11 @@
 -- vim.cmd.colorscheme("gruvbox-material")
 -- vim.cmd.colorscheme("deus")
--- vim.cmd.colorscheme("tokyonight")
+-- vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("vesper")
--- vim.cmd.colorscheme("jellybeans")
+vim.cmd.colorscheme("jellybeans-default")
 -- vim.cmd.colorscheme("melange")
-vim.cmd.colorscheme("minisummer")
+-- vim.cmd.colorscheme("randomhue")
+-- vim.cmd.colorscheme("miniautumn")
 
 -- require("experimental.apophis_dark_matter").setup({
 -- 	transparent = false, -- Disable transparency
