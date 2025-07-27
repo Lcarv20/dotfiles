@@ -22,7 +22,7 @@ map("n", "<M-Up>", ":resize -2<CR>")
 map("n", "<M-Down>", ":resize +2<CR>")
 -- Map("n", "<M-Left>", ":vertical resize -2<CR>")
 -- Map("n", "<M-Right", ":vertical resize +2<CR>")
--- -- Escape sequence for the commented above keymaps for mac
+-- Escape sequence for the commented above keymaps for mac
 map("n", "<Esc>b", ":vertical resize -2<CR>", { noremap = true, silent = true })
 map("n", "<Esc>f", ":vertical resize +2<CR>", { noremap = true, silent = true })
 
@@ -79,3 +79,6 @@ map("n", "<leader>b", "", { desc = "Buffer" })
 -- Snacks
 map("n", "<leader>s", "", { desc = "Search" })
 map("n", "<leader>f", "", { desc = "Search" })
+
+-- Avante
+map("n", "<leader>a", "", { desc = "AI" })

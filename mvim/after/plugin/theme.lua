@@ -3,6 +3,7 @@
 -- vim.cmd.colorscheme("catppuccin")
 -- vim.cmd.colorscheme("vesper")
 vim.cmd.colorscheme("jellybeans-default")
+-- vim.cmd.colorscheme("oldtale")
 -- vim.cmd.colorscheme("melange")
 -- vim.cmd.colorscheme("randomhue")
 -- vim.cmd.colorscheme("miniautumn")

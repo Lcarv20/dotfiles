@@ -56,7 +56,11 @@ return {
 				sync_install = false,
 				ignore_install = {},
 				auto_install = true,
-				highlight = { enable = true, additional_vim_regex = false, disable = { "markdown" } },
+				highlight = {
+					enable = true,
+					additional_vim_regex = false,
+					-- disable = { "markdown" }
+				},
 				indent = { enable = true },
 				incremental_selection = {
 					enable = true,

@@ -33,7 +33,7 @@ M.toggle_linter = function()
 
 	-- Notify
 	local msg = "Linter " .. (M.enabled and "enabled" or "disabled")
-  vim.notify(msg)
+	Snacks.notify(msg)
 end
 
 M.config = {

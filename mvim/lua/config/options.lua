@@ -4,7 +4,9 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.numberwidth = 2 -- set number column width to 2 {default 4}
+vim.opt.showtabline = 1
 vim.opt.showcmd = true
+vim.opt.cmdheight = 2
 vim.opt.clipboard = ""
 vim.opt.expandtab = true -- convert tabs to spaces
 vim.opt.shiftwidth = 2 -- the number of spaces inserted for each indentation
@@ -62,17 +64,12 @@ vim.opt.pumheight = 10
 vim.opt.ruler = false
 vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
 vim.shiftround = true
-vim.opt.signcolumn = "yes"
-vim.opt.smartcase = true
-vim.opt.splitbelow = true
 vim.opt.splitkeep = "screen"
-vim.opt.splitright = true
 vim.opt.undolevels = 10000
 vim.opt.virtualedit = "block"
 vim.opt.wildmode = "longest:full,full"
 vim.opt.winminwidth = 5
 
-vim.opt.smoothscroll = true
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
