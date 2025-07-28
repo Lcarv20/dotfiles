@@ -2,7 +2,7 @@ return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		enabled = false,
-		ft = { "markdown", "codecompanion" },
+		ft = { "markdown", "codecompanion", "Avante", "neochat" },
 		opts = {
 			completions = { lsp = { enabled = true } },
 			overrides = {
@@ -24,24 +24,24 @@ return {
 				-- 	icons = {},
 				-- },
 			},
-			ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
+			ft = { "markdown", "norg", "rmd", "org", "codecompanion", "Avante", "neochat" },
 		},
 	},
 	{
 		"OXY2DEV/markview.nvim",
 		enabled = true,
 		lazy = true,
-		ft = { "markdown", "norg", "rmd", "org", "codecompanion", "Avante" },
+		ft = { "markdown", "norg", "rmd", "org", "codecompanion", "Avante", "neochat" },
 		opts = function(_, opts)
 			local presets = require("markview.presets")
 			opts.markdown = {
 				headings = presets.headings.glow,
 			}
 			opts.code_blocks = {
-				style = "simple", -- or "fancy" for more styling
+				style = "fancy", -- or "fancy" for more styling
 			}
 			opts.preview = {
-				filetypes = { "markdown", "codecompanion" },
+				filetypes = { "markdown", "codecompanion", "Avante", "neochat" },
 				ignore_buftypes = {},
 				modes = { "n", "i", "c", ":", "no", "io", "co" },
 				hybrid_modes = { "i", "n" },

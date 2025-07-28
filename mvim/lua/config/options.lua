@@ -41,7 +41,7 @@ vim.opt.listchars = {
 	-- eol = "↲", -- Show end of line character
 }
 
-vim.opt.fillchars = { eob = " " }
+vim.opt.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "", diff = " " }
 
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
@@ -69,7 +69,6 @@ vim.opt.undolevels = 10000
 vim.opt.virtualedit = "block"
 vim.opt.wildmode = "longest:full,full"
 vim.opt.winminwidth = 5
-
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
