@@ -50,6 +50,7 @@ return {
 				-- Set to "unmodified" to only save unmodified buffers
 				autosave_changes = false,
 			},
+
 			-- Constrain the cursor to the editable parts of the oil buffer
 			-- Set to `false` to disable, or "name" to keep it on the file names
 			constrain_cursor = "editable",
@@ -135,9 +136,10 @@ return {
 				max_width = 0.7,
 				max_height = 0.7,
 				border = vim.g.neovide == true and "solid" or "single",
-				win_options = {
-					winblend = 0,
-				},
+				-- win_options = {
+				-- 	winblend = 0,
+				-- 	-- winhighlight = "NormalNC:NormalFloat",
+				-- },
 				-- preview_split: Split direction: "auto", "left", "right", "above", "below".
 				preview_split = "auto",
 				-- This is the config that will be passed to nvim_open_win.

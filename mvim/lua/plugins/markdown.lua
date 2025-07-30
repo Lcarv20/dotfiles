@@ -19,6 +19,14 @@ return {
 					width = "block",
 					right_pad = 1,
 				},
+				bullet = {
+					-- cleaner bullet points
+					icons = { "•", "∙" },
+				},
+				heading = {
+					-- Icons that say H1, H2, etc.
+					icons = { "󰉫 ", "󰉬 ", "󰉭 ", "󰉮 ", "󰉯 ", "󰉰 " },
+				},
 				-- heading = {
 				-- 	sign = false,
 				-- 	icons = {},
@@ -29,7 +37,7 @@ return {
 	},
 	{
 		"OXY2DEV/markview.nvim",
-		enabled = true,
+		enabled = false,
 		lazy = true,
 		ft = { "markdown", "norg", "rmd", "org", "codecompanion", "Avante", "neochat" },
 		opts = function(_, opts)

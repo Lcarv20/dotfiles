@@ -50,12 +50,12 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 })
 
 -- Cursor style
-vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
-	pattern = "*",
-	callback = function()
-		require("utils.fns").cursor_style()
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "ColorScheme", "VimEnter" }, {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		require("utils.fns").cursor_style()
+-- 	end,
+-- })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "gitcommit", "markdown", "NeogitCommitMessage" },

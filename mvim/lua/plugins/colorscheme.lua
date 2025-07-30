@@ -9,43 +9,27 @@ return {
 				underline = true, -- disables underline fonts
 				bold = true, -- disables bold fonts
 			})
-
-			-- local colors = require("utils.colors")
-
-			vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "Pmenu", force = true })
+			-- vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "Pmenu", force = true })
+			vim.cmd.colorscheme("gruber-darker")
 		end,
 	},
 	{
 		"topazape/oldtale.nvim",
 		lazy = false,
+		enabled = true,
 		priority = 1000,
 		config = function()
-			-- vim.cmd.colorscheme("oldtale")
+			vim.cmd.colorscheme("oldtale")
 		end,
 	},
 	{
-		"drewxs/ash.nvim",
-		enabled = false,
+		"killitar/obscure.nvim",
+    enabled = false,
 		lazy = false,
 		priority = 1000,
+		opts = {},
 		config = function()
-			require("ash").setup({})
-		end,
-	},
-	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		enabled = false,
-		opts = {
-			styles = {
-				bold = true,
-				italic = true,
-				-- transparency = true,
-			},
-		},
-		config = function(_, opts)
-			require("rose-pine").setup(opts)
-			vim.api.nvim_set_hl(0, "RenderMarkdownCode", { link = "NormalFloat" })
+			vim.cmd.colorscheme("obscure")
 		end,
 	},
 	{
@@ -85,25 +69,16 @@ return {
 			-- 	-- bg2 = { "#282828", "235" },
 			-- }
 
-			vim.api.nvim_set_hl(0, "blinkcmpdocseparator", { link = "normal", force = true })
-			vim.api.nvim_set_hl(0, "blinkcmpdocborder", { link = "pmenu", force = true })
+			-- vim.api.nvim_set_hl(0, "blinkcmpdocseparator", { link = "normal", force = true })
+			-- vim.api.nvim_set_hl(0, "blinkcmpdocborder", { link = "pmenu", force = true })
+
+			vim.cmd.colorscheme("gruvbox-material")
 		end,
-	},
-	{
-		"folke/tokyonight.nvim",
-		enabled = true,
-		lazy = false,
-		priority = 1000,
-		opts = {
-			style = "night",
-			on_colors = function(colors)
-				-- colors.bg = "#ffffff"
-			end,
-		},
 	},
 	{
 		"wtfox/jellybeans.nvim",
 		lazy = false,
+		enabled = false,
 		priority = 1000,
 		opts = {
 			transparent = false,
@@ -119,15 +94,25 @@ return {
 				auto = true, -- will read lazy.nvim and apply the colors for plugins that are installed
 			},
 			on_highlights = function(highlights, colors)
-				highlights.NormalFloat = { bg = colors.bg, fg = colors.fg }
+				-- highlights.NormalFloat = { bg = "#151515", fg = colors.fg }
+				-- highlights.Float = { bg = colors.bg, fg = colors.fg }
+				-- highlights.OilFile = { bg = colors.bg, fg = colors.fg }
 
-				-- vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#151515" }) -- Or "ColorColumn", "Comment", etc.
-				highlights.RenderMarkdownCode = { bg = "#151515" }
+				-- vim.api.nvim_set_hl(0, "RenderMarkdownCode", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
+				-- vim.api.nvim_set_hl(0, "MarkviewCode", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
+				-- vim.api.nvim_set_hl(0, "MarkviewInlineCode", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
+				-- vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
+				-- vim.api.nvim_set_hl(0, "Float", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
+				-- highlights.RenderMarkdownCode = { link = "NormalFloat" }
+				-- highlights.MarkviewCode = { link = "NormalFloat" }
+				-- highlights.MarkviewInlineCode = { link = "NormalFloat" }
 			end,
 			on_colors = function(colors) end,
 		},
+		config = function()
+      vim.cmd.colorscheme("jellybeans")
+		end,
 	},
-
 	--- Utilities ---
 	{ "typicode/bg.nvim", lazy = false },
 	{

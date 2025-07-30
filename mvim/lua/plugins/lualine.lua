@@ -61,7 +61,7 @@ return {
 
 					local buffer = {
 						{ get_diagnostic_label() },
-						{ get_git_diff() },
+						-- { get_git_diff() },
 						{ (ft_icon or "") .. " ", guifg = ft_color, guibg = "none" },
 						{ filename .. " ", gui = modified },
 						{ "┊  " .. vim.api.nvim_win_get_number(props.win), group = "DevIconWindows" },
@@ -75,103 +75,111 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
-			local recording = {
-				function()
-					return vim.fn.reg_recording()
-				end,
-				icon = "󰑊",
-				color = { fg = "#222222", bg = "#ffb3b3", gui = "bold" }, -- pastel red bg, dark gray fg
-				separator = { right = "", left = "" },
-				left_padding = 2,
-			}
-
-			local recorded = {
-				function()
-					return vim.fn.reg_recorded()
-				end,
-				icon = "󰐊",
-				color = { fg = "#222222", bg = "#b3ffb3", gui = "bold" }, -- pastel green bg, dark gray fg
-				separator = { right = "", left = "" },
-			}
-
-			local hex_bg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "Normal" }).bg)
-
-			require("lualine").setup({
-				options = {
-					theme = "auto", -- Or your preferred theme
-					component_separators = { right = "", left = "" },
-					section_separators = { left = "", right = "" },
-
-					disabled_filetypes = {
-						statusline = {},
-						winbar = {},
-					},
-					always_divide_middle = true,
-				},
-				sections = {
-					lualine_a = { "mode" },
-					lualine_b = {
-						{
-							"branch",
-							color = { bg = hex_bg },
-						},
-					},
-					lualine_c = {
-						"%=",
-						recording,
-						recorded,
-					},
-					lualine_x = {
-						{
-							require("utils.codecompanion_spinner"),
-							separator = { right = "" },
-							icon = { " ", align = "left" },
-							color = { bg = hex_bg },
-						},
-					},
-					lualine_y = { "location" },
-					lualine_z = { "progress" },
-				},
-				inactive_sections = {
-					lualine_a = {},
-					lualine_b = {},
-					lualine_c = { "filename" },
-					lualine_x = { "location" },
-					lualine_y = {},
-					lualine_z = {},
-				},
-				-- tabline = function()
-				-- 	if #vim.api.nvim_list_tabpages() > 1 then
-				-- 		return {
-				-- 			lualine_a = {
-				-- 				{
-				-- 					"tabs",
-				-- 					cond = function()
-				-- 						return #vim.api.nvim_list_tabpages() > 1
-				-- 					end,
-				-- 					mode = 2,
-				-- 					fmt = function(name, context)
-				-- 						local symbol = context.current and "" or "󰆣"
-				-- 						return symbol .. " " .. name
-				-- 					end,
-				-- 				},
-				-- 			},
-				-- 			lualine_b = {},
-				-- 			lualine_c = {},
-				-- 			lualine_x = {},
-				-- 			lualine_y = {},
-				-- 			lualine_z = {},
-				-- 		}
-				-- 	else
-				-- 		return {}
-				-- 	end
-				-- end,
-				extensions = {},
-			})
-
-			-- Keymaps
-			vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "New Tab" })
-			vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close Tab" })
+			local themes = require("utils/lualine-configs")
+			require("lualine").setup(themes.eviline())
 		end,
 	},
+	-- {
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
+	-- 	config = function()
+	-- 		local recording = {
+	-- 			function()
+	-- 				return vim.fn.reg_recording()
+	-- 			end,
+	-- 			icon = "󰑊",
+	-- 			color = { fg = "#222222", bg = "#ffb3b3", gui = "bold" }, -- pastel red bg, dark gray fg
+	-- 			separator = { right = "", left = "" },
+	-- 			left_padding = 2,
+	-- 		}
+	--
+	-- 		local recorded = {
+	-- 			function()
+	-- 				return vim.fn.reg_recorded()
+	-- 			end,
+	-- 			icon = "󰐊",
+	-- 			color = { fg = "#222222", bg = "#b3ffb3", gui = "bold" }, -- pastel green bg, dark gray fg
+	-- 			separator = { right = "", left = "" },
+	-- 		}
+	--
+	-- 		local hex_bg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "Normal" }).bg)
+	--
+	-- 		require("lualine").setup({
+	-- 			options = {
+	-- 				theme = "auto", -- Or your preferred theme
+	-- 				component_separators = { right = "", left = "" },
+	-- 				section_separators = { left = "", right = "" },
+	--
+	-- 				disabled_filetypes = {
+	-- 					statusline = {},
+	-- 					winbar = {},
+	-- 				},
+	-- 				always_divide_middle = true,
+	-- 			},
+	-- 			sections = {
+	-- 				lualine_a = { "mode" },
+	-- 				lualine_b = {
+	-- 					{
+	-- 						"branch",
+	-- 						color = { bg = hex_bg },
+	-- 					},
+	-- 				},
+	-- 				lualine_c = {
+	-- 					"%=",
+	-- 					recording,
+	-- 					recorded,
+	-- 				},
+	-- 				lualine_x = {
+	-- 					{
+	-- 						require("utils.codecompanion_spinner"),
+	-- 						separator = { right = "" },
+	-- 						icon = { " ", align = "left" },
+	-- 						color = { bg = hex_bg },
+	-- 					},
+	-- 				},
+	-- 				lualine_y = { "location" },
+	-- 				lualine_z = { "progress" },
+	-- 			},
+	-- 			inactive_sections = {
+	-- 				lualine_a = {},
+	-- 				lualine_b = {},
+	-- 				lualine_c = { "filename" },
+	-- 				lualine_x = { "location" },
+	-- 				lualine_y = {},
+	-- 				lualine_z = {},
+	-- 			},
+	-- 			-- tabline = function()
+	-- 			-- 	if #vim.api.nvim_list_tabpages() > 1 then
+	-- 			-- 		return {
+	-- 			-- 			lualine_a = {
+	-- 			-- 				{
+	-- 			-- 					"tabs",
+	-- 			-- 					cond = function()
+	-- 			-- 						return #vim.api.nvim_list_tabpages() > 1
+	-- 			-- 					end,
+	-- 			-- 					mode = 2,
+	-- 			-- 					fmt = function(name, context)
+	-- 			-- 						local symbol = context.current and "" or "󰆣"
+	-- 			-- 						return symbol .. " " .. name
+	-- 			-- 					end,
+	-- 			-- 				},
+	-- 			-- 			},
+	-- 			-- 			lualine_b = {},
+	-- 			-- 			lualine_c = {},
+	-- 			-- 			lualine_x = {},
+	-- 			-- 			lualine_y = {},
+	-- 			-- 			lualine_z = {},
+	-- 			-- 		}
+	-- 			-- 	else
+	-- 			-- 		return {}
+	-- 			-- 	end
+	-- 			-- end,
+	-- 			extensions = {},
+	-- 		})
+	--
+	-- 		-- Keymaps
+	-- 		vim.keymap.set("n", "<leader>tn", ":tabnew<CR>", { desc = "New Tab" })
+	-- 		vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", { desc = "Close Tab" })
+	-- 	end,
+	-- },
 }
