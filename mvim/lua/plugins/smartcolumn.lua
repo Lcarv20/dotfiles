@@ -5,6 +5,7 @@ return {
 		disabled_filetypes = {
       "typescriptreact",
       "javascriptreact",
+      "astro",
       "html",
       "svelte",
       "vue",

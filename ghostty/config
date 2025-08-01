@@ -4,7 +4,7 @@
 # custom-shader = ghostty-shaders/cubes.glsl
 # custom-shader = ghostty-shaders/bloom.glsl
 # custom-shader = ghostty-shaders/gears-and-belts.glsl
-custom-shader = ghostty-shaders/cursor_blaze.glsl
+# custom-shader = ghostty-shaders/cursor_blaze.glsl
 
 # Cursor
 # -------------

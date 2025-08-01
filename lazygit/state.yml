@@ -1,7 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/lcarv/Developer/web/link-thing
     - /Users/lcarv/.dotfiles
+    - /Users/lcarv/Developer/web/link-thing
     - /Users/lcarv/Developer/nvim_plugins/gemineovim.nvim
 startuppopupversion: 5
 lastversion: 0.53.0

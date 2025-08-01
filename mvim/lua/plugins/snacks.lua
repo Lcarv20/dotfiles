@@ -1,7 +1,3 @@
--- Currently testing this plugin. So far I can disable the following plugins:
---   - telescope
---   - git-signs
---   - neo-tree
 return {
 	"folke/snacks.nvim",
 	enabled = true,
@@ -93,7 +89,32 @@ return {
 			timeout = 3000,
 			border = "none",
 		},
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			layouts = {
+				vscode = {
+					preview = false,
+					layout = {
+						backdrop = false,
+						row = 1,
+						width = 0.4,
+						min_width = 80,
+						height = 0.4,
+						border = "none",
+						box = "vertical",
+						{
+							win = "input",
+							height = 1,
+							border = "rounded",
+							title = "{title} {live} {flags}",
+							title_pos = "center",
+						},
+						{ win = "list", border = "rounded" },
+						{ win = "preview", title = "{preview}", border = "rounded" },
+					},
+				},
+			},
+		},
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		scroll = { enabled = false },

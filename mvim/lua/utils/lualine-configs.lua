@@ -623,6 +623,29 @@ M.cosmicink = function()
 	return config
 end
 
+M.recording = function(colors, separator)
+	return {
+		function()
+			return vim.fn.reg_recording()
+		end,
+		icon = "󰑊",
+		color = { fg = colors.fg, bg = colors.bg, gui = "bold" }, -- pastel red bg, dark gray fg
+		separator = { rignt = separator.right, left = separator.left },
+		left_padding = 2,
+	}
+end
+
+M.recorded = function(colors, separator)
+	return {
+		function()
+			return vim.fn.reg_recorded()
+		end,
+		icon = "󰐊",
+		color = { fg = colors.fg, bg = colors.bg, gui = "bold" }, -- pastel red bg, dark gray fg
+		separator = { rignt = separator.right, left = separator.left },
+	}
+end
+
 M.eviline = function()
 	local normal_bg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "Normal" }).bg)
 	local normal_fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "Normal" }).fg)
@@ -703,7 +726,7 @@ M.eviline = function()
 
 	ins_left({
 		function()
-			return "▊"
+			return "🭪"
 		end,
 		color = { fg = colors.blue }, -- Sets highlighting of component
 		padding = { left = 0, right = 1 }, -- We don't need space before this
@@ -759,16 +782,19 @@ M.eviline = function()
 
 	ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
-	ins_left({
-		"diagnostics",
-		sources = { "nvim_diagnostic" },
-		symbols = { error = " ", warn = " ", info = " " },
-		diagnostics_color = {
-			error = { fg = colors.red },
-			warn = { fg = colors.yellow },
-			info = { fg = colors.cyan },
-		},
-	})
+	-- ins_left({
+	-- 	"diagnostics",
+	-- 	sources = { "nvim_diagnostic" },
+	-- 	symbols = { error = " ", warn = " ", info = " " },
+	-- 	diagnostics_color = {
+	-- 		error = { fg = colors.red },
+	-- 		warn = { fg = colors.yellow },
+	-- 		info = { fg = colors.cyan },
+	-- 	},
+	-- })
+
+	ins_left(M.recorded({ fg = colors.green, bg = colors.bg }, { right = "/", left = "" }))
+	ins_left(M.recording({ fg = colors.red, bg = colors.bg }, { right = "", left = "" }))
 
 	-- Insert mid section. You can make any number of sections in neovim :)
 	-- for lualine it's any number greater then 2
@@ -811,7 +837,7 @@ M.eviline = function()
 	ins_right({
 		"fileformat",
 		fmt = string.upper,
-		icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
+		icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
 		color = { fg = colors.green, gui = "bold" },
 	})
 
@@ -835,7 +861,7 @@ M.eviline = function()
 
 	ins_right({
 		function()
-			return "▊"
+			return "🭨"
 		end,
 		color = { fg = colors.blue },
 		padding = { left = 1 },

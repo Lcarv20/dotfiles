@@ -22,12 +22,12 @@ require("lazy").setup({
 	change_detection = {
 		notify = false,
 	},
-	-- checker = {
-	-- 	enabled = true, -- check for plugin updates periodically
-	-- 	notify = false, -- notify on update
-	-- }, -- automatically check for plugin updates
+	checker = {
+		enabled = true, -- check for plugin updates periodically
+		notify = false, -- notify on update
+	}, -- automatically check for plugin updates
 	ui = {
 		border = "double",
 	},
-	install = { colorscheme = {"oldtable", "default", "habamax" } },
+	install = { colorscheme = {"noirbuddy", "default" } },
 })

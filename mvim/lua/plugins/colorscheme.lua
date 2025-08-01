@@ -16,7 +16,7 @@ return {
 	{
 		"topazape/oldtale.nvim",
 		lazy = false,
-		enabled = true,
+		enabled = false,
 		priority = 1000,
 		config = function()
 			vim.cmd.colorscheme("oldtale")
@@ -24,95 +24,103 @@ return {
 	},
 	{
 		"killitar/obscure.nvim",
-    enabled = false,
+		enabled = true,
 		lazy = false,
 		priority = 1000,
 		opts = {},
 		config = function()
-			vim.cmd.colorscheme("obscure")
+			-- vim.cmd.colorscheme("obscure")
 		end,
 	},
 	{
-		"sainnhe/gruvbox-material",
-		enabled = false,
+		"jesseleite/nvim-noirbuddy",
+		dependencies = {
+			{ "tjdevries/colorbuddy.nvim" },
+		},
 		lazy = false,
-		priority = 1000,
-		config = function()
-			-- Optionally configure and load the colorscheme
-			-- directly inside the plugin declaration.
-			vim.g.gruvbox_material_background = "hard" -- "medium",  "soft"
-			vim.g.gruvbox_material_enable_italic = true
-			vim.g.gruvbox_material_enable_bold = true
-			vim.g.gruvbox_material_transparent_background = 0 -- 1, 2
-			vim.g.gruvbox_material_disable_italic_comment = false
-			vim.g.gruvbox_material_dim_inactive_windows = false
-			vim.g.gruvbox_material_visual = "red background" -- 'grey background', 'green background', 'blue background', 'red background', 'reverse'
-			vim.g.gruvbox_material_menu_selection_background = "orange" -- 'grey', 'red', 'orange', 'yellow', 'green', 'aqua', 'blue', 'purple'
-			vim.g.gruvbox_material_sign_column_background = "none" -- 'grey'
-			vim.g.gruvbox_material_spell_foreground = "none" -- "colored"
-			vim.g.gruvbox_material_ui_contrast = "hight" -- "High"
-			vim.g.gruvbox_material_show_eob = true
-			vim.g.gruvbox_material_float_style = "dim" -- "dim"
-			vim.g.gruvbox_material_diagnostic_text_highlight = false
-			vim.g.gruvbox_material_diagnostic_line_highlight = false
-			vim.g.gruvbox_material_diagnostic_virtual_text = "highlighted" -- "colored", "highlighted"
-			vim.g.gruvbox_material_current_word = "grey background" -- 'grey background', 'high contrast background', 'bold', 'underline', 'italic'
-			vim.g.gruvbox_material_inlay_hints_background = "none" -- "dimmed""
-			vim.g.gruvbox_material_disable_terminal_colors = false
-			vim.g.gruvbox_material_statusline_style = "default" -- "mix", "original"
-			vim.g.gruvbox_material_lightline_disable_bold = false
-			vim.g.gruvbox_material_better_performance = false
-			vim.g.gruvbox_material_cursor = "aqua" --  'red', 'orange', 'yellow', 'green', 'aqua', 'blue', 'purple'
-
-			-- vim.g.gruvbox_material_colors_override = {
-			-- 	bg0 = { "#181818", "234" },
-			-- 	-- bg2 = { "#282828", "235" },
-			-- }
-
-			-- vim.api.nvim_set_hl(0, "blinkcmpdocseparator", { link = "normal", force = true })
-			-- vim.api.nvim_set_hl(0, "blinkcmpdocborder", { link = "pmenu", force = true })
-
-			vim.cmd.colorscheme("gruvbox-material")
-		end,
-	},
-	{
-		"wtfox/jellybeans.nvim",
-		lazy = false,
-		enabled = false,
 		priority = 1000,
 		opts = {
-			transparent = false,
-			italics = true,
-			bold = true,
-			flat_ui = false, -- toggles "flat UI" for pickers
-			background = {
-				dark = "jellybeans", -- default dark palette
-				light = "jellybeans_light", -- default light palette
+			-- preset = "miami-nights",
+			styles = {
+				italic = true,
+				bold = true,
 			},
-			plugins = {
-				all = true,
-				auto = true, -- will read lazy.nvim and apply the colors for plugins that are installed
-			},
-			on_highlights = function(highlights, colors)
-				-- highlights.NormalFloat = { bg = "#151515", fg = colors.fg }
-				-- highlights.Float = { bg = colors.bg, fg = colors.fg }
-				-- highlights.OilFile = { bg = colors.bg, fg = colors.fg }
+			-- -- LIGHT BG
+			-- colors = {
+			-- 	-- Backgrounds
+			-- 	background = "#EAE6E1", -- Light background
+			-- 	bg_float = "#DBD6D2",
+			-- 	bg_popup = "#DBD6D2",
+			-- 	bg_visual = "#C9C5C1",
+			-- 	bg_search = "#C9C5C1",
+			-- 	diff_add = "#E6F0E7", -- Light green for additions
+			-- 	diff_delete = "#F7E6E6", -- Light red for deletions
+			-- 	diff_change = "#E6EFF5", -- Light blue for changes
+			--
+			-- 	-- Foreground / Text
+			-- 	foreground = "#181818", -- Dark text for contrast
+			-- 	comment = "#7A787C", -- Muted grey for comments
+			--
+			-- 	-- Main accent colors (similar warm tones but adjusted for light background)
+			-- 	primary = "#C76B3B", -- Adjusted terracotta for light background
+			-- 	secondary = "#B54B4C", -- Adjusted coral/rose for light background
+			--
+			-- 	-- Grayscale palette (adjusted for light background)
+			-- 	noir_0 = "#181818", -- Darkest, near foreground
+			-- 	noir_1 = "#2A292C",
+			-- 	noir_2 = "#3C3B3E",
+			-- 	noir_3 = "#4E4D50",
+			-- 	noir_4 = "#605F62",
+			-- 	noir_5 = "#727174",
+			-- 	noir_6 = "#848386",
+			-- 	noir_7 = "#969598", -- Near comment color
+			-- 	noir_8 = "#A8A7AA",
+			-- 	noir_9 = "#DBD6D2", -- Lightest, near bg_float
+			--
+			-- 	-- Semantic/diagnostic colors (retained warm tones but adjusted for light background)
+			-- 	diagnostic_error = "#B54B4C", -- Adjusted red for errors
+			-- 	diagnostic_warning = "#C76B3B", -- Adjusted orange for warnings
+			-- 	diagnostic_info = "#4A7FB8", -- Adjusted blue for info
+			-- 	diagnostic_hint = "#8B9F6E", -- Adjusted olive for hints
+			-- },
 
-				-- vim.api.nvim_set_hl(0, "RenderMarkdownCode", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
-				-- vim.api.nvim_set_hl(0, "MarkviewCode", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
-				-- vim.api.nvim_set_hl(0, "MarkviewInlineCode", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
-				-- vim.api.nvim_set_hl(0, "NormalFloat", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
-				-- vim.api.nvim_set_hl(0, "Float", { link = "Normal" }) -- Or "ColorColumn", "Comment", etc.
-				-- highlights.RenderMarkdownCode = { link = "NormalFloat" }
-				-- highlights.MarkviewCode = { link = "NormalFloat" }
-				-- highlights.MarkviewInlineCode = { link = "NormalFloat" }
-			end,
-			on_colors = function(colors) end,
+			colors = {
+				-- Backgrounds
+				background = "#181818", -- oklch(14.1% 0.005 285.823) - Darker, stone-like
+
+				diff_add = "#303F32", -- Muted green for additions, adjusted for darker bg
+				diff_delete = "#4A3231", -- Muted red for deletions, adjusted for darker bg
+				diff_change = "#34424B", -- Muted blue for changes, adjusted for darker bg
+
+				-- Foreground / Text
+				foreground = "#EAE6E1", -- Slightly brighter off-white for better contrast
+				comment = "#929094", -- Muted grey for comments
+
+				-- Main accent colors (warm tones, slightly richer against darker background)
+				primary = "#E89B6C", -- Warm terracotta
+				secondary = "#D66B6C", -- Muted coral/rose
+
+				-- Grayscale palette (adjusted to lean warmer and darker overall)
+				noir_0 = "#EAE6E1", -- Lightest, near foreground
+				noir_1 = "#DBD6D2",
+				noir_2 = "#C9C5C1",
+				noir_3 = "#B7B3AF",
+				noir_4 = "#A5A19D",
+				noir_5 = "#938F8B",
+				noir_6 = "#817D79",
+				noir_7 = "#6F6B67", -- Near comment color
+				noir_8 = "#5C5854",
+				noir_9 = "#323136", -- Darkest, near bg_float
+
+				-- Semantic/diagnostic colors (retained warm tones)
+				diagnostic_error = "#D66B6C", -- Red for errors
+				diagnostic_warning = "#E89B6C", -- Orange for warnings
+				diagnostic_info = "#7A9FC6", -- Muted blue for info
+				diagnostic_hint = "#A9B87F", -- Muted olive for hints
+			},
 		},
-		config = function()
-      vim.cmd.colorscheme("jellybeans")
-		end,
 	},
+
 	--- Utilities ---
 	{ "typicode/bg.nvim", lazy = false },
 	{

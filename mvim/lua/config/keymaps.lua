@@ -62,7 +62,7 @@ map("n", "<leader>ul", fns.toggle_listchars, {
 map("n", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
 map("t", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
 map("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Switch to normal mode from terminal" })
-map("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
+-- map("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- Git
 map("n", "<leader>g", "", { desc = "Git" })
@@ -80,5 +80,3 @@ map("n", "<leader>b", "", { desc = "Buffer" })
 map("n", "<leader>s", "", { desc = "Search" })
 map("n", "<leader>f", "", { desc = "Search" })
 
--- Avante
-map("n", "<leader>a", "", { desc = "AI" })
