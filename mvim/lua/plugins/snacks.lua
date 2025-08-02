@@ -576,6 +576,8 @@ return {
 		vim.ui.select = require("snacks.picker").select
 		vim.ui.input = require("snacks").input
 
+    vim.api.nvim_set_hl(0, "SnacksPickerDir", { link = "Comment" })
+
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",
 			callback = function()
