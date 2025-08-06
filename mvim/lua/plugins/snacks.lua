@@ -1,3 +1,4 @@
+local global_border = require("utils.fns").get_border()
 return {
 	"folke/snacks.nvim",
 	enabled = true,
@@ -105,12 +106,12 @@ return {
 						{
 							win = "input",
 							height = 1,
-							border = "rounded",
+							border = global_border,
 							title = "{title} {live} {flags}",
 							title_pos = "center",
 						},
-						{ win = "list", border = "rounded" },
-						{ win = "preview", title = "{preview}", border = "rounded" },
+						{ win = "list", border =  global_border },
+						{ win = "preview", title = "{preview}", border = global_border },
 					},
 				},
 			},
@@ -576,7 +577,7 @@ return {
 		vim.ui.select = require("snacks.picker").select
 		vim.ui.input = require("snacks").input
 
-    vim.api.nvim_set_hl(0, "SnacksPickerDir", { link = "Comment" })
+		vim.api.nvim_set_hl(0, "SnacksPickerDir", { link = "Comment" })
 
 		vim.api.nvim_create_autocmd("User", {
 			pattern = "VeryLazy",

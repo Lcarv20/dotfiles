@@ -46,6 +46,7 @@ return {
 					-- end
 					return ctx.mode ~= "cmdline" or not vim.tbl_contains({ "/", "?", ":%" }, vim.fn.getcmdtype())
 				end,
+				border = "none",
 			},
 			list = {
 				selection = {
@@ -57,7 +58,7 @@ return {
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 300,
-				-- window = { border = "single" },
+				window = { border = "none" },
 			},
 
 			-- Display a preview of the selected item on the current line

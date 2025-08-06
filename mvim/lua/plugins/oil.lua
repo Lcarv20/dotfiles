@@ -1,3 +1,5 @@
+local border = require("utils.fns").get_border()
+
 return {
 	"stevearc/oil.nvim",
 	opts = {},
@@ -135,7 +137,7 @@ return {
 				padding = 2,
 				max_width = 0.7,
 				max_height = 0.7,
-				border = vim.g.neovide == true and "solid" or "single",
+				border = border,
 				-- win_options = {
 				-- 	winblend = 0,
 				-- 	-- winhighlight = "NormalNC:NormalFloat",
@@ -181,19 +183,19 @@ return {
 				max_height = { 10, 0.9 },
 				min_height = { 5, 0.1 },
 				height = nil,
-				border = "single",
-				minimized_border = "single",
+				border = border,
+				minimized_border = border,
 				win_options = {
 					winblend = 0,
 				},
 			},
 			-- Configuration for the floating SSH window
 			ssh = {
-				border = "single",
+				border = border,
 			},
 			-- Configuration for the floating keymaps help window
 			keymaps_help = {
-				border = "single",
+				border = border,
 			},
 		})
 

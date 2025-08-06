@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.winborder = "rounded"
 vim.g.have_nerd_font = true
 vim.opt.relativenumber = true -- set relative numbered lines
 vim.opt.numberwidth = 2 -- set number column width to 2 {default 4}

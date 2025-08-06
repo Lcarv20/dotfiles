@@ -1,6 +1,7 @@
 return {
 	{
 		"b0o/incline.nvim",
+    enabled = false,
 		config = function()
 			require("incline").setup({
 				window = {
@@ -47,7 +48,7 @@ return {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			local themes = require("utils/lualine-configs")
-			require("lualine").setup(themes.eviline())
+			require("lualine").setup(themes.lcarv_shrugged())
 		end,
 	},
 }

@@ -95,4 +95,4 @@ export NEXT_TELEMETRY_DISABLED=1
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-eval "$(mise activate bash)"
+eval "$(mise activate zsh)"

@@ -8,7 +8,8 @@ map("i", "jj", "<ESC>") -- quit insert mode
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", ignore)
 map("n", "<esc>", "<cmd>nohlsearch<CR>", ignore)
 map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
-map("n", "<leader>q", "<cmd>q<cr>", { desc = "Quit" })
+map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit All" })
+map("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit current" })
 
 -- Maintain scroll in the middle
 map("n", "<C-d>", "<C-d>zz")

@@ -77,7 +77,7 @@ M.diagnostics_config = function(border)
 			virtual_text = {
 				prefix = "⏺",
 			},
-      virtual_lines = false,
+			virtual_lines = false,
 			update_in_insert = false,
 			underline = true,
 			severity_sort = true,
@@ -86,7 +86,7 @@ M.diagnostics_config = function(border)
 				max_width = 80,
 				max_height = 20,
 				style = "minimal",
-				border = border or "single",
+				border = M.get_border(border),
 				source = "always",
 				wrap = true,
 				header = "",
@@ -134,7 +134,7 @@ M.lsp_popover_borders = function(border)
 	---@diagnostic disable-next-line: duplicate-set-field
 	function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
 		opts = opts or {}
-		opts.border = opts.border or border or "single"
+		opts.border = M.get_border(border)
 		return orig_util_open_floating_preview(contents, syntax, opts, ...)
 	end
 end
@@ -158,7 +158,7 @@ M.open_floating_window = function(bufnr, border)
 		col = col,
 		row = row,
 		style = "minimal",
-		border = border or "single", -- Options: "none", "single", "double", "rounded", etc.
+		border =  M.get_border(border), -- Options: "none", "single", "double", "rounded", etc.
 	}
 
 	-- local buf = vim.api.nvim_create_buf(false, true) -- Create a scratch buffer
@@ -183,6 +183,10 @@ M.create_notification = function(msg, level, delay)
 	vim.defer_fn(function()
 		require("mini.notify").remove(id)
 	end, delay)
+end
+
+M.get_border = function(border)
+	return border or vim.g.neovide == true and "solid" or "rounded"
 end
 
 return M

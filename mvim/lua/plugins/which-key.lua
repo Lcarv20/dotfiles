@@ -4,7 +4,7 @@ return {
 		preset = "helix",
 		win = {
 			title = " ",
-			border = vim.g.neovide and "solid" or "single",
+			-- border = require("utils.fns").get_border("rounded"),
 		},
 	},
 }
