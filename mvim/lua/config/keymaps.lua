@@ -3,7 +3,7 @@ local ignore = { desc = "which_key_ignore" }
 local fns = require("utils.fns")
 
 -- General
-map("n", "J", "mzJ`z") -- keep cursor in place
+map("n", "J", "mzJ`z")  -- keep cursor in place
 map("i", "jj", "<ESC>") -- quit insert mode
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", ignore)
 map("n", "<esc>", "<cmd>nohlsearch<CR>", ignore)
@@ -53,16 +53,11 @@ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
--- List chars
--- Set the keymap with a dynamic description
-map("n", "<leader>ul", fns.toggle_listchars, {
-	desc = "Toggle listchars",
-})
-
--- Terminal
-map("n", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
-map("t", "<d-j>", fns.toggle_term, { noremap = true, silent = true, desc = "Toggle terminal" })
+map("n", "<d-j>", function() Snacks.terminal() end, { noremap = true, silent = true, desc = "Toggle terminal" })
+map("t", "<d-j>", function() Snacks.terminal() end, { noremap = true, silent = true, desc = "Toggle terminal" })
 map("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Switch to normal mode from terminal" })
+map("t", "<C-n>", function() Snacks.terminal.open() end,
+    { noremap = true, silent = true, desc = "Open new terminal split" })
 -- map("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- Git
@@ -80,4 +75,3 @@ map("n", "<leader>b", "", { desc = "Buffer" })
 -- Snacks
 map("n", "<leader>s", "", { desc = "Search" })
 map("n", "<leader>f", "", { desc = "Search" })
-

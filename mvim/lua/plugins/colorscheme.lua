@@ -90,15 +90,15 @@ return {
 
 	--- Utilities ---
 	{ "typicode/bg.nvim", lazy = false },
+	-- TODO: Use the colors from the "utils.colors" table
 	{
 		"f-person/auto-dark-mode.nvim",
 		enabled = true,
+		lazy = false,
 		opts = {
 			set_dark_mode = function()
 				vim.api.nvim_set_option_value("background", "dark", {})
-				-- vim.cmd.colorscheme("noirbuddy")
 				require("noirbuddy").setup({
-					-- preset = "miami-nights",
 					styles = {
 						italic = true,
 						bold = true,

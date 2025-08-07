@@ -59,8 +59,8 @@ return {
 					map("<leader>cr", vim.lsp.buf.rename, "Rename")
 					map("<leader>ca", vim.lsp.buf.code_action, "Code Action", { "n", "x" })
 					-- map("gS", vim.lsp.buf.declaration, "Goto Declaration")
-					map("<leader>cd", vim.diagnostic.setloclist, "Document Diagnostics")
-					map("<leader>cw", vim.diagnostic.setqflist, "Workspace Diagnostics")
+					-- map("<leader>cd", vim.diagnostic.setloclist, "Document Diagnostics")
+					-- map("<leader>cw", vim.diagnostic.setqflist, "Workspace Diagnostics")
 
 					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 					local function client_supports_method(client, method, bufnr)

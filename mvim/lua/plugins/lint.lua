@@ -47,7 +47,7 @@ M.config = {
 		}
 
 		-- Set up a keybinding to toggle the linter
-		vim.keymap.set("n", "<leader>cl", M.toggle_linter, { desc = "Toggle linter" })
+		vim.keymap.set("n", "<leader>cx", M.toggle_linter, { desc = "Toggle linter" })
 
 		-- Create the default autocommands for linting
 		if M.enabled then

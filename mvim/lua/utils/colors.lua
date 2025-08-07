@@ -1,45 +1,61 @@
--- return {
---   pink_shock = "#eb53ed",
---   cyan = "#00ffff",
---   mauve = "#cba6f7",
---   teal = "#a6e3a1",
---   suave_red = "#f38ba8",
---   yellow = "#ffdd33",
---   saphire = "#74c7ec",
---   green = "#73c936",
---   purple = "#7d4bfa",
---   dark_blue = "#2c50f2",
---   blue = "#69bef0",
---   red = "#d41343",
---   orange = "#ff9e64",
---   subtle_gray = "#736b6b",
--- }
+local M = {}
 
--- same colors as gruber except for the cyan
-return {
-  cyan = "#00ffff",
-	fg = "#e4e4ef",
-	fg_1 = "#f4f4ff",
-	fg_2 = "#f5f5f5",
-	white = "#ffffff",
-	black = "#000000",
-	bg_m1 = "#101010",
-	bg = "#181818",
-	bg_1 = "#282828",
-	bg_2 = "#453d41",
-	bg_3 = "#484848",
-	bg_4 = "#52494e",
-	red_1 = "#c73c3f",
-	red = "#f43841",
-	red_2 = "#ff4f58",
-	green = "#73c936",
-	yellow = "#ffdd33",
-	brown = "#cc8c3c",
-	quartz = "#95a99f",
-	niagara_2 = "#303540",
-	niagara_1 = "#565f73",
-	niagara = "#96a6c8",
-	wisteria = "#9e95c7",
-	dark_blue = "#0e323d",
-  blue = "#345beb",
-}
+M.colors = function()
+    local is_dark = vim.o.background == "dark"
+
+    -- Safely get colors with fallbacks
+    local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
+    local normal_bg = normal_hl.bg and string.format("#%06x", normal_hl.bg) or (is_dark and "#181818" or "#ffffff")
+    local normal_fg = normal_hl.fg and string.format("#%06x", normal_hl.fg) or (is_dark and "#eae6e1" or "#000000")
+
+    local light = {
+        bg = normal_bg,
+        fg = normal_fg,
+        pink_shock = "#eb53ed",
+        cyan = "#00ffff",
+        mauve = "#cba6f7",
+        teal = "#a6e3a1",
+        suave_red = "#f38ba8",
+        yellow = "#ffdd33",
+        saphire = "#74c7ec",
+        green = "#73c936",
+        purple = "#7d4bfa",
+        dark_blue = "#2c50f2",
+        blue = "#69bef0",
+        red = "#d41343",
+        orange = "#ff9e64",
+        subtle_gray = "#736b6b",
+        violet = "#6C71C4",
+        magenta = "#D33682",
+    }
+
+    -- Pastel, eye-friendly dark palette inspired by Catppuccin/Nord
+    local dark = {
+        bg = normal_bg,
+        fg = normal_fg,
+        pink_shock = "#f5c2e7",  -- soft pink
+        cyan = "#94e2d5",        -- soft cyan/aqua
+        mauve = "#cba6f7",       -- soft lavender
+        teal = "#94e2d5",        -- soft teal
+        suave_red = "#f38ba8",   -- soft rose
+        yellow = "#f9e2af",      -- soft yellow
+        saphire = "#89b4fa",     -- soft blue
+        green = "#a6e3a1",       -- soft green
+        purple = "#b4befe",      -- soft purple
+        dark_blue = "#6c7086",   -- muted blue-gray
+        blue = "#89b4fa",        -- soft blue
+        red = "#f38ba8",         -- soft red
+        orange = "#fab387",      -- soft peach
+        subtle_gray = "#6c7086", -- soft gray
+        violet = "#b4befe",      -- soft violet
+        magenta = "#f5c2e7",     -- soft magenta
+    }
+
+    if is_dark then
+        return dark
+    else
+        return light
+    end
+end
+
+return M

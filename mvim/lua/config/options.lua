@@ -23,8 +23,9 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = "yes"
 vim.opt.smoothscroll = true
 vim.opt.conceallevel = 0 -- hide * markup for bold and italic, but not markers with substitutions
-vim.opt.concealcursor = 'nvic'
--- vim.o.guicursor = ''
+vim.opt.concealcursor = "nvic"
+vim.opt.guicursor =
+	"n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
 vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.opt.updatetime = 200
 vim.opt.swapfile = false
@@ -44,24 +45,14 @@ vim.opt.listchars = {
 }
 
 vim.opt.fillchars = { eob = " ", fold = " ", foldopen = "", foldsep = " ", foldclose = "", diff = " " }
-
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
-
--- vim.opt.guicursor =
--- 	"n:block-NCursor,ci:block-NoiceCursor,v:block-VCursor,i-ci-ve:block-ICursor,r-cr-o:block-RCursor,sm:block-ComCursor"
--- vim.opt.guicursor =
--- 	"n:block-deusYellow,ci:block-deusPurple,v:block-deusPurple,i-ci-ve:block-deusGreen,r-cr-o:block-deusRed,sm:block-DeusOrange"
--- vim.opt.cmdheight = 2
-
 vim.opt.autowrite = true
 vim.opt.jumpoptions = "view"
 vim.opt.inccommand = "nosplit"
 vim.opt.formatoptions = "jcroqlnt"
 vim.opt.laststatus = 3
 vim.opt.linebreak = true
--- vim.opt.pumblend = 15
--- vim.opt.winblend = 4
 vim.opt.pumheight = 10
 vim.opt.ruler = false
 vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }

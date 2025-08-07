@@ -885,46 +885,7 @@ M.lcarv_evil = function()
 end
 
 M.lcarv_shrugged = function()
-	-- Check if the background is set to 'light'
-	local is_light = vim.o.background == "light"
-
-	-- Get the Normal highlight group for dynamic foreground/background
-	local normal_bg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "Normal" }).bg)
-	local normal_fg = string.format("#%06x", vim.api.nvim_get_hl(0, { name = "Normal" }).fg)
-
-	local colors = {}
-
-	if is_light then
-		-- Palette for light themes
-		colors = {
-			bg = normal_bg,
-			fg = normal_fg,
-			yellow = "#B58900",
-			cyan = "#2AA198",
-			darkblue = "#073642",
-			green = "#859900",
-			orange = "#CB4B16",
-			violet = "#6C71C4",
-			magenta = "#D33682",
-			blue = "#268BD2",
-			red = "#DC322F",
-		}
-	else
-		-- Your original palette for dark themes
-		colors = {
-			bg = normal_bg,
-			fg = normal_fg,
-			yellow = "#ECBE7B",
-			cyan = "#008080",
-			darkblue = "#081633",
-			green = "#98be65",
-			orange = "#FF8800",
-			violet = "#a9a1e1",
-			magenta = "#c678dd",
-			blue = "#51afef",
-			red = "#ec5f67",
-		}
-	end
+	local colors = require("utils.colors").colors()
 
 	local conditions = {
 		buffer_not_empty = function()
@@ -940,7 +901,6 @@ M.lcarv_shrugged = function()
 		end,
 	}
 
-	-- Config
 	local config = {
 		options = {
 			component_separators = "",
@@ -995,7 +955,7 @@ M.lcarv_shrugged = function()
 				n = colors.red,
 				i = colors.green,
 				v = colors.blue,
-				[" "] = colors.blue,
+				-- [" "] = colors.blue,
 				V = colors.blue,
 				c = colors.magenta,
 				no = colors.red,
@@ -1037,9 +997,6 @@ M.lcarv_shrugged = function()
 		},
 	})
 
-	-- The rest of your configuration remains the same
-	-- ... (ins_left and ins_right calls) ...
-
 	ins_left({
 		function()
 			return "%="
@@ -1068,7 +1025,7 @@ M.lcarv_shrugged = function()
 
 	ins_right({
 		"diff",
-		symbols = { added = " ", modified = "󰝤 ", removed = " " },
+		symbols = { added = " ", modified = "󱨇 ", removed = " " },
 		diff_color = {
 			added = { fg = colors.green },
 			modified = { fg = colors.orange },

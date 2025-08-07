@@ -110,7 +110,7 @@ return {
 							title = "{title} {live} {flags}",
 							title_pos = "center",
 						},
-						{ win = "list", border =  global_border },
+						{ win = "list", border = global_border },
 						{ win = "preview", title = "{preview}", border = global_border },
 					},
 				},
@@ -591,6 +591,7 @@ return {
 				end
 				vim.print = _G.dd -- Override print to use snacks for `:=` command
 
+				Snacks.toggle.option("list", { name = "󱁐 List (Visible Whitespace)" }):map("<leader>ux")
 				-- Create some toggle mappings
 				Snacks.toggle.option("spell", { name = "Spelling" }):map("<leader>us")
 				Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
