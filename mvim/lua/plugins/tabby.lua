@@ -1,15 +1,21 @@
----@class Snacks
----@diagnostic disable-next-line: undefined-global
-
 return {
 	"nanozuki/tabby.nvim",
 	enabled = true,
+	lazy = true,
+	event = { "TabEnter", "TabNew", "TabClosed" },
+	keys = {
+		{ "<leader>t", desc = "tabs" },
+		{ "<leader>tn", desc = "new" },
+		{ "<leader>tc", desc = "close" },
+		{ "<leader>tr", desc = "rename" },
+	},
 	config = function()
 		-- Keymaps
 		vim.keymap.set("n", "<leader>t", "", { desc = "tabs" })
 		vim.keymap.set("n", "<leader>tn", ":tabnew<cr>", { desc = "new" })
 		vim.keymap.set("n", "<leader>tc", ":tabclose<cr>", { desc = "close" })
 		vim.keymap.set("n", "<leader>tr", function()
+			---@type snacks.Config
 			Snacks.input({
 				prompt = "new tab name: ",
 			}, function(new_name)
@@ -24,56 +30,33 @@ return {
 		-- Options
 		vim.o.showtabline = 1
 
-		local theme = {
-			fill = "Normal",
-			-- Also you can do this: fill = { fg='#f2e9de', bg='#907aa9', style='italic' }
-			head = "TabLine",
-			current_tab = "CursorColumn",
-			tab = "ColorColumn",
-			win = "TabLine",
-			tail = "TabLine",
-		}
+		local colors = require("utils.colors").colors()
 
 		vim.api.nvim_set_hl(0, "TabLineFill", { link = "Normal" })
 		require("tabby").setup({
 			line = function(line)
 				return {
 					{
-						{ "  ", hl = theme.current_tab },
-						line.sep(" ", theme.current_tab, theme.fill),
+						line.sep("🭪", { bg = colors.blue }, { fg = colors.fg, bg = colors.bg }),
+						{ " (•'╻'• ) ", hl = { fg = colors.blue, bg = colors.bg, style = "bold" } },
 					},
 					line.tabs().foreach(function(tab)
-						local hl = tab.is_current() and theme.current_tab or theme.tab
+						local hl = tab.is_current() and { fg = "#000000", bg = colors.green, style = "bold" }
+							or { fg = colors.fg, bg = colors.mutted }
 						return {
-							line.sep(" ", hl, theme.fill),
+							line.sep(" ", hl, { fg = colors.fg, bg = colors.bg, style = "bold" }),
 							tab.is_current() and "" or "󰆣",
 							tab.number(),
 							tab.name(),
 							-- tab.close_btn(""),
-							line.sep(" ", hl, theme.fill),
+							line.sep(" ", hl, { fg = colors.fg, bg = colors.bg, style = "bold" }),
 							hl = hl,
 							margin = " ",
 						}
 					end),
 					line.spacer(),
-					-- line.wins_in_tab(line.api.get_current_tab()).foreach(function(win)
-					-- 	return {
-					-- 		line.sep("", theme.win, theme.fill),
-					-- 		win.is_current() and "" or "",
-					-- 		win.buf_name(),
-					-- 		line.sep(" ", theme.win, theme.fill),
-					-- 		hl = theme.win,
-					-- 		margin = " ",
-					-- 	}
-					-- end),
-					-- {
-					-- 	line.sep(" ", theme.tail, theme.fill),
-					-- 	{ "  ", hl = theme.tail },
-					-- },
-					-- hl = theme.fill,
 				}
 			end,
-			-- option = {}, -- setup modules' option,
 		})
 	end,
 }
