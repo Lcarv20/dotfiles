@@ -37,19 +37,19 @@ return {
 			line = function(line)
 				return {
 					{
-						line.sep("🭪", { bg = colors.blue }, { fg = colors.fg, bg = colors.bg }),
-						{ " (•'╻'• ) ", hl = { fg = colors.blue, bg = colors.bg, style = "bold" } },
+						line.sep("🭪", { bg = colors.green }, { fg = colors.fg, bg = colors.bg }),
+						{ "   ", hl = { fg = colors.green, bg = colors.bg, style = "bold" } },
 					},
 					line.tabs().foreach(function(tab)
-						local hl = tab.is_current() and { fg = "#000000", bg = colors.green, style = "bold" }
+						local hl = tab.is_current() and { fg = colors.orange, bg = colors.bg, style = "bold" }
 							or { fg = colors.fg, bg = colors.mutted }
 						return {
-							line.sep(" ", hl, { fg = colors.fg, bg = colors.bg, style = "bold" }),
-							tab.is_current() and "" or "󰆣",
+							line.sep(" ", hl, { fg = colors.fg, bg = colors.bg, style = "bold" }),
+							tab.is_current() and " " or "",
 							tab.number(),
 							tab.name(),
 							-- tab.close_btn(""),
-							line.sep(" ", hl, { fg = colors.fg, bg = colors.bg, style = "bold" }),
+							line.sep(" ", hl, { fg = colors.fg, bg = colors.bg, style = "bold" }),
 							hl = hl,
 							margin = " ",
 						}

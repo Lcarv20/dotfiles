@@ -942,13 +942,14 @@ M.lcarv_shrugged = function()
 		function()
 			return "🭪"
 		end,
-		color = { fg = colors.blue },
+		color = { fg = colors.mauve },
 		padding = { left = 0, right = 1 },
 	})
 
 	ins_left({
 		function()
-			return "¯\\_(ツ)_/¯"
+			-- return "¯\\_(ツ)_/¯"
+			return " "
 		end,
 		color = function()
 			local mode_color = {
@@ -1038,7 +1039,7 @@ M.lcarv_shrugged = function()
 		function()
 			return "🭨"
 		end,
-		color = { fg = colors.blue },
+		color = { fg = colors.mauve },
 		padding = { left = 1 },
 	})
 

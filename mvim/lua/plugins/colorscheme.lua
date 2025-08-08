@@ -133,6 +133,7 @@ return {
 						diagnostic_hint = "#a9b87f", -- muted olive for hints
 					},
 				})
+
 			end,
 			set_light_mode = function()
 				vim.api.nvim_set_option_value("background", "light", {})
