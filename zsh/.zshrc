@@ -30,7 +30,7 @@ export EDITOR='nvim'
 export XDG_CONFIG_HOME="$HOME/.config"
 
 ## VIVID
-export LS_COLORS="$(vivid generate one-dark)"
+# export LS_COLORS="$(vivid generate one-dark)"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
