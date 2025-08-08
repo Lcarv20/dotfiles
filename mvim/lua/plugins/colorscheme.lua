@@ -38,7 +38,17 @@ return {
 		priority = 1000,
 	},
 	{
+		"Lcarv20/nvim-noirbuddy",
+    enabled = false,
+		dependencies = {
+			{ "tjdevries/colorbuddy.nvim" },
+		},
+		name = "lcarv-noir",
+		branch = "feat/update-default-colors",
+	},
+	{
 		"jesseleite/nvim-noirbuddy",
+		-- enabled = false,
 		dependencies = {
 			{ "tjdevries/colorbuddy.nvim" },
 		},
@@ -93,7 +103,7 @@ return {
 	-- TODO: Use the colors from the "utils.colors" table
 	{
 		"f-person/auto-dark-mode.nvim",
-		enabled = true,
+		-- enabled = false,
 		lazy = false,
 		opts = {
 			set_dark_mode = function()
@@ -133,7 +143,6 @@ return {
 						diagnostic_hint = "#a9b87f", -- muted olive for hints
 					},
 				})
-
 			end,
 			set_light_mode = function()
 				vim.api.nvim_set_option_value("background", "light", {})

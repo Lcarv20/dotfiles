@@ -6,4 +6,3 @@ require("config.highlight")
 if vim.g.neovide then
 	require("config.neovide")
 end
-
