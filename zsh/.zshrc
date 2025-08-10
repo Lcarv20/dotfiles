@@ -1,5 +1,3 @@
-$HOME/.dotfiles/zsh/poke-colorscript
-
 # Created by Zap installer
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 plug "zsh-users/zsh-autosuggestions"
@@ -156,3 +154,5 @@ set-short-prompt() {
     zle .reset-prompt 2>/dev/null # hide the errors on ctrl+c
   fi
 }
+
+$HOME/.dotfiles/zsh/poke-colorscript

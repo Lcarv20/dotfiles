@@ -39,7 +39,7 @@ return {
 	},
 	{
 		"Lcarv20/nvim-noirbuddy",
-    enabled = false,
+		enabled = false,
 		dependencies = {
 			{ "tjdevries/colorbuddy.nvim" },
 		},
@@ -64,19 +64,20 @@ return {
 			colors = {
 				-- backgrounds
 				background = "#181818", -- oklch(14.1% 0.005 285.823) - darker, stone-like
-
-				diff_add = "#303f32", -- muted green for additions, adjusted for darker bg
-				diff_delete = "#4a3231", -- muted red for deletions, adjusted for darker bg
-				diff_change = "#34424b", -- muted blue for changes, adjusted for darker bg
-
+				diff_add = "#a6e3a1", -- muted green for additions, adjusted for darker bg
+				diff_delete = "#f38ba8", -- muted red for deletions, adjusted for darker bg
+				diff_change = "#b4befe", -- muted blue for changes, adjusted for darker bg
+				-- semantic/diagnostic colors (retained warm tones)
+				diagnostic_error = "#d66b6c", -- red for errors
+				diagnostic_warning = "#e89b6c", -- orange for warnings
+				diagnostic_info = "#7a9fc6", -- muted blue for info
+				diagnostic_hint = "#a9b87f", -- muted olive for hints
 				-- foreground / text
 				foreground = "#eae6e1", -- slightly brighter off-white for better contrast
 				comment = "#929094", -- muted grey for comments
-
 				-- main accent colors (warm tones, slightly richer against darker background)
 				primary = "#e89b6c", -- warm terracotta
 				secondary = "#d66b6c", -- muted coral/rose
-
 				-- grayscale palette (adjusted to lean warmer and darker overall)
 				noir_0 = "#eae6e1", -- lightest, near foreground
 				noir_1 = "#dbd6d2",
@@ -88,12 +89,6 @@ return {
 				noir_7 = "#6f6b67", -- near comment color
 				noir_8 = "#5c5854",
 				noir_9 = "#323136", -- darkest, near bg_float
-
-				-- semantic/diagnostic colors (retained warm tones)
-				diagnostic_error = "#d66b6c", -- red for errors
-				diagnostic_warning = "#e89b6c", -- orange for warnings
-				diagnostic_info = "#7a9fc6", -- muted blue for info
-				diagnostic_hint = "#a9b87f", -- muted olive for hints
 			},
 		},
 	},
@@ -114,18 +109,23 @@ return {
 						bold = true,
 					},
 					colors = {
+						-- backgrounds
 						background = "#181818", -- oklch(14.1% 0.005 285.823) - darker, stone-like
-
-						diff_add = "#303f32", -- muted green for additions, adjusted for darker bg
-						diff_delete = "#4a3231", -- muted red for deletions, adjusted for darker bg
-						diff_change = "#34424b", -- muted blue for changes, adjusted for darker bg
-
+						diff_add = "#a6e3a1", -- muted green for additions, adjusted for darker bg
+						diff_delete = "#f38ba8", -- muted red for deletions, adjusted for darker bg
+						diff_change = "#b4befe", -- muted blue for changes, adjusted for darker bg
+						-- semantic/diagnostic colors (retained warm tones)
+						diagnostic_error = "#d66b6c", -- red for errors
+						diagnostic_warning = "#e89b6c", -- orange for warnings
+						diagnostic_info = "#7a9fc6", -- muted blue for info
+						diagnostic_hint = "#a9b87f", -- muted olive for hints
+						-- foreground / text
 						foreground = "#eae6e1", -- slightly brighter off-white for better contrast
 						comment = "#929094", -- muted grey for comments
-
+						-- main accent colors (warm tones, slightly richer against darker background)
 						primary = "#e89b6c", -- warm terracotta
 						secondary = "#d66b6c", -- muted coral/rose
-
+						-- grayscale palette (adjusted to lean warmer and darker overall)
 						noir_0 = "#eae6e1", -- lightest, near foreground
 						noir_1 = "#dbd6d2",
 						noir_2 = "#c9c5c1",
@@ -136,11 +136,6 @@ return {
 						noir_7 = "#6f6b67", -- near comment color
 						noir_8 = "#5c5854",
 						noir_9 = "#323136", -- darkest, near bg_float
-
-						diagnostic_error = "#d66b6c", -- red for errors
-						diagnostic_warning = "#e89b6c", -- orange for warnings
-						diagnostic_info = "#7a9fc6", -- muted blue for info
-						diagnostic_hint = "#a9b87f", -- muted olive for hints
 					},
 				})
 			end,

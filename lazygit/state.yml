@@ -3,7 +3,7 @@ recentrepos:
     - /Users/lcarv/.dotfiles
     - /Users/lcarv/Developer/web/tldr-thing
 startuppopupversion: 5
-didshowhunkstaginghint: false
+didshowhunkstaginghint: true
 lastversion: 0.54.1
 customcommandshistory: []
 hidecommandlog: false

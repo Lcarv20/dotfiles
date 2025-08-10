@@ -608,6 +608,25 @@ return {
 				Snacks.toggle.inlay_hints():map("<leader>uh")
 				Snacks.toggle.indent():map("<leader>ug")
 				Snacks.toggle.dim():map("<leader>uD")
+				local snacks = require("snacks")
+
+				snacks.toggle
+					.new({
+						name = "LSP Virtual Text/Lines",
+						get = function()
+							local config = vim.diagnostic.config() or {}
+							local vt = config.virtual_text
+							return vt == true or (type(vt) == "table" and vt ~= nil)
+						end,
+						set = function(state)
+							if state then
+								vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
+							else
+								vim.diagnostic.config({ virtual_text = false, virtual_lines = true })
+							end
+						end,
+					})
+					:map("<leader>l")
 			end,
 		})
 	end,
