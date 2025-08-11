@@ -42,7 +42,7 @@ return {
 					},
 					line.tabs().foreach(function(tab)
 						local hl = tab.is_current() and { fg = colors.orange, bg = colors.bg, style = "bold" }
-							or { fg = colors.fg, bg = colors.mutted }
+							or { fg = colors.subtle_gray, bg = colors.bg }
 						return {
 							line.sep(" ", hl, { fg = colors.fg, bg = colors.bg, style = "bold" }),
 							tab.is_current() and " " or "",

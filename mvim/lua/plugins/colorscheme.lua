@@ -39,16 +39,35 @@ return {
 	},
 	{
 		"Lcarv20/nvim-noirbuddy",
+		lazy = false,
+		priority = 1000,
 		enabled = false,
 		dependencies = {
 			{ "tjdevries/colorbuddy.nvim" },
 		},
+		opts = {
+			colors = {
+				primary = "#e89b6c",
+				background = "#3e3e3e",
+			},
+		},
 		name = "lcarv-noir",
-		branch = "feat/update-default-colors",
+		config = function()
+			vim.cmd.colorscheme("lcarv-noir")
+		end,
+	},
+	{
+		dir = "~/Developer/nvim-plugins/sugoi.nvim/",
+		dependencies = { "tjdevries/colorbuddy.nvim" },
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("sugoi") -- applies when you want
+		end,
 	},
 	{
 		"jesseleite/nvim-noirbuddy",
-		-- enabled = false,
+		enabled = false,
 		dependencies = {
 			{ "tjdevries/colorbuddy.nvim" },
 		},
@@ -98,7 +117,7 @@ return {
 	-- TODO: Use the colors from the "utils.colors" table
 	{
 		"f-person/auto-dark-mode.nvim",
-		-- enabled = false,
+		enabled = false,
 		lazy = false,
 		opts = {
 			set_dark_mode = function()
