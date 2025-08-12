@@ -286,6 +286,7 @@ M.cosmicink = function()
 	-- Config
 	local config = {
 		options = {
+      globalstatus = true,
 			component_separators = "",
 			section_separators = "",
 			theme = {
@@ -682,6 +683,7 @@ M.lcarv_evil = function()
 	-- Config
 	local config = {
 		options = {
+      globalstatus = true,
 			-- Disable sections and component separators
 			component_separators = "",
 			section_separators = "",
@@ -903,6 +905,7 @@ M.lcarv_shrugged = function()
 
 	local config = {
 		options = {
+      globalstatus = true,
 			component_separators = "",
 			section_separators = "",
 			theme = {

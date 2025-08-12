@@ -11,6 +11,9 @@ return {
 			window = {
 				padding = 0,
 				margin = { vertical = 0, horizontal = 0 },
+        overlap = {
+          borders = true
+        },
 				placement = {
 					horizontal = "right",
 					vertical = "top",

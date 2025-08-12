@@ -3,7 +3,7 @@ local ignore = { desc = "which_key_ignore" }
 local fns = require("utils.fns")
 
 -- General
-map("n", "J", "mzJ`z")  -- keep cursor in place
+map("n", "J", "mzJ`z") -- keep cursor in place
 map("i", "jj", "<ESC>") -- quit insert mode
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", ignore)
 map("n", "<esc>", "<cmd>nohlsearch<CR>", ignore)
@@ -53,21 +53,22 @@ map("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 
-map("n", "<d-j>", function() Snacks.terminal() end, { noremap = true, silent = true, desc = "Toggle terminal" })
-map("t", "<d-j>", function() Snacks.terminal() end, { noremap = true, silent = true, desc = "Toggle terminal" })
+map("n", "<d-j>", function()
+	Snacks.terminal()
+end, { noremap = true, silent = true, desc = "Toggle terminal" })
+map("t", "<d-j>", function()
+	Snacks.terminal()
+end, { noremap = true, silent = true, desc = "Toggle terminal" })
 map("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true, desc = "Switch to normal mode from terminal" })
-map("t", "<C-n>", function() Snacks.terminal.open() end,
-    { noremap = true, silent = true, desc = "Open new terminal split" })
+map("t", "<C-n>", function()
+	Snacks.terminal.open()
+end, { noremap = true, silent = true, desc = "Open new terminal split" })
 -- map("t", "jj", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- Git
 map("n", "<leader>g", "", { desc = "Git" })
 map("n", "<leader>gh", "", { desc = "Hunk" })
 -- UI
-map("n", "<leader>u", "", { desc = "Ui" })
-map("n", "<leader>ut", "", { desc = "Tab" })
-map("n", "<leader>uts", "<cmd>tab split<cr>", { desc = "New tab with curr buffer", noremap = true, silent = true })
-
 
 -- Buffer
 map("n", "<leader>b", "", { desc = "Buffer" })
@@ -75,3 +76,18 @@ map("n", "<leader>b", "", { desc = "Buffer" })
 -- Snacks
 map("n", "<leader>s", "", { desc = "Search" })
 map("n", "<leader>f", "", { desc = "Search" })
+
+map("n", "<leader>md", function()
+	---@type snacks.Config
+
+	Snacks.input({
+		prompt = "Mark to delete: ",
+	}, function(mark)
+		if mark and mark ~= "" then
+			vim.cmd("delmarks " .. mark)
+		end
+	end)
+end, { desc = "Delete Mark" })
+map("n", "<leader>mD", "<cmd>delmarks A-Z a-z<cr>", { desc = "Delete all marks" })
+
+vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true })
