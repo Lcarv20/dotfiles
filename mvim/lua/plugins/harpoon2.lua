@@ -24,6 +24,21 @@ return {
 				end,
 				desc = "Harpoon Quick Menu",
 			},
+			{
+				"<leader>ma",
+				function()
+					require("harpoon"):list():add()
+				end,
+				desc = "Harpoon File",
+			},
+			{
+				"<leader>mm",
+				function()
+					local harpoon = require("harpoon")
+					harpoon.ui:toggle_quick_menu(harpoon:list(), { border = require("utils.fns").get_border() })
+				end,
+				desc = "Harpoon Quick Menu",
+			},
 		}
 
 		local harpoon = require("harpoon")

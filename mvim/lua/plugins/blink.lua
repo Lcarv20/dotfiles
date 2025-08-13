@@ -72,7 +72,7 @@ return {
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 300,
-				window = { border = "none" },
+				window = { border = "rounded" },
 			},
 
 			-- Display a preview of the selected item on the current line

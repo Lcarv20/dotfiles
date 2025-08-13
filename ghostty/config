@@ -69,8 +69,8 @@ keybind = super+ctrl+l=goto_split:right
 keybind = super+ctrl+enter=toggle_split_zoom
 
 # Quick terminal
-quick-terminal-position = center
-keybind = global:cmd+grave_accent=toggle_quick_terminal
+# quick-terminal-position = center
+# keybind = global:cmd+grave_accent=toggle_quick_terminal
 
 # open new tab on dotfiles
 

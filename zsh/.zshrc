@@ -156,3 +156,6 @@ set-short-prompt() {
 }
 
 $HOME/.dotfiles/zsh/poke-colorscript
+
+# Added by Windsurf
+export PATH="/Users/lcarv/.codeium/windsurf/bin:$PATH"

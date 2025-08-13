@@ -77,9 +77,9 @@ map("n", "<leader>b", "", { desc = "Buffer" })
 map("n", "<leader>s", "", { desc = "Search" })
 map("n", "<leader>f", "", { desc = "Search" })
 
+map("n", "<leader>m", "", { desc = "Marks" })
 map("n", "<leader>md", function()
 	---@type snacks.Config
-
 	Snacks.input({
 		prompt = "Mark to delete: ",
 	}, function(mark)
@@ -88,6 +88,9 @@ map("n", "<leader>md", function()
 		end
 	end)
 end, { desc = "Delete Mark" })
-map("n", "<leader>mD", "<cmd>delmarks A-Z a-z<cr>", { desc = "Delete all marks" })
+map("n", "<leader>mD", function()
+	vim.cmd("<cmd>delmarks A-Z a-z<cr>")
+	vim.notify("All marks deleted", vim.log.levels.INFO)
+end, { desc = "Delete all marks" })
 
 vim.keymap.set("n", "<C-i>", "<C-i>", { noremap = true })
