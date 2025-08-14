@@ -2,7 +2,7 @@ return {
 	"sindrets/diffview.nvim",
 	keys = {
 		{
-			"<leader>gD",
+			"<leader>gv",
 			function()
 				vim.cmd("DiffviewOpen")
 			end,

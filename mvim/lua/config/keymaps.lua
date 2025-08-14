@@ -8,6 +8,7 @@ map("i", "jj", "<ESC>") -- quit insert mode
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", ignore)
 map("n", "<esc>", "<cmd>nohlsearch<CR>", ignore)
 map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+map("n", "<leader>q", "", { desc = "Session" })
 map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit All" })
 map("n", "<leader>qq", "<cmd>q<cr>", { desc = "Quit current" })
 
@@ -69,7 +70,7 @@ end, { noremap = true, silent = true, desc = "Open new terminal split" })
 map("n", "<leader>g", "", { desc = "Git" })
 map("n", "<leader>gh", "", { desc = "Hunk" })
 -- UI
-
+map("n", "<leader>u", "", { desc = "UI" })
 -- Buffer
 map("n", "<leader>b", "", { desc = "Buffer" })
 

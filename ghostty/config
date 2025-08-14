@@ -39,6 +39,7 @@ adjust-cell-height = 40%
 # -------------
 font-family = caskaydiaCove NF
 font-size = 14
+window-title-font-family = caskaydiaCove NF
 #--------------
 
 # Window size

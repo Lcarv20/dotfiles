@@ -953,6 +953,7 @@ M.lcarv_shrugged = function()
 		function()
 			-- return "¯\\_(ツ)_/¯"
 			return " "
+      -- return "󰾡 󱣻 "
 		end,
 		color = function()
 			local mode_color = {

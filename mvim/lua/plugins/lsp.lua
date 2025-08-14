@@ -130,6 +130,21 @@ return {
 					settings = {
 						tailwindCSS = {
 							classFunctions = { "cva", "cx" },
+							classAttributes = { "class", "className" }, -- Keep these for actual attributes
+							-- This is the key part for variable assignments
+							experimental = {
+								classRegex = {
+									-- Default patterns
+									"class=['\"][^'\"]*['\"]",
+									"className=['\"][^'\"]*['\"]",
+									-- Pattern for variable assignments ending with 'Styles'
+									"\\b\\w*[Ss]tyles\\s*=\\s*['\"]([^'\"]*)['\"]",
+									-- More general pattern for any variable with tailwind classes
+									"\\b(?:const|let|var)\\s+\\w*[Ss]tyles\\s*=\\s*['\"]([^'\"]*)['\"]",
+									-- Template literals
+									"\\b\\w*[Ss]tyles\\s*=\\s*`([^`]*)`",
+								},
+							},
 						},
 					},
 				},
@@ -187,7 +202,7 @@ return {
 				vim.lsp.config(name, config)
 			end
 
-				vim.lsp.config("sourcekit", {
+			vim.lsp.config("sourcekit", {
 				-- https://www.swift.org/documentation/articles/zero-to-swift-nvim.html#language-server-support
 				capabilities = vim.tbl_deep_extend("force", capabilities, {
 					worspace = {
