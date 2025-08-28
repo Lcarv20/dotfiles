@@ -1,11 +1,12 @@
 lastupdatecheck: 0
 recentrepos:
-    - /Users/lcarv/Developer/nvim-plugins/sugoi.nvim
+    - /Users/lcarv/Developer/web/convex_astro
     - /Users/lcarv/Developer/web/tldr-thing
+    - /Users/lcarv/Developer/nvim-plugins/sugoi.nvim
     - /Users/lcarv/.dotfiles
     - /Users/lcarv/Developer/nvim-plugins/nvim-noirbuddy
 startuppopupversion: 5
 didshowhunkstaginghint: true
-lastversion: 0.54.1
+lastversion: 0.54.2
 customcommandshistory: []
 hidecommandlog: false

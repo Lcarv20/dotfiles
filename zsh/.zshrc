@@ -8,6 +8,7 @@ plug "Aloxaf/fzf-tab"
 plug "Freed-Wu/fzf-tab-source"
 plug "Lcarv20/web-search"
 plug "wintermi/zsh-starship"
+plug "wintermi/zsh-mise"
 
 
 plugins=(...web-search)
@@ -57,8 +58,10 @@ alias mvim="NVIM_APPNAME=mvim nvim"
 alias mvide="NVIM_APPNAME=mvim neovide --frame=transparent"
 
 if command -v bat &> /dev/null; then
-  alias cat="bat -pp --theme \"1337\""
-  alias catt="bat --theme \"1337\""
+  # alias cat="bat -pp --theme \"1337\""
+  # alias catt="bat --theme \"1337\""
+  alias cat="bat -pp"
+  alias catt="bat"
 fi
 
 # Editor for commit messages
@@ -84,6 +87,8 @@ export NEXT_TELEMETRY_DISABLED=1
 
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+# bun bin
+export PATH="$HOME/.bun/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(fzf --zsh)"
@@ -159,3 +164,8 @@ $HOME/.dotfiles/zsh/poke-colorscript
 
 # Added by Windsurf
 export PATH="/Users/lcarv/.codeium/windsurf/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/lcarv/.lmstudio/bin"
+# End of LM Studio CLI section
+
