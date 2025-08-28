@@ -6,7 +6,13 @@ local fns = require("utils.fns")
 map("n", "J", "mzJ`z") -- keep cursor in place
 map("i", "jj", "<ESC>") -- quit insert mode
 map("n", "<leader>h", "<cmd>nohlsearch<CR>", ignore)
-map("n", "<esc>", "<cmd>nohlsearch<CR>", ignore)
+-- Clear copilot suggestion with Esc if visible, otherwise preserve default Esc behavior
+vim.keymap.set("n", "<esc>", function()
+	-- if not require("copilot-lsp.nes").clear() then
+	-- 	vim.cmd("nohlsearch")
+	-- end
+	vim.cmd("nohlsearch")
+end, ignore)
 map({ "i", "x", "n", "s" }, "<D-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("n", "<leader>q", "", { desc = "Session" })
 map("n", "<leader>qa", "<cmd>qa<cr>", { desc = "Quit All" })
@@ -90,7 +96,7 @@ map("n", "<leader>md", function()
 	end)
 end, { desc = "Delete Mark" })
 map("n", "<leader>mD", function()
-	vim.cmd("<cmd>delmarks A-Z a-z<cr>")
+	vim.cmd("delmarks a-zA-Z")
 	vim.notify("All marks deleted", vim.log.levels.INFO)
 end, { desc = "Delete all marks" })
 

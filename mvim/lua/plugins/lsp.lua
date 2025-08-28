@@ -201,7 +201,6 @@ return {
 
 				vim.lsp.config(name, config)
 			end
-
 			vim.lsp.config("sourcekit", {
 				-- https://www.swift.org/documentation/articles/zero-to-swift-nvim.html#language-server-support
 				capabilities = vim.tbl_deep_extend("force", capabilities, {

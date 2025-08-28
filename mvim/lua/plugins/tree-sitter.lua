@@ -29,11 +29,13 @@ return {
 				event = "InsertEnter",
 				commit = "f6c71641f6f183427a651c0ce4ba3fb89404fa9e",
 			},
+      "https://github.com/apple/pkl-neovim.git"
 		},
 		build = ":TSUpdate",
 		config = function()
 			require("nvim-treesitter.configs").setup({
 				ensure_installed = {
+          "pkl",
 					"lua",
 					"javascript",
 					"typescript",
