@@ -206,6 +206,13 @@ return {
 			desc = "Find Files",
 		},
 		{
+			"<D-p>",
+			function()
+				Snacks.picker.files()
+			end,
+			desc = "Find Files",
+		},
+		{
 			"<leader>fg",
 			function()
 				Snacks.picker.git_files()
