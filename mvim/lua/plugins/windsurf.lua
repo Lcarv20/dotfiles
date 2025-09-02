@@ -1,22 +1,3 @@
--- return {
--- 	"Exafunction/windsurf.vim",
--- 	enabled = true,
--- 	config = function()
--- 		-- Change '<C-g>' here to any keycode you like.
--- 		vim.keymap.set("i", "<Tab>", function()
--- 			return vim.fn["codeium#Accept"]()
--- 		end, { expr = true, silent = true })
--- 		-- vim.keymap.set("i", "<c-;>", function()
--- 		-- 	return vim.fn["codeium#CycleCompletions"](1)
--- 		-- end, { expr = true, silent = true })
--- 		-- vim.keymap.set("i", "<c-,>", function()
--- 		-- 	return vim.fn["codeium#CycleCompletions"](-1)
--- 		-- end, { expr = true, silent = true })
--- 		vim.keymap.set("i", "<c-e>", function()
--- 			return vim.fn["codeium#Clear"]()
--- 		end, { expr = true, silent = true })
--- 	end,
--- }
 return {
 	"Exafunction/windsurf.nvim",
 	dependencies = {
@@ -29,9 +10,6 @@ return {
 			enable_cmp_source = false,
 			virtual_text = {
 				enabled = true,
-
-				-- These are the defaults
-
 				-- Set to true if you never want completions to be shown automatically.
 				manual = false,
 				-- A mapping of filetype to true or false, to enable virtual text.
@@ -56,7 +34,8 @@ return {
 				-- Key bindings for managing completions in virtual text mode.
 				key_bindings = {
 					-- Accept the current completion.
-					accept = "<Tab>",
+					accept = "<C-a>",
+					-- accept = "<Tab>",
 					-- Accept the next word.
 					accept_word = false,
 					-- Accept the next line.
@@ -70,9 +49,5 @@ return {
 				},
 			},
 		})
-		vim.keymap.set("i", "<C-a>", function()
-			-- Request completions immediately.
-			require("codeium.virtual_text").accept()
-		end, { silent = true })
 	end,
 }
