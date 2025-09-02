@@ -9,7 +9,9 @@ return {
 		bigfile = { enabled = true },
 		image = { enabled = true },
 		dashboard = { enabled = true },
-		explorer = { enabled = true },
+		explorer = {
+			enabled = true,
+		},
 		---@class snacks.indent.Config
 		---@field enabled? boolean
 		---@class snacks.indent.Config
@@ -112,6 +114,25 @@ return {
 						},
 						{ win = "list", border = global_border },
 						{ win = "preview", title = "{preview}", border = global_border },
+					},
+				},
+			},
+			sources = {
+				files = {
+					hidden = true,
+					exclude = {
+						".DS_Store",
+						".git",
+						"node_modules",
+					},
+				},
+				explorer = {
+					hidden = true,
+					ignored = true,
+					exclude = {
+						".DS_Store",
+						".git",
+						"node_modules",
 					},
 				},
 			},

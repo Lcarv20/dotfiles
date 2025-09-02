@@ -169,3 +169,6 @@ export PATH="/Users/lcarv/.codeium/windsurf/bin:$PATH"
 export PATH="$PATH:/Users/lcarv/.lmstudio/bin"
 # End of LM Studio CLI section
 
+# Focus Editor
+export PATH="/Applications/Focus.app/Contents/MacOS:$PATH"
+

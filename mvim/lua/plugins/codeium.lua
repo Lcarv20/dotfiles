@@ -72,7 +72,7 @@ return {
 		})
 		vim.keymap.set("i", "<C-a>", function()
 			-- Request completions immediately.
-			require("codeium.virtual_text").complete()
+			require("codeium.virtual_text").accept()
 		end, { silent = true })
 	end,
 }
