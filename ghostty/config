@@ -4,7 +4,10 @@
 # custom-shader = ghostty-shaders/cubes.glsl
 # custom-shader = ghostty-shaders/bloom.glsl
 # custom-shader = ghostty-shaders/gears-and-belts.glsl
-custom-shader = ghostty-shaders/cursor_blaze.glsl
+# custom-shader = cursor-shaders/cursor-blaze.glsl
+# custom-shader = cursor-shaders/cursor_synesthaxia(tweened).glsl
+# custom-shader = cursor-shaders/cursor-glow.glsl
+# custom-shader = ghostty-shaders/cursor_smear.glsl
 
 # Cursor
 # -------------
@@ -24,7 +27,7 @@ cursor-color = #e86d6d
 # theme = light:tokyonight-day,dark:tokyonight_night
 # theme = IC_Orange_PPL
 # theme =  GruvboxDarkHard
-theme = light:Night Owlish Light,dark:GruvboxDarkHard
+theme = light:Night Owlish Light,dark:Gruvbox Dark Hard
 # theme = gruber-darker
 # theme = Elementary
 # theme = mellow
