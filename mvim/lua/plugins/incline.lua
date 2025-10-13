@@ -1,6 +1,6 @@
 return {
 	"b0o/incline.nvim",
-	enabled = true,
+	enabled = false,
 	event = "VeryLazy",
 	config = function()
 		local colors = require("utils.colors").colors()
