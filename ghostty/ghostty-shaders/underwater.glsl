@@ -60,15 +60,15 @@ void mainImage( out vec4 fragColor, in vec2 fragCoord )
 	// Attenuate brightness towards the bottom, simulating light-loss due to depth.
 	// Give the whole thing a blue-green tinge as well.
 	float brightness = 1.0 - (coord.y / iResolution.y);
-	col.r *= 0.05 + (brightness * 0.8);
-	col.g *= 0.15 + (brightness * 0.6);
-	col.b *= 0.3 + (brightness * 0.5);
+	col.r *= 0.15 + (brightness * 0.7);
+	col.g *= 0.25 + (brightness * 0.5);
+	col.b *= 0.4 + (brightness * 0.4);
 
   vec2 termUV = fragCoord.xy / iResolution.xy;
   vec4 terminalColor = texture(iChannel0, termUV);
 
   float alpha = step(length(terminalColor.rgb), BLACK_BLEND_THRESHOLD);
-  vec3 blendedColor = mix(terminalColor.rgb * 1.0, col.rgb * 0.3, alpha);
+  vec3 blendedColor = mix(terminalColor.rgb * 1.0, col.rgb * 0.15, alpha);
   
   fragColor = vec4(blendedColor, terminalColor.a);
 }
