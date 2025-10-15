@@ -1,10 +1,10 @@
 return {
 	"folke/which-key.nvim",
 	opts = {
-		preset = "classic",
-		-- preset = "helix",
+		-- preset = "classic",
+		preset = "helix",
 		win = {
-			title = "",
+			-- title = "  ",
 			-- border = require("utils.fns").get_border("rounded"),
 		},
 	},

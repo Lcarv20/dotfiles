@@ -30,6 +30,7 @@ vim.opt.confirm = true -- Confirm to save changes before exiting modified buffer
 vim.opt.updatetime = 200
 vim.opt.swapfile = false
 vim.opt.timeoutlen = 300 -- this affects the <leader> pressing with other keys
+vim.opt.timeout = true -- this affects the <leader> pressing with other keys
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.list = false -- Enable listchars

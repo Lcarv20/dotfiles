@@ -951,8 +951,8 @@ M.lcarv_shrugged = function()
 
 	ins_left({
 		function()
-			-- return "¯\\_(ツ)_/¯"
-			return " "
+			return "¯\\_(ツ)_/¯"
+			-- return " "
       -- return "󰾡 󱣻 "
 		end,
 		color = function()

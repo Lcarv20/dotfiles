@@ -3,7 +3,6 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "tokyonight-night",
-      -- transparent = true,
       -- colorscheme = "gruber-darker",
       -- colorscheme = "everforest",
     },

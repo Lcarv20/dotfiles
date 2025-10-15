@@ -57,12 +57,17 @@ return {
 		end,
 	},
 	{
-    "Lcarv20/sugoi.nvim",
-		-- dir = "~/Developer/nvim-plugins/sugoi.nvim/",
+		"Lcarv20/sugoi.nvim",
+		dir = "~/Developer/nvim-plugins/sugoi.nvim/",
+		branch = "feat/transparent-bg",
 		dependencies = { "tjdevries/colorbuddy.nvim" },
 		lazy = false,
 		priority = 1000,
-		config = function()
+		opts = {
+			transparent = true,
+		},
+		config = function(_, opts)
+			require("sugoi").setup(opts)
 			vim.cmd.colorscheme("sugoi") -- applies when you want
 		end,
 	},
