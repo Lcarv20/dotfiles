@@ -105,32 +105,6 @@ M.lsp_popover_borders = function(border)
     end
 end
 
-M.open_floating_window = function(bufnr, border)
-    bufnr = bufnr or vim.api.nvim_get_current_buf()
-
-    local width = vim.o.columns
-    local height = vim.o.lines
-
-    local float_width = math.floor(width * 0.9)
-    local float_height = math.floor(height * 0.9)
-
-    local col = math.floor((width - float_width) / 2)
-    local row = math.floor((height - float_height) / 2)
-
-    local opts = {
-        relative = "editor",
-        width = float_width,
-        height = float_height,
-        col = col,
-        row = row,
-        style = "minimal",
-        border = M.get_border(border), -- Options: "none", "single", "double", "rounded", etc.
-    }
-
-    -- local buf = vim.api.nvim_create_buf(false, true) -- Create a scratch buffer
-    vim.api.nvim_open_win(bufnr, true, opts) -- Open the floating window
-end
-
 --- Create a temporary notification using mini.notify.
 -- This function displays a notification message with a specified level and automatically removes it after a delay.
 -- @param msg The notification message to display.

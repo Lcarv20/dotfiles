@@ -1,7 +1,7 @@
 return {
 	{
 		"Lcarv20/gruber-darker.nvim",
-		enabled = false,
+		-- enabled = false,
 		config = function()
 			require("gruber-darker").setup({
 				-- OPTIONAL
@@ -10,8 +10,24 @@ return {
 				bold = true, -- disables bold fonts
 			})
 			-- vim.api.nvim_set_hl(0, "BlinkCmpDoc", { link = "Pmenu", force = true })
-			vim.cmd.colorscheme("gruber-darker")
+			-- vim.cmd.colorscheme("gruber-darker")
 		end,
+	},
+	{
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+    config = function(_, opts)
+      require("tokyonight").setup(opts)
+      -- vim.cmd.colorscheme("tokyonight-night")
+    end,
 	},
 	{
 		"topazape/oldtale.nvim",
@@ -59,7 +75,6 @@ return {
 	{
 		"Lcarv20/sugoi.nvim",
 		dir = "~/Developer/nvim-plugins/sugoi.nvim/",
-		branch = "feat/transparent-bg",
 		dependencies = { "tjdevries/colorbuddy.nvim" },
 		lazy = false,
 		priority = 1000,
@@ -135,7 +150,7 @@ return {
 	-- TODO: Use the colors from the "utils.colors" table
 	{
 		"f-person/auto-dark-mode.nvim",
-		enabled = true,
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		opts = {

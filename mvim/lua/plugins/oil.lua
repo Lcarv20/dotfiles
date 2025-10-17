@@ -138,10 +138,10 @@ return {
 				max_width = 0.7,
 				max_height = 0.7,
 				border = border,
-				-- win_options = {
-				-- 	winblend = 0,
-				-- 	-- winhighlight = "NormalNC:NormalFloat",
-				-- },
+				win_options = {
+					winblend = 0,
+					winhighlight = "NormalNC:NormalFloat",
+				},
 				-- preview_split: Split direction: "auto", "left", "right", "above", "below".
 				preview_split = "auto",
 				-- This is the config that will be passed to nvim_open_win.
